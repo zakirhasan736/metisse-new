@@ -1,0 +1,5311 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Shofy Core\n"
+"POT-Creation-Date: 2023-11-15 14:48+0600\n"
+"PO-Revision-Date: 2023-11-15 14:48+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.4.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: shofy-core.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: controls/tpbggradient.php:62 controls/tpgradient.php:62
+msgctxt "Background Control"
+msgid "Select Color Type"
+msgstr ""
+
+#: controls/tpbggradient.php:63
+msgctxt "Background Control"
+msgid ""
+"Gradient color not work editor mode. If you set gradient color please view "
+"the result live preview page."
+msgstr ""
+
+#: controls/tpbggradient.php:69
+msgctxt "Color Control"
+msgid "Solid"
+msgstr ""
+
+#: controls/tpbggradient.php:73
+msgctxt "Color Control"
+msgid "Gradient"
+msgstr ""
+
+#: controls/tpbggradient.php:81 controls/tpgradient.php:79
+msgctxt "Background Control"
+msgid "Color"
+msgstr ""
+
+#: controls/tpbggradient.php:84
+msgctxt "Background Control"
+msgid "Start Color"
+msgstr ""
+
+#: controls/tpbggradient.php:94 controls/tpbggradient.php:120
+#: controls/tpgradient.php:92 controls/tpgradient.php:116
+msgctxt "Background Control"
+msgid "Location"
+msgstr ""
+
+#: controls/tpbggradient.php:109
+msgctxt "Background Control"
+msgid "Second Color"
+msgstr ""
+
+#: controls/tpbggradient.php:135 controls/tpgradient.php:130
+msgctxt "Background Control"
+msgid "Type"
+msgstr ""
+
+#: controls/tpbggradient.php:138 controls/tpgradient.php:133
+msgctxt "Background Control"
+msgid "Linear"
+msgstr ""
+
+#: controls/tpbggradient.php:139 controls/tpgradient.php:134
+msgctxt "Background Control"
+msgid "Radial"
+msgstr ""
+
+#: controls/tpbggradient.php:150 controls/tpgradient.php:144
+msgctxt "Background Control"
+msgid "Angle"
+msgstr ""
+
+#: controls/tpbggradient.php:173 controls/tpgradient.php:167
+msgctxt "Background Control"
+msgid "Position"
+msgstr ""
+
+#: controls/tpbggradient.php:176 controls/tpgradient.php:170
+msgctxt "Background Control"
+msgid "Center Center"
+msgstr ""
+
+#: controls/tpbggradient.php:177 controls/tpgradient.php:171
+msgctxt "Background Control"
+msgid "Center Left"
+msgstr ""
+
+#: controls/tpbggradient.php:178 controls/tpgradient.php:172
+msgctxt "Background Control"
+msgid "Center Right"
+msgstr ""
+
+#: controls/tpbggradient.php:179 controls/tpgradient.php:173
+msgctxt "Background Control"
+msgid "Top Center"
+msgstr ""
+
+#: controls/tpbggradient.php:180 controls/tpgradient.php:174
+msgctxt "Background Control"
+msgid "Top Left"
+msgstr ""
+
+#: controls/tpbggradient.php:181 controls/tpgradient.php:175
+msgctxt "Background Control"
+msgid "Top Right"
+msgstr ""
+
+#: controls/tpbggradient.php:182 controls/tpgradient.php:176
+msgctxt "Background Control"
+msgid "Bottom Center"
+msgstr ""
+
+#: controls/tpbggradient.php:183 controls/tpgradient.php:177
+msgctxt "Background Control"
+msgid "Bottom Left"
+msgstr ""
+
+#: controls/tpbggradient.php:184 controls/tpgradient.php:178
+msgctxt "Background Control"
+msgid "Bottom Right"
+msgstr ""
+
+#: controls/tpgradient.php:67
+msgctxt "Text Color Control"
+msgid "Solid"
+msgstr ""
+
+#: controls/tpgradient.php:71
+msgctxt "Text Color Control"
+msgid "Gradient"
+msgstr ""
+
+#: controls/tpgradient.php:82
+msgctxt "Background Control"
+msgid "Text Color"
+msgstr ""
+
+#: controls/tpgradient.php:106
+msgctxt "Background Control"
+msgid "Second Color (No effect for custom SVG)"
+msgstr ""
+
+#: include/class-ocdi-importer.php:139
+msgid "One Click Demo Import"
+msgstr ""
+
+#: include/class-ocdi-importer.php:140
+msgid "Import Theme Demos"
+msgstr ""
+
+#: include/common-functions.php:190
+#, php-format
+msgid "This input field has support for the following HTML tags: %1$s"
+msgstr ""
+
+#: include/common-functions.php:612 include/common-functions.php:829
+msgid "Color"
+msgstr ""
+
+#: include/common-functions.php:620 include/common-functions.php:980
+#: include/common-functions.php:1078 include/common-functions.php:1225
+#: include/common-functions.php:1289
+msgid "Background Color"
+msgstr ""
+
+#: include/common-functions.php:631
+msgid "Icon Size"
+msgstr ""
+
+#: include/common-functions.php:648
+msgid "Image/SVG Width"
+msgstr ""
+
+#: include/common-functions.php:669
+msgid "Image/SVG Height"
+msgstr ""
+
+#: include/common-functions.php:686
+msgid "Bottom Spacing"
+msgstr ""
+
+#: include/common-functions.php:697 include/common-functions.php:789
+#: include/common-functions.php:845 include/common-functions.php:903
+#: include/common-functions.php:1149 include/common-functions.php:1324
+msgid "Padding"
+msgstr ""
+
+#: include/common-functions.php:726 include/common-functions.php:747
+#: include/common-functions.php:2617 include/common-functions.php:2693
+#: include/elementor/banner.php:169 include/elementor/brand.php:168
+#: include/elementor/contact-box.php:212 include/elementor/fact.php:177
+#: include/elementor/features.php:170 include/elementor/footer-contact.php:146
+#: include/elementor/header-builder-style-2.php:405
+#: include/elementor/header-builder-style-2.php:488
+#: include/elementor/header-builder.php:411
+#: include/elementor/hero-slider.php:333 include/elementor/hero-slider.php:433
+#: include/elementor/hero-slider.php:533 include/elementor/info-box.php:226
+#: include/elementor/menu-brand.php:153 include/elementor/menu-demo.php:189
+#: include/elementor/menu-link.php:183
+#: include/elementor/product-features.php:276
+#: include/elementor/tp-contact-common.php:436
+msgid "Image"
+msgstr ""
+
+#: include/common-functions.php:766
+msgid "Radius"
+msgstr ""
+
+#: include/common-functions.php:778 include/common-functions.php:857
+#: include/common-functions.php:915 include/common-functions.php:1160
+#: include/common-functions.php:1335
+msgid "Margin"
+msgstr ""
+
+#: include/common-functions.php:838
+msgid "Typography"
+msgstr ""
+
+#: include/common-functions.php:895
+msgid "Background"
+msgstr ""
+
+#: include/common-functions.php:964 include/common-functions.php:1209
+msgid "Normal"
+msgstr ""
+
+#: include/common-functions.php:969 include/common-functions.php:1067
+#: include/common-functions.php:1214
+msgid "Text Color"
+msgstr ""
+
+#: include/common-functions.php:992 include/common-functions.php:1090
+#: include/common-functions.php:1260 include/common-functions.php:1311
+msgid "Box Shadow"
+msgstr ""
+
+#: include/common-functions.php:1000 include/common-functions.php:1098
+msgid "Border Style"
+msgstr ""
+
+#: include/common-functions.php:1003 include/common-functions.php:1101
+#: include/elementor/footer-call.php:154
+#: include/elementor/footer-contact.php:237
+#: include/elementor/header-builder-style-2.php:581
+#: include/elementor/header-builder-style-2.php:737
+#: include/elementor/header-builder-style-2.php:811
+#: include/elementor/header-builder-style-3.php:367
+#: include/elementor/header-builder-style-3.php:442
+#: include/elementor/header-builder-style-4.php:367
+#: include/elementor/header-builder-style-4.php:444
+#: include/elementor/header-builder-style-5.php:418
+#: include/elementor/header-builder-style-5.php:483
+#: include/elementor/header-builder.php:502
+#: include/elementor/header-builder.php:675
+#: include/elementor/header-builder.php:752 include/elementor/menu-list.php:192
+#: include/elementor/tp-contact-common.php:517
+msgid "Default"
+msgstr ""
+
+#: include/common-functions.php:1004 include/common-functions.php:1102
+#: include/common-functions.php:2791
+msgid "None"
+msgstr ""
+
+#: include/common-functions.php:1005 include/common-functions.php:1103
+msgid "Solid"
+msgstr ""
+
+#: include/common-functions.php:1006 include/common-functions.php:1104
+msgid "Double"
+msgstr ""
+
+#: include/common-functions.php:1007 include/common-functions.php:1105
+msgid "Dotted"
+msgstr ""
+
+#: include/common-functions.php:1008 include/common-functions.php:1106
+msgid "Dashed"
+msgstr ""
+
+#: include/common-functions.php:1009 include/common-functions.php:1107
+msgid "Groove"
+msgstr ""
+
+#: include/common-functions.php:1020 include/common-functions.php:1118
+msgid "Border Width"
+msgstr ""
+
+#: include/common-functions.php:1033 include/common-functions.php:1131
+#: include/common-functions.php:1248 include/common-functions.php:1300
+msgid "Border Color"
+msgstr ""
+
+#: include/common-functions.php:1046 include/common-functions.php:1268
+msgid "Border Radius"
+msgstr ""
+
+#: include/common-functions.php:1062
+msgid "Hover"
+msgstr ""
+
+#: include/common-functions.php:1236
+msgid "Placeholder Color"
+msgstr ""
+
+#: include/common-functions.php:1284
+msgid "Focus"
+msgstr ""
+
+#: include/common-functions.php:1375 include/common-functions.php:2859
+#: include/elementor/header-builder-style-2.php:937
+#: include/elementor/header-builder-style-3.php:535
+#: include/elementor/header-builder-style-4.php:537
+#: include/elementor/header-builder-style-5.php:608
+#: include/elementor/header-builder.php:844 include/elementor/tp-btn.php:138
+#: include/elementor/tp-contact-common.php:304
+msgid "Show Button"
+msgstr ""
+
+#: include/common-functions.php:1377 include/common-functions.php:1481
+#: include/common-functions.php:2125 include/common-functions.php:2190
+#: include/common-functions.php:2204 include/common-functions.php:2306
+#: include/common-functions.php:2319 include/common-functions.php:2353
+#: include/common-functions.php:2367 include/common-functions.php:2861
+#: include/common-functions.php:2965 include/common-functions.php:3041
+#: include/common-functions.php:3110 include/common-functions.php:3199
+#: include/elementor/app-download.php:157
+#: include/elementor/author-quote.php:189 include/elementor/banner-box.php:180
+#: include/elementor/banner-box.php:233 include/elementor/contact-box.php:346
+#: include/elementor/footer-social.php:253
+#: include/elementor/header-builder-style-2.php:227
+#: include/elementor/header-builder-style-2.php:238
+#: include/elementor/header-builder-style-2.php:249
+#: include/elementor/header-builder-style-2.php:261
+#: include/elementor/header-builder-style-2.php:288
+#: include/elementor/header-builder-style-2.php:300
+#: include/elementor/header-builder-style-2.php:312
+#: include/elementor/header-builder-style-2.php:324
+#: include/elementor/header-builder-style-2.php:335
+#: include/elementor/header-builder-style-2.php:346
+#: include/elementor/header-builder-style-2.php:371
+#: include/elementor/header-builder-style-2.php:761
+#: include/elementor/header-builder-style-2.php:836
+#: include/elementor/header-builder-style-2.php:874
+#: include/elementor/header-builder-style-2.php:885
+#: include/elementor/header-builder-style-2.php:939
+#: include/elementor/header-builder-style-3.php:228
+#: include/elementor/header-builder-style-3.php:240
+#: include/elementor/header-builder-style-3.php:252
+#: include/elementor/header-builder-style-3.php:264
+#: include/elementor/header-builder-style-3.php:276
+#: include/elementor/header-builder-style-3.php:392
+#: include/elementor/header-builder-style-3.php:472
+#: include/elementor/header-builder-style-3.php:483
+#: include/elementor/header-builder-style-3.php:537
+#: include/elementor/header-builder-style-4.php:228
+#: include/elementor/header-builder-style-4.php:240
+#: include/elementor/header-builder-style-4.php:252
+#: include/elementor/header-builder-style-4.php:264
+#: include/elementor/header-builder-style-4.php:276
+#: include/elementor/header-builder-style-4.php:392
+#: include/elementor/header-builder-style-4.php:474
+#: include/elementor/header-builder-style-4.php:485
+#: include/elementor/header-builder-style-4.php:539
+#: include/elementor/header-builder-style-5.php:228
+#: include/elementor/header-builder-style-5.php:240
+#: include/elementor/header-builder-style-5.php:265
+#: include/elementor/header-builder-style-5.php:277
+#: include/elementor/header-builder-style-5.php:289
+#: include/elementor/header-builder-style-5.php:338
+#: include/elementor/header-builder-style-5.php:442
+#: include/elementor/header-builder-style-5.php:508
+#: include/elementor/header-builder-style-5.php:546
+#: include/elementor/header-builder-style-5.php:557
+#: include/elementor/header-builder-style-5.php:610
+#: include/elementor/header-builder.php:230
+#: include/elementor/header-builder.php:242
+#: include/elementor/header-builder.php:255
+#: include/elementor/header-builder.php:267
+#: include/elementor/header-builder.php:279
+#: include/elementor/header-builder.php:307
+#: include/elementor/header-builder.php:319
+#: include/elementor/header-builder.php:331
+#: include/elementor/header-builder.php:343
+#: include/elementor/header-builder.php:354
+#: include/elementor/header-builder.php:366
+#: include/elementor/header-builder.php:701
+#: include/elementor/header-builder.php:782
+#: include/elementor/header-builder.php:793
+#: include/elementor/header-builder.php:846
+#: include/elementor/hero-banner.php:291
+#: include/elementor/hero-slider-2.php:150
+#: include/elementor/hero-slider-2.php:162
+#: include/elementor/hero-slider.php:152 include/elementor/hero-slider.php:167
+#: include/elementor/hero-slider.php:179 include/elementor/hero-slider.php:212
+#: include/elementor/instagram-post.php:174
+#: include/elementor/newsletter.php:186 include/elementor/newsletter.php:198
+#: include/elementor/newsletter.php:210
+#: include/elementor/product-category-list.php:170
+#: include/elementor/product-features.php:206
+#: include/elementor/product-offer-banner.php:159
+#: include/elementor/testimonial-slider.php:178
+#: include/elementor/testimonial-slider.php:278
+#: include/elementor/tp-btn.php:140 include/elementor/tp-contact-common.php:184
+#: include/elementor/tp-contact-common.php:306
+#: include/elementor/tp-contact-common.php:547
+#: include/elementor/video-popup.php:201
+msgid "Show"
+msgstr ""
+
+#: include/common-functions.php:1378 include/common-functions.php:1482
+#: include/common-functions.php:2126 include/common-functions.php:2191
+#: include/common-functions.php:2205 include/common-functions.php:2307
+#: include/common-functions.php:2320 include/common-functions.php:2354
+#: include/common-functions.php:2368 include/common-functions.php:2862
+#: include/common-functions.php:2966 include/common-functions.php:3042
+#: include/common-functions.php:3111 include/common-functions.php:3200
+#: include/elementor/app-download.php:158
+#: include/elementor/author-quote.php:190 include/elementor/banner-box.php:181
+#: include/elementor/banner-box.php:234 include/elementor/contact-box.php:347
+#: include/elementor/footer-social.php:254
+#: include/elementor/header-builder-style-2.php:228
+#: include/elementor/header-builder-style-2.php:239
+#: include/elementor/header-builder-style-2.php:250
+#: include/elementor/header-builder-style-2.php:262
+#: include/elementor/header-builder-style-2.php:289
+#: include/elementor/header-builder-style-2.php:301
+#: include/elementor/header-builder-style-2.php:313
+#: include/elementor/header-builder-style-2.php:325
+#: include/elementor/header-builder-style-2.php:336
+#: include/elementor/header-builder-style-2.php:347
+#: include/elementor/header-builder-style-2.php:372
+#: include/elementor/header-builder-style-2.php:762
+#: include/elementor/header-builder-style-2.php:837
+#: include/elementor/header-builder-style-2.php:875
+#: include/elementor/header-builder-style-2.php:886
+#: include/elementor/header-builder-style-2.php:940
+#: include/elementor/header-builder-style-3.php:229
+#: include/elementor/header-builder-style-3.php:241
+#: include/elementor/header-builder-style-3.php:253
+#: include/elementor/header-builder-style-3.php:265
+#: include/elementor/header-builder-style-3.php:277
+#: include/elementor/header-builder-style-3.php:393
+#: include/elementor/header-builder-style-3.php:473
+#: include/elementor/header-builder-style-3.php:484
+#: include/elementor/header-builder-style-3.php:538
+#: include/elementor/header-builder-style-4.php:229
+#: include/elementor/header-builder-style-4.php:241
+#: include/elementor/header-builder-style-4.php:253
+#: include/elementor/header-builder-style-4.php:265
+#: include/elementor/header-builder-style-4.php:277
+#: include/elementor/header-builder-style-4.php:393
+#: include/elementor/header-builder-style-4.php:475
+#: include/elementor/header-builder-style-4.php:486
+#: include/elementor/header-builder-style-4.php:540
+#: include/elementor/header-builder-style-5.php:229
+#: include/elementor/header-builder-style-5.php:241
+#: include/elementor/header-builder-style-5.php:266
+#: include/elementor/header-builder-style-5.php:278
+#: include/elementor/header-builder-style-5.php:290
+#: include/elementor/header-builder-style-5.php:339
+#: include/elementor/header-builder-style-5.php:443
+#: include/elementor/header-builder-style-5.php:509
+#: include/elementor/header-builder-style-5.php:547
+#: include/elementor/header-builder-style-5.php:558
+#: include/elementor/header-builder-style-5.php:611
+#: include/elementor/header-builder.php:231
+#: include/elementor/header-builder.php:243
+#: include/elementor/header-builder.php:256
+#: include/elementor/header-builder.php:268
+#: include/elementor/header-builder.php:280
+#: include/elementor/header-builder.php:308
+#: include/elementor/header-builder.php:320
+#: include/elementor/header-builder.php:332
+#: include/elementor/header-builder.php:344
+#: include/elementor/header-builder.php:355
+#: include/elementor/header-builder.php:367
+#: include/elementor/header-builder.php:702
+#: include/elementor/header-builder.php:783
+#: include/elementor/header-builder.php:794
+#: include/elementor/header-builder.php:847
+#: include/elementor/hero-banner.php:292
+#: include/elementor/hero-slider-2.php:151
+#: include/elementor/hero-slider-2.php:163
+#: include/elementor/hero-slider.php:153 include/elementor/hero-slider.php:168
+#: include/elementor/hero-slider.php:180 include/elementor/hero-slider.php:213
+#: include/elementor/instagram-post.php:175
+#: include/elementor/newsletter.php:187 include/elementor/newsletter.php:199
+#: include/elementor/newsletter.php:211
+#: include/elementor/product-category-list.php:171
+#: include/elementor/product-features.php:207
+#: include/elementor/product-offer-banner.php:160
+#: include/elementor/testimonial-slider.php:179
+#: include/elementor/testimonial-slider.php:279
+#: include/elementor/tp-btn.php:141 include/elementor/tp-contact-common.php:185
+#: include/elementor/tp-contact-common.php:307
+#: include/elementor/tp-contact-common.php:548
+#: include/elementor/video-popup.php:202
+msgid "Hide"
+msgstr ""
+
+#: include/common-functions.php:1387 include/common-functions.php:2871
+msgid " Text"
+msgstr ""
+
+#: include/common-functions.php:1390 include/common-functions.php:1955
+#: include/common-functions.php:2874 include/elementor/banner.php:221
+#: include/elementor/header-builder-style-2.php:952
+#: include/elementor/header-builder-style-3.php:550
+#: include/elementor/header-builder-style-4.php:552
+#: include/elementor/header-builder-style-5.php:623
+#: include/elementor/header-builder.php:859
+#: include/elementor/hero-slider-2.php:325
+#: include/elementor/hero-slider.php:630
+#: include/elementor/product-banner-slider.php:261
+#: include/elementor/product-banner.php:206
+#: include/elementor/product-category-list.php:183
+#: include/elementor/product-category.php:218
+#: include/elementor/product-featured.php:222 include/elementor/tp-btn.php:153
+#: include/elementor/tp-contact-common.php:319
+msgid "Enter button text"
+msgstr ""
+
+#: include/common-functions.php:1400 include/common-functions.php:2884
+msgid " Link Type"
+msgstr ""
+
+#: include/common-functions.php:1416 include/common-functions.php:2900
+msgid " link"
+msgstr ""
+
+#: include/common-functions.php:1421 include/common-functions.php:1985
+#: include/common-functions.php:2905 include/elementor/banner.php:251
+#: include/elementor/footer-list.php:180 include/elementor/footer-menu.php:192
+#: include/elementor/header-builder-style-2.php:983
+#: include/elementor/header-builder-style-3.php:581
+#: include/elementor/header-builder-style-4.php:583
+#: include/elementor/header-builder-style-5.php:654
+#: include/elementor/header-builder.php:890
+#: include/elementor/hero-slider-2.php:355
+#: include/elementor/hero-slider.php:660 include/elementor/info-box.php:346
+#: include/elementor/menu-banner.php:163 include/elementor/menu-demo.php:219
+#: include/elementor/menu-link.php:227
+#: include/elementor/product-banner-slider.php:293
+#: include/elementor/product-banner.php:236
+#: include/elementor/product-category-list.php:210
+#: include/elementor/product-category.php:250
+#: include/elementor/product-featured.php:254
+#: include/elementor/product-features.php:402 include/elementor/tp-btn.php:185
+msgid "https://your-link.com"
+msgstr ""
+
+#: include/common-functions.php:1438 include/common-functions.php:2001
+#: include/common-functions.php:2922
+msgid "Select "
+msgstr ""
+
+#: include/common-functions.php:1479
+#: include/elementor/tp-contact-common.php:182
+msgid "Section Title & Content"
+msgstr ""
+
+#: include/common-functions.php:1492 include/elementor/banner.php:182
+#: include/elementor/hero-banner.php:162
+#: include/elementor/hero-slider-2.php:199
+#: include/elementor/hero-slider.php:236
+#: include/elementor/product-banner-slider.php:188
+#: include/elementor/product-category.php:191
+#: include/elementor/product-featured.php:185
+#: include/elementor/product-hotspot.php:281
+#: include/elementor/tp-contact-common.php:194
+#: include/elementor/tp-product-tab.php:147
+#: include/elementor/tp-product.php:126
+msgid "Sub Title"
+msgstr ""
+
+#: include/common-functions.php:1496 include/elementor/hero-banner.php:166
+#: include/elementor/hero-slider-2.php:203
+#: include/elementor/hero-slider.php:240
+msgid "Type Before Heading Text"
+msgstr ""
+
+#: include/common-functions.php:1503 include/elementor/app-download.php:144
+#: include/elementor/banner.php:195 include/elementor/fact.php:273
+#: include/elementor/features.php:244 include/elementor/footer-call.php:123
+#: include/elementor/hero-banner.php:174
+#: include/elementor/hero-slider-2.php:211
+#: include/elementor/hero-slider.php:248 include/elementor/history.php:191
+#: include/elementor/info-box.php:301 include/elementor/instagram-post.php:214
+#: include/elementor/menu-demo.php:178 include/elementor/menu-link.php:172
+#: include/elementor/menu-link.php:198 include/elementor/menu-list.php:152
+#: include/elementor/menu-products.php:134
+#: include/elementor/menu-products.php:145 include/elementor/newsletter.php:163
+#: include/elementor/product-banner-slider.php:197
+#: include/elementor/product-category.php:182
+#: include/elementor/product-featured.php:176
+#: include/elementor/product-features.php:148
+#: include/elementor/product-features.php:347
+#: include/elementor/product-hotspot.php:198
+#: include/elementor/product-hotspot.php:253
+#: include/elementor/product-hotspot.php:272
+#: include/elementor/tp-contact-common.php:205
+#: include/elementor/tp-contact-common.php:344
+#: include/elementor/tp-contact-common.php:380
+#: include/elementor/tp-product-2.php:139
+#: include/elementor/tp-product-2.php:148
+#: include/elementor/tp-product-2.php:159
+#: include/elementor/tp-product-3.php:135
+#: include/elementor/tp-product-3.php:146
+#: include/elementor/tp-product-3.php:157
+#: include/elementor/tp-product-tab.php:139
+#: include/elementor/tp-product-tab.php:161
+#: include/elementor/tp-product.php:142 include/elementor/tpel-carousel.php:174
+#: page-settings/manager.php:50 page-settings/manager.php:52
+msgid "Title"
+msgstr ""
+
+#: include/common-functions.php:1507 include/elementor/hero-banner.php:178
+#: include/elementor/hero-slider-2.php:215
+#: include/elementor/hero-slider-2.php:227
+#: include/elementor/hero-slider.php:252
+#: include/elementor/tp-contact-common.php:209
+#: include/elementor/tpel-carousel.php:178
+msgid "Type Heading Text"
+msgstr ""
+
+#: include/common-functions.php:1514 include/elementor/hero-banner.php:186
+#: include/elementor/hero-slider-2.php:235
+#: include/elementor/hero-slider.php:260
+#: include/elementor/tp-contact-common.php:228
+msgid "Title HTML Tag"
+msgstr ""
+
+#: include/common-functions.php:1518 include/elementor/hero-banner.php:190
+#: include/elementor/hero-slider-2.php:239
+#: include/elementor/hero-slider.php:264
+#: include/elementor/tp-contact-common.php:232
+msgid "H1"
+msgstr ""
+
+#: include/common-functions.php:1522 include/elementor/hero-banner.php:194
+#: include/elementor/hero-slider-2.php:243
+#: include/elementor/hero-slider.php:268
+#: include/elementor/tp-contact-common.php:236
+msgid "H2"
+msgstr ""
+
+#: include/common-functions.php:1526 include/elementor/hero-banner.php:198
+#: include/elementor/hero-slider-2.php:247
+#: include/elementor/hero-slider.php:272
+#: include/elementor/tp-contact-common.php:240
+msgid "H3"
+msgstr ""
+
+#: include/common-functions.php:1530 include/elementor/hero-banner.php:202
+#: include/elementor/hero-slider-2.php:251
+#: include/elementor/hero-slider.php:276
+#: include/elementor/tp-contact-common.php:244
+msgid "H4"
+msgstr ""
+
+#: include/common-functions.php:1534 include/elementor/hero-banner.php:206
+#: include/elementor/hero-slider-2.php:255
+#: include/elementor/hero-slider.php:280
+#: include/elementor/tp-contact-common.php:248
+msgid "H5"
+msgstr ""
+
+#: include/common-functions.php:1538 include/elementor/hero-banner.php:210
+#: include/elementor/hero-slider-2.php:259
+#: include/elementor/hero-slider.php:284
+#: include/elementor/tp-contact-common.php:252
+msgid "H6"
+msgstr ""
+
+#: include/common-functions.php:1550 include/elementor/features.php:255
+#: include/elementor/hero-banner.php:222
+#: include/elementor/hero-slider-2.php:271
+#: include/elementor/hero-slider.php:296 include/elementor/history.php:202
+#: include/elementor/product-banner.php:180
+#: include/elementor/product-features.php:358
+#: include/elementor/tp-contact-common.php:217
+#: include/elementor/tp-contact-common.php:355
+#: include/elementor/tp-contact-common.php:391
+msgid "Description"
+msgstr ""
+
+#: include/common-functions.php:1554 include/elementor/hero-banner.php:226
+#: include/elementor/hero-slider-2.php:275
+#: include/elementor/hero-slider.php:300
+#: include/elementor/tp-contact-common.php:221
+msgid "Type section description here"
+msgstr ""
+
+#: include/common-functions.php:1560 include/elementor/banner.php:301
+#: include/elementor/fact.php:305 include/elementor/footer-list.php:211
+#: include/elementor/footer-menu.php:223
+#: include/elementor/tp-breadcrumb.php:171 include/elementor/tp-btn.php:217
+#: include/elementor/tp-contact-common.php:264
+msgid "Alignment"
+msgstr ""
+
+#: include/common-functions.php:1564 include/elementor/banner.php:305
+#: include/elementor/fact.php:309 include/elementor/footer-list.php:215
+#: include/elementor/footer-menu.php:227
+#: include/elementor/tp-breadcrumb.php:175 include/elementor/tp-btn.php:221
+#: include/elementor/tp-contact-common.php:268
+msgid "Left"
+msgstr ""
+
+#: include/common-functions.php:1568 include/elementor/banner.php:309
+#: include/elementor/fact.php:313 include/elementor/footer-list.php:219
+#: include/elementor/footer-menu.php:231
+#: include/elementor/tp-breadcrumb.php:179 include/elementor/tp-btn.php:225
+#: include/elementor/tp-contact-common.php:272
+msgid "Center"
+msgstr ""
+
+#: include/common-functions.php:1572 include/elementor/banner.php:313
+#: include/elementor/fact.php:317 include/elementor/footer-list.php:223
+#: include/elementor/footer-menu.php:235
+#: include/elementor/tp-breadcrumb.php:183 include/elementor/tp-btn.php:229
+#: include/elementor/tp-contact-common.php:276
+msgid "Right"
+msgstr ""
+
+#: include/common-functions.php:1661 include/common-functions.php:1788
+#: include/common-functions.php:2481 include/elementor/product-category.php:367
+#: include/elementor/tp-product-2.php:189
+#: include/elementor/tp-product-3.php:187 include/elementor/tp-product.php:177
+msgid "Columns for Desktop"
+msgstr ""
+
+#: include/common-functions.php:1662 include/common-functions.php:1789
+#: include/common-functions.php:2482 include/elementor/product-category.php:368
+#: include/elementor/tp-product-2.php:190
+#: include/elementor/tp-product-3.php:188 include/elementor/tp-product.php:178
+msgid "Screen width equal to or greater than 1200px"
+msgstr ""
+
+#: include/common-functions.php:1665 include/common-functions.php:1685
+#: include/common-functions.php:1705 include/common-functions.php:1725
+#: include/common-functions.php:1767 include/common-functions.php:1792
+#: include/common-functions.php:1817 include/common-functions.php:1842
+#: include/common-functions.php:1867 include/common-functions.php:1892
+#: include/common-functions.php:2460 include/common-functions.php:2485
+#: include/common-functions.php:2510 include/common-functions.php:2535
+#: include/common-functions.php:2560 include/common-functions.php:2585
+#: include/elementor/product-category.php:371
+#: include/elementor/product-category.php:390
+#: include/elementor/product-category.php:409
+#: include/elementor/product-category.php:428
+#: include/elementor/tp-product-2.php:193
+#: include/elementor/tp-product-2.php:213
+#: include/elementor/tp-product-2.php:233
+#: include/elementor/tp-product-2.php:253
+#: include/elementor/tp-product-3.php:191
+#: include/elementor/tp-product-3.php:211
+#: include/elementor/tp-product-3.php:231
+#: include/elementor/tp-product-3.php:251 include/elementor/tp-product.php:181
+#: include/elementor/tp-product.php:201 include/elementor/tp-product.php:221
+#: include/elementor/tp-product.php:241
+msgid "1 Columns"
+msgstr ""
+
+#: include/common-functions.php:1666 include/common-functions.php:1686
+#: include/common-functions.php:1706 include/common-functions.php:1726
+#: include/common-functions.php:1768 include/common-functions.php:1793
+#: include/common-functions.php:1818 include/common-functions.php:1843
+#: include/common-functions.php:1868 include/common-functions.php:1893
+#: include/common-functions.php:2461 include/common-functions.php:2486
+#: include/common-functions.php:2511 include/common-functions.php:2536
+#: include/common-functions.php:2561 include/common-functions.php:2586
+#: include/elementor/product-category.php:372
+#: include/elementor/product-category.php:391
+#: include/elementor/product-category.php:410
+#: include/elementor/product-category.php:429
+#: include/elementor/tp-product-2.php:194
+#: include/elementor/tp-product-2.php:214
+#: include/elementor/tp-product-2.php:234
+#: include/elementor/tp-product-2.php:254
+#: include/elementor/tp-product-3.php:192
+#: include/elementor/tp-product-3.php:212
+#: include/elementor/tp-product-3.php:232
+#: include/elementor/tp-product-3.php:252 include/elementor/tp-product.php:182
+#: include/elementor/tp-product.php:202 include/elementor/tp-product.php:222
+#: include/elementor/tp-product.php:242
+msgid "2 Columns"
+msgstr ""
+
+#: include/common-functions.php:1667 include/common-functions.php:1687
+#: include/common-functions.php:1707 include/common-functions.php:1727
+#: include/common-functions.php:1769 include/common-functions.php:1794
+#: include/common-functions.php:1819 include/common-functions.php:1844
+#: include/common-functions.php:1869 include/common-functions.php:1894
+#: include/common-functions.php:2462 include/common-functions.php:2487
+#: include/common-functions.php:2512 include/common-functions.php:2537
+#: include/common-functions.php:2562 include/common-functions.php:2587
+#: include/elementor/product-category.php:373
+#: include/elementor/product-category.php:392
+#: include/elementor/product-category.php:411
+#: include/elementor/product-category.php:430
+#: include/elementor/tp-product-2.php:195
+#: include/elementor/tp-product-2.php:215
+#: include/elementor/tp-product-2.php:235
+#: include/elementor/tp-product-2.php:255
+#: include/elementor/tp-product-3.php:193
+#: include/elementor/tp-product-3.php:213
+#: include/elementor/tp-product-3.php:233
+#: include/elementor/tp-product-3.php:253 include/elementor/tp-product.php:183
+#: include/elementor/tp-product.php:203 include/elementor/tp-product.php:223
+#: include/elementor/tp-product.php:243
+msgid "3 Columns"
+msgstr ""
+
+#: include/common-functions.php:1668 include/common-functions.php:1688
+#: include/common-functions.php:1708 include/common-functions.php:1728
+#: include/common-functions.php:1770 include/common-functions.php:1795
+#: include/common-functions.php:1820 include/common-functions.php:1845
+#: include/common-functions.php:1870 include/common-functions.php:1895
+#: include/common-functions.php:2463 include/common-functions.php:2488
+#: include/common-functions.php:2513 include/common-functions.php:2538
+#: include/common-functions.php:2563 include/common-functions.php:2588
+#: include/elementor/product-category.php:374
+#: include/elementor/product-category.php:393
+#: include/elementor/product-category.php:412
+#: include/elementor/product-category.php:431
+#: include/elementor/tp-product-2.php:196
+#: include/elementor/tp-product-2.php:216
+#: include/elementor/tp-product-2.php:236
+#: include/elementor/tp-product-2.php:256
+#: include/elementor/tp-product-3.php:194
+#: include/elementor/tp-product-3.php:214
+#: include/elementor/tp-product-3.php:234
+#: include/elementor/tp-product-3.php:254 include/elementor/tp-product.php:184
+#: include/elementor/tp-product.php:204 include/elementor/tp-product.php:224
+#: include/elementor/tp-product.php:244
+msgid "4 Columns"
+msgstr ""
+
+#: include/common-functions.php:1669 include/common-functions.php:1689
+#: include/common-functions.php:1709 include/common-functions.php:1729
+#: include/elementor/tp-product-2.php:197
+#: include/elementor/tp-product-2.php:217
+#: include/elementor/tp-product-2.php:237
+#: include/elementor/tp-product-2.php:257
+#: include/elementor/tp-product-3.php:195
+#: include/elementor/tp-product-3.php:215
+#: include/elementor/tp-product-3.php:235
+#: include/elementor/tp-product-3.php:255 include/elementor/tp-product.php:185
+#: include/elementor/tp-product.php:205 include/elementor/tp-product.php:225
+#: include/elementor/tp-product.php:245
+msgid "5 Columns (For Carousel Item)"
+msgstr ""
+
+#: include/common-functions.php:1670 include/common-functions.php:1690
+#: include/common-functions.php:1710 include/common-functions.php:1730
+#: include/common-functions.php:1772 include/common-functions.php:1797
+#: include/common-functions.php:1822 include/common-functions.php:1847
+#: include/common-functions.php:1872 include/common-functions.php:1897
+#: include/common-functions.php:2465 include/common-functions.php:2490
+#: include/common-functions.php:2515 include/common-functions.php:2540
+#: include/common-functions.php:2565 include/common-functions.php:2590
+#: include/elementor/product-category.php:375
+#: include/elementor/product-category.php:394
+#: include/elementor/product-category.php:413
+#: include/elementor/product-category.php:432
+#: include/elementor/tp-product-2.php:198
+#: include/elementor/tp-product-2.php:218
+#: include/elementor/tp-product-2.php:238
+#: include/elementor/tp-product-2.php:258
+#: include/elementor/tp-product-3.php:196
+#: include/elementor/tp-product-3.php:216
+#: include/elementor/tp-product-3.php:236
+#: include/elementor/tp-product-3.php:256 include/elementor/tp-product.php:186
+#: include/elementor/tp-product.php:206 include/elementor/tp-product.php:226
+#: include/elementor/tp-product.php:246
+msgid "6 Columns"
+msgstr ""
+
+#: include/common-functions.php:1671 include/common-functions.php:1691
+#: include/common-functions.php:1711 include/common-functions.php:1731
+#: include/common-functions.php:1778 include/common-functions.php:1803
+#: include/common-functions.php:1828 include/common-functions.php:1853
+#: include/common-functions.php:1878 include/common-functions.php:1903
+#: include/common-functions.php:2471 include/common-functions.php:2496
+#: include/common-functions.php:2521 include/common-functions.php:2546
+#: include/common-functions.php:2571 include/common-functions.php:2596
+#: include/elementor/product-category.php:376
+#: include/elementor/product-category.php:395
+#: include/elementor/product-category.php:414
+#: include/elementor/product-category.php:433
+#: include/elementor/tp-product-2.php:199
+#: include/elementor/tp-product-2.php:219
+#: include/elementor/tp-product-2.php:239
+#: include/elementor/tp-product-2.php:259
+#: include/elementor/tp-product-3.php:197
+#: include/elementor/tp-product-3.php:217
+#: include/elementor/tp-product-3.php:237
+#: include/elementor/tp-product-3.php:257 include/elementor/tp-product.php:187
+#: include/elementor/tp-product.php:207 include/elementor/tp-product.php:227
+#: include/elementor/tp-product.php:247
+msgid "12 Columns"
+msgstr ""
+
+#: include/common-functions.php:1681 include/elementor/product-category.php:386
+#: include/elementor/tp-product-2.php:209
+#: include/elementor/tp-product-3.php:207 include/elementor/tp-product.php:197
+msgid "Columns for Large"
+msgstr ""
+
+#: include/common-functions.php:1682 include/common-functions.php:1814
+#: include/common-functions.php:2507 include/elementor/product-category.php:387
+#: include/elementor/tp-product-2.php:210
+#: include/elementor/tp-product-3.php:208 include/elementor/tp-product.php:198
+msgid "Screen width equal to or greater than 992px"
+msgstr ""
+
+#: include/common-functions.php:1701 include/common-functions.php:1838
+#: include/common-functions.php:2531 include/elementor/product-category.php:405
+#: include/elementor/tp-product-2.php:229
+#: include/elementor/tp-product-3.php:227 include/elementor/tp-product.php:217
+msgid "Columns for Tablet"
+msgstr ""
+
+#: include/common-functions.php:1702 include/common-functions.php:1839
+#: include/common-functions.php:2532 include/elementor/product-category.php:406
+#: include/elementor/tp-product-2.php:230
+#: include/elementor/tp-product-3.php:228 include/elementor/tp-product.php:218
+msgid "Screen width equal to or greater than 768px"
+msgstr ""
+
+#: include/common-functions.php:1721 include/common-functions.php:1863
+#: include/common-functions.php:2556 include/elementor/product-category.php:424
+#: include/elementor/tp-product-2.php:249
+#: include/elementor/tp-product-3.php:247 include/elementor/tp-product.php:237
+msgid "Columns for Mobile"
+msgstr ""
+
+#: include/common-functions.php:1722 include/elementor/product-category.php:425
+#: include/elementor/tp-product-2.php:250
+#: include/elementor/tp-product-3.php:248 include/elementor/tp-product.php:238
+msgid "Screen width less than 767px"
+msgstr ""
+
+#: include/common-functions.php:1763 include/common-functions.php:2456
+msgid "Columns for Extra Large Desktop"
+msgstr ""
+
+#: include/common-functions.php:1764 include/common-functions.php:2457
+msgid "Screen width equal to or greater than 1920px"
+msgstr ""
+
+#: include/common-functions.php:1771 include/common-functions.php:1796
+#: include/common-functions.php:1821 include/common-functions.php:1846
+#: include/common-functions.php:1871 include/common-functions.php:1896
+#: include/common-functions.php:2464 include/common-functions.php:2489
+#: include/common-functions.php:2514 include/common-functions.php:2539
+#: include/common-functions.php:2564 include/common-functions.php:2589
+msgid "5 Columns"
+msgstr ""
+
+#: include/common-functions.php:1773 include/common-functions.php:1798
+#: include/common-functions.php:1823 include/common-functions.php:1848
+#: include/common-functions.php:1873 include/common-functions.php:1898
+#: include/common-functions.php:2466 include/common-functions.php:2491
+#: include/common-functions.php:2516 include/common-functions.php:2541
+#: include/common-functions.php:2566 include/common-functions.php:2591
+msgid "7 Columns"
+msgstr ""
+
+#: include/common-functions.php:1774 include/common-functions.php:1799
+#: include/common-functions.php:1824 include/common-functions.php:1849
+#: include/common-functions.php:1874 include/common-functions.php:1899
+#: include/common-functions.php:2467 include/common-functions.php:2492
+#: include/common-functions.php:2517 include/common-functions.php:2542
+#: include/common-functions.php:2567 include/common-functions.php:2592
+msgid "8 Columns"
+msgstr ""
+
+#: include/common-functions.php:1775 include/common-functions.php:1800
+#: include/common-functions.php:1825 include/common-functions.php:1850
+#: include/common-functions.php:1875 include/common-functions.php:1900
+#: include/common-functions.php:2468 include/common-functions.php:2493
+#: include/common-functions.php:2518 include/common-functions.php:2543
+#: include/common-functions.php:2568 include/common-functions.php:2593
+msgid "9 Columns"
+msgstr ""
+
+#: include/common-functions.php:1776 include/common-functions.php:1777
+#: include/common-functions.php:1801 include/common-functions.php:1802
+#: include/common-functions.php:1826 include/common-functions.php:1827
+#: include/common-functions.php:1851 include/common-functions.php:1852
+#: include/common-functions.php:1876 include/common-functions.php:1877
+#: include/common-functions.php:1901 include/common-functions.php:1902
+#: include/common-functions.php:2469 include/common-functions.php:2470
+#: include/common-functions.php:2494 include/common-functions.php:2495
+#: include/common-functions.php:2519 include/common-functions.php:2520
+#: include/common-functions.php:2544 include/common-functions.php:2545
+#: include/common-functions.php:2569 include/common-functions.php:2570
+#: include/common-functions.php:2594 include/common-functions.php:2595
+msgid "10 Columns"
+msgstr ""
+
+#: include/common-functions.php:1813 include/common-functions.php:2506
+msgid "Columns for Laptop"
+msgstr ""
+
+#: include/common-functions.php:1864 include/common-functions.php:2557
+msgid "Screen width less than 767"
+msgstr ""
+
+#: include/common-functions.php:1888 include/common-functions.php:2581
+msgid "Columns for Extra Small Mobile"
+msgstr ""
+
+#: include/common-functions.php:1889 include/common-functions.php:2582
+msgid "Screen width less than 575px"
+msgstr ""
+
+#: include/common-functions.php:1940
+msgid "Add "
+msgstr ""
+
+#: include/common-functions.php:1942 include/common-functions.php:2102
+#: include/common-functions.php:2218 include/common-functions.php:2232
+#: include/common-functions.php:2260 include/common-functions.php:2381
+#: include/common-functions.php:2395 include/common-functions.php:2423
+#: include/common-functions.php:3055 include/common-functions.php:3069
+#: include/elementor/banner.php:208 include/elementor/footer-list.php:137
+#: include/elementor/footer-menu.php:149
+#: include/elementor/hero-slider-2.php:311
+#: include/elementor/hero-slider.php:616 include/elementor/info-box.php:315
+#: include/elementor/product-banner-slider.php:247
+#: include/elementor/product-banner.php:193
+#: include/elementor/product-category.php:204
+#: include/elementor/product-category.php:282
+#: include/elementor/product-featured.php:208
+#: include/elementor/product-features.php:371
+#: include/elementor/product-hotspot.php:294
+msgid "Yes"
+msgstr ""
+
+#: include/common-functions.php:1943 include/common-functions.php:2103
+#: include/common-functions.php:2219 include/common-functions.php:2233
+#: include/common-functions.php:2261 include/common-functions.php:2382
+#: include/common-functions.php:2396 include/common-functions.php:2424
+#: include/common-functions.php:3056 include/common-functions.php:3070
+#: include/elementor/banner.php:209 include/elementor/footer-list.php:138
+#: include/elementor/footer-menu.php:150
+#: include/elementor/hero-slider-2.php:312
+#: include/elementor/hero-slider.php:617 include/elementor/info-box.php:316
+#: include/elementor/product-banner-slider.php:248
+#: include/elementor/product-banner.php:194
+#: include/elementor/product-category.php:205
+#: include/elementor/product-category.php:283
+#: include/elementor/product-featured.php:209
+#: include/elementor/product-features.php:372
+#: include/elementor/product-hotspot.php:295
+msgid "No"
+msgstr ""
+
+#: include/common-functions.php:1952 include/common-functions.php:1954
+#: include/elementor/banner.php:218 include/elementor/banner.php:220
+#: include/elementor/hero-slider-2.php:322
+#: include/elementor/hero-slider-2.php:324
+#: include/elementor/hero-slider.php:627 include/elementor/hero-slider.php:629
+#: include/elementor/product-banner-slider.php:258
+#: include/elementor/product-banner-slider.php:260
+#: include/elementor/product-banner.php:203
+#: include/elementor/product-banner.php:205
+#: include/elementor/product-category-list.php:180
+#: include/elementor/product-category-list.php:182
+#: include/elementor/product-category.php:215
+#: include/elementor/product-category.php:217
+#: include/elementor/product-featured.php:219
+#: include/elementor/product-featured.php:221 include/elementor/tp-btn.php:150
+#: include/elementor/tp-btn.php:152 include/elementor/tp-contact-common.php:316
+#: include/elementor/tp-contact-common.php:318
+msgid "Button Text"
+msgstr ""
+
+#: include/common-functions.php:2021
+#, php-format
+msgid "%s Query"
+msgstr ""
+
+#: include/common-functions.php:2028
+msgid "Posts Per Page"
+msgstr ""
+
+#: include/common-functions.php:2029
+msgid "Leave blank or enter -1 for all."
+msgstr ""
+
+#: include/common-functions.php:2037
+msgid "Include Categories"
+msgstr ""
+
+#: include/common-functions.php:2038
+msgid "Select a category to include or leave blank for all."
+msgstr ""
+
+#: include/common-functions.php:2048
+msgid "Exclude Categories"
+msgstr ""
+
+#: include/common-functions.php:2049
+msgid "Select a category to exclude"
+msgstr ""
+
+#: include/common-functions.php:2059
+msgid "Exclude Item"
+msgstr ""
+
+#: include/common-functions.php:2069
+msgid "Offset"
+msgstr ""
+
+#: include/common-functions.php:2077
+msgid "Order By"
+msgstr ""
+
+#: include/common-functions.php:2087
+msgid "Order"
+msgstr ""
+
+#: include/common-functions.php:2090
+msgid "Ascending"
+msgstr ""
+
+#: include/common-functions.php:2091
+msgid "Descending"
+msgstr ""
+
+#: include/common-functions.php:2100
+msgid "Ignore Sticky Posts"
+msgstr ""
+
+#: include/common-functions.php:2112
+msgid "Title Word Count"
+msgstr ""
+
+#: include/common-functions.php:2113
+msgid "Set how many word you want to displa!"
+msgstr ""
+
+#: include/common-functions.php:2123
+msgid "Content"
+msgstr ""
+
+#: include/common-functions.php:2134
+msgid "Content Limit"
+msgstr ""
+
+#: include/common-functions.php:2149
+msgid "Blog Button"
+msgstr ""
+
+#: include/common-functions.php:2152
+msgid "Read More"
+msgstr ""
+
+#: include/common-functions.php:2169 include/common-functions.php:2286
+#: include/common-functions.php:2938
+#, php-format
+msgid "%s - Layout"
+msgstr ""
+
+#: include/common-functions.php:2175 include/common-functions.php:2292
+#: include/common-functions.php:2944 include/elementor/about.php:127
+#: include/elementor/app-download.php:122
+#: include/elementor/author-quote.php:122 include/elementor/banner-box.php:123
+#: include/elementor/banner.php:124 include/elementor/brand.php:125
+#: include/elementor/fact.php:131 include/elementor/features.php:122
+#: include/elementor/footer-menu.php:122
+#: include/elementor/footer-social.php:172
+#: include/elementor/hero-banner.php:128
+#: include/elementor/hero-slider-2.php:125
+#: include/elementor/hero-slider.php:125 include/elementor/history.php:127
+#: include/elementor/info-box.php:168 include/elementor/instagram-post.php:125
+#: include/elementor/menu-brand.php:125 include/elementor/menu-demo.php:152
+#: include/elementor/menu-link.php:150 include/elementor/menu-products.php:120
+#: include/elementor/newsletter.php:140 include/elementor/page-title.php:122
+#: include/elementor/product-banner-slider.php:122
+#: include/elementor/product-banner.php:122
+#: include/elementor/product-category-list.php:131
+#: include/elementor/product-category.php:122
+#: include/elementor/product-collection-countdown.php:131
+#: include/elementor/product-featured.php:122
+#: include/elementor/product-features.php:122
+#: include/elementor/product-hotspot.php:122
+#: include/elementor/product-offer-banner.php:122
+#: include/elementor/side-banner.php:124
+#: include/elementor/testimonial-slider.php:124
+#: include/elementor/tp-breadcrumb.php:125 include/elementor/tp-btn.php:116
+#: include/elementor/tp-contact-common.php:137
+#: include/elementor/tp-product-2.php:120
+#: include/elementor/tp-product-3.php:120
+#: include/elementor/tp-product-tab.php:121
+#: include/elementor/tpel-btn-border.php:122
+#: include/elementor/tpel-btn-link.php:122 include/elementor/tpel-btn.php:122
+#: include/elementor/tpel-carousel.php:118
+#: include/elementor/video-popup.php:116
+msgid "Select Layout"
+msgstr ""
+
+#: include/common-functions.php:2178
+msgid "Blog Slider 1"
+msgstr ""
+
+#: include/common-functions.php:2179
+msgid "Blog Box"
+msgstr ""
+
+#: include/common-functions.php:2188 include/common-functions.php:2351
+#: include/common-functions.php:2963
+msgid "Dots?"
+msgstr ""
+
+#: include/common-functions.php:2202 include/common-functions.php:2365
+#: include/common-functions.php:3039
+msgid "Arrow Icons?"
+msgstr ""
+
+#: include/common-functions.php:2216 include/common-functions.php:2379
+#: include/common-functions.php:3053
+msgid "Infinite?"
+msgstr ""
+
+#: include/common-functions.php:2230 include/common-functions.php:2393
+#: include/common-functions.php:3067
+msgid "Autoplay?"
+msgstr ""
+
+#: include/common-functions.php:2244 include/common-functions.php:2407
+#: include/common-functions.php:3081
+msgid "Autoplay Speed"
+msgstr ""
+
+#: include/common-functions.php:2247 include/common-functions.php:2410
+#: include/common-functions.php:3084
+msgid "Enter autoplay speed"
+msgstr ""
+
+#: include/common-functions.php:2258 include/common-functions.php:2421
+msgid "Filter?"
+msgstr ""
+
+#: include/common-functions.php:2295
+msgid "Blog Grid"
+msgstr ""
+
+#: include/common-functions.php:2304
+msgid "Enable Sidebar ?"
+msgstr ""
+
+#: include/common-functions.php:2317
+msgid "Pagination"
+msgstr ""
+
+#: include/common-functions.php:2329
+msgid "Height"
+msgstr ""
+
+#: include/common-functions.php:2449
+#, php-format
+msgid "%s - Columns for Carousel"
+msgstr ""
+
+#: include/common-functions.php:2613 include/common-functions.php:2689
+#: include/elementor/contact-box.php:208 include/elementor/fact.php:173
+#: include/elementor/features.php:166 include/elementor/footer-contact.php:142
+#: include/elementor/header-builder-style-2.php:401
+#: include/elementor/header-builder-style-2.php:484
+#: include/elementor/header-builder.php:407
+#: include/elementor/hero-slider.php:329 include/elementor/hero-slider.php:429
+#: include/elementor/hero-slider.php:529 include/elementor/info-box.php:222
+#: include/elementor/product-features.php:272
+#: include/elementor/tp-contact-common.php:432
+msgid "Select Icon Type"
+msgstr ""
+
+#: include/common-functions.php:2618 include/common-functions.php:2694
+#: include/elementor/contact-box.php:213 include/elementor/fact.php:178
+#: include/elementor/features.php:171 include/elementor/footer-contact.php:147
+#: include/elementor/header-builder-style-2.php:406
+#: include/elementor/header-builder-style-2.php:489
+#: include/elementor/header-builder.php:412
+#: include/elementor/hero-slider.php:334 include/elementor/hero-slider.php:434
+#: include/elementor/hero-slider.php:534 include/elementor/info-box.php:227
+#: include/elementor/product-features.php:277
+#: include/elementor/tp-contact-common.php:437
+msgid "Icon"
+msgstr ""
+
+#: include/common-functions.php:2619 include/common-functions.php:2695
+#: include/elementor/contact-box.php:214 include/elementor/fact.php:179
+#: include/elementor/features.php:172 include/elementor/footer-contact.php:148
+#: include/elementor/header-builder-style-2.php:407
+#: include/elementor/header-builder-style-2.php:490
+#: include/elementor/header-builder.php:413
+#: include/elementor/hero-slider.php:335 include/elementor/hero-slider.php:435
+#: include/elementor/hero-slider.php:535 include/elementor/info-box.php:228
+#: include/elementor/product-features.php:278
+#: include/elementor/tp-contact-common.php:438
+msgid "SVG"
+msgstr ""
+
+#: include/common-functions.php:2632 include/common-functions.php:2705
+#: include/elementor/contact-box.php:227 include/elementor/fact.php:194
+#: include/elementor/features.php:185 include/elementor/footer-contact.php:161
+#: include/elementor/header-builder-style-2.php:417
+#: include/elementor/header-builder-style-2.php:500
+#: include/elementor/header-builder.php:426
+#: include/elementor/hero-slider.php:348 include/elementor/hero-slider.php:448
+#: include/elementor/hero-slider.php:548 include/elementor/info-box.php:241
+#: include/elementor/product-features.php:291
+#: include/elementor/tp-contact-common.php:448
+msgid "SVG Code Here"
+msgstr ""
+
+#: include/common-functions.php:2642 include/common-functions.php:2715
+#: include/elementor/contact-box.php:238 include/elementor/fact.php:205
+#: include/elementor/features.php:196 include/elementor/footer-contact.php:172
+#: include/elementor/header-builder-style-2.php:427
+#: include/elementor/header-builder-style-2.php:510
+#: include/elementor/header-builder.php:437
+#: include/elementor/hero-slider.php:359 include/elementor/hero-slider.php:459
+#: include/elementor/hero-slider.php:559 include/elementor/info-box.php:252
+#: include/elementor/instagram-post.php:186
+#: include/elementor/product-features.php:302
+#: include/elementor/tp-contact-common.php:458
+msgid "Upload Icon Image"
+msgstr ""
+
+#: include/common-functions.php:2766
+msgid "Price Title"
+msgstr ""
+
+#: include/common-functions.php:2768
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: include/common-functions.php:2769
+msgid "Your title here"
+msgstr ""
+
+#: include/common-functions.php:2776
+msgid "Price Description"
+msgstr ""
+
+#: include/common-functions.php:2779
+msgid "Free forever,! No credit card required."
+msgstr ""
+
+#: include/common-functions.php:2780
+msgid "Your Description Here"
+msgstr ""
+
+#: include/common-functions.php:2787
+msgid "Currency"
+msgstr ""
+
+#: include/common-functions.php:2792
+msgctxt "Currency Symbol"
+msgid "Baht"
+msgstr ""
+
+#: include/common-functions.php:2793
+msgctxt "Currency Symbol"
+msgid "BD Taka"
+msgstr ""
+
+#: include/common-functions.php:2794
+msgctxt "Currency Symbol"
+msgid "Dollar"
+msgstr ""
+
+#: include/common-functions.php:2795
+msgctxt "Currency Symbol"
+msgid "Euro"
+msgstr ""
+
+#: include/common-functions.php:2796
+msgctxt "Currency Symbol"
+msgid "Franc"
+msgstr ""
+
+#: include/common-functions.php:2797
+msgctxt "Currency Symbol"
+msgid "Guilder"
+msgstr ""
+
+#: include/common-functions.php:2798
+msgctxt "Currency Symbol"
+msgid "Krona"
+msgstr ""
+
+#: include/common-functions.php:2799
+msgctxt "Currency Symbol"
+msgid "Lira"
+msgstr ""
+
+#: include/common-functions.php:2800
+msgctxt "Currency Symbol"
+msgid "Peso"
+msgstr ""
+
+#: include/common-functions.php:2801
+msgctxt "Currency Symbol"
+msgid "Pound Sterling"
+msgstr ""
+
+#: include/common-functions.php:2802
+msgctxt "Currency Symbol"
+msgid "Real"
+msgstr ""
+
+#: include/common-functions.php:2803
+msgctxt "Currency Symbol"
+msgid "Ruble"
+msgstr ""
+
+#: include/common-functions.php:2804
+msgctxt "Currency Symbol"
+msgid "Rupee (Indian)"
+msgstr ""
+
+#: include/common-functions.php:2805
+msgctxt "Currency Symbol"
+msgid "Shekel"
+msgstr ""
+
+#: include/common-functions.php:2806
+msgctxt "Currency Symbol"
+msgid "Won"
+msgstr ""
+
+#: include/common-functions.php:2807
+msgctxt "Currency Symbol"
+msgid "Yen/Yuan"
+msgstr ""
+
+#: include/common-functions.php:2808
+msgid "Custom"
+msgstr ""
+
+#: include/common-functions.php:2817
+msgid "Custom Symbol"
+msgstr ""
+
+#: include/common-functions.php:2831
+#: include/elementor/product-banner-slider.php:220
+#: include/elementor/product-featured.php:195
+msgid "Price"
+msgstr ""
+
+#: include/common-functions.php:2843
+msgid "Period"
+msgstr ""
+
+#: include/common-functions.php:2845
+msgid "Per Month"
+msgstr ""
+
+#: include/common-functions.php:2947
+msgid "Product Offer"
+msgstr ""
+
+#: include/common-functions.php:2948
+msgid "Product Simple"
+msgstr ""
+
+#: include/common-functions.php:2949
+msgid "Product Arrival"
+msgstr ""
+
+#: include/common-functions.php:2950
+msgid "Product SM List"
+msgstr ""
+
+#: include/common-functions.php:2951
+msgid "Product Slider Trending"
+msgstr ""
+
+#: include/common-functions.php:2952
+msgid "Product Weeks Featured"
+msgstr ""
+
+#: include/common-functions.php:2979
+msgid "Slides Per View"
+msgstr ""
+
+#: include/common-functions.php:2981 include/common-functions.php:3169
+#: include/widgets/tp-blog-post-sidebar.php:79
+msgid "3"
+msgstr ""
+
+#: include/common-functions.php:2982 include/common-functions.php:2994
+#: include/common-functions.php:3006 include/common-functions.php:3018
+#: include/common-functions.php:3030
+msgid "Your Number"
+msgstr ""
+
+#: include/common-functions.php:2991
+msgid "Slides Per View In LG (992px)"
+msgstr ""
+
+#: include/common-functions.php:2993 include/common-functions.php:3005
+msgid "2"
+msgstr ""
+
+#: include/common-functions.php:3003
+msgid "Slides Per View In MD (768px)"
+msgstr ""
+
+#: include/common-functions.php:3015
+msgid "Slides Per View In SM (576px)"
+msgstr ""
+
+#: include/common-functions.php:3017 include/common-functions.php:3029
+msgid "1"
+msgstr ""
+
+#: include/common-functions.php:3027
+msgid "Slides Per View In XS (0-575px)"
+msgstr ""
+
+#: include/common-functions.php:3100
+msgid "Badge Controls"
+msgstr ""
+
+#: include/common-functions.php:3108
+msgid "Enable Trending Badge ?"
+msgstr ""
+
+#: include/common-functions.php:3121
+msgid "Product Badge Type"
+msgstr ""
+
+#: include/common-functions.php:3124
+msgid "Based On Sales"
+msgstr ""
+
+#: include/common-functions.php:3125
+msgid "Based On Rating"
+msgstr ""
+
+#: include/common-functions.php:3126
+msgid "Based On Review"
+msgstr ""
+
+#: include/common-functions.php:3127
+msgid "Based On Views"
+msgstr ""
+
+#: include/common-functions.php:3139
+msgid "Sales Count"
+msgstr ""
+
+#: include/common-functions.php:3141 include/common-functions.php:3183
+#: include/common-functions.php:3211
+msgid "10"
+msgstr ""
+
+#: include/common-functions.php:3142
+msgid "Count Number"
+msgstr ""
+
+#: include/common-functions.php:3143
+msgid "How many sales are required to show it"
+msgstr ""
+
+#: include/common-functions.php:3153
+msgid "Rating Count"
+msgstr ""
+
+#: include/common-functions.php:3155
+msgid "5"
+msgstr ""
+
+#: include/common-functions.php:3156
+msgid "Rating Count Number"
+msgstr ""
+
+#: include/common-functions.php:3157
+msgid "How many ratings are required to show it"
+msgstr ""
+
+#: include/common-functions.php:3167
+msgid "Reviews Count"
+msgstr ""
+
+#: include/common-functions.php:3170
+msgid "Review Count"
+msgstr ""
+
+#: include/common-functions.php:3171
+msgid "How many reviews are required to show it"
+msgstr ""
+
+#: include/common-functions.php:3181 include/common-functions.php:3184
+msgid "Views Count"
+msgstr ""
+
+#: include/common-functions.php:3185
+msgid "How many views are required to show it"
+msgstr ""
+
+#: include/common-functions.php:3197
+msgid "Enable Hot Badge?"
+msgstr ""
+
+#: include/common-functions.php:3209 include/common-functions.php:3212
+msgid "Date Count"
+msgstr ""
+
+#: include/common-functions.php:3213
+msgid "How many days from uploaded are going to showing it."
+msgstr ""
+
+#: include/common-functions.php:3240
+msgid "Showing the single result"
+msgstr ""
+
+#. translators: %d: total results
+#: include/common-functions.php:3243
+#, php-format
+msgid "Showing all %d result"
+msgid_plural "Showing all %d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: first result 2: last result 3: total results
+#: include/common-functions.php:3250
+#, php-format
+msgctxt "with first and last result"
+msgid "Showing %1$d&ndash;%2$d of %3$d result"
+msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: include/custom-post-footer.php:11 include/custom-post-footer.php:13
+msgid "Footer"
+msgstr ""
+
+#: include/custom-post-footer.php:44 include/custom-post-header.php:27
+msgid "Add New Template"
+msgstr ""
+
+#: include/custom-post-footer.php:45 include/custom-post-header.php:28
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: include/custom-post-footer.php:46 include/custom-post-header.php:29
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: include/custom-post-footer.php:47 include/custom-post-header.php:30
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: include/custom-post-footer.php:48 include/custom-post-header.php:31
+msgid "All Templates"
+msgstr ""
+
+#: include/custom-post-footer.php:49 include/custom-post-header.php:32
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: include/custom-post-footer.php:50 include/custom-post-header.php:33
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: include/custom-post-footer.php:51 include/custom-post-header.php:34
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: include/custom-post-footer.php:52 include/custom-post-header.php:35
+#, php-format
+msgid "No %s found in Trash"
+msgstr ""
+
+#: include/custom-post-header.php:11 include/custom-post-header.php:13
+msgid "Header"
+msgstr ""
+
+#: include/custom-post-portfolio.php:30
+msgid "portfolio"
+msgstr ""
+
+#: include/custom-post-portfolio.php:32
+msgctxt "Post Type General Name"
+msgid "Portfolios"
+msgstr ""
+
+#: include/custom-post-portfolio.php:33
+msgctxt "Post Type Singular Name"
+msgid "Portfolio"
+msgstr ""
+
+#: include/custom-post-portfolio.php:34 include/custom-post-portfolio.php:35
+#: include/custom-post-portfolio.php:60
+msgid "Portfolio"
+msgstr ""
+
+#: include/custom-post-portfolio.php:36 include/custom-post-services.php:35
+msgid "Item Archives"
+msgstr ""
+
+#: include/custom-post-portfolio.php:37 include/custom-post-portfolio.php:92
+#: include/custom-post-services.php:36 include/custom-post-services.php:91
+msgid "Parent Item:"
+msgstr ""
+
+#: include/custom-post-portfolio.php:38 include/custom-post-services.php:37
+#: include/elementor/header-builder-style-2.php:1318
+msgid "All Items"
+msgstr ""
+
+#: include/custom-post-portfolio.php:39
+msgid "Add New Portfolio"
+msgstr ""
+
+#: include/custom-post-portfolio.php:40 include/custom-post-services.php:39
+msgid "Add New"
+msgstr ""
+
+#: include/custom-post-portfolio.php:41 include/custom-post-services.php:40
+msgid "New Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:42 include/custom-post-services.php:41
+msgid "Edit Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:43 include/custom-post-services.php:42
+msgid "Update Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:44 include/custom-post-services.php:43
+msgid "View Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:45 include/custom-post-services.php:44
+msgid "Search Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:46 include/custom-post-services.php:45
+msgid "Not found"
+msgstr ""
+
+#: include/custom-post-portfolio.php:47 include/custom-post-services.php:46
+msgid "Not found in Trash"
+msgstr ""
+
+#: include/custom-post-portfolio.php:48 include/custom-post-services.php:47
+msgid "Featured Image"
+msgstr ""
+
+#: include/custom-post-portfolio.php:49 include/custom-post-services.php:48
+msgid "Set featured image"
+msgstr ""
+
+#: include/custom-post-portfolio.php:50 include/custom-post-services.php:49
+msgid "Remove featured image"
+msgstr ""
+
+#: include/custom-post-portfolio.php:51 include/custom-post-services.php:50
+msgid "Use as featured image"
+msgstr ""
+
+#: include/custom-post-portfolio.php:52 include/custom-post-services.php:51
+msgid "Insert into item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:53 include/custom-post-services.php:52
+msgid "Uploaded to this item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:54 include/custom-post-services.php:53
+msgid "Items list"
+msgstr ""
+
+#: include/custom-post-portfolio.php:55 include/custom-post-services.php:54
+msgid "Items list navigation"
+msgstr ""
+
+#: include/custom-post-portfolio.php:56 include/custom-post-services.php:55
+msgid "Filter items list"
+msgstr ""
+
+#: include/custom-post-portfolio.php:87
+msgctxt "Taxonomy General Name"
+msgid "Portfolio Categories"
+msgstr ""
+
+#: include/custom-post-portfolio.php:88
+msgctxt "Taxonomy Singular Name"
+msgid "Portfolio Categories"
+msgstr ""
+
+#: include/custom-post-portfolio.php:89
+msgid "Portfolio Categories"
+msgstr ""
+
+#: include/custom-post-portfolio.php:90
+msgid "All Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:91 include/custom-post-services.php:90
+msgid "Parent Item"
+msgstr ""
+
+#: include/custom-post-portfolio.php:93
+msgid "New Portfolio Category Name"
+msgstr ""
+
+#: include/custom-post-portfolio.php:94
+msgid "Add New Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:95
+msgid "Edit Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:96
+msgid "Update Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:97
+msgid "View Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:98 include/custom-post-services.php:97
+msgid "Separate items with commas"
+msgstr ""
+
+#: include/custom-post-portfolio.php:99 include/custom-post-services.php:98
+msgid "Add or remove items"
+msgstr ""
+
+#: include/custom-post-portfolio.php:100 include/custom-post-services.php:99
+msgid "Choose from the most used"
+msgstr ""
+
+#: include/custom-post-portfolio.php:101
+msgid "Popular Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:102
+msgid "Search Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:103 include/custom-post-services.php:102
+msgid "Not Found"
+msgstr ""
+
+#: include/custom-post-portfolio.php:104
+msgid "No Portfolio Category"
+msgstr ""
+
+#: include/custom-post-portfolio.php:105
+msgid "Portfolio Category list"
+msgstr ""
+
+#: include/custom-post-portfolio.php:106
+msgid "Portfolio Category list navigation"
+msgstr ""
+
+#: include/custom-post-services.php:29
+msgid "services"
+msgstr ""
+
+#: include/custom-post-services.php:31
+msgctxt "Post Type General Name"
+msgid "Services"
+msgstr ""
+
+#: include/custom-post-services.php:32
+msgctxt "Post Type Singular Name"
+msgid "Service"
+msgstr ""
+
+#: include/custom-post-services.php:33 include/custom-post-services.php:34
+#: include/custom-post-services.php:59
+msgid "Service"
+msgstr ""
+
+#: include/custom-post-services.php:38
+msgid "Add New Service"
+msgstr ""
+
+#: include/custom-post-services.php:86
+msgctxt "Taxonomy General Name"
+msgid "Service Categories"
+msgstr ""
+
+#: include/custom-post-services.php:87
+msgctxt "Taxonomy Singular Name"
+msgid "Service Categories"
+msgstr ""
+
+#: include/custom-post-services.php:88
+msgid "Service Categories"
+msgstr ""
+
+#: include/custom-post-services.php:89
+msgid "All Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:92
+msgid "New Service Category Name"
+msgstr ""
+
+#: include/custom-post-services.php:93
+msgid "Add New Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:94
+msgid "Edit Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:95
+msgid "Update Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:96
+msgid "View Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:100
+msgid "Popular Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:101
+msgid "Search Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:103
+msgid "No Service Category"
+msgstr ""
+
+#: include/custom-post-services.php:104
+msgid "Service Category list"
+msgstr ""
+
+#: include/custom-post-services.php:105
+msgid "Service Category list navigation"
+msgstr ""
+
+#: include/elementor/about.php:50
+msgid "About"
+msgstr ""
+
+#: include/elementor/about.php:121 include/elementor/app-download.php:116
+#: include/elementor/author-quote.php:116 include/elementor/banner-box.php:117
+#: include/elementor/banner.php:118 include/elementor/brand.php:119
+#: include/elementor/fact.php:125 include/elementor/features.php:116
+#: include/elementor/footer-menu.php:116 include/elementor/footer-menu.php:138
+#: include/elementor/footer-social.php:166
+#: include/elementor/hero-banner.php:122
+#: include/elementor/hero-slider-2.php:119
+#: include/elementor/hero-slider.php:119 include/elementor/history.php:121
+#: include/elementor/info-box.php:162 include/elementor/instagram-post.php:119
+#: include/elementor/menu-brand.php:119 include/elementor/menu-demo.php:146
+#: include/elementor/menu-link.php:144 include/elementor/newsletter.php:134
+#: include/elementor/page-title.php:116
+#: include/elementor/product-banner-slider.php:116
+#: include/elementor/product-banner.php:116
+#: include/elementor/product-category-list.php:125
+#: include/elementor/product-category.php:116
+#: include/elementor/product-collection-countdown.php:125
+#: include/elementor/product-featured.php:116
+#: include/elementor/product-features.php:116
+#: include/elementor/product-hotspot.php:116
+#: include/elementor/product-offer-banner.php:116
+#: include/elementor/side-banner.php:118
+#: include/elementor/testimonial-slider.php:118
+#: include/elementor/tp-breadcrumb.php:119 include/elementor/tp-btn.php:110
+#: include/elementor/tp-contact-common.php:131
+#: include/elementor/tp-product-tab.php:115
+#: include/elementor/tpel-btn-border.php:116
+#: include/elementor/tpel-btn-link.php:116 include/elementor/tpel-btn.php:116
+#: include/elementor/tpel-carousel.php:112
+#: include/elementor/video-popup.php:110
+msgid "Design Layout"
+msgstr ""
+
+#: include/elementor/about.php:130 include/elementor/app-download.php:125
+#: include/elementor/author-quote.php:125 include/elementor/banner-box.php:126
+#: include/elementor/banner.php:127 include/elementor/brand.php:128
+#: include/elementor/fact.php:134 include/elementor/features.php:125
+#: include/elementor/footer-menu.php:125
+#: include/elementor/footer-social.php:175
+#: include/elementor/hero-banner.php:131
+#: include/elementor/hero-slider-2.php:128
+#: include/elementor/hero-slider.php:128 include/elementor/history.php:130
+#: include/elementor/info-box.php:171 include/elementor/instagram-post.php:128
+#: include/elementor/menu-brand.php:128 include/elementor/menu-demo.php:155
+#: include/elementor/menu-link.php:153 include/elementor/menu-products.php:123
+#: include/elementor/newsletter.php:143 include/elementor/page-title.php:125
+#: include/elementor/product-banner-slider.php:125
+#: include/elementor/product-banner.php:125
+#: include/elementor/product-category-list.php:134
+#: include/elementor/product-category.php:125
+#: include/elementor/product-collection-countdown.php:134
+#: include/elementor/product-featured.php:125
+#: include/elementor/product-features.php:125
+#: include/elementor/product-hotspot.php:125
+#: include/elementor/product-offer-banner.php:125
+#: include/elementor/side-banner.php:127
+#: include/elementor/testimonial-slider.php:127
+#: include/elementor/tp-breadcrumb.php:128 include/elementor/tp-btn.php:119
+#: include/elementor/tp-contact-common.php:140
+#: include/elementor/tp-product-2.php:123
+#: include/elementor/tp-product-3.php:123
+#: include/elementor/tp-product-tab.php:124
+#: include/elementor/tpel-btn-border.php:125
+#: include/elementor/tpel-btn-link.php:125 include/elementor/tpel-btn.php:125
+#: include/elementor/tpel-carousel.php:121
+#: include/elementor/video-popup.php:119
+msgid "Layout 1"
+msgstr ""
+
+#: include/elementor/about.php:145 include/elementor/app-download.php:172
+#: include/elementor/banner-box.php:250
+#: include/elementor/product-category-list.php:273
+#: include/elementor/video-popup.php:217
+msgid "Thumbnail"
+msgstr ""
+
+#: include/elementor/about.php:151 include/elementor/banner-box.php:153
+#: include/elementor/banner-box.php:256
+#: include/elementor/header-builder-style-2.php:677
+#: include/elementor/header-builder-style-3.php:297
+#: include/elementor/header-builder-style-4.php:297
+#: include/elementor/header-builder-style-5.php:358
+#: include/elementor/header-builder.php:615
+#: include/elementor/hero-banner.php:246 include/elementor/menu-banner.php:124
+#: include/elementor/product-features.php:171
+#: include/elementor/video-popup.php:223
+msgid "Choose Image"
+msgstr ""
+
+#: include/elementor/about.php:161
+msgid "Choose Image 2"
+msgstr ""
+
+#: include/elementor/app-download.php:48
+msgid "App Download"
+msgstr ""
+
+#: include/elementor/app-download.php:136 include/elementor/newsletter.php:155
+#: include/elementor/testimonial-slider.php:142
+msgid "Title & Description"
+msgstr ""
+
+#: include/elementor/app-download.php:146
+msgid "Get the app & get Your Groceries from home"
+msgstr ""
+
+#: include/elementor/app-download.php:147
+#: include/elementor/author-quote.php:158
+#: include/elementor/author-quote.php:168
+#: include/elementor/menu-products.php:147 include/elementor/newsletter.php:166
+#: include/elementor/testimonial-slider.php:153
+#: include/elementor/tp-product-2.php:161
+#: include/elementor/tp-product-3.php:159
+#: include/elementor/tp-product-tab.php:163
+#: include/elementor/tp-product.php:144
+msgid "Your Title"
+msgstr ""
+
+#: include/elementor/app-download.php:155
+#: include/elementor/author-quote.php:187
+#: include/elementor/testimonial-slider.php:276
+msgid "Enable Shape ?"
+msgstr ""
+
+#: include/elementor/app-download.php:180
+#: include/elementor/product-banner.php:147
+#: include/elementor/product-category-list.php:281
+#: include/elementor/product-category.php:171
+#: include/elementor/product-featured.php:165
+#: include/elementor/product-hotspot.php:145
+#: include/elementor/product-hotspot.php:209
+msgid "Upload Thumbnail"
+msgstr ""
+
+#: include/elementor/app-download.php:267
+msgid "Get it on"
+msgstr ""
+
+#: include/elementor/app-download.php:288
+msgid "Download on the"
+msgstr ""
+
+#: include/elementor/author-quote.php:48
+msgid "TP Author Quote"
+msgstr ""
+
+#: include/elementor/author-quote.php:136
+msgid "Author Info"
+msgstr ""
+
+#: include/elementor/author-quote.php:144
+msgid "Upload Author Image"
+msgstr ""
+
+#: include/elementor/author-quote.php:155
+msgid "Author Name"
+msgstr ""
+
+#: include/elementor/author-quote.php:157
+msgid "Theodore Handle"
+msgstr ""
+
+#: include/elementor/author-quote.php:165
+msgid "Author Designation"
+msgstr ""
+
+#: include/elementor/author-quote.php:167
+msgid " UI/UX design "
+msgstr ""
+
+#: include/elementor/author-quote.php:176
+msgid "Author Quote Text"
+msgstr ""
+
+#: include/elementor/author-quote.php:179
+msgid ""
+"We work with top suppliers and manufacturers to ensure that every item we "
+msgstr ""
+
+#: include/elementor/author-quote.php:180 include/elementor/banner-box.php:196
+#: include/elementor/banner-box.php:207 include/elementor/contact-box.php:376
+#: include/elementor/contact-box.php:625 include/elementor/footer-call.php:126
+#: include/elementor/footer-list.php:126
+#: include/elementor/footer-subscribe.php:189
+#: include/elementor/footer-widget-title.php:125
+#: include/elementor/header-builder-style-2.php:359
+#: include/elementor/header-builder-style-2.php:774
+#: include/elementor/header-builder-style-2.php:849
+#: include/elementor/header-builder-style-3.php:405
+#: include/elementor/header-builder-style-4.php:405
+#: include/elementor/header-builder-style-5.php:252
+#: include/elementor/header-builder-style-5.php:302
+#: include/elementor/header-builder-style-5.php:314
+#: include/elementor/header-builder-style-5.php:326
+#: include/elementor/header-builder-style-5.php:521
+#: include/elementor/header-builder.php:714
+#: include/elementor/hero-slider.php:321 include/elementor/hero-slider.php:421
+#: include/elementor/hero-slider.php:521 include/elementor/info-box.php:197
+#: include/elementor/instagram-post.php:203
+#: include/elementor/instagram-post.php:217
+#: include/elementor/menu-banner.php:138 include/elementor/menu-list.php:155
+#: include/elementor/menu-products.php:148 include/elementor/newsletter.php:177
+#: include/elementor/product-banner.php:161
+#: include/elementor/product-banner.php:172
+#: include/elementor/product-banner.php:184
+#: include/elementor/product-category-list.php:159
+#: include/elementor/product-features.php:151
+#: include/elementor/product-features.php:219
+#: include/elementor/product-hotspot.php:191
+#: include/elementor/product-hotspot.php:201
+#: include/elementor/product-hotspot.php:256
+#: include/elementor/testimonial-slider.php:156
+#: include/elementor/tp-breadcrumb.php:150
+#: include/elementor/tp-breadcrumb.php:164
+#: include/elementor/tp-contact-common.php:347
+#: include/elementor/tp-contact-common.php:359
+#: include/elementor/tp-contact-common.php:383
+#: include/elementor/tp-contact-common.php:395
+#: include/elementor/tp-contact-common.php:406
+#: include/elementor/tp-product-2.php:151
+#: include/elementor/tp-product-2.php:162
+#: include/elementor/tp-product-3.php:149
+#: include/elementor/tp-product-3.php:160
+#: include/elementor/tp-product-tab.php:150
+#: include/elementor/tp-product-tab.php:164
+#: include/elementor/tp-product.php:129 include/elementor/tp-product.php:145
+#: include/elementor/video-popup.php:142 include/elementor/video-popup.php:155
+msgid "Your Text"
+msgstr ""
+
+#: include/elementor/author-quote.php:212
+#: include/elementor/product-hotspot.php:137
+msgid "Background Image"
+msgstr ""
+
+#: include/elementor/author-quote.php:220
+msgid "Upload Background Image"
+msgstr ""
+
+#: include/elementor/author-quote.php:244
+#: include/elementor/author-quote.php:275
+msgid "Brand List"
+msgstr ""
+
+#: include/elementor/author-quote.php:254
+msgid "Brand Title"
+msgstr ""
+
+#: include/elementor/author-quote.php:256 include/elementor/brand.php:48
+msgid "Brand"
+msgstr ""
+
+#: include/elementor/author-quote.php:264
+msgid "Upload Brand Image"
+msgstr ""
+
+#: include/elementor/author-quote.php:280
+#: include/elementor/author-quote.php:283
+#: include/elementor/author-quote.php:286
+msgid "Brand Image"
+msgstr ""
+
+#: include/elementor/banner-box.php:47
+msgid "Banner Box"
+msgstr ""
+
+#: include/elementor/banner-box.php:127 include/elementor/banner.php:128
+#: include/elementor/features.php:126 include/elementor/footer-menu.php:126
+#: include/elementor/footer-social.php:176
+#: include/elementor/hero-slider.php:129
+#: include/elementor/instagram-post.php:129 include/elementor/menu-demo.php:156
+#: include/elementor/menu-link.php:154 include/elementor/newsletter.php:144
+#: include/elementor/page-title.php:126
+#: include/elementor/product-banner-slider.php:126
+#: include/elementor/product-category.php:126
+#: include/elementor/product-features.php:126
+#: include/elementor/product-hotspot.php:126
+#: include/elementor/testimonial-slider.php:128
+#: include/elementor/tp-contact-common.php:141
+#: include/elementor/tp-product-2.php:124
+#: include/elementor/tp-product-3.php:124
+#: include/elementor/tp-product-tab.php:125
+#: include/elementor/tpel-btn-border.php:126
+#: include/elementor/tpel-btn-link.php:126 include/elementor/tpel-btn.php:126
+#: include/elementor/tpel-carousel.php:122
+#: include/elementor/video-popup.php:120
+msgid "Layout 2"
+msgstr ""
+
+#: include/elementor/banner-box.php:128 include/elementor/features.php:127
+#: include/elementor/hero-slider.php:130
+#: include/elementor/instagram-post.php:130
+#: include/elementor/product-category.php:127
+#: include/elementor/testimonial-slider.php:129
+#: include/elementor/tp-contact-common.php:142
+#: include/elementor/tp-product-2.php:125
+#: include/elementor/tp-product-tab.php:126
+#: include/elementor/tpel-btn-border.php:127 include/elementor/tpel-btn.php:127
+#: include/elementor/tpel-carousel.php:123
+#: include/elementor/video-popup.php:121
+msgid "Layout 3"
+msgstr ""
+
+#: include/elementor/banner-box.php:129 include/elementor/features.php:128
+#: include/elementor/instagram-post.php:131
+#: include/elementor/product-category.php:128
+#: include/elementor/tp-product-2.php:126
+#: include/elementor/tp-product-tab.php:127
+#: include/elementor/tpel-btn-border.php:128 include/elementor/tpel-btn.php:128
+msgid "Layout 4"
+msgstr ""
+
+#: include/elementor/banner-box.php:130 include/elementor/tp-product-2.php:127
+#: include/elementor/tp-product-tab.php:128
+#: include/elementor/tpel-btn-border.php:129 include/elementor/tpel-btn.php:129
+msgid "Layout 5"
+msgstr ""
+
+#: include/elementor/banner-box.php:131 include/elementor/tp-product-2.php:128
+#: include/elementor/tpel-btn-border.php:130 include/elementor/tpel-btn.php:130
+msgid "Layout 6"
+msgstr ""
+
+#: include/elementor/banner-box.php:132
+#: include/elementor/tpel-btn-border.php:131 include/elementor/tpel-btn.php:131
+msgid "Layout 7"
+msgstr ""
+
+#: include/elementor/banner-box.php:133
+#: include/elementor/tpel-btn-border.php:132 include/elementor/tpel-btn.php:132
+msgid "Layout 8"
+msgstr ""
+
+#: include/elementor/banner-box.php:134
+#: include/elementor/tpel-btn-border.php:133 include/elementor/tpel-btn.php:133
+msgid "Layout 9"
+msgstr ""
+
+#: include/elementor/banner-box.php:145 include/elementor/tp-breadcrumb.php:139
+#: include/elementor/tp-contact-common.php:175
+msgid "Title & Content"
+msgstr ""
+
+#: include/elementor/banner-box.php:178
+msgid "Enable Brown Style?"
+msgstr ""
+
+#: include/elementor/banner-box.php:193
+#: include/elementor/product-banner.php:158
+msgid "Banner Subtitle"
+msgstr ""
+
+#: include/elementor/banner-box.php:195
+msgid "Women"
+msgstr ""
+
+#: include/elementor/banner-box.php:204
+#: include/elementor/product-banner.php:169
+msgid "Banner Title"
+msgstr ""
+
+#: include/elementor/banner-box.php:206
+msgid "Tpp Blouse Shirts"
+msgstr ""
+
+#: include/elementor/banner-box.php:215
+msgid "Banner Title URL"
+msgstr ""
+
+#: include/elementor/banner-box.php:223 include/elementor/footer-call.php:171
+#: include/elementor/footer-call.php:190 include/elementor/footer-call.php:208
+#: include/elementor/footer-call.php:227
+#: include/elementor/footer-contact.php:254
+#: include/elementor/footer-contact.php:273
+#: include/elementor/footer-contact.php:291
+#: include/elementor/footer-contact.php:310
+#: include/elementor/header-builder-style-2.php:598
+#: include/elementor/header-builder-style-2.php:617
+#: include/elementor/header-builder-style-2.php:635
+#: include/elementor/header-builder-style-2.php:654
+#: include/elementor/header-builder.php:519
+#: include/elementor/header-builder.php:538
+#: include/elementor/header-builder.php:556
+#: include/elementor/header-builder.php:575
+#: include/elementor/tp-contact-common.php:537
+#: include/elementor/tp-contact-common.php:567
+msgid "Your URL"
+msgstr ""
+
+#: include/elementor/banner-box.php:231
+msgid "Enable Square Style?"
+msgstr ""
+
+#: include/elementor/banner.php:49
+msgid "Banner"
+msgstr ""
+
+#: include/elementor/banner.php:142
+msgid "Banner List"
+msgstr ""
+
+#: include/elementor/banner.php:143 include/elementor/contact-box.php:183
+#: include/elementor/fact.php:147 include/elementor/features.php:141
+#: include/elementor/hero-slider-2.php:140
+#: include/elementor/hero-slider.php:142 include/elementor/history.php:146
+#: include/elementor/product-banner.php:139
+#: include/elementor/product-category-list.php:148
+#: include/elementor/product-category.php:144
+#: include/elementor/product-featured.php:138
+#: include/elementor/product-features.php:246
+#: include/elementor/product-hotspot.php:245
+#: include/elementor/tpel-carousel.php:135
+msgid "Control all the style settings from Style tab"
+msgstr ""
+
+#: include/elementor/banner.php:153 include/elementor/brand.php:151
+#: include/elementor/contact-box.php:193 include/elementor/fact.php:158
+#: include/elementor/features.php:151 include/elementor/footer-contact.php:126
+#: include/elementor/header-builder.php:391
+#: include/elementor/hero-slider.php:195 include/elementor/history.php:156
+#: include/elementor/info-box.php:206 include/elementor/instagram-post.php:157
+#: include/elementor/product-banner-slider.php:148
+#: include/elementor/product-category.php:155
+#: include/elementor/product-featured.php:149
+#: include/elementor/product-features.php:257
+#: include/elementor/testimonial-slider.php:202
+#: include/elementor/tp-contact-common.php:416
+#: include/elementor/tpel-carousel.php:145
+msgid "Field condition"
+msgstr ""
+
+#: include/elementor/banner.php:156 include/elementor/brand.php:154
+#: include/elementor/contact-box.php:196 include/elementor/fact.php:161
+#: include/elementor/features.php:154 include/elementor/footer-contact.php:129
+#: include/elementor/header-builder.php:394
+#: include/elementor/hero-slider.php:198 include/elementor/history.php:159
+#: include/elementor/info-box.php:209 include/elementor/instagram-post.php:160
+#: include/elementor/product-banner-slider.php:151
+#: include/elementor/product-category.php:158
+#: include/elementor/product-featured.php:152
+#: include/elementor/product-features.php:260
+#: include/elementor/testimonial-slider.php:205
+#: include/elementor/tp-contact-common.php:419
+#: include/elementor/tpel-carousel.php:148
+msgid "Style 1"
+msgstr ""
+
+#: include/elementor/banner.php:157 include/elementor/brand.php:155
+#: include/elementor/contact-box.php:197 include/elementor/fact.php:162
+#: include/elementor/features.php:155 include/elementor/footer-contact.php:130
+#: include/elementor/header-builder.php:395
+#: include/elementor/hero-slider.php:199 include/elementor/history.php:160
+#: include/elementor/info-box.php:210 include/elementor/instagram-post.php:161
+#: include/elementor/product-banner-slider.php:152
+#: include/elementor/product-category.php:159
+#: include/elementor/product-featured.php:153
+#: include/elementor/product-features.php:261
+#: include/elementor/testimonial-slider.php:206
+#: include/elementor/tp-contact-common.php:420
+#: include/elementor/tpel-carousel.php:149
+msgid "Style 2"
+msgstr ""
+
+#: include/elementor/banner.php:185
+msgid "23 Products"
+msgstr ""
+
+#: include/elementor/banner.php:198 include/elementor/features.php:247
+#: include/elementor/product-category.php:185
+#: include/elementor/product-featured.php:179
+#: include/elementor/product-features.php:350
+#: include/elementor/product-hotspot.php:275
+msgid "Service Title"
+msgstr ""
+
+#: include/elementor/banner.php:206
+msgid "Add Banner link"
+msgstr ""
+
+#: include/elementor/banner.php:231 include/elementor/product-banner.php:216
+msgid "Banner Link Type"
+msgstr ""
+
+#: include/elementor/banner.php:246
+msgid "Banner Link"
+msgstr ""
+
+#: include/elementor/banner.php:267
+msgid "Select Banner Link Page"
+msgstr ""
+
+#: include/elementor/banner.php:281
+msgid "Banner - List"
+msgstr ""
+
+#: include/elementor/banner.php:286 include/elementor/features.php:271
+#: include/elementor/footer-list.php:243 include/elementor/footer-menu.php:255
+#: include/elementor/info-box.php:381
+#: include/elementor/product-banner-slider.php:329
+#: include/elementor/product-category.php:329
+#: include/elementor/product-features.php:437
+msgid "Business Stratagy"
+msgstr ""
+
+#: include/elementor/banner.php:289 include/elementor/features.php:274
+#: include/elementor/footer-list.php:246 include/elementor/footer-menu.php:258
+#: include/elementor/info-box.php:384
+#: include/elementor/product-banner-slider.php:332
+#: include/elementor/product-category-list.php:249
+#: include/elementor/product-category-list.php:252
+#: include/elementor/product-category.php:332
+#: include/elementor/product-category.php:335
+#: include/elementor/product-features.php:440
+msgid "Website Development"
+msgstr ""
+
+#: include/elementor/banner.php:292 include/elementor/features.php:277
+#: include/elementor/footer-list.php:249 include/elementor/footer-menu.php:261
+#: include/elementor/info-box.php:387
+#: include/elementor/product-banner-slider.php:335
+#: include/elementor/product-features.php:443
+msgid "Marketing & Reporting"
+msgstr ""
+
+#: include/elementor/blog-post-grid.php:46
+msgid "Blog Post Grid"
+msgstr ""
+
+#: include/elementor/blog-post-grid.php:256
+#: include/elementor/blog-post-grid.php:335
+msgid "Comments "
+msgstr ""
+
+#: include/elementor/blog-post.php:47
+msgid "Blog Post"
+msgstr ""
+
+#: include/elementor/brand.php:141 include/elementor/brand.php:199
+#: include/elementor/menu-brand.php:141 include/elementor/menu-brand.php:184
+msgid "Brand Item"
+msgstr ""
+
+#: include/elementor/brand.php:184 include/elementor/menu-brand.php:169
+#: include/elementor/tp-contact-common.php:529
+msgid "URL"
+msgstr ""
+
+#: include/elementor/brand.php:185 include/elementor/contact-box.php:437
+#: include/elementor/contact-box.php:451 include/elementor/contact-box.php:465
+#: include/elementor/menu-brand.php:170
+msgid "#"
+msgstr ""
+
+#: include/elementor/brand.php:186 include/elementor/menu-brand.php:171
+msgid "Type url here"
+msgstr ""
+
+#: include/elementor/contact-box.php:47
+msgid "Contact Box"
+msgstr ""
+
+#: include/elementor/contact-box.php:100
+#: include/elementor/footer-social.php:110
+#: include/elementor/footer-subscribe.php:100
+#: include/elementor/header-builder-style-2.php:155
+#: include/elementor/header-builder-style-3.php:155
+#: include/elementor/header-builder-style-4.php:155
+#: include/elementor/header-builder-style-5.php:155
+#: include/elementor/header-builder.php:155 include/elementor/info-box.php:111
+msgid "Apple"
+msgstr ""
+
+#: include/elementor/contact-box.php:101 include/elementor/contact-box.php:543
+#: include/elementor/footer-social.php:111
+#: include/elementor/footer-subscribe.php:101
+#: include/elementor/header-builder-style-2.php:156
+#: include/elementor/header-builder-style-3.php:156
+#: include/elementor/header-builder-style-4.php:156
+#: include/elementor/header-builder-style-5.php:156
+#: include/elementor/header-builder.php:156 include/elementor/info-box.php:112
+msgid "Behance"
+msgstr ""
+
+#: include/elementor/contact-box.php:102
+#: include/elementor/footer-social.php:112
+#: include/elementor/footer-subscribe.php:102
+#: include/elementor/header-builder-style-2.php:157
+#: include/elementor/header-builder-style-3.php:157
+#: include/elementor/header-builder-style-4.php:157
+#: include/elementor/header-builder-style-5.php:157
+#: include/elementor/header-builder.php:157 include/elementor/info-box.php:113
+msgid "BitBucket"
+msgstr ""
+
+#: include/elementor/contact-box.php:103
+#: include/elementor/footer-social.php:113
+#: include/elementor/footer-subscribe.php:103
+#: include/elementor/header-builder-style-2.php:158
+#: include/elementor/header-builder-style-3.php:158
+#: include/elementor/header-builder-style-4.php:158
+#: include/elementor/header-builder-style-5.php:158
+#: include/elementor/header-builder.php:158 include/elementor/info-box.php:114
+msgid "CodePen"
+msgstr ""
+
+#: include/elementor/contact-box.php:104
+#: include/elementor/footer-social.php:114
+#: include/elementor/footer-subscribe.php:104
+#: include/elementor/header-builder-style-2.php:159
+#: include/elementor/header-builder-style-3.php:159
+#: include/elementor/header-builder-style-4.php:159
+#: include/elementor/header-builder-style-5.php:159
+#: include/elementor/header-builder.php:159 include/elementor/info-box.php:115
+msgid "Delicious"
+msgstr ""
+
+#: include/elementor/contact-box.php:105
+#: include/elementor/footer-social.php:115
+#: include/elementor/footer-subscribe.php:105
+#: include/elementor/header-builder-style-2.php:160
+#: include/elementor/header-builder-style-3.php:160
+#: include/elementor/header-builder-style-4.php:160
+#: include/elementor/header-builder-style-5.php:160
+#: include/elementor/header-builder.php:160 include/elementor/info-box.php:116
+msgid "DeviantArt"
+msgstr ""
+
+#: include/elementor/contact-box.php:106
+#: include/elementor/footer-social.php:116
+#: include/elementor/footer-subscribe.php:106
+#: include/elementor/header-builder-style-2.php:161
+#: include/elementor/header-builder-style-3.php:161
+#: include/elementor/header-builder-style-4.php:161
+#: include/elementor/header-builder-style-5.php:161
+#: include/elementor/header-builder.php:161 include/elementor/info-box.php:117
+msgid "Digg"
+msgstr ""
+
+#: include/elementor/contact-box.php:107 include/elementor/contact-box.php:556
+#: include/elementor/footer-social.php:117
+#: include/elementor/footer-subscribe.php:107
+#: include/elementor/header-builder-style-2.php:162
+#: include/elementor/header-builder-style-3.php:162
+#: include/elementor/header-builder-style-4.php:162
+#: include/elementor/header-builder-style-5.php:162
+#: include/elementor/header-builder.php:162 include/elementor/info-box.php:118
+msgid "Dribbble"
+msgstr ""
+
+#: include/elementor/contact-box.php:108 include/elementor/contact-box.php:410
+#: include/elementor/footer-call.php:151
+#: include/elementor/footer-contact.php:234
+#: include/elementor/footer-social.php:118
+#: include/elementor/footer-subscribe.php:108
+#: include/elementor/header-builder-style-2.php:163
+#: include/elementor/header-builder-style-2.php:578
+#: include/elementor/header-builder-style-3.php:163
+#: include/elementor/header-builder-style-4.php:163
+#: include/elementor/header-builder-style-5.php:163
+#: include/elementor/header-builder.php:163
+#: include/elementor/header-builder.php:499 include/elementor/info-box.php:119
+#: include/elementor/tp-contact-common.php:518
+msgid "Email"
+msgstr ""
+
+#: include/elementor/contact-box.php:109 include/elementor/contact-box.php:436
+#: include/elementor/footer-social.php:119
+#: include/elementor/footer-subscribe.php:109
+#: include/elementor/header-builder-style-2.php:164
+#: include/elementor/header-builder-style-3.php:164
+#: include/elementor/header-builder-style-4.php:164
+#: include/elementor/header-builder-style-5.php:164
+#: include/elementor/header-builder.php:164
+#: include/elementor/header-builder.php:591 include/elementor/info-box.php:120
+msgid "Facebook"
+msgstr ""
+
+#: include/elementor/contact-box.php:110
+#: include/elementor/footer-social.php:120
+#: include/elementor/footer-subscribe.php:110
+#: include/elementor/header-builder-style-2.php:165
+#: include/elementor/header-builder-style-3.php:165
+#: include/elementor/header-builder-style-4.php:165
+#: include/elementor/header-builder-style-5.php:165
+#: include/elementor/header-builder.php:165 include/elementor/info-box.php:121
+msgid "Flicker"
+msgstr ""
+
+#: include/elementor/contact-box.php:111
+#: include/elementor/footer-social.php:121
+#: include/elementor/footer-subscribe.php:111
+#: include/elementor/header-builder-style-2.php:166
+#: include/elementor/header-builder-style-3.php:166
+#: include/elementor/header-builder-style-4.php:166
+#: include/elementor/header-builder-style-5.php:166
+#: include/elementor/header-builder.php:166 include/elementor/info-box.php:122
+msgid "FourSquare"
+msgstr ""
+
+#: include/elementor/contact-box.php:112 include/elementor/contact-box.php:582
+#: include/elementor/footer-social.php:122
+#: include/elementor/footer-subscribe.php:112
+#: include/elementor/header-builder-style-2.php:167
+#: include/elementor/header-builder-style-3.php:167
+#: include/elementor/header-builder-style-4.php:167
+#: include/elementor/header-builder-style-5.php:167
+#: include/elementor/header-builder.php:167 include/elementor/info-box.php:123
+msgid "Github"
+msgstr ""
+
+#: include/elementor/contact-box.php:113
+#: include/elementor/footer-social.php:123
+#: include/elementor/footer-subscribe.php:113
+#: include/elementor/header-builder-style-2.php:168
+#: include/elementor/header-builder-style-3.php:168
+#: include/elementor/header-builder-style-4.php:168
+#: include/elementor/header-builder-style-5.php:168
+#: include/elementor/header-builder.php:168 include/elementor/info-box.php:124
+msgid "Houzz"
+msgstr ""
+
+#: include/elementor/contact-box.php:114 include/elementor/contact-box.php:464
+#: include/elementor/footer-social.php:124
+#: include/elementor/footer-subscribe.php:114
+#: include/elementor/header-builder-style-2.php:169
+#: include/elementor/header-builder-style-3.php:169
+#: include/elementor/header-builder-style-4.php:169
+#: include/elementor/header-builder-style-5.php:169
+#: include/elementor/header-builder.php:169 include/elementor/info-box.php:125
+#: include/elementor/instagram-post.php:216
+msgid "Instagram"
+msgstr ""
+
+#: include/elementor/contact-box.php:115
+#: include/elementor/footer-social.php:125
+#: include/elementor/footer-subscribe.php:115
+#: include/elementor/header-builder-style-2.php:170
+#: include/elementor/header-builder-style-3.php:170
+#: include/elementor/header-builder-style-4.php:170
+#: include/elementor/header-builder-style-5.php:170
+#: include/elementor/header-builder.php:170 include/elementor/info-box.php:126
+msgid "JS Fiddle"
+msgstr ""
+
+#: include/elementor/contact-box.php:116 include/elementor/contact-box.php:478
+#: include/elementor/footer-social.php:126
+#: include/elementor/footer-subscribe.php:116
+#: include/elementor/header-builder-style-2.php:171
+#: include/elementor/header-builder-style-3.php:171
+#: include/elementor/header-builder-style-4.php:171
+#: include/elementor/header-builder-style-5.php:171
+#: include/elementor/header-builder.php:171 include/elementor/info-box.php:127
+msgid "LinkedIn"
+msgstr ""
+
+#: include/elementor/contact-box.php:117
+#: include/elementor/footer-social.php:127
+#: include/elementor/footer-subscribe.php:117
+#: include/elementor/header-builder-style-2.php:172
+#: include/elementor/header-builder-style-3.php:172
+#: include/elementor/header-builder-style-4.php:172
+#: include/elementor/header-builder-style-5.php:172
+#: include/elementor/header-builder.php:172 include/elementor/info-box.php:128
+msgid "Medium"
+msgstr ""
+
+#: include/elementor/contact-box.php:118 include/elementor/contact-box.php:569
+#: include/elementor/footer-social.php:128
+#: include/elementor/footer-subscribe.php:118
+#: include/elementor/header-builder-style-2.php:173
+#: include/elementor/header-builder-style-3.php:173
+#: include/elementor/header-builder-style-4.php:173
+#: include/elementor/header-builder-style-5.php:173
+#: include/elementor/header-builder.php:173 include/elementor/info-box.php:129
+msgid "Pinterest"
+msgstr ""
+
+#: include/elementor/contact-box.php:119
+#: include/elementor/footer-social.php:129
+#: include/elementor/footer-subscribe.php:119
+#: include/elementor/header-builder-style-2.php:174
+#: include/elementor/header-builder-style-3.php:174
+#: include/elementor/header-builder-style-4.php:174
+#: include/elementor/header-builder-style-5.php:174
+#: include/elementor/header-builder.php:174 include/elementor/info-box.php:130
+msgid "Product Hunt"
+msgstr ""
+
+#: include/elementor/contact-box.php:120
+#: include/elementor/footer-social.php:130
+#: include/elementor/footer-subscribe.php:120
+#: include/elementor/header-builder-style-2.php:175
+#: include/elementor/header-builder-style-3.php:175
+#: include/elementor/header-builder-style-4.php:175
+#: include/elementor/header-builder-style-5.php:175
+#: include/elementor/header-builder.php:175 include/elementor/info-box.php:131
+msgid "Reddit"
+msgstr ""
+
+#: include/elementor/contact-box.php:121
+#: include/elementor/footer-social.php:131
+#: include/elementor/footer-subscribe.php:121
+#: include/elementor/header-builder-style-2.php:176
+#: include/elementor/header-builder-style-3.php:176
+#: include/elementor/header-builder-style-4.php:176
+#: include/elementor/header-builder-style-5.php:176
+#: include/elementor/header-builder.php:176 include/elementor/info-box.php:132
+msgid "Slide Share"
+msgstr ""
+
+#: include/elementor/contact-box.php:122
+#: include/elementor/footer-social.php:132
+#: include/elementor/footer-subscribe.php:122
+#: include/elementor/header-builder-style-2.php:177
+#: include/elementor/header-builder-style-3.php:177
+#: include/elementor/header-builder-style-4.php:177
+#: include/elementor/header-builder-style-5.php:177
+#: include/elementor/header-builder.php:177 include/elementor/info-box.php:133
+msgid "Snapchat"
+msgstr ""
+
+#: include/elementor/contact-box.php:123
+#: include/elementor/footer-social.php:133
+#: include/elementor/footer-subscribe.php:123
+#: include/elementor/header-builder-style-2.php:178
+#: include/elementor/header-builder-style-3.php:178
+#: include/elementor/header-builder-style-4.php:178
+#: include/elementor/header-builder-style-5.php:178
+#: include/elementor/header-builder.php:178 include/elementor/info-box.php:134
+msgid "SoundCloud"
+msgstr ""
+
+#: include/elementor/contact-box.php:124
+#: include/elementor/footer-social.php:134
+#: include/elementor/footer-subscribe.php:124
+#: include/elementor/header-builder-style-2.php:179
+#: include/elementor/header-builder-style-3.php:179
+#: include/elementor/header-builder-style-4.php:179
+#: include/elementor/header-builder-style-5.php:179
+#: include/elementor/header-builder.php:179 include/elementor/info-box.php:135
+msgid "Spotify"
+msgstr ""
+
+#: include/elementor/contact-box.php:125
+#: include/elementor/footer-social.php:135
+#: include/elementor/footer-subscribe.php:125
+#: include/elementor/header-builder-style-2.php:180
+#: include/elementor/header-builder-style-3.php:180
+#: include/elementor/header-builder-style-4.php:180
+#: include/elementor/header-builder-style-5.php:180
+#: include/elementor/header-builder.php:180 include/elementor/info-box.php:136
+msgid "StackOverflow"
+msgstr ""
+
+#: include/elementor/contact-box.php:126
+#: include/elementor/footer-social.php:136
+#: include/elementor/footer-subscribe.php:126
+#: include/elementor/header-builder-style-2.php:181
+#: include/elementor/header-builder-style-3.php:181
+#: include/elementor/header-builder-style-4.php:181
+#: include/elementor/header-builder-style-5.php:181
+#: include/elementor/header-builder.php:181 include/elementor/info-box.php:137
+msgid "TripAdvisor"
+msgstr ""
+
+#: include/elementor/contact-box.php:127
+#: include/elementor/footer-social.php:137
+#: include/elementor/footer-subscribe.php:127
+#: include/elementor/header-builder-style-2.php:182
+#: include/elementor/header-builder-style-3.php:182
+#: include/elementor/header-builder-style-4.php:182
+#: include/elementor/header-builder-style-5.php:182
+#: include/elementor/header-builder.php:182 include/elementor/info-box.php:138
+msgid "Tumblr"
+msgstr ""
+
+#: include/elementor/contact-box.php:128
+#: include/elementor/footer-social.php:138
+#: include/elementor/footer-subscribe.php:128
+#: include/elementor/header-builder-style-2.php:183
+#: include/elementor/header-builder-style-3.php:183
+#: include/elementor/header-builder-style-4.php:183
+#: include/elementor/header-builder-style-5.php:183
+#: include/elementor/header-builder.php:183 include/elementor/info-box.php:139
+msgid "Twitch"
+msgstr ""
+
+#: include/elementor/contact-box.php:129 include/elementor/contact-box.php:450
+#: include/elementor/footer-social.php:139
+#: include/elementor/footer-subscribe.php:129
+#: include/elementor/header-builder-style-2.php:184
+#: include/elementor/header-builder-style-3.php:184
+#: include/elementor/header-builder-style-4.php:184
+#: include/elementor/header-builder-style-5.php:184
+#: include/elementor/header-builder.php:184
+#: include/elementor/header-builder.php:594 include/elementor/info-box.php:140
+msgid "Twitter"
+msgstr ""
+
+#: include/elementor/contact-box.php:130 include/elementor/contact-box.php:530
+#: include/elementor/footer-social.php:140
+#: include/elementor/footer-subscribe.php:130
+#: include/elementor/header-builder-style-2.php:185
+#: include/elementor/header-builder-style-3.php:185
+#: include/elementor/header-builder-style-4.php:185
+#: include/elementor/header-builder-style-5.php:185
+#: include/elementor/header-builder.php:185 include/elementor/info-box.php:141
+msgid "Vimeo"
+msgstr ""
+
+#: include/elementor/contact-box.php:131
+#: include/elementor/footer-social.php:141
+#: include/elementor/footer-subscribe.php:131
+#: include/elementor/header-builder-style-2.php:186
+#: include/elementor/header-builder-style-3.php:186
+#: include/elementor/header-builder-style-4.php:186
+#: include/elementor/header-builder-style-5.php:186
+#: include/elementor/header-builder.php:186 include/elementor/info-box.php:142
+msgid "VK"
+msgstr ""
+
+#: include/elementor/contact-box.php:132 include/elementor/fact.php:293
+#: include/elementor/footer-social.php:142
+#: include/elementor/footer-subscribe.php:132
+#: include/elementor/header-builder-style-2.php:187
+#: include/elementor/header-builder-style-3.php:187
+#: include/elementor/header-builder-style-4.php:187
+#: include/elementor/header-builder-style-5.php:187
+#: include/elementor/header-builder.php:187 include/elementor/info-box.php:143
+msgid "Website"
+msgstr ""
+
+#: include/elementor/contact-box.php:133
+#: include/elementor/footer-social.php:143
+#: include/elementor/footer-subscribe.php:133
+#: include/elementor/header-builder-style-2.php:188
+#: include/elementor/header-builder-style-3.php:188
+#: include/elementor/header-builder-style-4.php:188
+#: include/elementor/header-builder-style-5.php:188
+#: include/elementor/header-builder.php:188 include/elementor/info-box.php:144
+msgid "WhatsApp"
+msgstr ""
+
+#: include/elementor/contact-box.php:134
+#: include/elementor/footer-social.php:144
+#: include/elementor/footer-subscribe.php:134
+#: include/elementor/header-builder-style-2.php:189
+#: include/elementor/header-builder-style-3.php:189
+#: include/elementor/header-builder-style-4.php:189
+#: include/elementor/header-builder-style-5.php:189
+#: include/elementor/header-builder.php:189 include/elementor/info-box.php:145
+msgid "WordPress"
+msgstr ""
+
+#: include/elementor/contact-box.php:135
+#: include/elementor/footer-social.php:145
+#: include/elementor/footer-subscribe.php:135
+#: include/elementor/header-builder-style-2.php:190
+#: include/elementor/header-builder-style-3.php:190
+#: include/elementor/header-builder-style-4.php:190
+#: include/elementor/header-builder-style-5.php:190
+#: include/elementor/header-builder.php:190 include/elementor/info-box.php:146
+msgid "Xing"
+msgstr ""
+
+#: include/elementor/contact-box.php:136
+#: include/elementor/footer-social.php:146
+#: include/elementor/footer-subscribe.php:136
+#: include/elementor/header-builder-style-2.php:191
+#: include/elementor/header-builder-style-3.php:191
+#: include/elementor/header-builder-style-4.php:191
+#: include/elementor/header-builder-style-5.php:191
+#: include/elementor/header-builder.php:191 include/elementor/info-box.php:147
+msgid "Yelp"
+msgstr ""
+
+#: include/elementor/contact-box.php:137
+#: include/elementor/footer-social.php:147
+#: include/elementor/footer-subscribe.php:137
+#: include/elementor/header-builder-style-2.php:192
+#: include/elementor/header-builder-style-3.php:192
+#: include/elementor/header-builder-style-4.php:192
+#: include/elementor/header-builder-style-5.php:192
+#: include/elementor/header-builder.php:192 include/elementor/info-box.php:148
+msgid "YouTube"
+msgstr ""
+
+#: include/elementor/contact-box.php:148 include/elementor/contact-box.php:632
+#: include/elementor/footer-subscribe.php:148
+#: include/elementor/footer-subscribe.php:197
+#: include/elementor/newsletter.php:104 include/elementor/newsletter.php:231
+#: include/elementor/tp-contact-common.php:104
+#: include/elementor/tp-contact-common.php:161
+msgid "Select Form"
+msgstr ""
+
+#: include/elementor/contact-box.php:154
+#: include/elementor/footer-subscribe.php:154
+#: include/elementor/newsletter.php:110
+#: include/elementor/tp-contact-common.php:110
+msgid "No contact form found"
+msgstr ""
+
+#: include/elementor/contact-box.php:182
+msgid "Contact Info List"
+msgstr ""
+
+#: include/elementor/contact-box.php:287
+msgid "Contact Type Title"
+msgstr ""
+
+#: include/elementor/contact-box.php:288
+msgid ""
+"This field is just used for title showing. It not reflect in main design."
+msgstr ""
+
+#: include/elementor/contact-box.php:301
+msgid "Email Info"
+msgstr ""
+
+#: include/elementor/contact-box.php:315
+msgid "Phone Info"
+msgstr ""
+
+#: include/elementor/contact-box.php:329
+msgid "Map Info"
+msgstr ""
+
+#: include/elementor/contact-box.php:344
+msgid "Add Social Icons?"
+msgstr ""
+
+#: include/elementor/contact-box.php:366
+msgid "Information"
+msgstr ""
+
+#: include/elementor/contact-box.php:373
+msgid "Social Title"
+msgstr ""
+
+#: include/elementor/contact-box.php:375
+msgid "Find on social media"
+msgstr ""
+
+#: include/elementor/contact-box.php:388
+msgid "Links"
+msgstr ""
+
+#: include/elementor/contact-box.php:397
+msgid "Website Address"
+msgstr ""
+
+#: include/elementor/contact-box.php:398
+#: include/elementor/footer-social.php:211
+msgid "Add your profile link"
+msgstr ""
+
+#: include/elementor/contact-box.php:411
+msgid "Add your email link"
+msgstr ""
+
+#: include/elementor/contact-box.php:423 include/elementor/footer-call.php:152
+#: include/elementor/footer-contact.php:235
+#: include/elementor/header-builder-style-2.php:579
+#: include/elementor/header-builder.php:500
+#: include/elementor/tp-contact-common.php:519
+msgid "Phone"
+msgstr ""
+
+#: include/elementor/contact-box.php:424
+msgid "Add your phone link"
+msgstr ""
+
+#: include/elementor/contact-box.php:438
+msgid "Add your facebook link"
+msgstr ""
+
+#: include/elementor/contact-box.php:452
+msgid "Add your twitter link"
+msgstr ""
+
+#: include/elementor/contact-box.php:466
+msgid "Add your instagram link"
+msgstr ""
+
+#: include/elementor/contact-box.php:479
+msgid "Add your linkedin link"
+msgstr ""
+
+#: include/elementor/contact-box.php:491
+msgid "Youtube"
+msgstr ""
+
+#: include/elementor/contact-box.php:492
+msgid "Add your youtube link"
+msgstr ""
+
+#: include/elementor/contact-box.php:504
+msgid "Google Plus"
+msgstr ""
+
+#: include/elementor/contact-box.php:505
+msgid "Add your Google Plus link"
+msgstr ""
+
+#: include/elementor/contact-box.php:517
+msgid "Flickr"
+msgstr ""
+
+#: include/elementor/contact-box.php:518
+msgid "Add your flickr link"
+msgstr ""
+
+#: include/elementor/contact-box.php:531
+msgid "Add your vimeo link"
+msgstr ""
+
+#: include/elementor/contact-box.php:544
+msgid "Add your hehance link"
+msgstr ""
+
+#: include/elementor/contact-box.php:557
+msgid "Add your dribbble link"
+msgstr ""
+
+#: include/elementor/contact-box.php:570
+msgid "Add your pinterest link"
+msgstr ""
+
+#: include/elementor/contact-box.php:583
+msgid "Add your github link"
+msgstr ""
+
+#: include/elementor/contact-box.php:596
+msgid "Contact - List"
+msgstr ""
+
+#: include/elementor/contact-box.php:615
+#: include/elementor/footer-subscribe.php:179
+#: include/elementor/tp-contact-common.php:154
+msgid "Contact Form"
+msgstr ""
+
+#: include/elementor/contact-box.php:622 include/elementor/footer-call.php:138
+#: include/elementor/footer-call.php:140
+#: include/elementor/footer-contact.php:221
+#: include/elementor/footer-contact.php:223
+#: include/elementor/header-builder-style-2.php:565
+#: include/elementor/header-builder.php:486
+#: include/elementor/header-builder.php:488
+msgid "Contact Title"
+msgstr ""
+
+#: include/elementor/contact-box.php:624
+msgid "Sent A Message"
+msgstr ""
+
+#: include/elementor/contact-box.php:691
+#: include/elementor/footer-subscribe.php:237
+#: include/elementor/newsletter.php:316
+#: include/elementor/tp-contact-common.php:669
+#: include/elementor/tp-contact-common.php:795
+#: include/elementor/tp-contact-common.php:839
+msgid "Please Select contact form."
+msgstr ""
+
+#: include/elementor/fact.php:55
+msgid "Fact"
+msgstr ""
+
+#: include/elementor/fact.php:146
+msgid "Fact List"
+msgstr ""
+
+#: include/elementor/fact.php:253
+msgid "Number"
+msgstr ""
+
+#: include/elementor/fact.php:256
+msgid "17"
+msgstr ""
+
+#: include/elementor/fact.php:263
+msgid "Number Quantity"
+msgstr ""
+
+#: include/elementor/fact.php:266 include/tp-woo.php:78
+msgid "%"
+msgstr ""
+
+#: include/elementor/fact.php:276
+msgid "Food"
+msgstr ""
+
+#: include/elementor/fact.php:285
+msgid "Fact - List"
+msgstr ""
+
+#: include/elementor/fact.php:290
+msgid "Business"
+msgstr ""
+
+#: include/elementor/fact.php:296
+msgid "Marketing"
+msgstr ""
+
+#: include/elementor/features.php:47
+msgid "Features"
+msgstr ""
+
+#: include/elementor/features.php:140
+#: include/elementor/product-features.php:245
+msgid "Features List"
+msgstr ""
+
+#: include/elementor/features.php:266
+#: include/elementor/product-category-list.php:241
+#: include/elementor/product-features.php:432
+msgid "Features - List"
+msgstr ""
+
+#: include/elementor/footer-call.php:46 include/elementor/footer-call.php:115
+msgid "Footer Call"
+msgstr ""
+
+#: include/elementor/footer-call.php:125
+msgid "Got Questions? Call us"
+msgstr ""
+
+#: include/elementor/footer-call.php:148
+#: include/elementor/footer-contact.php:231
+#: include/elementor/header-builder-style-2.php:575
+#: include/elementor/header-builder.php:496
+#: include/elementor/tp-contact-common.php:514
+msgid "Select Type"
+msgstr ""
+
+#: include/elementor/footer-call.php:153
+#: include/elementor/footer-contact.php:236
+#: include/elementor/header-builder-style-2.php:580
+#: include/elementor/header-builder.php:501
+#: include/elementor/tp-contact-common.php:520
+msgid "Map"
+msgstr ""
+
+#: include/elementor/footer-call.php:163
+#: include/elementor/footer-contact.php:246
+#: include/elementor/header-builder-style-2.php:590
+#: include/elementor/header-builder.php:511
+msgid "Default URL"
+msgstr ""
+
+#: include/elementor/footer-call.php:182
+#: include/elementor/footer-contact.php:265
+#: include/elementor/header-builder-style-2.php:609
+#: include/elementor/header-builder.php:530
+msgid "Phone URL"
+msgstr ""
+
+#: include/elementor/footer-call.php:200
+#: include/elementor/footer-contact.php:283
+#: include/elementor/header-builder-style-2.php:627
+#: include/elementor/header-builder.php:548
+msgid "Email URL"
+msgstr ""
+
+#: include/elementor/footer-call.php:219
+#: include/elementor/footer-contact.php:302
+#: include/elementor/header-builder-style-2.php:646
+#: include/elementor/header-builder.php:567
+#: include/elementor/tp-contact-common.php:559
+msgid "Map URL"
+msgstr ""
+
+#: include/elementor/footer-call.php:238
+msgid "Call Repeater"
+msgstr ""
+
+#: include/elementor/footer-call.php:243
+msgid "012 458 246"
+msgstr ""
+
+#: include/elementor/footer-contact.php:46
+msgid "Footer Contact"
+msgstr ""
+
+#: include/elementor/footer-contact.php:115
+msgid "Footer Contact Info"
+msgstr ""
+
+#: include/elementor/footer-contact.php:321
+#: include/elementor/header-builder.php:586
+msgid "Contact Repeater"
+msgstr ""
+
+#: include/elementor/footer-contact.php:326
+msgid "shofy@mail.com"
+msgstr ""
+
+#: include/elementor/footer-contact.php:329
+msgid "+012 456 5852"
+msgstr ""
+
+#: include/elementor/footer-list.php:46 include/elementor/footer-list.php:116
+msgid "Footer List"
+msgstr ""
+
+#: include/elementor/footer-list.php:123
+#: include/elementor/footer-widget-title.php:122
+#: include/elementor/product-category-list.php:156
+msgid "Widget Title"
+msgstr ""
+
+#: include/elementor/footer-list.php:125
+#: include/elementor/footer-widget-title.php:124
+msgid "My Widget List"
+msgstr ""
+
+#: include/elementor/footer-list.php:135 include/elementor/footer-menu.php:147
+msgid "Add Footer link"
+msgstr ""
+
+#: include/elementor/footer-list.php:147 include/elementor/footer-list.php:149
+#: include/elementor/footer-menu.php:159 include/elementor/footer-menu.php:161
+msgid "Link Text"
+msgstr ""
+
+#: include/elementor/footer-list.php:150 include/elementor/footer-menu.php:162
+msgid "Enter link text"
+msgstr ""
+
+#: include/elementor/footer-list.php:160 include/elementor/footer-menu.php:172
+msgid "Footer Link Type"
+msgstr ""
+
+#: include/elementor/footer-list.php:175 include/elementor/footer-menu.php:187
+msgid "Footer Link link"
+msgstr ""
+
+#: include/elementor/footer-list.php:196 include/elementor/footer-menu.php:208
+msgid "Select Footer Link Page"
+msgstr ""
+
+#: include/elementor/footer-list.php:238 include/elementor/footer-menu.php:250
+msgid "Footer - List"
+msgstr ""
+
+#: include/elementor/footer-menu.php:46
+msgid "Footer Menu"
+msgstr ""
+
+#: include/elementor/footer-social.php:47
+msgid "Footer Social"
+msgstr ""
+
+#: include/elementor/footer-social.php:109
+#: include/elementor/header-builder-style-2.php:154
+#: include/elementor/header-builder-style-3.php:154
+#: include/elementor/header-builder-style-4.php:154
+#: include/elementor/header-builder-style-5.php:154
+#: include/elementor/header-builder.php:154 include/elementor/info-box.php:110
+msgid "500px"
+msgstr ""
+
+#: include/elementor/footer-social.php:188
+msgid "Social Profiles"
+msgstr ""
+
+#: include/elementor/footer-social.php:198
+msgid "Profile Name"
+msgstr ""
+
+#: include/elementor/footer-social.php:210
+msgid "Profile Link"
+msgstr ""
+
+#: include/elementor/footer-social.php:251
+msgid "Show Profiles"
+msgstr ""
+
+#: include/elementor/footer-social.php:265
+msgid "Profile Title"
+msgstr ""
+
+#: include/elementor/footer-social.php:268
+msgid "TP Profile Title"
+msgstr ""
+
+#: include/elementor/footer-social.php:269
+#: include/elementor/tp-contact-common.php:198
+msgid "Type Sub Heading Text"
+msgstr ""
+
+#: include/elementor/footer-subscribe.php:47
+msgid "Footer Subscribe"
+msgstr ""
+
+#: include/elementor/footer-subscribe.php:186
+msgid "Description Text"
+msgstr ""
+
+#: include/elementor/footer-subscribe.php:188
+msgid "Our conversation is just getting started"
+msgstr ""
+
+#: include/elementor/footer-widget-title.php:46
+msgid "Footer Widget Title"
+msgstr ""
+
+#: include/elementor/footer-widget-title.php:115
+msgid "Footer Widet Title"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:54
+msgid "Header Builder Style 2"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:219
+#: include/elementor/header-builder-style-3.php:219
+#: include/elementor/header-builder-style-4.php:219
+#: include/elementor/header-builder-style-5.php:219
+#: include/elementor/header-builder.php:221
+msgid "Header Info"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:225
+#: include/elementor/header-builder.php:228
+msgid "Header Topbar Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:236
+#: include/elementor/header-builder.php:253
+msgid "Header Language Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:247
+#: include/elementor/header-builder.php:265
+msgid "Header Setting Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:259
+#: include/elementor/header-builder.php:277
+msgid "Header Currency Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:272
+#: include/elementor/header-builder-style-2.php:894
+#: include/elementor/header-builder-style-3.php:492
+#: include/elementor/header-builder-style-4.php:494
+#: include/elementor/header-builder-style-5.php:566
+#: include/elementor/header-builder.php:291
+#: include/elementor/header-builder.php:802
+msgid "Currency Shortcode"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:274
+#: include/elementor/header-builder.php:293
+msgid "[shofy_currency_shortcode]"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:275
+#: include/elementor/header-builder.php:294
+msgid "Enter Your Shortcode"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:286
+#: include/elementor/header-builder-style-3.php:226
+#: include/elementor/header-builder-style-4.php:226
+#: include/elementor/header-builder-style-5.php:226
+#: include/elementor/header-builder.php:305
+msgid "Header Right Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:298
+#: include/elementor/header-builder-style-3.php:238
+#: include/elementor/header-builder-style-4.php:238
+#: include/elementor/header-builder-style-5.php:238
+#: include/elementor/header-builder.php:317
+msgid "Header Search Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:310
+#: include/elementor/header-builder-style-3.php:250
+#: include/elementor/header-builder-style-4.php:250
+#: include/elementor/header-builder-style-5.php:263
+#: include/elementor/header-builder.php:329
+msgid "Header Wishlist Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:322
+#: include/elementor/header-builder-style-3.php:262
+#: include/elementor/header-builder-style-4.php:262
+#: include/elementor/header-builder-style-5.php:275
+#: include/elementor/header-builder.php:341
+msgid "Header Cart Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:333
+#: include/elementor/header-builder.php:352
+msgid "Header Compare Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:344
+#: include/elementor/header-builder-style-5.php:287
+msgid "Header Login Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:356
+#: include/elementor/header-builder-style-5.php:299
+msgid "Login Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:358
+msgid "Hello Sign In"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:369
+#: include/elementor/header-builder-style-3.php:274
+#: include/elementor/header-builder-style-4.php:274
+#: include/elementor/header-builder-style-5.php:336
+#: include/elementor/header-builder.php:364
+msgid "Enable Bottom Menu Switch"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:383
+msgid "Welcome Text Controls"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:391
+msgid "Welcome Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:393
+msgid "FREE Express Shipping On Orders $570+"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:394
+msgid "Add Your text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:476
+msgid "Contact Info"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:556
+msgid "Contact Sub Title"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:558
+msgid "Hotline:"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:567
+msgid "+012 235 4562"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:670
+#: include/elementor/header-builder-style-3.php:290
+#: include/elementor/header-builder-style-4.php:290
+#: include/elementor/header-builder-style-5.php:351
+#: include/elementor/header-builder.php:608
+msgid "Site Logo"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:689
+#: include/elementor/header-builder-style-2.php:919
+#: include/elementor/header-builder-style-3.php:319
+#: include/elementor/header-builder-style-3.php:517
+#: include/elementor/header-builder-style-4.php:319
+#: include/elementor/header-builder-style-4.php:519
+#: include/elementor/header-builder-style-5.php:370
+#: include/elementor/header-builder-style-5.php:591
+#: include/elementor/header-builder.php:627
+#: include/elementor/header-builder.php:827
+msgid "Image Size"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:700
+#: include/elementor/header-builder-style-2.php:710
+#: include/elementor/header-builder-style-2.php:784
+#: include/elementor/header-builder-style-3.php:330
+#: include/elementor/header-builder-style-3.php:340
+#: include/elementor/header-builder-style-3.php:415
+#: include/elementor/header-builder-style-4.php:330
+#: include/elementor/header-builder-style-4.php:340
+#: include/elementor/header-builder-style-4.php:417
+#: include/elementor/header-builder-style-5.php:381
+#: include/elementor/header-builder-style-5.php:391
+#: include/elementor/header-builder-style-5.php:456
+#: include/elementor/header-builder.php:638
+#: include/elementor/header-builder.php:648
+#: include/elementor/header-builder.php:725
+#: include/elementor/header-side/bottom-menu.php:54
+#: include/elementor/menu-list.php:145 include/elementor/menu-list.php:165
+msgid "Menu"
+msgstr ""
+
+#. translators: %s Nav menu URL
+#: include/elementor/header-builder-style-2.php:716
+#: include/elementor/header-builder-style-2.php:790
+#: include/elementor/header-builder-style-3.php:346
+#: include/elementor/header-builder-style-3.php:421
+#: include/elementor/header-builder-style-4.php:346
+#: include/elementor/header-builder-style-4.php:423
+#: include/elementor/header-builder-style-5.php:397
+#: include/elementor/header-builder-style-5.php:462
+#: include/elementor/header-builder.php:654
+#: include/elementor/header-builder.php:731 include/elementor/menu-list.php:171
+#, php-format
+msgid ""
+"Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to manage your "
+"menus."
+msgstr ""
+
+#. translators: %s Nav menu URL
+#: include/elementor/header-builder-style-2.php:725
+#: include/elementor/header-builder-style-2.php:799
+#: include/elementor/header-builder-style-3.php:355
+#: include/elementor/header-builder-style-3.php:430
+#: include/elementor/header-builder-style-4.php:355
+#: include/elementor/header-builder-style-4.php:432
+#: include/elementor/header-builder-style-5.php:406
+#: include/elementor/header-builder-style-5.php:471
+#: include/elementor/header-builder.php:663
+#: include/elementor/header-builder.php:740 include/elementor/menu-list.php:180
+#, php-format
+msgid ""
+"<strong>There are no menus in your site.</strong><br>Go to the <a "
+"href=\"%s\" target=\"_blank\">Menus screen</a> to create one."
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:734
+#: include/elementor/header-builder-style-2.php:808
+#: include/elementor/header-builder-style-3.php:364
+#: include/elementor/header-builder-style-3.php:439
+#: include/elementor/header-builder-style-4.php:364
+#: include/elementor/header-builder-style-4.php:441
+#: include/elementor/header-builder-style-5.php:415
+#: include/elementor/header-builder-style-5.php:480
+#: include/elementor/header-builder.php:672
+#: include/elementor/header-builder.php:749 include/elementor/menu-list.php:189
+msgid "Last Menu Item"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:738
+#: include/elementor/header-builder-style-2.php:812
+#: include/elementor/header-builder-style-3.php:368
+#: include/elementor/header-builder-style-3.php:443
+#: include/elementor/header-builder-style-4.php:368
+#: include/elementor/header-builder-style-4.php:445
+#: include/elementor/header-builder-style-5.php:419
+#: include/elementor/header-builder-style-5.php:484
+#: include/elementor/header-builder.php:676
+#: include/elementor/header-builder.php:753 include/elementor/menu-list.php:193
+#: include/elementor/tp-btn.php:131 include/elementor/tp-contact-common.php:292
+msgid "Button"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:752
+#: include/elementor/header-builder-style-5.php:433
+msgid "Category Menu"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:759
+#: include/elementor/header-builder-style-5.php:440
+msgid "Show Category Menu"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:771
+msgid "Category Menu Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:773
+#: include/elementor/header-builder-style-2.php:848
+#: include/elementor/header-builder-style-3.php:404
+#: include/elementor/header-builder-style-4.php:404
+#: include/elementor/header-builder-style-5.php:520
+#: include/elementor/header-builder.php:713
+msgid "All Department"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:826
+#: include/elementor/header-builder-style-3.php:382
+#: include/elementor/header-builder-style-4.php:382
+#: include/elementor/header-builder-style-5.php:498
+#: include/elementor/header-builder.php:691
+msgid "Offcanvas Controls"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:834
+#: include/elementor/header-builder-style-3.php:390
+#: include/elementor/header-builder-style-4.php:390
+#: include/elementor/header-builder-style-5.php:506
+#: include/elementor/header-builder.php:699
+msgid "Enable Category Menu"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:846
+#: include/elementor/header-builder-style-3.php:402
+#: include/elementor/header-builder-style-4.php:402
+#: include/elementor/header-builder-style-5.php:518
+#: include/elementor/header-builder.php:711
+msgid "Category Button Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:857
+#: include/elementor/header-builder-style-3.php:455
+#: include/elementor/header-builder-style-4.php:457
+#: include/elementor/header-builder-style-5.php:529
+#: include/elementor/header-builder.php:765
+msgid "Offcanvas Style"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:860
+#: include/elementor/header-builder-style-3.php:458
+#: include/elementor/header-builder-style-4.php:460
+#: include/elementor/header-builder-style-5.php:532
+#: include/elementor/header-builder.php:768
+msgid "Default Style"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:861
+#: include/elementor/header-builder-style-3.php:459
+#: include/elementor/header-builder-style-4.php:461
+#: include/elementor/header-builder-style-5.php:533
+#: include/elementor/header-builder.php:769
+msgid "Dark Brown Style"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:862
+#: include/elementor/header-builder-style-3.php:460
+#: include/elementor/header-builder-style-4.php:462
+#: include/elementor/header-builder-style-5.php:534
+#: include/elementor/header-builder.php:770
+msgid "Brown Style"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:863
+#: include/elementor/header-builder-style-3.php:461
+#: include/elementor/header-builder-style-4.php:463
+#: include/elementor/header-builder-style-5.php:535
+#: include/elementor/header-builder.php:771
+msgid "Green Style"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:872
+#: include/elementor/header-builder-style-3.php:470
+#: include/elementor/header-builder-style-4.php:472
+#: include/elementor/header-builder-style-5.php:544
+#: include/elementor/header-builder.php:780
+msgid "Enable Language?"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:883
+#: include/elementor/header-builder-style-3.php:481
+#: include/elementor/header-builder-style-4.php:483
+#: include/elementor/header-builder-style-5.php:555
+#: include/elementor/header-builder.php:791
+msgid "Enable Currency?"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:896
+#: include/elementor/header-builder-style-3.php:494
+#: include/elementor/header-builder-style-4.php:496
+#: include/elementor/header-builder-style-5.php:568
+#: include/elementor/header-builder.php:804
+msgid "[code]"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:897
+#: include/elementor/header-builder-style-3.php:495
+#: include/elementor/header-builder-style-4.php:497
+#: include/elementor/header-builder-style-5.php:569
+#: include/elementor/header-builder.php:805
+msgid "YOur Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:907
+#: include/elementor/header-builder-style-3.php:505
+#: include/elementor/header-builder-style-4.php:507
+#: include/elementor/header-builder-style-5.php:579
+#: include/elementor/header-builder.php:815
+msgid "Choose Logo"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:930
+#: include/elementor/header-builder-style-3.php:528
+#: include/elementor/header-builder-style-4.php:530
+#: include/elementor/header-builder-style-5.php:601
+#: include/elementor/header-builder.php:837
+msgid "Offcanvas Button"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:949
+#: include/elementor/header-builder-style-3.php:547
+#: include/elementor/header-builder-style-4.php:549
+#: include/elementor/header-builder-style-5.php:620
+#: include/elementor/header-builder.php:856
+msgid "Offcanvas Button Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:962
+#: include/elementor/header-builder-style-3.php:560
+#: include/elementor/header-builder-style-4.php:562
+#: include/elementor/header-builder-style-5.php:633
+#: include/elementor/header-builder.php:869
+msgid "Offcanvas Button Link Type"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:978
+#: include/elementor/header-builder-style-3.php:576
+#: include/elementor/header-builder-style-4.php:578
+#: include/elementor/header-builder-style-5.php:649
+#: include/elementor/header-builder.php:885
+msgid "Offcanvas Button link"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1000
+#: include/elementor/header-builder-style-3.php:598
+#: include/elementor/header-builder-style-4.php:600
+#: include/elementor/header-builder-style-5.php:671
+#: include/elementor/header-builder.php:907
+msgid "Select Offcanvas Button Page"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1231
+#: include/elementor/header-builder.php:1170
+#: include/elementor/header-side/header-side-1.php:59
+msgid "USD"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1232
+#: include/elementor/header-builder.php:1171
+#: include/elementor/header-side/header-side-1.php:60
+msgid "YEAN"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1233
+#: include/elementor/header-builder.php:1172
+#: include/elementor/header-side/header-side-1.php:61
+msgid "EURO"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1241
+#: include/elementor/header-builder.php:1181
+msgid "Setting"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1244
+#: include/elementor/header-builder.php:1184
+msgid "My Profile"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1257
+#: include/elementor/header-builder.php:1197
+#: include/elementor/header-side/bottom-menu.php:34
+msgid "Wishlist"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1263
+#: include/elementor/header-builder.php:1203
+msgid "Cart"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1269
+#: include/elementor/header-builder.php:1210
+msgid "Logout"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1273
+#: include/elementor/header-builder.php:1214
+msgid "Login"
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1307
+#: include/elementor/header-builder.php:1265
+msgid "Search for Products..."
+msgstr ""
+
+#: include/elementor/header-builder-style-2.php:1387
+msgid "Your Account"
+msgstr ""
+
+#: include/elementor/header-builder-style-3.php:54
+msgid "Header Builder Style 3"
+msgstr ""
+
+#: include/elementor/header-builder-style-3.php:307
+#: include/elementor/header-builder-style-4.php:307
+msgid "Choose Dark Image"
+msgstr ""
+
+#: include/elementor/header-builder-style-4.php:54
+msgid "Header Builder Style 4"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:54
+msgid "Header Builder Style 5"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:249
+msgid "Search Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:251
+#: include/elementor/header-side/bottom-menu.php:18
+#: include/elementor/templates/template-library-badge.php:5
+msgid "Search"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:301
+msgid "Welcome "
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:311
+msgid "Not Login Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:313
+msgid "Hello "
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:323
+msgid "Register Text"
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:325
+msgid "Register "
+msgstr ""
+
+#: include/elementor/header-builder-style-5.php:904
+msgid "Search for products (e.g. eggs, milk, potato)"
+msgstr ""
+
+#: include/elementor/header-builder.php:54
+msgid "Header Builder"
+msgstr ""
+
+#: include/elementor/header-builder.php:240
+msgid "Enable Brown Style ?"
+msgstr ""
+
+#: include/elementor/header-builder.php:380
+msgid "Header Contact Info"
+msgstr ""
+
+#: include/elementor/header-side/bottom-menu.php:9
+msgid "Store"
+msgstr ""
+
+#: include/elementor/header-side/bottom-menu.php:45
+msgid "Account"
+msgstr ""
+
+#: include/elementor/header-side/header-side-1.php:57
+msgid "Currency : USD"
+msgstr ""
+
+#: include/elementor/hero-banner.php:52
+msgid "Hero Banner"
+msgstr ""
+
+#: include/elementor/hero-banner.php:143
+msgid "Hero Content"
+msgstr ""
+
+#: include/elementor/hero-banner.php:151
+msgid "Upload Subtitle Image"
+msgstr ""
+
+#: include/elementor/hero-banner.php:177
+#: include/elementor/hero-slider-2.php:214
+#: include/elementor/hero-slider-2.php:390
+#: include/elementor/hero-slider.php:251 include/elementor/hero-slider.php:695
+#: include/elementor/tpel-carousel.php:177
+#: include/elementor/tpel-carousel.php:192
+msgid "Grow business."
+msgstr ""
+
+#: include/elementor/hero-banner.php:225
+#: include/elementor/hero-slider-2.php:274
+#: include/elementor/hero-slider.php:299
+msgid ""
+"There are many variations of passages of Lorem Ipsum available but the "
+"majority have suffered alteration."
+msgstr ""
+
+#: include/elementor/hero-banner.php:239 include/elementor/menu-banner.php:117
+#: include/elementor/product-features.php:162
+msgid "BG Image"
+msgstr ""
+
+#: include/elementor/hero-banner.php:257
+msgid "Choose Offer Image"
+msgstr ""
+
+#: include/elementor/hero-banner.php:281
+msgid "Hero Shape Switch"
+msgstr ""
+
+#: include/elementor/hero-banner.php:289
+msgid "Shape On/Off"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:47
+msgid "Hero Slider 2"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:139
+#: include/elementor/hero-slider.php:141
+#: include/elementor/tpel-carousel.php:134
+msgid "Main Slider"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:148
+#: include/elementor/hero-slider.php:150
+msgid "Enable Navigation Arrows"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:160
+#: include/elementor/hero-slider.php:177
+msgid "Enable Shapae ?"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:177
+#: include/elementor/hero-slider.php:225 include/elementor/history.php:171
+#: include/elementor/instagram-post.php:228
+#: include/elementor/product-banner-slider.php:163
+#: include/elementor/side-banner.php:149
+#: include/elementor/tpel-carousel.php:162
+msgid "Upload Image"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:188
+msgid "Upload Nav Image"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:223
+msgid "Navigation Title"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:226
+msgid "Diamond  Necklaces"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:282
+msgid "Video URL"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:290 include/elementor/history.php:185
+msgid "Placeholder Text"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:298
+msgid "Video Button Text Image"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:309
+#: include/elementor/hero-slider.php:614
+msgid "Add Button link"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:335
+#: include/elementor/hero-slider.php:640 include/elementor/tp-btn.php:163
+msgid "Button Link Type"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:350
+#: include/elementor/hero-slider.php:655
+msgid "Button Link"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:371
+#: include/elementor/hero-slider.php:676
+msgid "Select Button Link Page"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:385
+#: include/elementor/hero-slider.php:690
+#: include/elementor/tpel-carousel.php:187
+msgid "Slider List"
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:393
+#: include/elementor/hero-slider.php:698
+#: include/elementor/tpel-carousel.php:195
+msgid "Development."
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:396
+#: include/elementor/hero-slider.php:701
+#: include/elementor/tpel-carousel.php:198
+msgid "Marketing."
+msgstr ""
+
+#: include/elementor/hero-slider-2.php:399
+msgid "Technology."
+msgstr ""
+
+#: include/elementor/hero-slider.php:47
+msgid "Hero Slider"
+msgstr ""
+
+#: include/elementor/hero-slider.php:165
+msgid "Enable Navigation Dots"
+msgstr ""
+
+#: include/elementor/hero-slider.php:210
+msgid "Enable Light BG"
+msgstr ""
+
+#: include/elementor/hero-slider.php:312
+msgid "1st Item"
+msgstr ""
+
+#: include/elementor/hero-slider.php:318 include/elementor/hero-slider.php:418
+#: include/elementor/hero-slider.php:518
+msgid "Feature Title"
+msgstr ""
+
+#: include/elementor/hero-slider.php:320 include/elementor/hero-slider.php:420
+#: include/elementor/hero-slider.php:520
+msgid "High-end Cosmetics"
+msgstr ""
+
+#: include/elementor/hero-slider.php:412
+msgid "2nd Item"
+msgstr ""
+
+#: include/elementor/hero-slider.php:512
+msgid "3rd Item"
+msgstr ""
+
+#: include/elementor/history.php:50
+msgid "History"
+msgstr ""
+
+#: include/elementor/history.php:145
+msgid "History List"
+msgstr ""
+
+#: include/elementor/history.php:182
+msgid "Thumb Text"
+msgstr ""
+
+#: include/elementor/history.php:184
+msgid "Welcome to our Shofy eCommerce Theme"
+msgstr ""
+
+#: include/elementor/history.php:194
+msgid "History Title"
+msgstr ""
+
+#: include/elementor/history.php:213
+msgid "Year"
+msgstr ""
+
+#: include/elementor/history.php:224
+msgid "History - List"
+msgstr ""
+
+#: include/elementor/history.php:229
+msgid "Discover"
+msgstr ""
+
+#: include/elementor/history.php:232
+msgid "Latest"
+msgstr ""
+
+#: include/elementor/history.php:235
+msgid "Invention"
+msgstr ""
+
+#: include/elementor/info-box.php:48
+#: include/elementor/tp-contact-common.php:369
+msgid "Info Box"
+msgstr ""
+
+#: include/elementor/info-box.php:184
+#: include/elementor/tp-contact-common.php:578
+msgid "Info List"
+msgstr ""
+
+#: include/elementor/info-box.php:193
+msgid "Bottom Quote Text"
+msgstr ""
+
+#: include/elementor/info-box.php:196
+msgid "So start browsing today and find the perfect "
+msgstr ""
+
+#: include/elementor/info-box.php:304
+msgid "Info Title"
+msgstr ""
+
+#: include/elementor/info-box.php:313
+msgid "Add Info link"
+msgstr ""
+
+#: include/elementor/info-box.php:326
+msgid "Info Link Type"
+msgstr ""
+
+#: include/elementor/info-box.php:341
+msgid "Info Link"
+msgstr ""
+
+#: include/elementor/info-box.php:362
+msgid "Select Info Link Page"
+msgstr ""
+
+#: include/elementor/info-box.php:376
+msgid "Info - List"
+msgstr ""
+
+#: include/elementor/instagram-post.php:48
+msgid "Instagram Post"
+msgstr ""
+
+#: include/elementor/instagram-post.php:146
+msgid "Instagram Slider"
+msgstr ""
+
+#: include/elementor/instagram-post.php:172
+msgid "Is Instagram Banner?"
+msgstr ""
+
+#: include/elementor/instagram-post.php:200
+#: include/elementor/newsletter.php:174
+#: include/elementor/product-banner.php:160
+#: include/elementor/product-hotspot.php:188
+msgid "Subtitle"
+msgstr ""
+
+#: include/elementor/instagram-post.php:202
+msgid "Follow Us on"
+msgstr ""
+
+#: include/elementor/instagram-post.php:239
+msgid "Instagram Link"
+msgstr ""
+
+#: include/elementor/instagram-post.php:247
+msgid "Your Link Here"
+msgstr ""
+
+#: include/elementor/instagram-post.php:255
+msgid "Instagram List"
+msgstr ""
+
+#: include/elementor/instagram-post.php:260
+msgid "Image 1"
+msgstr ""
+
+#: include/elementor/instagram-post.php:263
+msgid "Image 2"
+msgstr ""
+
+#: include/elementor/instagram-post.php:266
+msgid "Image 3"
+msgstr ""
+
+#: include/elementor/instagram-post.php:269
+msgid "Image 4"
+msgstr ""
+
+#: include/elementor/menu-banner.php:48
+msgid "Mega Menu Banner"
+msgstr ""
+
+#: include/elementor/menu-banner.php:135
+msgid "Button Title"
+msgstr ""
+
+#: include/elementor/menu-banner.php:137
+msgid "View Product"
+msgstr ""
+
+#: include/elementor/menu-banner.php:146 include/elementor/menu-demo.php:202
+#: include/elementor/menu-link.php:210
+msgid "Link Type"
+msgstr ""
+
+#: include/elementor/menu-banner.php:158
+msgid "Link"
+msgstr ""
+
+#: include/elementor/menu-banner.php:178 include/elementor/menu-demo.php:234
+#: include/elementor/menu-link.php:242
+msgid "Select Link Page"
+msgstr ""
+
+#: include/elementor/menu-brand.php:48
+msgid "Menu Brand"
+msgstr ""
+
+#: include/elementor/menu-demo.php:48
+msgid "Mega Menu Demo"
+msgstr ""
+
+#: include/elementor/menu-demo.php:168 include/elementor/menu-link.php:164
+#: include/elementor/side-banner.php:139 include/elementor/side-banner.php:172
+msgid "Image List"
+msgstr ""
+
+#: include/elementor/menu-demo.php:180 include/elementor/menu-link.php:200
+msgid "Home"
+msgstr ""
+
+#: include/elementor/menu-demo.php:214 include/elementor/menu-link.php:222
+msgid "link"
+msgstr ""
+
+#: include/elementor/menu-demo.php:247 include/elementor/menu-link.php:255
+msgid "Menu List"
+msgstr ""
+
+#: include/elementor/menu-demo.php:252 include/elementor/menu-link.php:260
+msgid "Menu Item 1"
+msgstr ""
+
+#: include/elementor/menu-demo.php:255 include/elementor/menu-link.php:263
+msgid "Menu Item 2"
+msgstr ""
+
+#: include/elementor/menu-demo.php:258 include/elementor/menu-link.php:266
+msgid "Menu Item 3"
+msgstr ""
+
+#: include/elementor/menu-link.php:48
+msgid "Mega Menu Link"
+msgstr ""
+
+#: include/elementor/menu-link.php:174
+msgid "Fresh Fruits"
+msgstr ""
+
+#: include/elementor/menu-list.php:48
+msgid "Mega Menu List"
+msgstr ""
+
+#: include/elementor/menu-list.php:154
+msgid "Shop Pages"
+msgstr ""
+
+#: include/elementor/menu-products.php:45
+msgid "Menu Product"
+msgstr ""
+
+#: include/elementor/menu-products.php:114
+#: include/elementor/tp-product-2.php:114
+#: include/elementor/tp-product-3.php:114
+msgid "Product Layout"
+msgstr ""
+
+#: include/elementor/newsletter.php:48
+msgid "TP Newsletter"
+msgstr ""
+
+#: include/elementor/newsletter.php:165
+msgid "Subscribe our Newsletter"
+msgstr ""
+
+#: include/elementor/newsletter.php:176
+#, no-php-format
+msgid "Sale 20% off all store "
+msgstr ""
+
+#: include/elementor/newsletter.php:184
+msgid "Enable BG Shape"
+msgstr ""
+
+#: include/elementor/newsletter.php:196
+msgid "Enable Man Shape"
+msgstr ""
+
+#: include/elementor/newsletter.php:208
+msgid "Enable Square Style ?"
+msgstr ""
+
+#: include/elementor/newsletter.php:222
+msgid "Form Control"
+msgstr ""
+
+#: include/elementor/page-title.php:48
+msgid "Page Title"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:47
+msgid "Product Banner Slider"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:137
+msgid "Product Slider"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:174
+msgid "Upload Offer Image"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:190
+msgid "Tablet Collection 2023"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:199
+msgid "Product Title"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:206
+msgid "BG Text"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:208
+msgid "Tablet"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:222
+msgid "$90.80"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:232
+msgid "Old Price"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:234
+msgid "$10.20"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:245
+msgid "Add Product link"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:273
+msgid "Product Link Type"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:288
+msgid "Proudct Link"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:309
+msgid "Select Proudct Link Page"
+msgstr ""
+
+#: include/elementor/product-banner-slider.php:324
+msgid "Proudct List"
+msgstr ""
+
+#: include/elementor/product-banner.php:47
+msgid "Product Banner"
+msgstr ""
+
+#: include/elementor/product-banner.php:138
+msgid "Banner Content"
+msgstr ""
+
+#: include/elementor/product-banner.php:171
+msgid "My Product Title"
+msgstr ""
+
+#: include/elementor/product-banner.php:183
+#, no-php-format
+msgid "Last call for up to 32% off! "
+msgstr ""
+
+#: include/elementor/product-banner.php:191
+msgid "Add Baner link"
+msgstr ""
+
+#: include/elementor/product-banner.php:231
+msgid "Banner link"
+msgstr ""
+
+#: include/elementor/product-banner.php:252
+#: include/elementor/product-category-list.php:226
+msgid "Select Service Link Page"
+msgstr ""
+
+#: include/elementor/product-category-list.php:51
+msgid "Product Category List"
+msgstr ""
+
+#: include/elementor/product-category-list.php:147
+#: include/elementor/product-category.php:143
+msgid "Category List"
+msgstr ""
+
+#: include/elementor/product-category-list.php:158
+msgid "Electronic Gadgets"
+msgstr ""
+
+#: include/elementor/product-category-list.php:168
+msgid "Enable Link?"
+msgstr ""
+
+#: include/elementor/product-category-list.php:190
+msgid "Service Link Type"
+msgstr ""
+
+#: include/elementor/product-category-list.php:205
+msgid "Service Link link"
+msgstr ""
+
+#: include/elementor/product-category-list.php:246
+msgid "Microscope"
+msgstr ""
+
+#: include/elementor/product-category.php:47
+msgid "Product Category"
+msgstr ""
+
+#: include/elementor/product-category.php:160
+#: include/elementor/product-featured.php:154
+msgid "Style 3"
+msgstr ""
+
+#: include/elementor/product-category.php:194
+#: include/elementor/product-featured.php:188
+#: include/elementor/product-hotspot.php:284
+msgid "25 Product"
+msgstr ""
+
+#: include/elementor/product-category.php:202
+#: include/elementor/product-featured.php:206
+msgid "Add Category link"
+msgstr ""
+
+#: include/elementor/product-category.php:230
+#: include/elementor/product-featured.php:234
+msgid "Category Link Type"
+msgstr ""
+
+#: include/elementor/product-category.php:245
+#: include/elementor/product-featured.php:249
+msgid "Category Link"
+msgstr ""
+
+#: include/elementor/product-category.php:266
+#: include/elementor/product-featured.php:270
+msgid "Select Category Link Page"
+msgstr ""
+
+#: include/elementor/product-category.php:280
+#: include/elementor/product-hotspot.php:292
+msgid "Want To Customize?"
+msgstr ""
+
+#: include/elementor/product-category.php:285
+#: include/elementor/product-hotspot.php:297
+msgid "You can customize this item from here or customize from Style tab"
+msgstr ""
+
+#: include/elementor/product-category.php:296
+msgid "BG Color"
+msgstr ""
+
+#: include/elementor/product-category.php:309
+msgid "Subtitle Color"
+msgstr ""
+
+#: include/elementor/product-category.php:324
+msgid "Category - List"
+msgstr ""
+
+#: include/elementor/product-category.php:357
+#: include/elementor/tp-product-2.php:179
+#: include/elementor/tp-product-3.php:177 include/elementor/tp-product.php:167
+msgid "Product Column"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:51
+#: include/elementor/product-collection-countdown.php:146
+msgid "Countdown"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:154
+msgid "Enter Date"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:156
+#: include/elementor/product-collection-countdown.php:157
+#: include/elementor/product-offer-banner.php:148
+msgid "Sep 30 2024 20:20:22"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:204 include/tp-woo.php:85
+msgid "Days"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:205 include/tp-woo.php:86
+msgid "Hrs"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:206 include/tp-woo.php:87
+msgid "Min"
+msgstr ""
+
+#: include/elementor/product-collection-countdown.php:213 include/tp-woo.php:88
+msgid "Sec"
+msgstr ""
+
+#: include/elementor/product-featured.php:47
+msgid "Product Featured"
+msgstr ""
+
+#: include/elementor/product-featured.php:137
+msgid "Product List"
+msgstr ""
+
+#: include/elementor/product-featured.php:198
+msgid "$72"
+msgstr ""
+
+#: include/elementor/product-featured.php:285
+msgid "Product - List"
+msgstr ""
+
+#: include/elementor/product-featured.php:290
+msgid "Matte Liquid Lipstick & Lip Liner"
+msgstr ""
+
+#: include/elementor/product-featured.php:293
+msgid "Crushed Liquid Lip - Cherry Crush"
+msgstr ""
+
+#: include/elementor/product-featured.php:296
+msgid "Mega Waterproof Concealer - 125 Bisque"
+msgstr ""
+
+#: include/elementor/product-features.php:47
+msgid "Product Features"
+msgstr ""
+
+#: include/elementor/product-features.php:137
+#: include/elementor/tp-product.php:113
+msgid "Section Title"
+msgstr ""
+
+#: include/elementor/product-features.php:150
+msgid "Specification"
+msgstr ""
+
+#: include/elementor/product-features.php:193
+msgid "Side Text"
+msgstr ""
+
+#: include/elementor/product-features.php:204
+msgid "Enable Side Text ?"
+msgstr ""
+
+#: include/elementor/product-features.php:216
+msgid "Slider Side Text"
+msgstr ""
+
+#: include/elementor/product-features.php:218
+msgid "headphone"
+msgstr ""
+
+#: include/elementor/product-features.php:227
+msgid "Transform"
+msgstr ""
+
+#: include/elementor/product-features.php:233
+msgid "translate(200px) rotate(-90deg)"
+msgstr ""
+
+#: include/elementor/product-features.php:369
+msgid "Add Features link"
+msgstr ""
+
+#: include/elementor/product-features.php:382
+msgid "Features Link Type"
+msgstr ""
+
+#: include/elementor/product-features.php:397
+msgid "Features Link link"
+msgstr ""
+
+#: include/elementor/product-features.php:418
+msgid "Select Features Link Page"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:47
+msgid "Product Hotspot Banner"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:166
+msgid "Image Height"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:177
+msgid "Banner Controls"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:190
+msgid "BUILD YOUR OWN SETS "
+msgstr ""
+
+#: include/elementor/product-hotspot.php:200
+msgid "Our finest jewelry"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:220
+msgid "Upload Side Text Thumbnail"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:244
+msgid "Hotspot List"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:255
+msgid "with NEW LOOK & NEW COLLECTION"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:305
+msgid "Position"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:308
+msgid "translate(200px, 100px)"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:318
+msgid "Hotspot - List"
+msgstr ""
+
+#: include/elementor/product-hotspot.php:323
+#: include/elementor/product-hotspot.php:326
+msgid "Skincare Product"
+msgstr ""
+
+#: include/elementor/product-offer-banner.php:48
+msgid "Product Offer Banner"
+msgstr ""
+
+#: include/elementor/product-offer-banner.php:138
+msgid "Offer Banner"
+msgstr ""
+
+#: include/elementor/product-offer-banner.php:146
+msgid "Offer Time"
+msgstr ""
+
+#: include/elementor/product-offer-banner.php:149
+msgid "Your Date"
+msgstr ""
+
+#: include/elementor/product-offer-banner.php:157
+msgid "Enable Shape?"
+msgstr ""
+
+#: include/elementor/side-banner.php:48
+msgid "Side Banner"
+msgstr ""
+
+#: include/elementor/side-banner.php:162
+msgid "Image Title"
+msgstr ""
+
+#: include/elementor/side-banner.php:164 include/elementor/side-banner.php:177
+msgid "My Image"
+msgstr ""
+
+#: include/elementor/side-banner.php:180
+msgid "My Image 2"
+msgstr ""
+
+#: include/elementor/side-banner.php:183
+msgid "My Image 3"
+msgstr ""
+
+#: include/elementor/templates/api.php:20
+msgid "TP Addons Library"
+msgstr ""
+
+#: include/elementor/templates/api.php:129
+msgid "Template does not have any content"
+msgstr ""
+
+#: include/elementor/templates/import.php:31
+msgid "Post not found"
+msgstr ""
+
+#: include/elementor/templates/import.php:37
+msgid "Template id missing"
+msgstr ""
+
+#: include/elementor/templates/init.php:53
+msgid "No Templates Found"
+msgstr ""
+
+#: include/elementor/templates/init.php:54
+msgid "Try different category or sync for new templates."
+msgstr ""
+
+#: include/elementor/templates/init.php:55
+msgid "No Results Found"
+msgstr ""
+
+#: include/elementor/templates/init.php:56
+msgid ""
+"Please make sure your search is spelled correctly or try a different words."
+msgstr ""
+
+#: include/elementor/templates/load.php:41
+msgid "Post not found."
+msgstr ""
+
+#: include/elementor/templates/template-library-badge.php:4
+msgid "Search Templates:"
+msgstr ""
+
+#: include/elementor/templates/template-library-badge.php:15
+msgid "Filter"
+msgstr ""
+
+#: include/elementor/templates/template-library-button.php:5
+msgid "Insert"
+msgstr ""
+
+#: include/elementor/templates/template-library-button.php:12
+msgid "Go Pro"
+msgstr ""
+
+#: include/elementor/templates/template-library-header.php:11
+msgid "Back to Library"
+msgstr ""
+
+#: include/elementor/templates/template-library-header.php:26
+#: include/elementor/templates/template-library-header.php:27
+msgid "Sync Library"
+msgstr ""
+
+#: include/elementor/templates/template-library-loader.php:11
+msgid "Loading"
+msgstr ""
+
+#: include/elementor/templates/template-library-preview.php:9
+msgid "Live Preview"
+msgstr ""
+
+#: include/elementor/templates/template-library-toolbar.php:8
+msgid "Pro"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:48
+msgid "Testimonial Slider"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:155
+msgid "The Review Are In"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:165
+#: include/elementor/video-popup.php:188
+msgid "Shape Controls"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:176
+#: include/elementor/video-popup.php:199
+msgid "Enable Shape"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:192
+#: include/elementor/testimonial-slider.php:291
+msgid "Review List"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:218
+msgid "Reviewer Image"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:230
+msgid "Reviewer Name"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:232
+#: include/elementor/testimonial-slider.php:296
+#: include/elementor/testimonial-slider.php:301
+#: include/elementor/testimonial-slider.php:306
+msgid "Rasalina William"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:239
+msgid "Reviewer Title"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:241
+msgid "- CEO at YES Germany"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:248
+msgid "Review Content"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:252
+msgid "Type your review content here"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:259
+msgid "Select Rating"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:263
+msgid "Rating 5"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:264
+msgid "Rating 4"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:265
+msgid "Rating 3"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:266
+msgid "Rating 2"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:267
+msgid "Rating 1"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:297
+#: include/elementor/testimonial-slider.php:302
+#: include/elementor/testimonial-slider.php:307
+msgid "CEO at YES Germany"
+msgstr ""
+
+#: include/elementor/testimonial-slider.php:298
+#: include/elementor/testimonial-slider.php:303
+#: include/elementor/testimonial-slider.php:308
+msgid ""
+"Construction can be defined as the art of building something. These "
+"construction quotes will put into perspective the fact that construction can "
+"be"
+msgstr ""
+
+#: include/elementor/tp-breadcrumb.php:49
+msgid "TP Breadcrumb"
+msgstr ""
+
+#: include/elementor/tp-breadcrumb.php:147
+msgid "Breadcrumb Subtitle"
+msgstr ""
+
+#: include/elementor/tp-breadcrumb.php:149
+msgid "About Us"
+msgstr ""
+
+#: include/elementor/tp-breadcrumb.php:161
+msgid "Breadcrumb Title"
+msgstr ""
+
+#: include/elementor/tp-breadcrumb.php:163
+msgid "Keep it Minimal, yet Expressive"
+msgstr ""
+
+#: include/elementor/tp-btn.php:46
+msgid "TP BTN"
+msgstr ""
+
+#: include/elementor/tp-btn.php:180
+msgid "Button link"
+msgstr ""
+
+#: include/elementor/tp-btn.php:203
+msgid "Select Button Page"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:47
+msgid "TP Common Contact"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:197
+msgid "TP Sub Title"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:208
+msgid "TP Title Here"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:220
+msgid "TP section description here"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:333
+msgid "Box Title & Content"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:346
+msgid "Send Us a Mail"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:358
+msgid ""
+"Do you have a query about your order, or need a hand with getting your "
+"products set up?"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:382
+msgid "Reach Out"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:394
+msgid "Any confusion about your order? We are here to help 24/7"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:402
+msgid "Additional Info"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:405
+msgid "See our Refund Policies or FAQ"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:504
+msgid "Conact Title"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:506
+msgid "Contact Us"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:545
+msgid "Enable Underline Style"
+msgstr ""
+
+#: include/elementor/tp-contact-common.php:583
+msgid "Start Chat"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:45
+msgid "Product Post 2"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:150
+#: include/elementor/tp-product-3.php:148
+#: include/elementor/tp-product-tab.php:149
+#: include/elementor/tp-product.php:128
+msgid "Your Sub Title"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:347
+#: include/elementor/tp-product-2.php:357
+#: include/elementor/tp-product-2.php:367
+#: include/elementor/tp-product-2.php:377
+#: include/elementor/tp-product-3.php:342
+#: include/elementor/tp-product-3.php:352
+#: include/elementor/tp-product-3.php:362
+#: include/elementor/tp-product-3.php:372
+#: include/elementor/tp-product-tab.php:259
+#: include/elementor/tp-product-tab.php:269
+#: include/elementor/tp-product-tab.php:279
+#: include/elementor/tp-product-tab.php:289
+#: include/elementor/tp-product.php:339 include/elementor/tp-product.php:349
+#: include/elementor/tp-product.php:359 include/elementor/tp-product.php:369
+msgid "Trending"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:392
+#: include/elementor/tp-product-3.php:387
+#: include/elementor/tp-product-tab.php:304
+#: include/elementor/tp-product.php:384
+msgid "Hot"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:519
+#: include/elementor/tp-product-2.php:689
+#: include/elementor/tp-product-2.php:817
+#: include/elementor/tp-product-2.php:1051
+#: include/elementor/tp-product-2.php:1222
+#: include/elementor/tp-product-tab.php:513
+#: include/elementor/tp-product-tab.php:733
+#: include/elementor/tp-product-tab.php:975
+#: include/elementor/tp-product-tab.php:1217
+#: include/elementor/tp-product-tab.php:1419
+#: include/elementor/tp-product.php:490 include/elementor/tp-product.php:658
+#: include/elementor/tp-product.php:926 include/elementor/tp-product.php:1071
+#: include/elementor/tp-product.php:1229
+msgid "Add To Compare"
+msgstr ""
+
+#: include/elementor/tp-product-2.php:559
+#: include/elementor/tp-product-2.php:849
+#: include/elementor/tp-product-2.php:1262
+#: include/elementor/tp-product-tab.php:774
+#: include/elementor/tp-product-tab.php:1007
+#: include/elementor/tp-product-tab.php:1454
+#: include/elementor/tp-product.php:524 include/elementor/tp-product.php:692
+#: include/elementor/tp-product.php:804 include/elementor/tp-product.php:1272
+#, php-format
+msgid "( %s Review )"
+msgid_plural "( %s Reviews )"
+msgstr[0] ""
+msgstr[1] ""
+
+#: include/elementor/tp-product-3.php:45
+msgid "Product Post 3"
+msgstr ""
+
+#: include/elementor/tp-product-3.php:495
+msgid "Shop Now"
+msgstr ""
+
+#: include/elementor/tp-product-tab.php:45
+msgid "Product Tab"
+msgstr ""
+
+#: include/elementor/tp-product-tab.php:1470
+#: include/elementor/tp-product.php:540 include/elementor/tp-product.php:708
+#: include/elementor/tp-product.php:820
+msgid "(0 Review)"
+msgstr ""
+
+#: include/elementor/tp-product.php:45
+msgid "Product Post"
+msgstr ""
+
+#: include/elementor/tp-product.php:1289 include/elementor/tp-product.php:1290
+#: include/elementor/tp-product.php:1291 include/elementor/tp-product.php:1292
+#: include/tp-woo.php:85 include/tp-woo.php:86 include/tp-woo.php:87
+#: include/tp-woo.php:88
+msgid "0"
+msgstr ""
+
+#: include/elementor/tp-product.php:1289
+msgid "DAYS"
+msgstr ""
+
+#: include/elementor/tp-product.php:1290
+msgid "HRS"
+msgstr ""
+
+#: include/elementor/tp-product.php:1291
+msgid "MIN"
+msgstr ""
+
+#: include/elementor/tp-product.php:1292
+msgid "SEC"
+msgstr ""
+
+#: include/elementor/tpel-btn-border.php:48
+msgid "TP Elements Bordered BTN"
+msgstr ""
+
+#: include/elementor/tpel-btn-link.php:48
+msgid "TP Elements Link BTN"
+msgstr ""
+
+#: include/elementor/tpel-btn.php:48
+msgid "TP Elements BTN"
+msgstr ""
+
+#: include/elementor/tpel-btn.php:134
+msgid "Layout 10"
+msgstr ""
+
+#: include/elementor/tpel-btn.php:135
+msgid "Layout 11"
+msgstr ""
+
+#: include/elementor/tpel-btn.php:136
+msgid "Layout 12"
+msgstr ""
+
+#: include/elementor/tpel-carousel.php:47
+msgid "TP Elements Carousel"
+msgstr ""
+
+#: include/elementor/video-popup.php:46
+msgid "TP Video"
+msgstr ""
+
+#: include/elementor/video-popup.php:132 include/elementor/video-popup.php:152
+#: include/elementor/video-popup.php:154
+msgid "Video Title"
+msgstr ""
+
+#: include/elementor/video-popup.php:139
+msgid "Video Subtitle"
+msgstr ""
+
+#: include/elementor/video-popup.php:141
+msgid "We are here for you."
+msgstr ""
+
+#: include/elementor/video-popup.php:168 include/elementor/video-popup.php:175
+msgid "Video"
+msgstr ""
+
+#: include/elementor/video-popup.php:178
+msgid "Video url"
+msgstr ""
+
+#: include/menu/menu.php:24
+msgid "Icon Field"
+msgstr ""
+
+#: include/menu/menu.php:30
+msgid "Search icon..."
+msgstr ""
+
+#: include/menu/menu.php:71
+msgid "Elementor Template"
+msgstr ""
+
+#: include/menu/menu.php:74
+msgid "Select A Template"
+msgstr ""
+
+#: include/post-view.php:8
+msgid "Share On:"
+msgstr ""
+
+#: include/post-view.php:20
+msgid "Share:"
+msgstr ""
+
+#: include/template/single-campaign.php:66
+msgid "our goal"
+msgstr ""
+
+#: include/template/single-campaign.php:70
+msgid "Raised"
+msgstr ""
+
+#: include/template/single-campaign.php:74
+msgid "to go"
+msgstr ""
+
+#: include/tp-el-woo.php:80
+msgid "Add to Cart"
+msgstr ""
+
+#: include/tp-el-woo.php:82
+msgid "Select Options"
+msgstr ""
+
+#: include/tp-el-woo.php:84
+msgid "Buy Now"
+msgstr ""
+
+#: include/tp-el-woo.php:86
+msgid "View Products"
+msgstr ""
+
+#: include/tp-el-woo.php:256 include/tp-el-woo.php:284
+msgid "image"
+msgstr ""
+
+#: include/tp-woo.php:78 include/tp-woo.php:80
+msgid "Off"
+msgstr ""
+
+#: include/tp-woo.php:99
+msgid "Coupon :"
+msgstr ""
+
+#: include/widgets/tp-blog-post-sidebar.php:80
+msgid "DESC"
+msgstr ""
+
+#: include/widgets/tp-blog-post-sidebar.php:81
+msgid "style_1"
+msgstr ""
+
+#: page-settings/manager.php:24
+msgid "New Tab"
+msgstr ""
+
+#: page-settings/manager.php:42
+msgid "Settings"
+msgstr ""
+
+#: plugin.php:57
+msgid "TP Addons"
+msgstr ""
+
+#: plugin.php:309
+msgid "TP - Feather Icons"
+msgstr ""
+
+#: plugin.php:371
+msgid "TP - Flaticons"
+msgstr ""
+
+#: plugin.php:440
+msgid "TP - Fontawesome Pro Light"
+msgstr ""
+
+#. translators: 1: Plugin name 2: Elementor
+#: shofy-core.php:211
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: shofy-core.php:212
+msgid "Shofy Core"
+msgstr ""
+
+#: shofy-core.php:213 shofy-core.php:236
+msgid "Elementor"
+msgstr ""
+
+#. translators: 1: Plugin name 2: Elementor 3: Required Elementor version
+#. translators: 1: Plugin name 2: PHP 3: Required PHP version
+#: shofy-core.php:234 shofy-core.php:258
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: shofy-core.php:235 shofy-core.php:259
+msgid "Tp Core"
+msgstr ""
+
+#: shofy-core.php:260
+msgid "PHP"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://themepure.net/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Themepure elementor core plugin."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Theme_Pure"
+msgstr ""
