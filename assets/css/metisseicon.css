@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "metisseicon";
+    src: url("../fonts/metisseicon_metisse.ttf?3837dea8ee286554e3fb28a0d0007b07") format("truetype"),
+url("../fonts/metisseicon_metisse.woff?3837dea8ee286554e3fb28a0d0007b07") format("woff"),
+url("../fonts/metisseicon_metisse.woff2?3837dea8ee286554e3fb28a0d0007b07") format("woff2"),
+url("../fonts/metisseicon_metisse.eot?3837dea8ee286554e3fb28a0d0007b07#iefix") format("embedded-opentype");
+}
+
+i[class^="metisseicon-"]:before, i[class*=" metisseicon-"]:before {
+    font-family: metisseicon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.metisseicon-store:before {
+    content: "\f101";
+}
+.metisseicon-magnifying-glass:before {
+    content: "\f102";
+}
+.metisseicon-search:before {
+    content: "\f103";
+}
+.metisseicon-heart:before {
+    content: "\f104";
+}
+.metisseicon-user:before {
+    content: "\f105";
+}
+.metisseicon-menu:before {
+    content: "\f106";
+}
+.metisseicon-menu-1:before {
+    content: "\f107";
+}
+.metisseicon-watermelon:before {
+    content: "\f108";
+}
+.metisseicon-broccoli:before {
+    content: "\f109";
+}
+.metisseicon-cupcake:before {
+    content: "\f10a";
+}
+.metisseicon-bread:before {
+    content: "\f10b";
+}
+.metisseicon-apple:before {
+    content: "\f10c";
+}
+.metisseicon-fish:before {
+    content: "\f10d";
+}
+.metisseicon-snack:before {
+    content: "\f10e";
+}
+.metisseicon-eggs:before {
+    content: "\f10f";
+}
+.metisseicon-coffee:before {
+    content: "\f110";
+}
+.metisseicon-pet:before {
+    content: "\f111";
+}
+.metisseicon-basketball-match:before {
+    content: "\f112";
+}
+.metisseicon-milk:before {
+    content: "\f113";
+}
+.metisseicon-vegan:before {
+    content: "\f114";
+}
+.metisseicon-smartphone:before {
+    content: "\f115";
+}
+.metisseicon-camera:before {
+    content: "\f116";
+}
+.metisseicon-monitor:before {
+    content: "\f117";
+}
+.metisseicon-home:before {
+    content: "\f118";
+}
+.metisseicon-store-1:before {
+    content: "\f119";
+}
+.metisseicon-gift:before {
+    content: "\f11a";
+}
+.metisseicon-discount:before {
+    content: "\f11b";
+}
+.metisseicon-voucher:before {
+    content: "\f11c";
+}
+.metisseicon-price-tag:before {
+    content: "\f11d";
+}
+.metisseicon-football:before {
+    content: "\f11e";
+}
+.metisseicon-running:before {
+    content: "\f11f";
+}
+.metisseicon-play-button:before {
+    content: "\f120";
+}
