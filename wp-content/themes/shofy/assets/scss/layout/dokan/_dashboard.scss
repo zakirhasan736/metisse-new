@@ -1,0 +1,195 @@
+@use '../../utils' as *;
+
+.#{$theme-prifix}-vendor{
+    &-sales-chart{
+        & table{
+            & tr{
+                & td{
+                    border: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+body.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget a{
+    font-size: 14px;
+}
+
+body.dokan-dashboard{
+    .dokan-dash-sidebar ul.dokan-dashboard-menu li.active {
+        position: relative;
+        background: var(--tp-theme-primary);
+    }
+    .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover {
+        background: var(--tp-theme-primary);
+    }
+
+    input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme {
+        color: #fff;
+        background-color: var(--tp-theme-primary);
+        border-color: var(--tp-theme-primary);
+        border-radius: 0;
+    }
+
+    input[type="submit"].dokan-btn-danger, a.dokan-btn-danger, .dokan-btn-danger {
+        color: #fff !important;
+        background-color: #d9534f !important;
+        border-color: #d43f3a !important;
+    }
+
+    input[type="text"].dokan-form-control {
+        height: 34px;
+        line-height: 34px;
+    }
+
+    input[type="submit"].dokan-btn:hover, 
+    a.dokan-btn:hover, 
+    .dokan-btn:hover, 
+    input[type="submit"].dokan-btn:focus, 
+    a.dokan-btn:focus, 
+    .dokan-btn:focus, 
+    input[type="submit"].dokan-btn.focus, 
+    a.dokan-btn.focus, 
+    .dokan-btn.focus {
+        color: #fff;
+        border-color: var(--tp-theme-primary);
+        text-decoration: none;
+        background-color: var(--tp-theme-primary);
+    }
+
+    .dashboard-widget.sells-graph{
+        td{
+            border: 0;
+        }
+    }
+}
+
+
+div.dokan-single-store {
+
+    .profile-frame .profile-info-box .profile-info-img{
+        height: 100%;
+        object-fit: cover;
+    }
+    .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info i {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    input[type="submit"].dokan-btn-theme, 
+    a.dokan-btn-theme, 
+    .dokan-btn-theme {
+        color: #fff;
+        background-color: var(--tp-theme-primary);
+        border-color: var(--tp-theme-primary);
+    }
+
+    .dokan-store-products-ordeby{
+        & .nice-select{
+            clear: none;
+            padding-right: 36px;
+            &::after{
+                right: 16px;
+            }
+        }
+    }
+}
+
+.dokan-store-widget{
+    margin-bottom: 40px;
+
+    & .widget-title{
+        font-size: 22px;
+        font-weight: 500;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    & textarea{
+        padding: 16px 26px;
+    }
+
+    input[type="submit"].dokan-btn{
+        background-color: var(--tp-theme-primary);
+        border-color: var(--tp-theme-primary);
+    }
+    .store-cat-stack-dokan.cat-drop-stack ul {
+        max-height: 400px;
+    }
+
+    & .store-cat-stack-dokan{
+        ul{
+            & li{
+                & a{
+                    display: block;
+
+                    & span{
+                        float: right;
+                        margin-right: 20px;
+                        width: 16px;
+                        &:hover{
+                            color: var(--tp-theme-primary);
+                        }
+                    }
+
+                    &:hover{
+                        color: var(--tp-theme-primary);
+                    }
+                }
+            }
+            & ul{
+                padding-left: 16px;
+            }
+        }
+    }
+}
+
+.dokan-single-seller{
+    & .store-footer{
+        & > a{
+
+            & span{
+                
+            }
+
+            &:hover{
+                color: var(--tp-theme-primary);
+                & span{
+                    background-color: var(--tp-theme-primary);
+                }
+            }
+        }
+    }
+}
+
+body[class*="dokan-"]{
+    
+    input[type="submit"].dokan-btn-theme, 
+    a.dokan-btn-theme, 
+    .dokan-btn-theme {
+        background-color: var(--tp-theme-primary);
+        border-color:  var(--tp-theme-primary);
+    }
+
+    #dokan-store-listing-filter-wrap .right .toggle-view .active {
+        color: var(--tp-theme-primary);
+    }
+
+    .dokan-btn-round[class] {
+        height: 35px;
+        line-height: 32px;
+        &::before{
+            font-size: 22px;
+        }
+    }
+
+    .dokan-dash-sidebar ul.dokan-dashboard-menu li.dokan-common-links a:hover {
+        background: var(--tp-theme-primary);
+    }
+
+    #dokan-seller-listing-wrap.grid-view .store-content{
+        & p{
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+
+---Downloaded files---
+The import files for: Home Electronics were successfully downloaded!
+Initial max execution time = 1200
+Files info:
+Site URL = http://metisse.local
+Data file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/contents-demo.xml
+Widget file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/widget-settings.json
+Customizer file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/customizer-data.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+

@@ -1,0 +1,236 @@
+
+---Downloaded files---
+The import files for: Home Electronics were successfully downloaded!
+Initial max execution time = 1200
+Files info:
+Site URL = http://metisse.local
+Data file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/contents-demo.xml
+Widget file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/widget-settings.json
+Customizer file = C:\Users\Plus\Local Sites\metisse\app\public/wp-content/themes/shofy/sample-data/customizer-data.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Blog Sidebar : 
+
+Search - No Title - Imported
+Custom HTML - About Me - Imported
+TP Sidebar Posts Image - Latest Post - Imported
+Categories - Categories - Imported
+Tag Cloud - Popular Tags - Imported
+
+Product Sidebar : 
+
+Product Search - No Title - Imported
+Filter Products by Price - Price Filter - Imported
+YITH AJAX Filters Preset - No Title - Imported
+Products by Rating list - Top rated - Imported
+Recently Viewed Products list - Recently Viewed - Imported
+
+Footer 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer 3 : 
+
+Navigation Menu - Information - Imported
+
+Footer 4 : 
+
+Custom HTML - Talk To Us - Imported
+
+Footer Style 2 : 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer Style 2 : 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer Style 2 : 3 : 
+
+Navigation Menu - Infomation - Imported
+
+Footer Style 2 : 4 : 
+
+Custom HTML - Talk To Us - Imported
+
+Footer Style 3 : 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer Style 3 : 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer Style 3 : 3 : 
+
+Navigation Menu - Information - Imported
+
+Footer Style 3 : 4 : 
+
+Custom HTML - Talk To Us - Imported
+
+Footer Style 4 : 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer Style 4 : 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer Style 4 : 3 : 
+
+Navigation Menu - Information - Imported
+
+Footer Style 4 : 4 : 
+
+Custom HTML - Talk to Us - Imported
+
+Footer Style 5 : 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer Style 5 : 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer Style 5 : 3 : 
+
+Navigation Menu - Information - Imported
+
+Footer Style 5 : 4 : 
+
+Text - Subscribe - Imported
+
+Footer Style 6 : 1 : 
+
+Custom HTML - No Title - Imported
+
+Footer Style 6 : 2 : 
+
+Navigation Menu - My Account - Imported
+
+Footer Style 6 : 3 : 
+
+Navigation Menu - Information - Imported
+
+Footer Style 6 : 4 : 
+
+Custom HTML - Talk To Us - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---ocdi/after_import---
+

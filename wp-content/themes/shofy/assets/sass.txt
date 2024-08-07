@@ -1,0 +1,5 @@
+sass --watch C:\laragon\www\shofy\wp-content\themes\shofy\assets\scss\main.scss:C:\laragon\www\shofy\wp-content\themes\shofy\assets\css\shofy-core.css
+
+sass --watch D:\xampp\htdocs\wp\shofy\wp-content\themes\shofy\assets\scss\main.scss:D:\xampp\htdocs\wp\shofy\wp-content\themes\shofy\assets\css\shofy-core.css
+
+sass --watch /Users/shahnewaz/wp/shofy/wp-content/themes/shofy/assets/scss/main.scss:/Users/shahnewaz/wp/shofy/wp-content/themes/shofy/assets/css/shofy-core.css
