@@ -87,18 +87,21 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 		<div class="col-span-full">
 			<div class="custom-container-fluid">
 				<header class="woocommerce-products-header">
-					<div class="custom-container-new">
+					<div class="template-breadcrump-area">
+						<div class="custom-container-new">
 
-						<?php
-						/**
-						 * Hook: woocommerce_archive_description.
-						 *
-						 * @hooked woocommerce_taxonomy_archive_description - 10
-						 * @hooked woocommerce_product_archive_description - 10
-						 */
-						do_action('woocommerce_archive_description');
-						?>
+							<?php
+							/**
+							 * Hook: woocommerce_archive_description.
+							 *
+							 * @hooked woocommerce_taxonomy_archive_description - 10
+							 * @hooked woocommerce_product_archive_description - 10
+							 */
+							do_action('woocommerce_archive_description');
+							?>
+						</div>
 					</div>
+
 					<div class="woocpmmerce-product-header-top-content py-[50px] md:py-[30px] bg-[#0000000d]">
 						<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
 							<h1 class="woocommerce-products-header__title page-title text-center text-[34px] md:text-[26px] sm:text-[22px] text-black font-primary font-normal leading-none tp-woo-shop-page-title"><?php woocommerce_page_title(); ?></h1>
