@@ -385,6 +385,15 @@ get_header();
     </div>
 </section>
 
+<section class="home-cta-banner-section">
+    <?php
+    // Get the Elementor template shortcode
+    $elementor_template_shortcode = '[elementor-template id="1047"]';
+
+    // Display the Elementor template using do_shortcode
+    echo do_shortcode($elementor_template_shortcode);
+    ?>
+</section>
 
 <section class="blogs-and-article-section">
     <?php
