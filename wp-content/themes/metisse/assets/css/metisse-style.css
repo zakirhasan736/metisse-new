@@ -59,7 +59,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -104,7 +104,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -393,7 +393,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -470,11 +471,11 @@ video {
 }
 
 h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Lato", "sans-serif";
 }
 
@@ -510,7 +511,7 @@ h1,
 }
 
 .p-varient-lists li:first-child,
-    .p-varient-lists li.active {
+.p-varient-lists li.active {
   border: 2px solid #000;
 }
 
@@ -660,7 +661,7 @@ button.tp-product-details-buy-now-btn {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .woocommerce-product-gallery__image img {
@@ -727,16 +728,16 @@ nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list {
 }
 
 nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list li {
-  color: #000;
-  font-family: Lato;
-  font-size: 16px;
+  color: var(--Mono-70, #5A5A5A);
+  font-kerning: none;
+
+  /* Body/Caption */
+  font-family: Raleway;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: capitalize;
-  display: flex;
-  gap: 3px;
-  align-items: center;
+  font-weight: 400;
+  line-height: 150%;
+  /* 18px */
 }
 
 nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list li:not(:last-child) a {
@@ -744,7 +745,7 @@ nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list l
 }
 
 nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list li:last-child {
-  color: #777;
+  color: #131313;
 }
 
 nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list li:last-child a {
@@ -913,7 +914,7 @@ body.page-template.page-template-elementor_theme.page.page-id-11.logged-in.admin
 }
 
 span#select2-shipping_country-container,
-    span#select2-shipping_state-container {
+span#select2-shipping_state-container {
   border: 2px solid #000 !important;
   color: #000 !important;
   font-family: Lato !important;
@@ -979,7 +980,7 @@ tr.woocommerce-cart-form__cart-item.cart_item td span.woocommerce-Price-amount.a
 }
 
 tr.order-total td,
-    tr.order-total th {
+tr.order-total th {
   padding-top: 20px !important;
 }
 
@@ -1091,7 +1092,7 @@ button.tp-return-customer-btn.tp-checkout-btn {
 }
 
 .tp-blog-grid-item h3.tp-blog-grid-title:hover,
-    .tp-blog-grid-item h3.tp-blog-grid-title {
+.tp-blog-grid-item h3.tp-blog-grid-title {
   color: #000;
   text-align: left;
   font-family: "Lato";
@@ -1103,7 +1104,7 @@ button.tp-return-customer-btn.tp-checkout-btn {
 }
 
 .tp-blog-grid-item p:hover,
-    .tp-blog-grid-item p {
+.tp-blog-grid-item p {
   color: #000;
   text-align: left;
   font-family: "Lato";
@@ -1158,12 +1159,12 @@ div#woosq-popup .prodyct-action-btn-box {
   }
 
   .tp-blog-grid-item h3.tp-blog-grid-title,
-        .tp-blog-grid-item p {
+  .tp-blog-grid-item p {
     font-size: 14px;
   }
 
   .tp-woo-checkout-order-details.white-bg.cart-wrapper,
-        div#customer_form_details {
+  div#customer_form_details {
     padding: 29px 15px 35px !important;
   }
 
@@ -1194,7 +1195,7 @@ div#woosq-popup .prodyct-action-btn-box {
   }
 
   button.tp-product-details-add-to-cart-btn.single_add_to_cart_button.product-add-cart-btn.product-add-cart-btn-3,
-        button#tp_wc-adding-button {
+  button#tp_wc-adding-button {
     width: 100% !important;
     max-width: 100%;
   }
@@ -1207,7 +1208,7 @@ div#woosq-popup .prodyct-action-btn-box {
   /* --- */
 
   tr.woocommerce-cart-form__cart-item.cart_item td.product-name a,
-        tr.woocommerce-cart-form__cart-item.cart_item td span.woocommerce-Price-amount.amount {
+  tr.woocommerce-cart-form__cart-item.cart_item td span.woocommerce-Price-amount.amount {
     font-size: 16px;
   }
 }
@@ -1291,7 +1292,9 @@ div#ekit-megamenu-primary-menu {
   height: auto;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -1301,19 +1304,19 @@ div#ekit-megamenu-primary-menu {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -1321,28 +1324,28 @@ div#ekit-megamenu-primary-menu {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 ::backdrop {
@@ -1355,19 +1358,19 @@ div#ekit-megamenu-primary-menu {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -1375,28 +1378,28 @@ div#ekit-megamenu-primary-menu {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-  --tw-contain-size:  ;
-  --tw-contain-layout:  ;
-  --tw-contain-paint:  ;
-  --tw-contain-style:  ;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
 }
 
 .container {
@@ -1437,7 +1440,7 @@ div#ekit-megamenu-primary-menu {
 }
 
 .template-breadcrump-area {
-  padding: 18px 0 19px;
+  padding: 18px 0 17px;
   border-top: 1px solid #F6F6F6;
 }
 
@@ -2006,17 +2009,17 @@ div#ekit-megamenu-primary-menu {
 
 .gap-x-\[20px\] {
   -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 
 .gap-x-\[30px\] {
   -moz-column-gap: 30px;
-       column-gap: 30px;
+  column-gap: 30px;
 }
 
 .gap-x-\[33px\] {
   -moz-column-gap: 33px;
-       column-gap: 33px;
+  column-gap: 33px;
 }
 
 .gap-y-\[30px\] {
@@ -2158,7 +2161,7 @@ div#ekit-megamenu-primary-menu {
 
 .object-cover {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .\!p-4 {
