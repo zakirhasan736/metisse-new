@@ -739,6 +739,9 @@ nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list l
   align-items: center;
 }
 
+nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper {
+  margin-bottom: 0 !important;
+}
 
 nav.woocommerce-breadcrumb.tp-woo-breadcrumb-wrapper ul.tp-woo-breadcrumb-list li:not(:last-child) a {
   text-decoration: underline !important;
