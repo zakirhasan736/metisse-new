@@ -112,7 +112,6 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 				?>
 					<div class="tp-shop-main shop__main">
 						<div class="grid grid-cols-12 gap-[30px]">
-							
 							<div class="col-span-12 lg:col-span-12 md:col-span-full">
 								<div class="tp-shop-main-wrapper">
 									<div class="tp-shop-top mb-[20px]">
