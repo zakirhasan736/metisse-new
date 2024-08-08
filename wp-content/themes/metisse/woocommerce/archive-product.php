@@ -102,11 +102,18 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 						</div>
 					</div>
 
-					<div class="woocpmmerce-product-header-top-content py-[50px] md:py-[30px] bg-[#0000000d]">
-						<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-							<h1 class="woocommerce-products-header__title page-title text-center text-[34px] md:text-[26px] sm:text-[22px] text-black font-primary font-normal leading-none tp-woo-shop-page-title"><?php woocommerce_page_title(); ?></h1>
-						<?php endif; ?>
-					</div>
+					<section class="blogs-and-article-section">
+						<?php
+						// Get the ACF field value
+						$elementor_template_shortcode = get_field('elementor-template id="996"');
+
+						// Check if the ACF field value is not empty
+						if ($elementor_template_shortcode) {
+							// Display the Elementor template using do_shortcode()
+							echo do_shortcode($elementor_template_shortcode);
+						}
+						?>
+					</section>
 
 				</header>
 			</div>
