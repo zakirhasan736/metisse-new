@@ -87,7 +87,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 		<div class="col-span-full">
 			<div class="custom-container-fluid">
 				<header class="woocommerce-products-header">
-					<div class="custom-container-fluid">
+					<div class="custom-container-new">
 
 						<?php
 						/**

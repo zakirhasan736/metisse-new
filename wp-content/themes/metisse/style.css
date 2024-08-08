@@ -966,8 +966,32 @@ Text Domain: metisse
     div#ekit-megamenu-primary-menu {
         height: auto;
     }
+
 }
 
-@layer components {}
+@layer components {
+    .custom-container-new {
+        max-width: 1408px;
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media screen and (max-width:1056px) {
+        .custom-container-new {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .custom-container-new {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+}
 
 @layer utilities {}
