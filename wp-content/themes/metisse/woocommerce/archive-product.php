@@ -87,11 +87,6 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 		<div class="col-span-full">
 			<div class="custom-container-fluid">
 				<header class="woocommerce-products-header">
-					<div class="woocpmmerce-product-header-top-content py-[50px] md:py-[30px] bg-[#0000000d]">
-						<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-							<h1 class="woocommerce-products-header__title page-title text-center text-[34px] md:text-[26px] sm:text-[22px] text-black font-primary font-normal leading-none tp-woo-shop-page-title"><?php woocommerce_page_title(); ?></h1>
-						<?php endif; ?>
-					</div>
 					<div class="custom-container">
 
 						<?php
@@ -104,6 +99,12 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 						do_action('woocommerce_archive_description');
 						?>
 					</div>
+					<div class="woocpmmerce-product-header-top-content py-[50px] md:py-[30px] bg-[#0000000d]">
+						<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
+							<h1 class="woocommerce-products-header__title page-title text-center text-[34px] md:text-[26px] sm:text-[22px] text-black font-primary font-normal leading-none tp-woo-shop-page-title"><?php woocommerce_page_title(); ?></h1>
+						<?php endif; ?>
+					</div>
+
 				</header>
 			</div>
 			<div class="custom-container">
@@ -143,11 +144,6 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 														</ul>
 													</div>
 
-													<div class="tp-shop-top-right flex items-center md:!mt-0 justify-end">
-														<div class="tp-shop-top-select text-center">
-															<?php woocommerce_catalog_ordering(); ?>
-														</div>
-													</div>
 												</div>
 											</div>
 											<div class="col-span-6 sm:col-span-full">
