@@ -102,16 +102,13 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 						</div>
 					</div>
 
-					<section class="blogs-and-article-section">
+					<section class="productpage-banner-section">
 						<?php
-						// Get the ACF field value
-						$elementor_template_shortcode = get_field('productpage_banner_section_template');
+						// Get the Elementor template shortcode
+						$elementor_template_shortcode = '[elementor-template id="996"]';
 
-						// Check if the ACF field value is not empty
-						if ($elementor_template_shortcode) {
-							// Display the Elementor template using do_shortcode()
-							echo do_shortcode($elementor_template_shortcode);
-						}
+						// Display the Elementor template using do_shortcode
+						echo do_shortcode($elementor_template_shortcode);
 						?>
 					</section>
 
