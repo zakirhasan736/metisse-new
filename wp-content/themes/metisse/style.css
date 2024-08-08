@@ -963,6 +963,9 @@ Text Domain: metisse
         color: #AA834C;
     }
 
+    div#ekit-megamenu-primary-menu {
+        height: auto;
+    }
 }
 
 @layer components {}

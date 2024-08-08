@@ -112,8 +112,120 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 				?>
 					<div class="tp-shop-main shop__main">
 						<div class="grid grid-cols-12 gap-[30px]">
-							
-							<div class="col-span-12 lg:col-span-12 md:col-span-full">
+							<div class="col-span-3 lg:col-span-4 md:col-span-full">
+								<div class="tp-shop-sidebar  tp-woo-shop-sidebar md:grid md:grid-cols-12 md:gap-[30px]">
+									<!-- Category Filter -->
+									<div class="category-filter p-[20px] border border-[#ccc] mb-[15px] md:col-span-6 sm:col-span-full">
+										<h2 class="text-[16px] pb-4 text-[#000] font-bold font-secondary tracking-[3.2px] leading-none opacity-50 uppercase">All Categories</h2>
+										<ul>
+											<li class="py-[10px] border-b border-b-[#ccc]">
+												<a href="/shop/" class="grid grid-cols-12 gap-[5px]">
+													<span class="col-span-8 text-[16px] sm:text-[14px] flex items-center gap-[3px] font-medium font-primary leading-[25px] text-[#121212]">All <span><svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+																<path d="M1 1L4.5 4.88889L1 8.77778" stroke="black" stroke-width="2" stroke-linecap="round" />
+															</svg></span></span>
+													<span class="col-span-4 text-right text-[14px] sm:text-[12px] opacity-50 font-medium font-primary leading-[25px] text-[#000000]"><?php echo esc_html(wp_count_posts('product')->publish); ?> <span>Products</span></span>
+												</a>
+											</li>
+											<?php
+											$categories = get_categories(array(
+												'taxonomy' => 'product_cat',
+												'orderby' => 'name',
+												'order'   => 'ASC',
+											));
+											foreach ($categories as $cat) {
+												$args = array(
+													'post_type' => 'product',
+													'posts_per_page' => -1,
+													'tax_query' => array(
+														array(
+															'taxonomy' => 'product_cat',
+															'field' => 'slug',
+															'terms' => $cat->slug,
+														),
+													),
+												);
+												$products = new WP_Query($args);
+											?>
+												<li class="py-[7px]">
+													<a href="/product-category/<?php echo esc_attr($cat->slug); ?>" class="grid grid-cols-12 gap-[5px]">
+														<span class="col-span-8 text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] text-[#333]"><?php echo esc_html($cat->name); ?></span>
+														<span class="col-span-4 text-[14px] sm:text-[12px] font-medium font-primary leading-[25px] text-[#000] opacity-50"><?php echo esc_html($products->found_posts); ?> <span>Products</span></span>
+													</a>
+												</li>
+											<?php } ?>
+										</ul>
+									</div>
+
+									<?php
+									// Initialize maximum price variable for all products
+									$max_price_all = 0;
+
+									// Query all products to find the maximum price among all products
+									$args_all = array(
+										'post_type'      => 'product',
+										'posts_per_page' => -1,
+									);
+
+									$query_all = new WP_Query($args_all);
+
+									// Loop through all products to find the maximum price
+									if ($query_all->have_posts()) {
+										while ($query_all->have_posts()) {
+											$query_all->the_post();
+											global $product;
+											$product_price = $product->get_price();
+
+											// Update maximum price among all products if the current product's price is higher
+											if ($product_price > $max_price_all) {
+												$max_price_all = $product_price;
+											}
+										}
+										wp_reset_postdata();
+									}
+
+									// Set the maximum price for the "All" category
+									$max_price = $max_price_all;
+									?>
+
+									<div class="price-range-filter p-[20px] border border-[#ccc] md:col-span-6 sm:col-span-full">
+										<h2 class="text-[16px] mb-[15px] text-[#000] font-bold font-secondary tracking-[3.2px] leading-none opacity-50 uppercase">Price Range</h2>
+										<form method="get">
+											<input type="hidden" name="post_type" value="product">
+
+											<div class="range-price-updates flex items-center gap-[7px] mb-[10px]">
+												<div class="min-price-box">
+													<label class="text-[12px] text-[#000]  !font-primary font-bold uppercase mb-[5px]" for="min_price">Min Price:</label>
+													<input class="text-[12px] font-bold !font-primary text-[#000] !p-[10px] text-center !h-[35px]" type="text" name="min_price" id="min_price" value="0" readonly>
+												</div>
+												<div class="max-price-box">
+													<label class="text-[12px] text-[#000]  !font-primary font-bold uppercase mb-[5px]" for="max_price">Max Price:</label>
+													<input class="text-[12px] font-bold !font-primary text-[#000] !p-[10px] text-center !h-[35px]" type="text" name="max_price" id="max_price" value="<?php echo esc_attr($max_price); ?>" readonly>
+												</div>
+											</div>
+											<input type="range" class="range-input mb-[10px]" min="0" max="<?php echo esc_attr($max_price); ?>" step="1" value="<?php echo esc_attr($max_price); ?>">
+											<button class="filter-btn" type="submit">Filter</button>
+										</form>
+									</div>
+
+									<script>
+										window.addEventListener('DOMContentLoaded', function() {
+											var rangeInput = document.querySelector('.range-input');
+											var maxPriceInput = document.getElementById('max_price');
+
+											rangeInput.addEventListener('input', function() {
+												maxPriceInput.value = this.value;
+											});
+
+											maxPriceInput.addEventListener('input', function() {
+												rangeInput.value = this.value;
+											});
+										});
+									</script>
+
+
+								</div>
+							</div>
+							<div class="col-span-9 lg:col-span-8 md:col-span-full">
 								<div class="tp-shop-main-wrapper">
 									<div class="tp-shop-top mb-[20px]">
 										<div class="grid grid-cols-12 gap-[30px]">
