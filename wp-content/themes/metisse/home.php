@@ -9,62 +9,6 @@
 get_header();
 ?>
 
-<div class="category-header pt-[11px] pb-[9px] h-[60px] flex items-center overflow-hidden">
-    <div class="custom-container">
-        <div class="header-wrapper flex items-center gap-[23px]">
-            <div class="category-header-left-cont">
-                <button class="category-filter-drop flex items-center gap-3 text-[16px] font-normal font-primary text-center text-primary bg-transparent outline-none !border-0 !pl-[12px] !pr-[25px] !pt-[9px] !pb-[12px] border-r border-[#00000033]">
-                    <!--<span>-->
-                    <!--    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">-->
-                    <!--        <path d="M5 1H15" stroke="black" stroke-width="2" stroke-linecap="round" />-->
-                    <!--        <path d="M1 6H11" stroke="black" stroke-width="2" stroke-linecap="round" />-->
-                    <!--        <path d="M5 11H15" stroke="black" stroke-width="2" stroke-linecap="round" />-->
-                    <!--    </svg>-->
-                    <!--</span>-->
-                    <span class="text-[16px] font-normal font-primary text-center text-black">Categories</span>
-                </button>
-            </div>
-            <div class="category-header-right-cont sm:hidden">
-                <div class="categorys-list-nav">
-                    <ul class="navbar-nav-items flex items-center gap-[30px]">
-                        <li class="flex items-center gap-[6px] relative">
-                            <a class="text-[16px] md:text-[14px] sm:text-[12px] font-medium py-[20px] font-primary leading-none text-[#000]" href="/product-category/premium-watches/">Premium Watches</a>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                    <path d="M2 5L5.5 9L9 5" stroke="black" stroke-linecap="round" />
-                                </svg>
-                            </span>
-                            <ul class="dropdown-submenu-box flex flex-col gap-[7px] absolute left-0 top-[35px] min-w-[200px] pt-[22px] px-[16px] pb-[20px] bg-[#F2F2F2] z-[9999]">
-                                <li><a class="text-[16px] md:text-[14px] sm:text-[12px] font-medium font-primary leading-none text-[#00000099] hover:text-[#000]" href="/">Premium Watches</a></li>
-                                <li><a class="text-[16px] md:text-[14px] sm:text-[12px] font-medium font-primary leading-none text-[#00000099] hover:text-[#000]" href="/">Premium Watches</a></li>
-                            </ul>
-                        </li>
-                        <li class="flex items-center gap-[6px] relative">
-                            <a class="text-[16px]  sm:text-[14px] font-medium py-[20px] font-primary leading-none text-[#000]" href="/product-category/new-arrival/">New Arrivals</a>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                    <path d="M2 5L5.5 9L9 5" stroke="black" stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-[6px] relative">
-                            <a class="text-[16px] md:text-[14px] sm:text-[12px] font-medium py-[20px] font-primary leading-none text-[#000]" href="/product-category/smartwatches/">Smart Watches</a>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                    <path d="M2 5L5.5 9L9 5" stroke="black" stroke-linecap="round" />
-                                </svg>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-[6px] relative">
-                            <a class="text-[16px] md:text-[14px] sm:text-[12px] font-medium py-[20px] font-primary leading-none text-[#42A040]" href="/product-category/black-friday-sale/">Black Friday Sale</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <?php the_content(); ?>
 
