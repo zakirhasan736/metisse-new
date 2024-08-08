@@ -105,7 +105,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 					<section class="blogs-and-article-section">
 						<?php
 						// Get the ACF field value
-						$elementor_template_shortcode = get_field('elementor-template id="996"');
+						$elementor_template_shortcode = get_field('productpage_banner_section_template');
 
 						// Check if the ACF field value is not empty
 						if ($elementor_template_shortcode) {
