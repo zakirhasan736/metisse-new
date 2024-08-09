@@ -1007,6 +1007,10 @@ Text Domain: metisse
         }
     }
 
+    .section.home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
+        overflow: visible !important;
+    }
+
 }
 
 @layer utilities {}
