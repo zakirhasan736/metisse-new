@@ -1525,6 +1525,12 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   border-bottom: 1px solid #DCDCDC;
 }
 
+section.product-feature-type-featured-product.featured-watches-section button.add-to-cart-btn {
+  padding: 0;
+  justify-content: flex-start;
+  max-width: auto;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
