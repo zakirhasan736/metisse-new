@@ -2044,6 +2044,10 @@ section.home-metisse-community-section .swiper-pagination.swiper-pagination-clic
   gap: 7px;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .gap-x-\[20px\] {
   -moz-column-gap: 20px;
        column-gap: 20px;
@@ -2134,6 +2138,11 @@ section.home-metisse-community-section .swiper-pagination.swiper-pagination-clic
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-\[\#DCDCDC\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 220 220 / var(--tw-border-opacity));
 }
 
 .border-b-\[\#ccc\] {
@@ -2380,6 +2389,18 @@ section.home-metisse-community-section .swiper-pagination.swiper-pagination-clic
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pb-\[44px\] {
+  padding-bottom: 44px;
+}
+
+.pb-\[9px\] {
+  padding-bottom: 9px;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-left {
