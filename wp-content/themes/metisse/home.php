@@ -38,7 +38,7 @@ get_header();
     // Display the Elementor template using do_shortcode
     echo do_shortcode($elementor_template_shortcode);
     ?>
-</section>[elementor-template id="1140"]
+</section>
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container">
         <div class="section-title-box mb-[44px] sm:mb-[35px]">
