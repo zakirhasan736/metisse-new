@@ -30,7 +30,7 @@ get_header();
     echo do_shortcode($elementor_template_shortcode);
     ?>
 </section>
-<section class="home-product-cta-block-section">
+<section class="home-product-features-section">
     <?php
     // Get the Elementor template shortcode
     $elementor_template_shortcode = '[elementor-template id="1140"]';

@@ -1455,6 +1455,19 @@ div#ekit-megamenu-primary-menu {
   }
 }
 
+@media screen and (min-width: 1190px) {
+  .section.home-product-cta-block-section {
+    position: relative;
+    display: flex;
+    padding-top: 16px;
+    overflow: hidden;
+    width: calc(1046px + ((100vw - 1046px) / 2));
+    max-width: calc(1046px + ((100vw - 1046px) / 2)) !important;
+    left: calc((100vw - 1046px) / 2);
+    padding-right: calc((100vw - 1046px) / 2);
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
