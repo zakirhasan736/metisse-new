@@ -2157,6 +2157,10 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   border-bottom-width: 3px;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .\!border-\[\#000000\] {
   --tw-border-opacity: 1 !important;
   border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
@@ -2382,6 +2386,11 @@ section.product-feature-type-featured-product.featured-watches-section .section-
 .py-\[7px\] {
   padding-top: 7px;
   padding-bottom: 7px;
+}
+
+.px-\[0px\] {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .\!pl-0 {
@@ -2718,6 +2727,20 @@ section.product-feature-type-featured-product.featured-watches-section .section-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[black\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-\[\#\] {
+  color: #;
+}
+
+.text-\[\#BD7048\] {
+  --tw-text-opacity: 1;
+  color: rgb(189 112 72 / var(--tw-text-opacity));
 }
 
 .\!underline {

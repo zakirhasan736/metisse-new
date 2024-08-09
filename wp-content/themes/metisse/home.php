@@ -156,7 +156,7 @@ get_header();
                                         </div>
                                         <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-start justify-start">
                                             <p class="product-price text-[18px] text-left font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
-                                            <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
+                                            <button class="add-to-cart-btn mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-2 px-[0px] border-none capitalize text-[#BD7048] text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
                                         </div>
                                     </div>
 
