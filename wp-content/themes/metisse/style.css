@@ -1011,7 +1011,7 @@ Text Domain: metisse
         overflow: visible !important;
     }
 
-    .elementor-testimonial {
+    section.home-metisse-community-section .elementor-testimonial {
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
@@ -1019,23 +1019,30 @@ Text Domain: metisse
     }
 
 
-    .elementor-testimonial__footer {
+    section.home-metisse-community-section .elementor-testimonial__footer {
         flex: 0 0 90px;
         width: 90px;
         justify-content: center;
         align-items: center;
     }
 
-    .elementor-testimonial__footer .elementor-testimonial__image {
+    section.home-metisse-community-section .elementor-testimonial__footer .elementor-testimonial__image {
         margin-top: 0;
         text-align: center;
     }
 
-.elementor-testimonial__cite {
+    section.home-metisse-community-section .elementor-testimonial__cite {
         justify-content: center;
         align-items: center;
     }
 
+    section.home-metisse-community-section .elementor-testimonial__image {
+        margin-top: 0 !important;
+    }
+
+    section.home-metisse-community-section .elementor-testimonial__footer {
+        margin-top: 0 !important;
+    }
 }
 
 @layer utilities {}
