@@ -2074,6 +2074,14 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   gap: 7px;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-x-\[20px\] {
   -moz-column-gap: 20px;
        column-gap: 20px;

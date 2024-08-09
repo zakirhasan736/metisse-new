@@ -141,7 +141,7 @@ get_header();
                 ?>
                         <div class="col-span-3 md:col-span-4 sm:col-span-full">
                             <div class="product--card-item relative">
-                                <div class="product--card-main-cont">
+                                <div class="product--card-main-cont flex items-start gap-5">
                                     <div class="product--img-box h-[286px] w-[163px] relative">
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
                                     </div>
