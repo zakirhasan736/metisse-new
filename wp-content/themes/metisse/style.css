@@ -1043,6 +1043,18 @@ Text Domain: metisse
     section.home-metisse-community-section .elementor-testimonial__footer {
         margin-top: 0 !important;
     }
+
+    section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: #131313 !important;
+        opacity: .5;
+    }
+
+    section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background: #BD7048 !important;
+        opacity: 1;
+    }
 }
 
 @layer utilities {}

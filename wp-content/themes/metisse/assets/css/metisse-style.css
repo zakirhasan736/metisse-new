@@ -1471,6 +1471,50 @@ div#ekit-megamenu-primary-menu {
   overflow: visible !important;
 }
 
+section.home-metisse-community-section .elementor-testimonial {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 46px;
+}
+
+section.home-metisse-community-section .elementor-testimonial__footer {
+  flex: 0 0 90px;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+}
+
+section.home-metisse-community-section .elementor-testimonial__footer .elementor-testimonial__image {
+  margin-top: 0;
+  text-align: center;
+}
+
+section.home-metisse-community-section .elementor-testimonial__cite {
+  justify-content: center;
+  align-items: center;
+}
+
+section.home-metisse-community-section .elementor-testimonial__image {
+  margin-top: 0 !important;
+}
+
+section.home-metisse-community-section .elementor-testimonial__footer {
+  margin-top: 0 !important;
+}
+
+section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #131313 !important;
+  opacity: .5;
+}
+
+section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #BD7048 !important;
+  opacity: 1;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
