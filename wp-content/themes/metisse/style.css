@@ -996,7 +996,7 @@ Text Domain: metisse
     }
 
     @media screen and (min-width: 1190px) {
-    .home-product-features-section {
+        .home-product-features-section {
             position: relative;
             display: flex;
             overflow: hidden;
@@ -1007,10 +1007,35 @@ Text Domain: metisse
         }
     }
 
-  .home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
+    .home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
         overflow: visible !important;
     }
 
-} 
+    .elementor-testimonial {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 46px;
+    }
+
+
+    .elementor-testimonial__footer {
+        flex: 0 0 90px;
+        width: 90px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .elementor-testimonial__footer .elementor-testimonial__image {
+        margin-top: 0;
+        text-align: center;
+    }
+
+.elementor-testimonial__cite {
+        justify-content: center;
+        align-items: center;
+    }
+
+}
 
 @layer utilities {}
