@@ -28,8 +28,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      primary: ['Lato', 'sans-serif'],
-      secondary: ['Roboto', 'sans-serif'],
+      primary: ['Poppins', 'sans-serif'],
+      secondary: ['Raleway', 'sans-serif'],
       accend: ['Futur', 'sans-serif'],
     },
     fontSize: {
