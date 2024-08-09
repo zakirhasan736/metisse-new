@@ -22,7 +22,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Custom Add To Cart', 'elementor-pro' );
+		return esc_html__( 'Custom Shop now', 'elementor-pro' );
 	}
 
 	public function get_icon() {
@@ -204,9 +204,9 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	/**
-	 * Before Add to Cart Quantity
+	 * Before Shop now Quantity
 	 *
-	 * Added wrapper tag around the quantity input and "Add to Cart" button
+	 * Added wrapper tag around the quantity input and "Shop now" button
 	 * used to more solidly accommodate the layout when additional elements
 	 * are added by 3rd party plugins.
 	 *
@@ -219,7 +219,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	/**
-	 * After Add to Cart Quantity
+	 * After Shop now Quantity
 	 *
 	 * @since 3.6.0
 	 */

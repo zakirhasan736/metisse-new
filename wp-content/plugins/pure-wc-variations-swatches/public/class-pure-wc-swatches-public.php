@@ -146,7 +146,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Add to cart functionality for shop page
+	 * Shop now functionality for shop page
 	 *
 	 * @return mixed
 	 * @since 1.0.3
@@ -198,7 +198,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Arguments for shop page add to cart button
+	 * Arguments for shop page Shop now button
 	 *
 	 * @param array  $args array of button arguments.
 	 * @param object $product curreent product object.

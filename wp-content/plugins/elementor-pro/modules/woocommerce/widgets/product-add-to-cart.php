@@ -133,9 +133,9 @@ class Product_Add_To_Cart extends Base_Widget {
 	}
 
 	/**
-	 * Before Add to Cart Quantity
+	 * Before Shop now Quantity
 	 *
-	 * Added wrapper tag around the quantity input and "Add to Cart" button
+	 * Added wrapper tag around the quantity input and "Shop now" button
 	 * used to more solidly accommodate the layout when additional elements
 	 * are added by 3rd party plugins.
 	 *
@@ -151,7 +151,7 @@ class Product_Add_To_Cart extends Base_Widget {
 	}
 
 	/**
-	 * After Add to Cart Button
+	 * After Shop now Button
 	 *
 	 * @since 3.6.0
 	 */

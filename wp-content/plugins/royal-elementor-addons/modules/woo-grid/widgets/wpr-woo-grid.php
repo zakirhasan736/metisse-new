@@ -1900,7 +1900,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => 'Add to Cart',
+				'default' => 'Shop now',
 				'condition' => [
 					'element_select' => 'add-to-cart',
 				]
@@ -5465,7 +5465,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		$this->end_controls_section();
 
 		// Styles ====================
-		// Section: Add to Cart ------
+		// Section: Shop now ------
 		$this->start_controls_section(
 			'section_style_add_to_cart',
 			[
@@ -9196,7 +9196,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '</div>';
 	}
 
-	// Render Add To Cart
+	// Render Shop now
 	public function render_product_add_to_cart( $settings, $class ) {
 		global $product;
 
@@ -9291,7 +9291,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '<div class="'. esc_attr($class) .'">';
 			echo '<div class="inner-block">';
 			
-			// WooCommerce Hook: Before Add to Cart Button
+			// WooCommerce Hook: Before Shop now Button
 			// do_action('woocommerce_before_shop_loop_item');
 
 			if ( $button_HTML != apply_filters( 'woocommerce_loop_add_to_cart_link', $button_HTML, $product ) ) {
@@ -9301,7 +9301,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				echo '<a '. implode( ' ', $attributes ) .'><span>'. $button_HTML .'</span></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		
-			// WooCommerce Hook: After Add to Cart Button
+			// WooCommerce Hook: After Shop now Button
 			// do_action('woocommerce_after_shop_loop_item');
 
 			echo '</div>';

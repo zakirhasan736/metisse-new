@@ -1,6 +1,6 @@
 <?php
 /**
- * Subscription Product Add to Cart
+ * Subscription Product Shop now
  *
  * @author  Prospress
  * @package WooCommerce-Subscriptions/Templates

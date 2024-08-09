@@ -1,6 +1,6 @@
 <?php
 /**
- * Variable product add to cart
+ * Variable product Shop now
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/add-to-cart/variable.php.
  *

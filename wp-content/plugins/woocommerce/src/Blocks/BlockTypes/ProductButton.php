@@ -119,7 +119,7 @@ class ProductButton extends AbstractBlock {
 
 			$default_quantity = 1;
 			/**
-			* Filters the change the quantity to add to cart.
+			* Filters the change the quantity to Shop now.
 			*
 			* @since 10.9.0
 			* @param number $default_quantity The default quantity.
@@ -136,7 +136,7 @@ class ProductButton extends AbstractBlock {
 			);
 
 			/**
-			 * Allow filtering of the add to cart button arguments.
+			 * Allow filtering of the Shop now button arguments.
 			 *
 			 * @since 9.7.0
 			 */
@@ -186,7 +186,7 @@ class ProductButton extends AbstractBlock {
 			';
 
 			/**
-			 * Filters the add to cart button class.
+			 * Filters the Shop now button class.
 			 *
 			 * @since 8.7.0
 			 *

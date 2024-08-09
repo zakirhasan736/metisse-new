@@ -638,14 +638,14 @@ class Product_Grid extends Widget_Base
         $this->start_controls_section(
             'eael_product_grid_add_to_cart_section',
             [
-                'label' => esc_html__('Add To Cart', 'essential-addons-for-elementor-lite'),
+                'label' => esc_html__('Shop now', 'essential-addons-for-elementor-lite'),
             ]
         );
 
         $this->add_control(
             'show_add_to_cart_custom_text',
             [
-                'label' => __('Show Add to cart custom text', 'essential-addons-for-elementor-lite'),
+                'label' => __('Show Shop now custom text', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::SWITCHER,
                 'label_on' => __('Show', 'essential-addons-for-elementor-lite'),
                 'label_off' => __('Hide', 'essential-addons-for-elementor-lite'),
@@ -735,7 +735,7 @@ class Product_Grid extends Widget_Base
             ]
         );
 
-        $this->end_controls_section(); # end of section 'add to cart'
+        $this->end_controls_section(); # end of section 'Shop now'
     }
 
     protected function init_content_load_more_controls()
@@ -1560,7 +1560,7 @@ class Product_Grid extends Widget_Base
 
     protected function init_style_addtocart_controls()
     {
-        // add to cart button
+        // Shop now button
         $this->start_controls_section(
             'eael_section_product_grid_add_to_cart_styles',
             [

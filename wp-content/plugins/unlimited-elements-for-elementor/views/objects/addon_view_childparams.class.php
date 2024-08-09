@@ -1174,7 +1174,7 @@ var json = {{ucfunc(\"csv_to_json\",yourattribute)}};
 		$strCode .= "	Price Html: {{variation.price_html|raw}}<br>\n\n";
 		$strCode .= "	Sku: <b>{{variation.sku}}</b><br>\n\n";
 		$strCode .= "	ID: <b>{{variation.variation_id}}</b><br>\n\n";
-		$strCode .= "	Link add to cart: {{variation.link_addcart_cart}}<br>\n\n";
+		$strCode .= "	Link Shop now: {{variation.link_addcart_cart}}<br>\n\n";
 		
 		$strCode .= "	{# For other fields please look at output of this function #}<br>\n ";
 		$strCode .= "	{{ printVar(variation) }} <br>\n\n ";

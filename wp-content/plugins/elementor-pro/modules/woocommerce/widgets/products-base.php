@@ -1067,10 +1067,10 @@ abstract class Products_Base extends Base_Widget {
 	}
 
 	/**
-	 * Add To Cart Wrapper
+	 * Shop now Wrapper
 	 *
-	 * Add a div wrapper around the Add to Cart & View Cart buttons on the product cards inside the product grid.
-	 * The wrapper is used to vertically align the Add to Cart Button and the View Cart link to the bottom of the card.
+	 * Add a div wrapper around the Shop now & View Cart buttons on the product cards inside the product grid.
+	 * The wrapper is used to vertically align the Shop now Button and the View Cart link to the bottom of the card.
 	 * This wrapper is added when the 'Automatically align buttons' toggle is selected.
 	 * Using the 'woocommerce_loop_add_to_cart_link' hook.
 	 *

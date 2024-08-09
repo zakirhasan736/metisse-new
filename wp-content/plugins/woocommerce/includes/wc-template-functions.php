@@ -1354,7 +1354,7 @@ if ( ! function_exists( 'woocommerce_product_archive_description' ) ) {
 if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 
 	/**
-	 * Get the add to cart template for the loop.
+	 * Get the Shop now template for the loop.
 	 *
 	 * @param array $args Arguments.
 	 */
@@ -1710,7 +1710,7 @@ if ( ! function_exists( 'woocommerce_show_product_sale_flash' ) ) {
 if ( ! function_exists( 'woocommerce_template_single_add_to_cart' ) ) {
 
 	/**
-	 * Trigger the single product add to cart action.
+	 * Trigger the single product Shop now action.
 	 */
 	function woocommerce_template_single_add_to_cart() {
 		global $product;
@@ -1720,7 +1720,7 @@ if ( ! function_exists( 'woocommerce_template_single_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_simple_add_to_cart' ) ) {
 
 	/**
-	 * Output the simple product add to cart area.
+	 * Output the simple product Shop now area.
 	 */
 	function woocommerce_simple_add_to_cart() {
 		wc_get_template( 'single-product/add-to-cart/simple.php' );
@@ -1729,7 +1729,7 @@ if ( ! function_exists( 'woocommerce_simple_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_grouped_add_to_cart' ) ) {
 
 	/**
-	 * Output the grouped product add to cart area.
+	 * Output the grouped product Shop now area.
 	 */
 	function woocommerce_grouped_add_to_cart() {
 		global $product;
@@ -1751,7 +1751,7 @@ if ( ! function_exists( 'woocommerce_grouped_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_variable_add_to_cart' ) ) {
 
 	/**
-	 * Output the variable product add to cart area.
+	 * Output the variable product Shop now area.
 	 */
 	function woocommerce_variable_add_to_cart() {
 		global $product;
@@ -1776,7 +1776,7 @@ if ( ! function_exists( 'woocommerce_variable_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_external_add_to_cart' ) ) {
 
 	/**
-	 * Output the external product add to cart area.
+	 * Output the external product Shop now area.
 	 */
 	function woocommerce_external_add_to_cart() {
 		global $product;
@@ -1798,7 +1798,7 @@ if ( ! function_exists( 'woocommerce_external_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_quantity_input' ) ) {
 
 	/**
-	 * Output the quantity input for add to cart forms.
+	 * Output the quantity input for Shop now forms.
 	 *
 	 * @param  array           $args Args for the input.
 	 * @param  WC_Product|null $product Product.
@@ -3158,7 +3158,7 @@ if ( ! function_exists( 'woocommerce_single_variation' ) ) {
 if ( ! function_exists( 'woocommerce_single_variation_add_to_cart_button' ) ) {
 
 	/**
-	 * Output the add to cart button for variations.
+	 * Output the Shop now button for variations.
 	 */
 	function woocommerce_single_variation_add_to_cart_button() {
 		wc_get_template( 'single-product/add-to-cart/variation-add-to-cart-button.php' );

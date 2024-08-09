@@ -30,7 +30,7 @@ class Hooks {
     }
 
     /**
-     * This method will hide add to cart button for products if enabled by vendor
+     * This method will hide Shop now button for products if enabled by vendor
      *
      * @since 3.6.4
      *
@@ -52,13 +52,13 @@ class Hooks {
 
         // check if enabled by product
         if ( Helper::is_enabled_for_product( $product ) ) {
-            return false; // per product settings to hide add to cart button is enabled
+            return false; // per product settings to hide Shop now button is enabled
         }
 
         // check if enabled by vendor global settings
         $vendor_id = dokan_get_vendor_by_product( $product, true );
         if ( Helper::is_enabled_by_vendor( $vendor_id ) ) {
-            return false; // vendor global settings to hide add to cart button is enabled
+            return false; // vendor global settings to hide Shop now button is enabled
         }
 
         // return provided value
@@ -76,7 +76,7 @@ class Hooks {
      * @return string
      */
     public function hide_product_price( $price, $product ) {
-        // for admin panel, we don't need to hide add to cart button
+        // for admin panel, we don't need to hide Shop now button
         if ( is_admin() ) {
             return $price;
         }
@@ -91,7 +91,7 @@ class Hooks {
             return $price;
         }
 
-        // check if hide add to cart button is enabled by product
+        // check if hide Shop now button is enabled by product
         $product_data = Helper::get_catalog_mode_data_by_product( $product );
         if ( 'on' === $product_data['hide_product_price'] ) {
             return ''; // per product settings to hide product price is enabled

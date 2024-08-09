@@ -70,7 +70,7 @@ class WC_Settings_Products extends WC_Settings_Page {
 					'desc_tip' => __( 'This sets the base page of your shop - this is where your product archive will be.', 'woocommerce' ),
 				),
 				array(
-					'title'         => __( 'Add to cart behaviour', 'woocommerce' ),
+					'title'         => __( 'Shop now behaviour', 'woocommerce' ),
 					'desc'          => __( 'Redirect to the cart page after successful addition', 'woocommerce' ),
 					'id'            => 'woocommerce_cart_redirect_after_add',
 					'default'       => 'no',
@@ -78,7 +78,7 @@ class WC_Settings_Products extends WC_Settings_Page {
 					'checkboxgroup' => 'start',
 				),
 				array(
-					'desc'          => __( 'Enable AJAX add to cart buttons on archives', 'woocommerce' ),
+					'desc'          => __( 'Enable AJAX Shop now buttons on archives', 'woocommerce' ),
 					'id'            => 'woocommerce_enable_ajax_add_to_cart',
 					'default'       => 'yes',
 					'type'          => 'checkbox',

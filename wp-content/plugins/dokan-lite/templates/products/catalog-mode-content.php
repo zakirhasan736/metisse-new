@@ -35,7 +35,7 @@ use WeDevs\Dokan\CatalogMode\Helper;
             <label for="catalog_mode_hide_add_to_cart_button" style="display: block;">
                 <input type="checkbox" id="catalog_mode_hide_add_to_cart_button" value="on" name="catalog_mode[hide_add_to_cart_button]"
                     <?php checked( $saved_data['hide_add_to_cart_button'], 'on' ); ?> />
-                <span> <?php esc_html_e( 'Check to remove Add to Cart option from your products.', 'dokan-lite' ); ?></span>
+                <span> <?php esc_html_e( 'Check to remove Shop now option from your products.', 'dokan-lite' ); ?></span>
             </label>
         <?php endif; ?>
         <?php if ( Helper::hide_product_price_option_is_enabled_by_admin() ) : ?>

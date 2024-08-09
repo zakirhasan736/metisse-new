@@ -630,8 +630,8 @@ if ( ! function_exists( 'woosc_init' ) ) {
 													'after_title'        => esc_html__( 'Under title', 'woo-smart-compare' ),
 													'after_rating'       => esc_html__( 'Under rating', 'woo-smart-compare' ),
 													'after_price'        => esc_html__( 'Under price', 'woo-smart-compare' ),
-													'before_add_to_cart' => esc_html__( 'Above add to cart button', 'woo-smart-compare' ),
-													'after_add_to_cart'  => esc_html__( 'Under add to cart button', 'woo-smart-compare' ),
+													'before_add_to_cart' => esc_html__( 'Above Shop now button', 'woo-smart-compare' ),
+													'after_add_to_cart'  => esc_html__( 'Under Shop now button', 'woo-smart-compare' ),
 													'0'                  => esc_html__( 'None (hide it)', 'woo-smart-compare' ),
 												] );
 												?>
@@ -657,8 +657,8 @@ if ( ! function_exists( 'woosc_init' ) ) {
 													'6'  => esc_html__( 'Under title', 'woo-smart-compare' ),
 													'11' => esc_html__( 'Under rating', 'woo-smart-compare' ),
 													'21' => esc_html__( 'Under excerpt', 'woo-smart-compare' ),
-													'29' => esc_html__( 'Above add to cart button', 'woo-smart-compare' ),
-													'31' => esc_html__( 'Under add to cart button', 'woo-smart-compare' ),
+													'29' => esc_html__( 'Above Shop now button', 'woo-smart-compare' ),
+													'31' => esc_html__( 'Under Shop now button', 'woo-smart-compare' ),
 													'41' => esc_html__( 'Under meta', 'woo-smart-compare' ),
 													'51' => esc_html__( 'Under sharing', 'woo-smart-compare' ),
 													'0'  => esc_html__( 'None (hide it)', 'woo-smart-compare' ),

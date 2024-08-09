@@ -106,7 +106,7 @@ class Tt4b_Pixel_Class {
 	}
 
 	/**
-	 * Fires the add to cart event
+	 * Fires the Shop now event
 	 *
 	 * @param string $cart_item_key The cart item id
 	 * @param string $product_id The product id
@@ -440,7 +440,7 @@ class Tt4b_Pixel_Class {
 	}
 
 	/**
-	 *  Gets the user param needed for view content, add to cart, start checkout, complete payment.
+	 *  Gets the user param needed for view content, Shop now, start checkout, complete payment.
 	 */
 	public static function get_user() {
 		$pixel_obj    = new Tt4b_Pixel_Class();
@@ -825,16 +825,16 @@ class Tt4b_Pixel_Class {
 	}
 
 	/**
-	 * Filter the "Add to cart" button attributes to include more data.
+	 * Filter the "Shop now" button attributes to include more data.
 	 *
 	 * @see woocommerce_template_loop_add_to_cart()
 	 *
 	 * @since 1.0.11
 	 *
-	 * @param array      $args The arguments used for the Add to cart button.
+	 * @param array      $args The arguments used for the Shop now button.
 	 * @param WC_Product $product The product object.
 	 *
-	 * @return array The filtered arguments for the Add to cart button.
+	 * @return array The filtered arguments for the Shop now button.
 	 */
 	public static function filter_add_to_cart_attributes( array $args, WC_Product $product ) {
 		$attributes = [

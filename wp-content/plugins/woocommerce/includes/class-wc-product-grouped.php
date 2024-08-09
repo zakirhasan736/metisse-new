@@ -34,7 +34,7 @@ class WC_Product_Grouped extends WC_Product {
 	}
 
 	/**
-	 * Get the add to cart button text.
+	 * Get the Shop now button text.
 	 *
 	 * @return string
 	 */
@@ -43,7 +43,7 @@ class WC_Product_Grouped extends WC_Product {
 	}
 
 	/**
-	 * Get the add to cart button text description - used in aria tags.
+	 * Get the Shop now button text description - used in aria tags.
 	 *
 	 * @since 3.3.0
 	 * @return string

@@ -1928,7 +1928,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the add to cart button text for the single page.
+	 * Get the Shop now button text for the single page.
 	 *
 	 * @return string
 	 */
@@ -1937,13 +1937,13 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the aria-describedby description for the add to cart button.
+	 * Get the aria-describedby description for the Shop now button.
 	 *
 	 * @return string
 	 */
 	public function add_to_cart_aria_describedby() {
 		/**
-		 * Filter the aria-describedby description for the add to cart button.
+		 * Filter the aria-describedby description for the Shop now button.
 		 *
 		 * @since 7.8.0
 		 *
@@ -1954,7 +1954,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the add to cart button text.
+	 * Get the Shop now button text.
 	 *
 	 * @return string
 	 */
@@ -1963,7 +1963,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the add to cart button text description - used in aria tags.
+	 * Get the Shop now button text description - used in aria tags.
 	 *
 	 * @since  3.3.0
 	 * @return string

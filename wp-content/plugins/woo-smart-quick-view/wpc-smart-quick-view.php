@@ -668,8 +668,8 @@ if ( ! function_exists( 'woosq_init' ) ) {
 													'after_title'        => esc_html__( 'Under title', 'woo-smart-quick-view' ),
 													'after_rating'       => esc_html__( 'Under rating', 'woo-smart-quick-view' ),
 													'after_price'        => esc_html__( 'Under price', 'woo-smart-quick-view' ),
-													'before_add_to_cart' => esc_html__( 'Above add to cart', 'woo-smart-quick-view' ),
-													'after_add_to_cart'  => esc_html__( 'Under add to cart', 'woo-smart-quick-view' ),
+													'before_add_to_cart' => esc_html__( 'Above Shop now', 'woo-smart-quick-view' ),
+													'after_add_to_cart'  => esc_html__( 'Under Shop now', 'woo-smart-quick-view' ),
 													'0'                  => esc_html__( 'None (hide it)', 'woo-smart-quick-view' ),
 												] );
 												?>
@@ -982,13 +982,13 @@ if ( ! function_exists( 'woosq_init' ) ) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><?php esc_html_e( 'Add to cart button', 'woo-smart-quick-view' ); ?></th>
+                                            <th scope="row"><?php esc_html_e( 'Shop now button', 'woo-smart-quick-view' ); ?></th>
                                             <td>
                                                 <select name="woosq_settings[add_to_cart_button]">
                                                     <option value="archive" <?php selected( $add_to_cart_button, 'archive' ); ?>><?php esc_html_e( 'Like archive page', 'woo-smart-quick-view' ); ?></option>
                                                     <option value="single" <?php selected( $add_to_cart_button, 'single' ); ?>><?php esc_html_e( 'Like single page', 'woo-smart-quick-view' ); ?></option>
                                                 </select>
-                                                <span class="description"><?php esc_html_e( 'Choose the functionally for the add to cart button.', 'woo-smart-quick-view' ); ?></span>
+                                                <span class="description"><?php esc_html_e( 'Choose the functionally for the Shop now button.', 'woo-smart-quick-view' ); ?></span>
                                             </td>
                                         </tr>
                                         <tr>
