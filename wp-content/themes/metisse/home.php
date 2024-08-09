@@ -119,7 +119,7 @@ get_header();
             <a href="/shope/" class="secondary-btn-view-all-btn text-[12px] font-normal leading-normal mb-[9px] font-secondary text-[#131313] flex justify-center items-center px-8 h-12 py-2 rounded-[4px] border border-[rgb(19,19,19, .6)]">View all</a>
         </div>
         <div class="product-feature-type-new-arrivel-wrap">
-            <div class="grid grid-cols-12 gap-[16px] sm:gap-[12px]">
+            <div class="product-slider">
                 <?php
                 // Query to fetch all products
                 $args = array(
@@ -139,7 +139,6 @@ get_header();
                 if ($products_query->have_posts()) :
                     while ($products_query->have_posts()) : $products_query->the_post();
                 ?>
-                        <div class="col-span-3 md:col-span-4 sm:col-span-full">
                             <div class="product--card-item pt-5 pb-[22px] relative">
                                 <div class="product--card-main-cont flex items-start gap-[20px]">
                                     <div class="product--img-box h-[286px] w-[163px] relative">
@@ -162,7 +161,6 @@ get_header();
 
                                 </div>
                             </div>
-                        </div>
                 <?php
                     endwhile;
                     wp_reset_postdata();
@@ -170,8 +168,43 @@ get_header();
                 ?>
             </div>
         </div>
+        <!-- Add arrows for slider navigation -->
+        <div class="slick-prev-arrow"></div>
+        <div class="slick-next-arrow"></div>
     </div>
 </section>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.product-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true,
+            arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right"></i></button>',
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
 <section class="home-cta-banner-section">
     <?php
     // Get the Elementor template shortcode
