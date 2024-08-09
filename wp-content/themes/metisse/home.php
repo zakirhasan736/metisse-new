@@ -115,7 +115,7 @@ get_header();
 <section class="product-feature-type-featured-product featured-watches-section overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container-new">
         <div class="section-title-box mb-14 flex justify-between items-center gap-4 pt-8  border-b border-[#DCDCDC]">
-            <h2 class="section-title text-[14px] text-[#5A5A5A] text-center font-semibold pb-[9px] font-secondary leading-normal uppercase border-b-[3px] border-b-[#717171]">Featured Products</h2>
+            <h2 class="section-title text-[14px] text-[#5A5A5A] text-center font-semibold pb-[9px] font-secondary leading-normal uppercase border-b-[3px] border-b-[#717171]">Featured Watches</h2>
             <a href="/shope/" class="secondary-btn-view-all-btn text-[12px] font-normal leading-normal font-secondary text-[#131313] px-8 h-12 py-2 rounded-[4px] border border-[rgb(19,19,19, .6)]">View all</a>
         </div>
         <div class="product-feature-type-new-arrivel-wrap">
@@ -126,7 +126,7 @@ get_header();
                     'post_type' => 'product',
                     'posts_per_page' => -1, // Display all products
                     'tax_query' => array(
-                        array( 
+                        array(
                             'taxonomy' => 'product_cat', // Taxonomy name
                             'field' => 'slug', // Select taxonomy term by slug
                             'terms' => 'Featured Products', // Slug of the "featured" category
