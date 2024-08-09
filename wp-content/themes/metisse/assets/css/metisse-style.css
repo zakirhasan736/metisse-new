@@ -1456,7 +1456,7 @@ div#ekit-megamenu-primary-menu {
 }
 
 @media screen and (min-width: 1190px) {
-  .section.home-product-features-section {
+  .home-product-features-section {
     position: relative;
     display: flex;
     overflow: hidden;
@@ -1467,7 +1467,7 @@ div#ekit-megamenu-primary-menu {
   }
 }
 
-.section.home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
+.home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
   overflow: visible !important;
 }
 

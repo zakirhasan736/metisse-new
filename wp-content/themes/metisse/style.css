@@ -996,7 +996,7 @@ Text Domain: metisse
     }
 
     @media screen and (min-width: 1190px) {
-        .section.home-product-features-section {
+    .home-product-features-section {
             position: relative;
             display: flex;
             overflow: hidden;
@@ -1007,10 +1007,10 @@ Text Domain: metisse
         }
     }
 
-    .section.home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
+  .home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
         overflow: visible !important;
     }
 
-}
+} 
 
 @layer utilities {}
