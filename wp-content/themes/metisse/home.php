@@ -112,7 +112,7 @@ get_header();
     echo do_shortcode($elementor_template_shortcode);
     ?>
 </section>
-<section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
+<section class="product-feature-type-featured-product featured-watches-section overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container-new">
         <div class="section-title-box mb-14 flex justify-between items-center gap-4 pt-8  border-b border-[#DCDCDC]">
             <h2 class="section-title text-[14px] text-[#5A5A5A] text-center font-semibold pb-[9px] font-secondary leading-normal uppercase border-b-[3px] border-b-[#717171]">Featured Products</h2>
@@ -157,7 +157,7 @@ get_header();
                                         </div>
                                         <div class="product-card-checkout-btns text-center absolute left-0 w-full h-full flex flex-col items-center justify-center">
                                             <p class="product-price text-[18px] text-center font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
-                                            <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Add To Cart', 'metisse'); ?></button>
+                                            <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
                                         </div>
                                     </div>
 

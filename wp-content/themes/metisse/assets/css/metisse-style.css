@@ -473,7 +473,7 @@ video {
 
 h1,
     h2,
-    h3, 
+    h3,
     h4,
     h5,
     h6 {
@@ -1521,7 +1521,7 @@ section.home-metisse-community-section .swiper-pagination.swiper-pagination-clic
   text-align: right !important;
 }
 
-section.product-feature-type-featured-product .section-title-box {
+section.product-feature-type-featured-product.featured-watches-section .section-title-box {
   border-bottom: 1px solid #DCDCDC;
 }
 
