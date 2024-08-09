@@ -114,7 +114,7 @@ get_header();
 </section>
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container-new">
-        <div class="section-title-box mb-14 flex justify-between items-center gap-4 pb-[9px] pt-8 border-b border-[#DCDCDC]">
+        <div class="section-title-box mb-14 flex justify-between items-center gap-4 pb-[9px] pt-8 border border-b border-[#DCDCDC]">
             <h2 class="section-title text-[16px] text-black text-center font-bold font-secondary tracking-[3.2px] uppercase">Featured Products</h2>
             <a href="/shope/" class="secondary-btn-view-all-btn">View all</a>
         </div>
