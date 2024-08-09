@@ -34,7 +34,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_keywords() {
-		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'add to cart' ];
+		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'Shop now' ];
 	}
 
 	public function on_export( $element ) {
@@ -136,8 +136,8 @@ class Add_To_Cart extends Widget_Button {
 		$this->update_control(
 			'text',
 			[
-				'default' => esc_html__( 'Add to Cart', 'elementor-pro' ),
-				'placeholder' => esc_html__( 'Add to Cart', 'elementor-pro' ),
+				'default' => esc_html__('Shop now', 'elementor-pro' ),
+				'placeholder' => esc_html__('Shop now', 'elementor-pro' ),
 			]
 		);
 

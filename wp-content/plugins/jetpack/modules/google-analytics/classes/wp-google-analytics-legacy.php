@@ -322,14 +322,14 @@ class Jetpack_Google_Analytics_Legacy {
 			$product_sku_or_id = $product->get_sku() ? $product->get_sku() : '#' . $product->get_id();
 			wc_enqueue_js(
 				"$( '.single_add_to_cart_button' ).click( function() {
-					_gaq.push(['_trackEvent', 'Products', 'Add to Cart', '#" . esc_js( $product_sku_or_id ) . "']);
+					_gaq.push(['_trackEvent', 'Products', 'Shop now', '#" . esc_js( $product_sku_or_id ) . "']);
 				} );"
 			);
 		} elseif ( is_woocommerce() ) { // any other page that uses templates (like product lists, archives, etc)
 			wc_enqueue_js(
 				"$( '.add_to_cart_button:not(.product_type_variable, .product_type_grouped)' ).click( function() {
 					var label = $( this ).data( 'product_sku' ) ? $( this ).data( 'product_sku' ) : '#' + $( this ).data( 'product_id' );
-					_gaq.push(['_trackEvent', 'Products', 'Add to Cart', label]);
+					_gaq.push(['_trackEvent', 'Products', 'Shop now', label]);
 				} );"
 			);
 		}

@@ -130,7 +130,7 @@ class ProductButton extends AbstractBlock {
 			$context = array(
 				'quantityToAdd'          => $quantity_to_add,
 				'productId'              => $product->get_id(),
-				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __( 'Add to cart', 'woocommerce' ),
+				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __('Shop now', 'woocommerce' ),
 				'temporaryNumberOfItems' => $number_of_items_in_cart,
 				'animationStatus'        => 'IDLE',
 			);

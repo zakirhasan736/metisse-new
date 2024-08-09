@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Title: Product Details Pattern
  * Slug: woocommerce-blocks/product-details-pattern
@@ -11,7 +12,7 @@
 	<div class="wp-block-column" style="padding-top:0;padding-right:40px;padding-bottom:0;padding-left:0px">
 		<!-- wp:image {"id":1,"sizeSlug":"full","linkDestination":"none"} -->
 		<figure class="wp-block-image size-full">
-			<img src="<?php echo esc_url( plugins_url( 'assets/images/pattern-placeholders/table-floor-home-living-room-furniture-room.png', dirname( __FILE__ ) ) ); ?>" alt="<?php esc_attr_e( 'Placeholder image used to represent a product being showcased in a product details banner. 1 out of 3.', 'woocommerce' ); ?>" class="wp-image-1"/>
+			<img src="<?php echo esc_url(plugins_url('assets/images/pattern-placeholders/table-floor-home-living-room-furniture-room.png', dirname(__FILE__))); ?>" alt="<?php esc_attr_e('Placeholder image used to represent a product being showcased in a product details banner. 1 out of 3.', 'woocommerce'); ?>" class="wp-image-1" />
 		</figure>
 		<!-- /wp:image -->
 
@@ -21,20 +22,24 @@
 			<div class="wp-block-column" style="padding-top:0px;padding-right:5px;padding-bottom:0px;padding-left:0px;">
 				<!-- wp:image {"id":1,"sizeSlug":"full","linkDestination":"none"} -->
 				<figure class="wp-block-image size-full">
-					<img src="<?php echo esc_url( plugins_url( 'assets/images/pattern-placeholders/table-white-chair-floor-shelf-lamp-square-lg.png', dirname( __FILE__ ) ) ); ?>" alt="<?php esc_attr_e( 'Placeholder image used to represent a product being showcased in a product details banner. 2 out of 3.', 'woocommerce' ); ?>" class="wp-image-1"/>
+					<img src="<?php echo esc_url(plugins_url('assets/images/pattern-placeholders/table-white-chair-floor-shelf-lamp-square-lg.png', dirname(__FILE__))); ?>" alt="<?php esc_attr_e('Placeholder image used to represent a product being showcased in a product details banner. 2 out of 3.', 'woocommerce'); ?>" class="wp-image-1" />
 				</figure>
-				<!-- /wp:image --></div>
+				<!-- /wp:image -->
+			</div>
 			<!-- /wp:column -->
 
 			<!-- wp:column {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"blockGap":"0px"}},"layout":{"type":"default"}} -->
 			<div class="wp-block-column" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;">
 				<!-- wp:image {"id":1,"sizeSlug":"full","linkDestination":"none"} -->
 				<figure class="wp-block-image size-full">
-					<img src="<?php echo esc_url( plugins_url( 'assets/images/pattern-placeholders/table-floor-interior-atmosphere-living-room-furniture-square-lg.png', dirname( __FILE__ ) ) ); ?>" alt="<?php esc_attr_e( 'Placeholder image used to represent a product being showcased in a product details banner. 3 out of 3.', 'woocommerce' ); ?>" class="wp-image-1"/>
+					<img src="<?php echo esc_url(plugins_url('assets/images/pattern-placeholders/table-floor-interior-atmosphere-living-room-furniture-square-lg.png', dirname(__FILE__))); ?>" alt="<?php esc_attr_e('Placeholder image used to represent a product being showcased in a product details banner. 3 out of 3.', 'woocommerce'); ?>" class="wp-image-1" />
 				</figure>
-				<!-- /wp:image --></div>
-			<!-- /wp:column --></div>
-		<!-- /wp:columns --></div>
+				<!-- /wp:image -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
 	<!-- /wp:column -->
 
 	<!-- wp:column -->
@@ -54,7 +59,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"style":{"typography":{"fontSize":"0.7em"},"color":{"text":"#000000"}}} -->
-			<p class="has-text-color" style="color:#000000;font-size:0.7em">  <strong>4.2</strong>(1,079 reviews)</p>
+			<p class="has-text-color" style="color:#000000;font-size:0.7em"> <strong>4.2</strong>(1,079 reviews)</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
@@ -97,7 +102,7 @@
 			<div class="wp-block-buttons">
 				<!-- wp:button {"style":{"color":{"text":"#ffffff","background":"#000000"}}} -->
 				<div class="wp-block-button">
-					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#ffffff;background-color:#000000">Add to cart</a>
+					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#ffffff;background-color:#000000">Shop now</a>
 				</div>
 				<!-- /wp:button -->
 			</div>
@@ -119,8 +124,10 @@
 
 				<!-- wp:list-item {"style":{"typography":{"fontSize":"0.8em"}}} -->
 				<li style="font-size:0.8em">Drawer weight capacity of 50 lbs</li>
-			<!-- /wp:list-item --></ul>
-			<!-- /wp:list --></div>
+				<!-- /wp:list-item -->
+			</ul>
+			<!-- /wp:list -->
+		</div>
 		<!-- /wp:group -->
 
 		<!-- wp:group {"layout":{"type":"constrained","justifyContent":"left"}} -->
@@ -133,15 +140,33 @@
 			<figure class="wp-block-table is-style-stripes" style="font-size:0.7em">
 				<table class="has-background-background-color has-text-color has-background" style="color:#000000">
 					<tbody>
-						<tr><td>Overall</td><td>36.5'' H X 40'' W X 20'' D</td></tr>
-						<tr><td>Drawer Interior</td><td>2'' H X 29.25'' W X 12.5'' D</td></tr>
-						<tr><td>Countertop</td><td>40'' W X 20'' D</td></tr>
-						<tr><td>Countertop Thickness</td><td>0.7'' H</td></tr>
-						<tr><td>Overall Product Weight</td><td>39.6 lb.</td></tr>
+						<tr>
+							<td>Overall</td>
+							<td>36.5'' H X 40'' W X 20'' D</td>
+						</tr>
+						<tr>
+							<td>Drawer Interior</td>
+							<td>2'' H X 29.25'' W X 12.5'' D</td>
+						</tr>
+						<tr>
+							<td>Countertop</td>
+							<td>40'' W X 20'' D</td>
+						</tr>
+						<tr>
+							<td>Countertop Thickness</td>
+							<td>0.7'' H</td>
+						</tr>
+						<tr>
+							<td>Overall Product Weight</td>
+							<td>39.6 lb.</td>
+						</tr>
 					</tbody>
 				</table>
 			</figure>
-			<!-- /wp:table --></div>
-		<!-- /wp:group --></div>
-	<!-- /wp:column --></div>
+			<!-- /wp:table -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:column -->
+</div>
 <!-- /wp:columns -->

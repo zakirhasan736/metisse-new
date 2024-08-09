@@ -162,7 +162,7 @@ if ( ! function_exists( 'woosc_init' ) ) {
 						'price'        => self::localization( 'field_price', esc_html__( 'Price', 'woo-smart-compare' ) ),
 						'stock'        => self::localization( 'field_stock', esc_html__( 'Stock', 'woo-smart-compare' ) ),
 						'availability' => self::localization( 'field_availability', esc_html__( 'Availability', 'woo-smart-compare' ) ),
-						'add_to_cart'  => self::localization( 'field_add_to_cart', esc_html__( 'Add to cart', 'woo-smart-compare' ) ),
+						'add_to_cart'  => self::localization( 'field_add_to_cart', esc_html__('Shop now', 'woo-smart-compare' ) ),
 						'description'  => self::localization( 'field_description', esc_html__( 'Description', 'woo-smart-compare' ) ),
 						'content'      => self::localization( 'field_content', esc_html__( 'Content', 'woo-smart-compare' ) ),
 						'weight'       => self::localization( 'field_weight', esc_html__( 'Weight', 'woo-smart-compare' ) ),
@@ -1554,9 +1554,9 @@ if ( ! function_exists( 'woosc_init' ) ) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th><?php esc_html_e( 'Add to cart', 'woo-smart-compare' ); ?></th>
+                                            <th><?php esc_html_e('Shop now', 'woo-smart-compare' ); ?></th>
                                             <td>
-                                                <input type="text" class="regular-text" name="woosc_localization[field_add_to_cart]" value="<?php echo esc_attr( self::localization( 'field_add_to_cart' ) ); ?>" placeholder="<?php esc_attr_e( 'Add to cart', 'woo-smart-compare' ); ?>"/>
+                                                <input type="text" class="regular-text" name="woosc_localization[field_add_to_cart]" value="<?php echo esc_attr( self::localization( 'field_add_to_cart' ) ); ?>" placeholder="<?php esc_attr_e('Shop now', 'woo-smart-compare' ); ?>"/>
                                             </td>
                                         </tr>
                                         <tr>

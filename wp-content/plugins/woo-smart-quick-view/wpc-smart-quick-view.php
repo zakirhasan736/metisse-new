@@ -69,7 +69,7 @@ if ( ! function_exists( 'woosq_init' ) ) {
 						'rating'      => esc_html__( 'Rating', 'woo-smart-quick-view' ),
 						'price'       => esc_html__( 'Price', 'woo-smart-quick-view' ),
 						'excerpt'     => esc_html__( 'Short description', 'woo-smart-quick-view' ),
-						'add_to_cart' => esc_html__( 'Add to cart', 'woo-smart-quick-view' ),
+						'add_to_cart' => esc_html__('Shop now', 'woo-smart-quick-view' ),
 						'meta'        => esc_html__( 'Meta', 'woo-smart-quick-view' ),
 						'description' => esc_html__( 'Description', 'woo-smart-quick-view' ),
 						'weight'      => esc_html__( 'Weight', 'woo-smart-quick-view' ),

@@ -40,7 +40,7 @@ trait Woo_Product_Comparable {
 			'image'       => __( 'Image', 'essential-addons-for-elementor-lite' ),
 			'title'       => __( 'Title', 'essential-addons-for-elementor-lite' ),
 			'price'       => __( 'Price', 'essential-addons-for-elementor-lite' ),
-			'add-to-cart' => __( 'Add to cart', 'essential-addons-for-elementor-lite' ),
+			'add-to-cart' => __('Shop now', 'essential-addons-for-elementor-lite' ),
 			'description' => __( 'Description', 'essential-addons-for-elementor-lite' ),
 			'sku'         => __( 'SKU', 'essential-addons-for-elementor-lite' ),
 			'stock'       => __( 'Availability', 'essential-addons-for-elementor-lite' ),
@@ -84,7 +84,7 @@ trait Woo_Product_Comparable {
 			],
 			[
 				'field_type'  => 'add-to-cart',
-				'field_label' => __( 'Add to cart', 'essential-addons-for-elementor-lite' ),
+				'field_label' => __('Shop now', 'essential-addons-for-elementor-lite' ),
 			],
 			[
 				'field_type'  => 'sku',
@@ -266,8 +266,8 @@ trait Woo_Product_Comparable {
 			'default'     => 'yes',
 		] );
 		$this->add_control( 'repeat_add_to_cart', [
-			'label'       => __( 'Repeat "Add to cart" field', 'essential-addons-for-elementor-lite' ),
-			'description' => __( 'Repeat the "Add to cart" field at the end of the table', 'essential-addons-for-elementor-lite' ),
+			'label'       => __('Repeat "Shop now" field', 'essential-addons-for-elementor-lite' ),
+			'description' => __('Repeat the "Shop now" field at the end of the table', 'essential-addons-for-elementor-lite' ),
 			'type'        => Controls_Manager::SWITCHER,
 		] );
 		$this->add_control( 'linkable_img', [

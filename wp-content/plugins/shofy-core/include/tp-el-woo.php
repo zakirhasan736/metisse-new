@@ -77,7 +77,7 @@ class TP_El_Woocommerce
 
              // check product type 
              if( $product->is_type( 'simple' ) ){
-                $btntext = esc_html__("Add to Cart",'harry');
+                $btntext = esc_html__("Shop now",'harry');
              } elseif( $product->is_type( 'variable' ) ){
                 $btntext = esc_html__("Select Options",'harry');
              } elseif( $product->is_type( 'external' ) ){
@@ -86,7 +86,7 @@ class TP_El_Woocommerce
                 $btntext = esc_html__("View Products",'harry');
              }
              else{
-                $btntext = "Add to Cart";
+                $btntext = "Shop now";
              } 
 
             echo sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
@@ -135,7 +135,8 @@ class TP_El_Woocommerce
 
             extract($defaults);
 
-            return sprintf('<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s add_to_cart_button tp-btn"><i class="fal fa-shopping-cart"></i> Add To Cart</a>',
+            return sprintf(
+                '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s add_to_cart_button tp-btn"><i class="fal fa-shopping-cart"></i> Shop now</a>',
                 esc_url($product->add_to_cart_url()),
                 esc_attr(isset($quantity) ? $quantity : 1),
                 esc_attr($product->get_id()),

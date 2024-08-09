@@ -18,7 +18,7 @@ class Product_Add_To_Cart extends Base_Widget {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Add To Cart', 'elementor-pro' );
+		return esc_html__('Shop now', 'elementor-pro' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class Product_Add_To_Cart extends Base_Widget {
 	}
 
 	public function get_keywords() {
-		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'add to cart' ];
+		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'Shop now' ];
 	}
 
 	protected function render() {
