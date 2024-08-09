@@ -139,28 +139,28 @@ get_header();
                 if ($products_query->have_posts()) :
                     while ($products_query->have_posts()) : $products_query->the_post();
                 ?>
-                            <div class="product--card-item pt-5 pb-[22px] relative">
-                                <div class="product--card-main-cont flex items-start gap-[20px]">
-                                    <div class="product--img-box h-[286px] w-[163px] relative">
-                                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
-                                    </div>
-                                    <div class="product--card-cont pt-5 pb-[22px]">
-                                        <h3 class="product-title leading-none mb-[7px] text-[18px] text-left font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                        <p class="product-desc text-[16px] text-left font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
-                                        <div class="product-verient-box">
-                                            <ul class="p-varient-lists flex items-center gap-[6px] justify-start">
-                                                <li class="w-[18px] h-[18px] rounded-full bg-[#D9D9D9] border-2  border-[#000]"></li>
-                                                <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-start justify-start">
-                                            <p class="product-price text-[18px] text-left font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
-                                            <button class="add-to-cart-btn mx-auto flex items-center justify-center w-full whitespace-nowrap h-[40px] py-2 px-[0px] border-0 capitalize text-[#BD7048] text-[12px] font-semibold text-center font-secondary leading-[1.2]"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
-                                        </div>
-                                    </div>
-
+                        <div class="product--card-item pt-5 pb-[22px] relative" style="margin-right: 24px;">
+                            <div class="product--card-main-cont flex items-start gap-[20px]">
+                                <div class="product--img-box h-[286px] w-[163px] relative">
+                                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
                                 </div>
+                                <div class="product--card-cont pt-5 pb-[22px]">
+                                    <h3 class="product-title leading-none mb-[7px] text-[18px] text-left font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                    <p class="product-desc text-[16px] text-left font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
+                                    <div class="product-verient-box">
+                                        <ul class="p-varient-lists flex items-center gap-[6px] justify-start">
+                                            <li class="w-[18px] h-[18px] rounded-full bg-[#D9D9D9] border-2  border-[#000]"></li>
+                                            <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-start justify-start">
+                                        <p class="product-price text-[18px] text-left font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
+                                        <button class="add-to-cart-btn mx-auto flex items-center justify-center w-full whitespace-nowrap h-[40px] py-2 px-[0px] border-0 capitalize text-[#BD7048] text-[12px] font-semibold text-center font-secondary leading-[1.2]"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
                 <?php
                     endwhile;
                     wp_reset_postdata();
@@ -202,8 +202,15 @@ get_header();
                 }
             ]
         });
+
+        // Remove the right margin on the last item to prevent overflow
+        $('.product-slider').on('setPosition', function() {
+            $(this).find('.product--card-item').css('margin-right', '24px');
+            $(this).find('.product--card-item:last-child').css('margin-right', '0');
+        });
     });
 </script>
+
 
 <section class="home-cta-banner-section">
     <?php
