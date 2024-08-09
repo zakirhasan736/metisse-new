@@ -149,7 +149,6 @@ get_header();
                                         <h3 class="product-title leading-none mb-[7px] text-[18px] text-left font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                         <p class="product-desc text-[16px] text-left font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
                                         <div class="product-verient-box">
-                                            <p class="varient-title text-[10px] text-left text-black opacity-50 mb-[7px] font-secondary font-semibold tracking-[1.8px] uppercase leading-none">Colour Variants</p>
                                             <ul class="p-varient-lists flex items-center gap-[6px] justify-center">
                                                 <li class="w-[18px] h-[18px] rounded-full bg-[#D9D9D9] border-2  border-[#000]"></li>
                                                 <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
