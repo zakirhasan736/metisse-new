@@ -73,6 +73,7 @@ get_header();
         </div>
     </div>
 </section>
+
 <section class="home-product-type-section">
     <?php
     // Get the Elementor template shortcode
@@ -82,6 +83,7 @@ get_header();
     echo do_shortcode($elementor_template_shortcode);
     ?>
 </section>
+
 <section class="home-product-cta-block-section">
     <?php
     // Get the Elementor template shortcode
@@ -101,7 +103,15 @@ get_header();
     ?>
 </section>
 
+<section class="home-metisse-community-section">
+    <?php
+    // Get the Elementor template shortcode
+    $elementor_template_shortcode = '[elementor-template id="1155"]';
 
+    // Display the Elementor template using do_shortcode
+    echo do_shortcode($elementor_template_shortcode);
+    ?>
+</section>
 
 <section class="home-cta-banner-section">
     <?php
