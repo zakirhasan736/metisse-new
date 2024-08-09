@@ -1052,8 +1052,12 @@ Text Domain: metisse
     }
 
     section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal span.swiper-pagination-bullet.swiper-pagination-bullet-active {
-        background: #BD7048 !important;
+        background: #131313 !important;
         opacity: 1;
+    }
+
+    section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+        text-align: right !important;
     }
 }
 
