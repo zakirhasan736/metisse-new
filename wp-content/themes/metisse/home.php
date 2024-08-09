@@ -44,7 +44,7 @@ get_header();
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
 
                                         <div class="product-card-checkout-btns text-center absolute left-0 w-full h-full flex flex-col items-center justify-center">
-                                            <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Add To Cart', 'metisse'); ?></button>
+                                            <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
                                             <a href="<?php echo esc_url(WC()->cart->get_checkout_url()); ?>" class="buy-now-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-white text-[14px] font-medium text-center font-primary leading-[1.2] bg-[#000000F2]"><?php echo esc_html__('Buy Now', 'metisse'); ?></a>
                                         </div>
                                     </div>
