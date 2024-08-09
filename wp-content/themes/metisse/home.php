@@ -105,7 +105,7 @@ get_header();
 
 <section class="home-metisse-community-section">
     <?php
-    // Get the Elementor template shortcode
+    // Get the Elementor template shortcode 
     $elementor_template_shortcode = '[elementor-template id="1155"]';
 
     // Display the Elementor template using do_shortcode
@@ -126,7 +126,7 @@ get_header();
                     'post_type' => 'product',
                     'posts_per_page' => -1, // Display all products
                     'tax_query' => array(
-                        array(
+                        array( 
                             'taxonomy' => 'product_cat', // Taxonomy name
                             'field' => 'slug', // Select taxonomy term by slug
                             'terms' => 'Featured Products', // Slug of the "featured" category
