@@ -140,12 +140,12 @@ get_header();
                     while ($products_query->have_posts()) : $products_query->the_post();
                 ?>
                         <div class="col-span-3 md:col-span-4 sm:col-span-full">
-                            <div class="product-card-item border-2 border-[#0000001a] bg-white relative">
+                            <div class="product-card-item relative">
                                 <div class="product-card-main-cont">
-                                    <div class="product-img-box h-[270px] relative mb-[24px] md:mb-5 sm:mb-4">
+                                    <div class="product-img-box h-[286px] w-[163px] relative">
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
                                     </div>
-                                    <div class="product-card-cont px-[16.5px] pb-[22px]">
+                                    <div class="product-card-cont">
                                         <h3 class="product-title leading-none mb-[7px] text-[18px] text-center font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                         <p class="product-desc text-[16px] text-center font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
                                         <div class="product-verient-box">
