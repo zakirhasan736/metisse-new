@@ -146,17 +146,17 @@ get_header();
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
                                     </div>
                                     <div class="product--card-cont">
-                                        <h3 class="product-title leading-none mb-[7px] text-[18px] text-center font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                        <p class="product-desc text-[16px] text-center font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
+                                        <h3 class="product-title leading-none mb-[7px] text-[18px] text-left font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                        <p class="product-desc text-[16px] text-left font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
                                         <div class="product-verient-box">
-                                            <p class="varient-title text-[10px] text-center text-black opacity-50 mb-[7px] font-secondary font-semibold tracking-[1.8px] uppercase leading-none">Colour Variants</p>
+                                            <p class="varient-title text-[10px] text-left text-black opacity-50 mb-[7px] font-secondary font-semibold tracking-[1.8px] uppercase leading-none">Colour Variants</p>
                                             <ul class="p-varient-lists flex items-center gap-[6px] justify-center">
                                                 <li class="w-[18px] h-[18px] rounded-full bg-[#D9D9D9] border-2  border-[#000]"></li>
                                                 <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
                                             </ul>
                                         </div>
-                                        <div class="product--features-watches-btn-box text-center relative left-0 w-full h-full flex flex-col items-center justify-center">
-                                            <p class="product-price text-[18px] text-center font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
+                                        <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-center justify-center">
+                                            <p class="product-price text-[18px] text-left font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
                                             <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
                                         </div>
                                     </div>
