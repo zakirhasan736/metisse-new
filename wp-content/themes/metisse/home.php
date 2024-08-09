@@ -112,9 +112,9 @@ get_header();
     echo do_shortcode($elementor_template_shortcode);
     ?>
 </section>
-<section class="product-feature-type-featured-product featured-watches-section overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
+<section class="product-feature-type-featured-product featured-watches-section overflow-hidden pt-[32px] pb-[70px]">
     <div class="custom-container-new">
-        <div class="section-title-box mb-14 flex justify-between items-center gap-4 pt-8 border-b border-[#DCDCDC]">
+        <div class="section-title-box mb-14 flex justify-between items-center gap-4 border-b border-[#DCDCDC]">
             <h2 class="section-title text-[14px] text-[#5A5A5A] text-center font-semibold pb-[9px] font-secondary leading-normal uppercase border-b-[3px] border-b-[#717171]">Featured Watches</h2>
             <a href="/shope/" class="secondary-btn-view-all-btn text-[12px] font-normal leading-normal mb-[9px] font-secondary text-[#131313] flex justify-center items-center px-8 h-12 py-2 rounded-[4px] border border-[rgb(19,19,19, .6)]">View all</a>
         </div>
@@ -139,7 +139,7 @@ get_header();
                 if ($products_query->have_posts()) :
                     while ($products_query->have_posts()) : $products_query->the_post();
                 ?>
-                        <div class="product--card-item pt-5 pb-[22px] relative" style="margin-right: 24px;">
+                        <div class="product--card-item relative" style="margin-right: 24px;">
                             <div class="product--card-main-cont flex items-start gap-[20px]">
                                 <div class="product--img-box h-[286px] w-[163px] relative">
                                     <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>

@@ -2479,6 +2479,22 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   padding-top: 80px;
 }
 
+.pt-\[3px\] {
+  padding-top: 3px;
+}
+
+.pt-\[32px\] {
+  padding-top: 32px;
+}
+
+.pb-\[7px\] {
+  padding-bottom: 7px;
+}
+
+.pb-\[70px\] {
+  padding-bottom: 70px;
+}
+
 .text-left {
   text-align: left;
 }
