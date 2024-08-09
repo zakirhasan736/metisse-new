@@ -272,7 +272,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 
 </div>
 </div>
-<section class="blogs-and-article-section">
+<section class="blogs-and-article-section product-page-blogs-area">
 	<?php
 	// Get the Elementor template shortcode
 	$elementor_template_shortcode = '[elementor-template id="168"]';
