@@ -2149,6 +2149,10 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   border-width: 2px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
