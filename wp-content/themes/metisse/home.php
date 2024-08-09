@@ -145,7 +145,7 @@ get_header();
                                     <div class="product--img-box h-[286px] w-[163px] relative">
                                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
                                     </div>
-                                    <div class="product--card-cont">
+                                    <div class="product--card-cont pt-5 pb-[22px]">
                                         <h3 class="product-title leading-none mb-[7px] text-[18px] text-left font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                         <p class="product-desc text-[16px] text-left font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
                                         <div class="product-verient-box">
