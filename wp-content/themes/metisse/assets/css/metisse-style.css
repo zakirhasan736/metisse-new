@@ -1750,6 +1750,10 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   margin-bottom: 7px;
 }
 
+.mb-\[9px\] {
+  margin-bottom: 9px;
+}
+
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -1866,6 +1870,10 @@ section.product-feature-type-featured-product.featured-watches-section .section-
   height: 270px;
 }
 
+.h-\[286px\] {
+  height: 286px;
+}
+
 .h-\[44px\] {
   height: 44px;
 }
@@ -1892,6 +1900,10 @@ section.product-feature-type-featured-product.featured-watches-section .section-
 
 .min-h-\[650px\] {
   min-height: 650px;
+}
+
+.w-\[163px\] {
+  width: 163px;
 }
 
 .w-\[18px\] {
