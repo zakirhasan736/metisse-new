@@ -119,7 +119,7 @@ get_header();
             <a href="/shope/" class="secondary-btn-view-all-btn text-[12px] font-normal leading-normal mb-[9px] font-secondary text-[#131313] flex justify-center items-center px-8 h-12 py-2 rounded-[4px] border border-[rgb(19,19,19, .6)]">View all</a>
         </div>
         <div class="product-feature-type-new-arrivel-wrap">
-            <div class="product-slider">
+            <div class="product-slider !mb-0">
                 <?php
                 // Query to fetch all products
                 $args = array(
