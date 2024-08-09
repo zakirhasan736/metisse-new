@@ -1059,6 +1059,10 @@ Text Domain: metisse
     section.home-metisse-community-section .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
         text-align: right !important;
     }
+
+    section.product-feature-type-featured-product .section-title-box {
+        border-bottom: 1px solid #DCDCDC;
+    }
 }
 
 @layer utilities {}
