@@ -2282,10 +2282,6 @@ div#ekit-megamenu-primary-menu {
   padding-bottom: 123px;
 }
 
-.pb-\[139px\] {
-  padding-bottom: 139px;
-}
-
 .pb-\[22px\] {
   padding-bottom: 22px;
 }
@@ -2656,10 +2652,6 @@ div#ekit-megamenu-primary-menu {
 
   .lg\:py-\[100px\] {
     padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
-  .lg\:pb-\[100px\] {
     padding-bottom: 100px;
   }
 
