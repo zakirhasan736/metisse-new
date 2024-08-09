@@ -155,7 +155,7 @@ get_header();
                                                 <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
                                             </ul>
                                         </div>
-                                        <div class="product-card-checkout-btns text-center relative left-0 w-full h-full flex flex-col items-center justify-center">
+                                        <div class="product-card-checkout-btns features-watches-btn-box text-center relative left-0 w-full h-full flex flex-col items-center justify-center">
                                             <p class="product-price text-[18px] text-center font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
                                             <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('Shop now', 'metisse'); ?></button>
                                         </div>
