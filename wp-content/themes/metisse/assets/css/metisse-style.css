@@ -1944,6 +1944,14 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   height: 100%;
 }
 
+.h-\[29px\] {
+  height: 29px;
+}
+
+.h-\[297px\] {
+  height: 297px;
+}
+
 .min-h-\[557px\] {
   min-height: 557px;
 }
@@ -1982,6 +1990,18 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .w-full {
   width: 100%;
+}
+
+.w-\[2px\] {
+  width: 2px;
+}
+
+.w-\[25px\] {
+  width: 25px;
+}
+
+.w-\[256px\] {
+  width: 256px;
 }
 
 .min-w-\[442px\] {

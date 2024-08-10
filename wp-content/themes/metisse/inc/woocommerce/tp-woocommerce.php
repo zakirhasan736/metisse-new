@@ -730,7 +730,7 @@ function metisse_product_grid_type_1()
 
     <div class="product--card-item relative" style="margin-right: 24px;">
         <div class="product--card-main-cont flex flex-col items-start gap-[30px]">
-            <div class="product--img-box h-[286px] w-[163px] relative">
+            <div class="product--img-box h-[297px] w-[256px] relative">
                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
             </div>
             <div class="product--card-cont pt-0 pb-0">
