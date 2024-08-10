@@ -736,7 +736,7 @@ function metisse_product_grid_type_1()
             <div class="product--card-cont pt-0 pb-0">
                 <h3 class="product-title leading-none mb-[7px] text-[14px] text-left font-primary font-normal tracking-[1.4px] uppercase text-[#131313]"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p class="product-desc text-[12px] text-left font-secondary font-normal leading-normal mb-[29px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
-                <div class="product-verient-box mb-[42px]">
+                <div class="product-verient-box mb-[26px]">
                     <ul class="p-varient-lists flex items-center gap-[6px] justify-start">
                         <li class="w-[16px] h-[16px] rounded-full bg-[#D9D9D9] border-2 border-[#000]"></li>
                         <li class="w-[16px] h-[16px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
@@ -744,7 +744,7 @@ function metisse_product_grid_type_1()
                 </div>
                 <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex gap-[25px] items-center justify-start">
                     <p class="product-price text-[20px] text-left font-secondary font-semibold capitalize text-[#131313]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
-                    <button class="add-to-cart-btn mx-auto flex !items-center !justify-center w-full whitespace-nowrap h-[40px] py-2 !px-8 bg-[#131313] border-0 text-[#FFFDFD] !text-[11px] font-semibold !uppercase text-center font-primary leading-[1.1] tracking-[1.1px]"> <?php woocommerce_template_loop_add_to_cart('Add To Basket', 'metisse'); ?></button>
+                    <button class="add-to-cart-btn mx-auto flex !items-center !justify-center w-full whitespace-nowrap h-[40px] py-2 !px-8 bg-[#131313] border-0 text-[#FFFDFD] !text-[11px] font-semibold !uppercase text-center font-primary leading-[1.1] tracking-[1.1px]"> <?php woocommerce_template_loop_add_to_cart('ADD TO BASKET', 'metisse'); ?></button>
                 </div>
             </div>
         </div>
@@ -1530,7 +1530,7 @@ if (!function_exists('metisse_content_product_list')) {
 add_action('woocommerce_before_shop_loop_item_list', 'metisse_content_product_list', 10);
 
 
-// product Add To Basket button
+// product ADD TO BASKET button
 function woocommerce_template_loop_add_to_cart($args = array())
 {
     global $product;
@@ -1567,7 +1567,7 @@ function woocommerce_template_loop_add_to_cart($args = array())
 
     // check product type 
     if ($product->is_type('simple')) {
-        $btntext = esc_html__("Add To Basket", 'metisse');
+        $btntext = esc_html__("ADD TO BASKET", 'metisse');
     } elseif ($product->is_type('variable')) {
         $btntext = esc_html__("Select Options", 'metisse');
     } elseif ($product->is_type('external')) {
@@ -1575,7 +1575,7 @@ function woocommerce_template_loop_add_to_cart($args = array())
     } elseif ($product->is_type('grouped')) {
         $btntext = esc_html__("View Products", 'metisse');
     } else {
-        $btntext = esc_html__("Add To Basket", 'metisse');
+        $btntext = esc_html__("ADD TO BASKET", 'metisse');
     }
 
     $action_layout = get_theme_mod('shop_grid_layout');

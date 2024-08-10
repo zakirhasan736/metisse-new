@@ -1,6 +1,6 @@
 <?php
 /**
- * Variable subscription product Add To Basket
+ * Variable subscription product ADD TO BASKET
  *
  * @author  Prospress
  * @package WooCommerce-Subscriptions/Templates

@@ -1195,10 +1195,10 @@ class WC_Subscriptions_Product {
 	}
 
 	/**
-	 * Gets the Add To Basket text for subscription products.
+	 * Gets the ADD TO BASKET text for subscription products.
 	 *
 	 * @since 1.0.0 - Migrated from WooCommerce Subscriptions v3.0.7
-	 * @return string The Add To Basket text.
+	 * @return string The ADD TO BASKET text.
 	 */
 	public static function get_add_to_cart_text() {
 		return apply_filters( 'wc_subscription_product_add_to_cart_text', __( 'Sign up now', 'woocommerce-subscriptions' ) );
@@ -1223,7 +1223,7 @@ class WC_Subscriptions_Product {
 	 ************************/
 
 	/**
-	 * Override the WooCommerce "Add To Basket" text with "Sign up now".
+	 * Override the WooCommerce "ADD TO BASKET" text with "Sign up now".
 	 *
 	 * @since 1.0.0 - Migrated from WooCommerce Subscriptions v1.0
 	 * @deprecated 1.0.0 - Migrated from WooCommerce Subscriptions v3.0.7

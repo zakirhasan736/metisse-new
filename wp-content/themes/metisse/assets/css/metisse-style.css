@@ -1840,6 +1840,14 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   margin-top: 80px;
 }
 
+.mb-\[2px\] {
+  margin-bottom: 2px;
+}
+
+.mb-\[26px\] {
+  margin-bottom: 26px;
+}
+
 .block {
   display: block;
 }

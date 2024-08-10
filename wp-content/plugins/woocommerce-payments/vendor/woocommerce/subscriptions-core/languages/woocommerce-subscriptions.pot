@@ -265,11 +265,11 @@ msgid "Button Text"
 msgstr ""
 
 #: includes/admin/class-wc-subscriptions-admin.php:1217
-msgid "Add To Basket Button Text"
+msgid "ADD TO BASKET Button Text"
 msgstr ""
 
 #: includes/admin/class-wc-subscriptions-admin.php:1218
-msgid "A product displays a button with the text \"Add To Basket\". By default, a subscription changes this to \"Sign up now\". You can customise the button text for subscriptions here."
+msgid "A product displays a button with the text \"ADD TO BASKET\". By default, a subscription changes this to \"Sign up now\". You can customise the button text for subscriptions here."
 msgstr ""
 
 #: includes/admin/class-wc-subscriptions-admin.php:1222
@@ -3401,7 +3401,7 @@ msgid "Switched Subscription"
 msgstr ""
 
 #: includes/class-wc-subscriptions-switcher.php:2549
-msgctxt "Add To Basket button text while switching a subscription"
+msgctxt "ADD TO BASKET button text while switching a subscription"
 msgid "Switch subscription"
 msgstr ""
 
