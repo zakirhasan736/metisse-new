@@ -1095,6 +1095,10 @@ Text Domain: metisse
         flex: 0 0 calc(100% - 442px);
         width: calc(100% - 442px);
     }
+
+    section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
+        border-top: 1px solid #DCDCDC;
+    }
 }
 
 @layer utilities {}
