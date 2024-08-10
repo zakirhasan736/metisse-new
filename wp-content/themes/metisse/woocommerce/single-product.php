@@ -21,6 +21,9 @@ if (!defined('ABSPATH')) {
 }
 
 get_header('shop');
+
+// Remove related products for this template
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 ?>
 
 <?php
@@ -46,7 +49,6 @@ update_post_meta(get_the_ID(), 'view_count', $count);
 <?php endwhile; // end of the loop. 
 ?>
 
-
 <?php
 /**
  * woocommerce_after_main_content hook.
@@ -63,10 +65,6 @@ do_action('woocommerce_after_main_content');
  * @hooked woocommerce_get_sidebar - 10
  */
 do_action('woocommerce_sidebar');
-?>
-<?php
-// Remove related products from single product pages
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 ?>
 
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[90px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
