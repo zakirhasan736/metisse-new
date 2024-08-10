@@ -2619,6 +2619,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   font-size: 34px;
 }
 
+.\!text-\[11px\] {
+  font-size: 11px !important;
+}
+
 .\!font-bold {
   font-weight: 700 !important;
 }
