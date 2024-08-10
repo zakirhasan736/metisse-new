@@ -1567,24 +1567,28 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   left: 0px;
 }
 
-.right-0 {
-  right: 0px;
-}
-
-.top-0 {
-  top: 0px;
-}
-
 .left-\[-20px\] {
   left: -20px;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .right-\[-20px\] {
   right: -20px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .top-1\/2 {
   top: 50%;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .z-\[-1\] {
@@ -1593,10 +1597,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .z-\[3\] {
   z-index: 3;
-}
-
-.z-10 {
-  z-index: 10;
 }
 
 .order-first {
@@ -1736,6 +1736,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   margin-bottom: 24px;
 }
 
+.mb-\[29px\] {
+  margin-bottom: 29px;
+}
+
 .mb-\[30px\] {
   margin-bottom: 30px;
 }
@@ -1756,8 +1760,8 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   margin-bottom: 41px;
 }
 
-.mb-\[44px\] {
-  margin-bottom: 44px;
+.mb-\[42px\] {
+  margin-bottom: 42px;
 }
 
 .mb-\[53px\] {
@@ -1828,22 +1832,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   margin-top: 80px;
 }
 
-.mb-\[2px\] {
-  margin-bottom: 2px;
-}
-
-.mb-\[29px\] {
-  margin-bottom: 29px;
-}
-
-.mt-\[42px\] {
-  margin-top: 42px;
-}
-
-.mb-\[42px\] {
-  margin-bottom: 42px;
-}
-
 .block {
   display: block;
 }
@@ -1888,8 +1876,16 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   height: 58px !important;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-12 {
   height: 3rem;
+}
+
+.h-\[16px\] {
+  height: 16px;
 }
 
 .h-\[18px\] {
@@ -1940,14 +1936,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   height: 100%;
 }
 
-.h-\[16px\] {
-  height: 16px;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
 .min-h-\[557px\] {
   min-height: 557px;
 }
@@ -1956,8 +1944,16 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   min-height: 650px;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-\[163px\] {
   width: 163px;
+}
+
+.w-\[16px\] {
+  width: 16px;
 }
 
 .w-\[18px\] {
@@ -1978,26 +1974,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .w-full {
   width: 100%;
-}
-
-.w-\[Dpx\] {
-  width: Dpx;
-}
-
-.w-\[DDpx\] {
-  width: DDpx;
-}
-
-.w-\[1px\] {
-  width: 1px;
-}
-
-.w-\[16px\] {
-  width: 16px;
-}
-
-.w-10 {
-  width: 2.5rem;
 }
 
 .max-w-\[208px\] {
@@ -2321,14 +2297,14 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-center {
@@ -2633,12 +2609,12 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   font-size: 28px;
 }
 
-.text-\[34px\] {
-  font-size: 34px;
-}
-
 .text-\[29px\] {
   font-size: 29px;
+}
+
+.text-\[34px\] {
+  font-size: 34px;
 }
 
 .\!font-bold {
@@ -2721,16 +2697,16 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   letter-spacing: 3.2px !important;
 }
 
+.tracking-\[1\.4px\] {
+  letter-spacing: 1.4px;
+}
+
 .tracking-\[1\.8px\] {
   letter-spacing: 1.8px;
 }
 
 .tracking-\[3\.2px\] {
   letter-spacing: 3.2px;
-}
-
-.tracking-\[1\.4px\] {
-  letter-spacing: 1.4px;
 }
 
 .\!text-\[\#000\] {
@@ -2816,11 +2792,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[black\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .\!underline {
@@ -3080,10 +3051,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
   .sm\:mb-\[30px\] {
     margin-bottom: 30px;
-  }
-
-  .sm\:mb-\[35px\] {
-    margin-bottom: 35px;
   }
 
   .sm\:mt-\[15px\] {

@@ -13,10 +13,7 @@ get_header();
 <?php the_content(); ?>
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container">
-        <div class="section-title-box mb-[44px] sm:mb-[35px]">
-            <h2 class="section-title text-[16px] text-black text-center font-bold font-secondary tracking-[3.2px] uppercase">Featured Products</h2>
-        </div>
-        <div class="product-feature-type-new-arrivel-wrap">
+               <div class="product-feature-type-new-arrivel-wrap">
             <div class="grid grid-cols-12 gap-[16px] sm:gap-[12px]">
                 <?php
                 // Query to fetch all products
@@ -27,7 +24,7 @@ get_header();
                         array(
                             'taxonomy' => 'product_cat', // Taxonomy name
                             'field' => 'slug', // Select taxonomy term by slug
-                            'terms' => 'Featured Products', // Slug of the "featured" category
+                            'terms' => 'New Arrival', // Slug of the "featured" category
                         ),
                     ),
                 );
