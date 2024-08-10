@@ -64,10 +64,12 @@ do_action('woocommerce_after_main_content');
  */
 do_action('woocommerce_sidebar');
 ?>
+<?php
+// Remove related products from single product pages
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+?>
 
-
-
-<section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[90px]  md:pb-[80px] sm:pb-[60px]">
+<section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[90px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
 	<div class="custom-container-site-width">
 		<div class="product-new-arrival-left-cont flex items-center pt-[114px] pb-[112px] justify-end pr-[115px] w-full max-w-full min-w-[442px]">
 			<img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/company-brand-logo-black.svg" alt="product modal brand logo image">
@@ -177,5 +179,3 @@ do_action('woocommerce_sidebar');
 
 <?php
 get_footer('shop');
-
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
