@@ -139,7 +139,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 																	</svg>
 																</button>
 															</li>
-															<li class="nav-item" role="presentation">
+															<!-- <li class="nav-item" role="presentation">
 																<button class="nav-link !flex !items-center !justify-center !pt-[3px] <?php echo esc_attr($list_nav_active); ?>" id="list-tab" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button" role="tab" aria-controls="list-tab-pane" aria-selected="false">
 																	<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 																		<path d="M15 7.11108H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -147,7 +147,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 																		<path d="M15 13.2222H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 																	</svg>
 																</button>
-															</li>
+															</li> -->
 														</ul>
 													</div>
 
