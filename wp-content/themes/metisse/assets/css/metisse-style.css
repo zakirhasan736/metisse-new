@@ -1981,6 +1981,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   width: 100%;
 }
 
+.min-w-\[442px\] {
+  min-width: 442px;
+}
+
 .max-w-\[208px\] {
   max-width: 208px;
 }
@@ -2011,6 +2015,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .max-w-\[706px\] {
   max-width: 706px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .transform {
@@ -2522,6 +2530,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pr-\[115px\] {
+  padding-right: 115px;
 }
 
 .text-left {
