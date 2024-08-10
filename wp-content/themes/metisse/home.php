@@ -72,7 +72,7 @@ get_header();
     </div>
 </section>
 <script type="text/javascript">
-    product - new - arrival - slider
+
     jQuery(document).ready(function($) {
         $('.product-new-arrival-slider').slick({
             slidesToShow: 3,
