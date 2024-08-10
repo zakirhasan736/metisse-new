@@ -37,6 +37,6 @@ defined( 'ABSPATH' ) || exit;
 	);
 
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo $message;
+	// echo $message;
 	?>
 </p>
