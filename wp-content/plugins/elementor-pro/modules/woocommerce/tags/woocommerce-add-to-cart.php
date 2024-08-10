@@ -17,7 +17,7 @@ class Woocommerce_Add_To_Cart extends Data_Tag {
 	}
 
 	public function get_title() {
-		return esc_html__('Shop now', 'elementor-pro' );
+		return esc_html__('Add To Basket', 'elementor-pro' );
 	}
 
 	public function get_group() {

@@ -102,7 +102,7 @@
 			<div class="wp-block-buttons">
 				<!-- wp:button {"style":{"color":{"text":"#ffffff","background":"#000000"}}} -->
 				<div class="wp-block-button">
-					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#ffffff;background-color:#000000">Shop now</a>
+					<a class="wp-block-button__link has-text-color has-background wp-element-button" style="color:#ffffff;background-color:#000000">Add To Basket</a>
 				</div>
 				<!-- /wp:button -->
 			</div>

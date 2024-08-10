@@ -1,6 +1,6 @@
 <?php
 /**
- * Simple product Shop now
+ * Simple product Add To Basket
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/add-to-cart/simple.php.
  *

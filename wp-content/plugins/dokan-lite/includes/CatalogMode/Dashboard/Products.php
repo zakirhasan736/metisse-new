@@ -91,7 +91,7 @@ class Products {
             'hide_product_price'      => isset( $_POST['catalog_mode']['hide_product_price'] ) ? 'on' : 'off',
         ];
 
-        // set hide price to off if Shop now button is off
+        // set hide price to off if Add To Basket button is off
         if ( 'off' === $catalog_mode_data['hide_add_to_cart_button'] ) {
             $catalog_mode_data['hide_product_price'] = 'off';
         }

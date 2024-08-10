@@ -119,7 +119,7 @@ class ProductButton extends AbstractBlock {
 
 			$default_quantity = 1;
 			/**
-			* Filters the change the quantity to Shop now.
+			* Filters the change the quantity to Add To Basket.
 			*
 			* @since 10.9.0
 			* @param number $default_quantity The default quantity.
@@ -130,13 +130,13 @@ class ProductButton extends AbstractBlock {
 			$context = array(
 				'quantityToAdd'          => $quantity_to_add,
 				'productId'              => $product->get_id(),
-				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __('Shop now', 'woocommerce' ),
+				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __('Add To Basket', 'woocommerce' ),
 				'temporaryNumberOfItems' => $number_of_items_in_cart,
 				'animationStatus'        => 'IDLE',
 			);
 
 			/**
-			 * Allow filtering of the Shop now button arguments.
+			 * Allow filtering of the Add To Basket button arguments.
 			 *
 			 * @since 9.7.0
 			 */
@@ -186,7 +186,7 @@ class ProductButton extends AbstractBlock {
 			';
 
 			/**
-			 * Filters the Shop now button class.
+			 * Filters the Add To Basket button class.
 			 *
 			 * @since 8.7.0
 			 *

@@ -162,7 +162,7 @@ if ( ! function_exists( 'woosc_init' ) ) {
 						'price'        => self::localization( 'field_price', esc_html__( 'Price', 'woo-smart-compare' ) ),
 						'stock'        => self::localization( 'field_stock', esc_html__( 'Stock', 'woo-smart-compare' ) ),
 						'availability' => self::localization( 'field_availability', esc_html__( 'Availability', 'woo-smart-compare' ) ),
-						'add_to_cart'  => self::localization( 'field_add_to_cart', esc_html__('Shop now', 'woo-smart-compare' ) ),
+						'add_to_cart'  => self::localization( 'field_add_to_cart', esc_html__('Add To Basket', 'woo-smart-compare' ) ),
 						'description'  => self::localization( 'field_description', esc_html__( 'Description', 'woo-smart-compare' ) ),
 						'content'      => self::localization( 'field_content', esc_html__( 'Content', 'woo-smart-compare' ) ),
 						'weight'       => self::localization( 'field_weight', esc_html__( 'Weight', 'woo-smart-compare' ) ),
@@ -630,8 +630,8 @@ if ( ! function_exists( 'woosc_init' ) ) {
 													'after_title'        => esc_html__( 'Under title', 'woo-smart-compare' ),
 													'after_rating'       => esc_html__( 'Under rating', 'woo-smart-compare' ),
 													'after_price'        => esc_html__( 'Under price', 'woo-smart-compare' ),
-													'before_add_to_cart' => esc_html__( 'Above Shop now button', 'woo-smart-compare' ),
-													'after_add_to_cart'  => esc_html__( 'Under Shop now button', 'woo-smart-compare' ),
+													'before_add_to_cart' => esc_html__( 'Above Add To Basket button', 'woo-smart-compare' ),
+													'after_add_to_cart'  => esc_html__( 'Under Add To Basket button', 'woo-smart-compare' ),
 													'0'                  => esc_html__( 'None (hide it)', 'woo-smart-compare' ),
 												] );
 												?>
@@ -657,8 +657,8 @@ if ( ! function_exists( 'woosc_init' ) ) {
 													'6'  => esc_html__( 'Under title', 'woo-smart-compare' ),
 													'11' => esc_html__( 'Under rating', 'woo-smart-compare' ),
 													'21' => esc_html__( 'Under excerpt', 'woo-smart-compare' ),
-													'29' => esc_html__( 'Above Shop now button', 'woo-smart-compare' ),
-													'31' => esc_html__( 'Under Shop now button', 'woo-smart-compare' ),
+													'29' => esc_html__( 'Above Add To Basket button', 'woo-smart-compare' ),
+													'31' => esc_html__( 'Under Add To Basket button', 'woo-smart-compare' ),
 													'41' => esc_html__( 'Under meta', 'woo-smart-compare' ),
 													'51' => esc_html__( 'Under sharing', 'woo-smart-compare' ),
 													'0'  => esc_html__( 'None (hide it)', 'woo-smart-compare' ),
@@ -1554,9 +1554,9 @@ if ( ! function_exists( 'woosc_init' ) ) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th><?php esc_html_e('Shop now', 'woo-smart-compare' ); ?></th>
+                                            <th><?php esc_html_e('Add To Basket', 'woo-smart-compare' ); ?></th>
                                             <td>
-                                                <input type="text" class="regular-text" name="woosc_localization[field_add_to_cart]" value="<?php echo esc_attr( self::localization( 'field_add_to_cart' ) ); ?>" placeholder="<?php esc_attr_e('Shop now', 'woo-smart-compare' ); ?>"/>
+                                                <input type="text" class="regular-text" name="woosc_localization[field_add_to_cart]" value="<?php echo esc_attr( self::localization( 'field_add_to_cart' ) ); ?>" placeholder="<?php esc_attr_e('Add To Basket', 'woo-smart-compare' ); ?>"/>
                                             </td>
                                         </tr>
                                         <tr>

@@ -407,7 +407,7 @@ class Hooks {
             return;
         }
 
-        wc_print_notice( __( 'As this is your own product, the "Shop now" button has been removed. Please visit as a guest to view it.', 'dokan-lite' ), 'notice' );
+        wc_print_notice( __( 'As this is your own product, the "Add To Basket" button has been removed. Please visit as a guest to view it.', 'dokan-lite' ), 'notice' );
     }
   
     /**

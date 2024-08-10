@@ -69,7 +69,7 @@ if ( ! function_exists( 'woosq_init' ) ) {
 						'rating'      => esc_html__( 'Rating', 'woo-smart-quick-view' ),
 						'price'       => esc_html__( 'Price', 'woo-smart-quick-view' ),
 						'excerpt'     => esc_html__( 'Short description', 'woo-smart-quick-view' ),
-						'add_to_cart' => esc_html__('Shop now', 'woo-smart-quick-view' ),
+						'add_to_cart' => esc_html__('Add To Basket', 'woo-smart-quick-view' ),
 						'meta'        => esc_html__( 'Meta', 'woo-smart-quick-view' ),
 						'description' => esc_html__( 'Description', 'woo-smart-quick-view' ),
 						'weight'      => esc_html__( 'Weight', 'woo-smart-quick-view' ),
@@ -668,8 +668,8 @@ if ( ! function_exists( 'woosq_init' ) ) {
 													'after_title'        => esc_html__( 'Under title', 'woo-smart-quick-view' ),
 													'after_rating'       => esc_html__( 'Under rating', 'woo-smart-quick-view' ),
 													'after_price'        => esc_html__( 'Under price', 'woo-smart-quick-view' ),
-													'before_add_to_cart' => esc_html__( 'Above Shop now', 'woo-smart-quick-view' ),
-													'after_add_to_cart'  => esc_html__( 'Under Shop now', 'woo-smart-quick-view' ),
+													'before_add_to_cart' => esc_html__( 'Above Add To Basket', 'woo-smart-quick-view' ),
+													'after_add_to_cart'  => esc_html__( 'Under Add To Basket', 'woo-smart-quick-view' ),
 													'0'                  => esc_html__( 'None (hide it)', 'woo-smart-quick-view' ),
 												] );
 												?>
@@ -982,13 +982,13 @@ if ( ! function_exists( 'woosq_init' ) ) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><?php esc_html_e( 'Shop now button', 'woo-smart-quick-view' ); ?></th>
+                                            <th scope="row"><?php esc_html_e( 'Add To Basket button', 'woo-smart-quick-view' ); ?></th>
                                             <td>
                                                 <select name="woosq_settings[add_to_cart_button]">
                                                     <option value="archive" <?php selected( $add_to_cart_button, 'archive' ); ?>><?php esc_html_e( 'Like archive page', 'woo-smart-quick-view' ); ?></option>
                                                     <option value="single" <?php selected( $add_to_cart_button, 'single' ); ?>><?php esc_html_e( 'Like single page', 'woo-smart-quick-view' ); ?></option>
                                                 </select>
-                                                <span class="description"><?php esc_html_e( 'Choose the functionally for the Shop now button.', 'woo-smart-quick-view' ); ?></span>
+                                                <span class="description"><?php esc_html_e( 'Choose the functionally for the Add To Basket button.', 'woo-smart-quick-view' ); ?></span>
                                             </td>
                                         </tr>
                                         <tr>

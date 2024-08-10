@@ -240,7 +240,7 @@ msgstr ""
 
 #: inc/woocommerce/tp-woocommerce.php:1649 
 #: inc/woocommerce/tp-woocommerce.php:1658
-msgid "Shop now"
+msgid "Add To Basket"
 msgstr ""
 
 #: inc/woocommerce/tp-woocommerce.php:761 

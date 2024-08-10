@@ -44,7 +44,7 @@ final class QuantityLimits {
 	}
 
 	/**
-	 * Get limits for product Shop now forms.
+	 * Get limits for product Add To Basket forms.
 	 *
 	 * @param \WC_Product $product Product instance.
 	 * @return array

@@ -344,7 +344,7 @@ class WCS_Template_Loader {
 	}
 
 	/**
-	 * Gets OPC's simple Shop now template for simple subscription products (to ensure data attributes required by OPC are added).
+	 * Gets OPC's simple Add To Basket template for simple subscription products (to ensure data attributes required by OPC are added).
 	 *
 	 * Variable subscription products will be handled automatically because they identify as "variable" in response to is_type() method calls,
 	 * which OPC uses.

@@ -499,7 +499,7 @@ trait Ajax_Handler {
 	}
 
 	/**
-	 * Product Shop now
+	 * Product Add To Basket
 	 * added product in cart through ajax
 	 *
 	 * @access public

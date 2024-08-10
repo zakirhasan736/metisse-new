@@ -186,7 +186,7 @@ class SettingsHelper {
      */
     public static function get_failed_payment_actions() {
         $actions = [
-            'enable_catalog_mode' => esc_html__( 'Disable Shop now Button', 'dokan-lite' ),
+            'enable_catalog_mode' => esc_html__( 'Disable Add To Basket Button', 'dokan-lite' ),
             'hide_withdraw_menu'  => esc_html__( 'Hide Withdraw Menu', 'dokan-lite' ),
             'status_inactive'     => esc_html__( 'Make Vendor Status Inactive', 'dokan-lite' ),
         ];

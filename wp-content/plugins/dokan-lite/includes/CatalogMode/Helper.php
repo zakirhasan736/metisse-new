@@ -35,7 +35,7 @@ class Helper {
     }
 
     /**
-     * Check if hide Shop now settings is enabled for admin
+     * Check if hide Add To Basket settings is enabled for admin
      *
      * @since 3.6.4
      *
@@ -78,7 +78,7 @@ class Helper {
     }
 
     /**
-     * Check if hide Shop now settings is enabled for admin
+     * Check if hide Add To Basket settings is enabled for admin
      *
      * @since 3.6.4
      *

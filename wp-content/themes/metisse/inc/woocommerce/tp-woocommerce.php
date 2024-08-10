@@ -1533,7 +1533,7 @@ if (!function_exists('metisse_content_product_list')) {
 add_action('woocommerce_before_shop_loop_item_list', 'metisse_content_product_list', 10);
 
 
-// product Shop now button
+// product Add To Basket button
 function woocommerce_template_loop_add_to_cart($args = array())
 {
     global $product;
@@ -1570,7 +1570,7 @@ function woocommerce_template_loop_add_to_cart($args = array())
 
     // check product type 
     if ($product->is_type('simple')) {
-        $btntext = esc_html__("Shop now", 'metisse');
+        $btntext = esc_html__("Add To Basket", 'metisse');
     } elseif ($product->is_type('variable')) {
         $btntext = esc_html__("Select Options", 'metisse');
     } elseif ($product->is_type('external')) {
@@ -1578,7 +1578,7 @@ function woocommerce_template_loop_add_to_cart($args = array())
     } elseif ($product->is_type('grouped')) {
         $btntext = esc_html__("View Products", 'metisse');
     } else {
-        $btntext = esc_html__("Shop now", 'metisse');
+        $btntext = esc_html__("Add To Basket", 'metisse');
     }
 
     $action_layout = get_theme_mod('shop_grid_layout');

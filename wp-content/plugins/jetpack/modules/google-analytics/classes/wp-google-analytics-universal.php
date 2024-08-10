@@ -291,7 +291,7 @@ class Jetpack_Google_Analytics_Universal {
 				};
 				ga( 'ec:addProduct', productDetails );
 				ga( 'ec:setAction', 'add' );
-				ga( 'send', 'event', 'UX', 'click', 'Shop now' );
+				ga( 'send', 'event', 'UX', 'click', 'Add To Basket' );
 			} );"
 		);
 	}
@@ -325,7 +325,7 @@ class Jetpack_Google_Analytics_Universal {
 				};
 				ga( 'ec:addProduct', productDetails );
 				ga( 'ec:setAction', 'add' );
-				ga( 'send', 'event', 'UX', 'click', 'Shop now' );
+				ga( 'send', 'event', 'UX', 'click', 'Add To Basket' );
 			} );"
 		);
 	}

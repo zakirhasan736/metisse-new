@@ -2126,7 +2126,7 @@ msgstr ""
 
 #: inc/woocommerce/tp-woocommerce.php:1583
 #: inc/woocommerce/tp-woocommerce.php:1592
-msgid "Shop now"
+msgid "Add To Basket"
 msgstr ""
 
 #: inc/woocommerce/tp-woocommerce.php:1585

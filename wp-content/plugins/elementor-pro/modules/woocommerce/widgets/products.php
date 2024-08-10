@@ -338,7 +338,7 @@ class Products extends Products_Base {
 		$settings = $this->get_settings_for_display();
 		$post_type_setting = $settings[ Products_Renderer::QUERY_CONTROL_NAME . '_post_type' ];
 
-		// Add a wrapper class to the Shop now & View Items elements if the automically_align_buttons switch has been selected.
+		// Add a wrapper class to the Add To Basket & View Items elements if the automically_align_buttons switch has been selected.
 		if ( 'yes' === $settings['automatically_align_buttons'] ) {
 			add_filter( 'woocommerce_loop_add_to_cart_link', [ $this, 'add_to_cart_wrapper' ], 10, 1 );
 		}

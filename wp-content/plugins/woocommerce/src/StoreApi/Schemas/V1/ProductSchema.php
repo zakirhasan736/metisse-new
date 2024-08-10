@@ -396,7 +396,7 @@ class ProductSchema extends AbstractSchema {
 				'readonly'    => true,
 			],
 			'add_to_cart'         => [
-				'description' => __( 'Shop now button parameters.', 'woocommerce' ),
+				'description' => __( 'Add To Basket button parameters.', 'woocommerce' ),
 				'type'        => 'object',
 				'context'     => [ 'view', 'edit' ],
 				'readonly'    => true,
@@ -414,7 +414,7 @@ class ProductSchema extends AbstractSchema {
 						'readonly'    => true,
 					],
 					'url'         => [
-						'description' => __( 'Shop now URL.', 'woocommerce' ),
+						'description' => __( 'Add To Basket URL.', 'woocommerce' ),
 						'type'        => 'string',
 						'context'     => [ 'view', 'edit' ],
 						'readonly'    => true,

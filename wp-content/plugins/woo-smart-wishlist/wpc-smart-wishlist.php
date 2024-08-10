@@ -1124,8 +1124,8 @@ if ( ! function_exists( 'woosw_init' ) ) {
 													'after_title'        => esc_html__( 'Under title', 'woo-smart-wishlist' ),
 													'after_rating'       => esc_html__( 'Under rating', 'woo-smart-wishlist' ),
 													'after_price'        => esc_html__( 'Under price', 'woo-smart-wishlist' ),
-													'before_add_to_cart' => esc_html__( 'Above Shop now button', 'woo-smart-wishlist' ),
-													'after_add_to_cart'  => esc_html__( 'Under Shop now button', 'woo-smart-wishlist' ),
+													'before_add_to_cart' => esc_html__( 'Above Add To Basket button', 'woo-smart-wishlist' ),
+													'after_add_to_cart'  => esc_html__( 'Under Add To Basket button', 'woo-smart-wishlist' ),
 													'0'                  => esc_html__( 'None (hide it)', 'woo-smart-wishlist' ),
 												] );
 												?>
@@ -1151,8 +1151,8 @@ if ( ! function_exists( 'woosw_init' ) ) {
 													'6'  => esc_html__( 'Under title', 'woo-smart-wishlist' ),
 													'11' => esc_html__( 'Under rating', 'woo-smart-wishlist' ),
 													'21' => esc_html__( 'Under excerpt', 'woo-smart-wishlist' ),
-													'29' => esc_html__( 'Above Shop now button', 'woo-smart-wishlist' ),
-													'31' => esc_html__( 'Under Shop now button', 'woo-smart-wishlist' ),
+													'29' => esc_html__( 'Above Add To Basket button', 'woo-smart-wishlist' ),
+													'31' => esc_html__( 'Under Add To Basket button', 'woo-smart-wishlist' ),
 													'41' => esc_html__( 'Under meta', 'woo-smart-wishlist' ),
 													'51' => esc_html__( 'Under sharing', 'woo-smart-wishlist' ),
 													'0'  => esc_html__( 'None (hide it)', 'woo-smart-wishlist' ),

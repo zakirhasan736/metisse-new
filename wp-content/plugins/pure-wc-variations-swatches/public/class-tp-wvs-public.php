@@ -145,7 +145,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Shop now functionality for shop page
+	 * Add To Basket functionality for shop page
 	 *
 	 * @return mixed
 	 * @since 1.0.0
@@ -197,7 +197,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Arguments for shop page Shop now button
+	 * Arguments for shop page Add To Basket button
 	 *
 	 * @param array  $args array of button arguments.
 	 * @param object $product curreent product object.
@@ -207,7 +207,7 @@ class Tp_Wvs_Public {
 	public function shop_page_add_to_cart_args( $args, $product ) {
 		if ( $product->is_type( 'variable' ) ) {
 			$args['class']                                 .= ' tpwvs-ajax-add-to-cart';
-			$args['attributes']['data-add_to_cart_text']    = esc_html__( 'Shop now', 'tpwvs' );
+			$args['attributes']['data-add_to_cart_text']    = esc_html__( 'Add To Basket', 'tpwvs' );
 			$args['attributes']['data-select_options_text'] = apply_filters( 'woocommerce_product_add_to_cart_text', $product->add_to_cart_text(), $product );
 		}
 

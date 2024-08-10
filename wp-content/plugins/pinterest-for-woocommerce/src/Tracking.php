@@ -335,7 +335,7 @@ class Tracking {
 
 
 	/**
-	 * Get the Shop now tracking snippet for archives.
+	 * Get the Add To Basket tracking snippet for archives.
 	 *
 	 * @return string
 	 */
@@ -361,7 +361,7 @@ JS;
 
 
 	/**
-	 * Get the Shop now tracking snippet for single product page.
+	 * Get the Add To Basket tracking snippet for single product page.
 	 *
 	 * @return string
 	 */
@@ -643,16 +643,16 @@ JS;
 	}
 
 	/**
-	 * Filter the "Shop now" button attributes to include more data.
+	 * Filter the "Add To Basket" button attributes to include more data.
 	 *
 	 * @see woocommerce_template_loop_add_to_cart()
 	 *
 	 * @since 1.0.11
 	 *
-	 * @param array      $args The arguments used for the Shop now button.
+	 * @param array      $args The arguments used for the Add To Basket button.
 	 * @param WC_Product $product The product object.
 	 *
-	 * @return array The filtered arguments for the Shop now button.
+	 * @return array The filtered arguments for the Add To Basket button.
 	 */
 	public static function filter_add_to_cart_attributes( array $args, WC_Product $product ) {
 		$attributes = array(

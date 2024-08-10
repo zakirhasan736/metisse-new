@@ -216,7 +216,7 @@ if ($product_single_layout_from_meta_field === "carousel") {
 										<span class="price-title text-left font-primary text-[#000] font-bold text-[14px]">Total Price:</span>
 										<span class="price text-left font-primary text-[#000] font-bold text-[18px]"><?php echo wc_price($total_price); ?></span>
 									</div>
-									<!-- Shop now/Buy Now Buttons -->
+									<!-- Add To Basket/Buy Now Buttons -->
 									<div class="product-card-checkout-btns text-center relative top-0 left-0 w-full h-full flex flex-col items-center justify-center">
 										<?php
 										// Calculate total price
@@ -224,8 +224,8 @@ if ($product_single_layout_from_meta_field === "carousel") {
 										$additional_product_price = get_post_meta($additional_product_id, '_price', true);
 										$total_price = $current_product_price + $additional_product_price;
 
-										// Output "Shop now" button with the total price
-										echo '<button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white" data-total-price="' . $total_price . '">' . esc_html__('Shop now', 'metisse') . '</button>';
+										// Output "Add To Basket" button with the total price
+										echo '<button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white" data-total-price="' . $total_price . '">' . esc_html__('Add To Basket', 'metisse') . '</button>';
 										?>
 
 										<a href="<?php echo esc_url(WC()->cart->get_checkout_url()); ?>" class="buy-now-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-white text-[14px] font-medium text-center font-primary leading-[1.2] bg-[#000000F2]"><?php echo esc_html__('Buy Now', 'metisse'); ?></a>

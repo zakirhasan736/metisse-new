@@ -142,7 +142,7 @@ class WC_Subscriptions_Cart_Validator {
 	 *
 	 * @since 1.0.0 - Migrated from WooCommerce Subscriptions v4.0.0
 	 *
-	 * @param array  $fragments The Shop now AJAX args.
+	 * @param array  $fragments The Add To Basket AJAX args.
 	 * @return array $fragments
 	 */
 	public static function add_to_cart_ajax_redirect( $fragments ) {

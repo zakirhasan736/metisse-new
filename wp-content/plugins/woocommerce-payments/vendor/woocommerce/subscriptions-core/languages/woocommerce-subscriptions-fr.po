@@ -7900,7 +7900,7 @@ msgstr "Inscription"
 
 #: includes/admin/class-wc-subscriptions-admin.php:1212
 msgid ""
-"A product displays a button with the text \"Shop now\". By default, a "
+"A product displays a button with the text \"Add To Basket\". By default, a "
 "subscription changes this to \"Sign up now\". You can customise the button "
 "text for subscriptions here."
 msgstr ""
@@ -7909,7 +7909,7 @@ msgstr ""
 "personnaliser le libellé du bouton pour les abonnements ici."
 
 #: includes/admin/class-wc-subscriptions-admin.php:1211
-msgid "Shop now Button Text"
+msgid "Add To Basket Button Text"
 msgstr "Libellé du bouton Ajouter au panier"
 
 #: includes/admin/class-wc-subscriptions-admin.php:1204

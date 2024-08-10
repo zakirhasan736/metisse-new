@@ -43,7 +43,7 @@ $first_description = $content['descriptions'][0]['default'] ?? '';
 			<div class="wp-block-buttons">
 				<!-- wp:button {"style":{"color":{"background":"#ff7179","text":"#000000"},"border":{"radius":"100px","width":"0px","style":"none"}}} -->
 				<div class="wp-block-button">
-					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;border-radius:100px;color:#000000;background-color:#ff7179">Shop now</a>
+					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="wp-block-button__link has-text-color has-background wp-element-button" style="border-style:none;border-width:0px;border-radius:100px;color:#000000;background-color:#ff7179">Add To Basket</a>
 				</div>
 				<!-- /wp:button -->
 			</div>

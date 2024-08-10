@@ -60718,7 +60718,7 @@ function PageControl({
  * 					image: <img src="https://acmestore.com/add-to-cart.png" />,
  * 					content: (
  * 						<p>
- * 							Click <i>Shop now</i> to buy a product.
+ * 							Click <i>Add To Basket</i> to buy a product.
  * 						</p>
  * 					),
  * 				},

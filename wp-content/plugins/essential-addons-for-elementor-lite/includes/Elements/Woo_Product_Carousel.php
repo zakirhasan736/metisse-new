@@ -238,7 +238,7 @@ class Woo_Product_Carousel extends Widget_Base {
         $this->add_control(
 		    'eael_product_carousel_show_add_to_cart',
 		    [
-			    'label'        => __('Shop now', 'essential-addons-for-elementor-lite'),
+			    'label'        => __('Add To Basket', 'essential-addons-for-elementor-lite'),
 			    'type'         => Controls_Manager::SWITCHER,
 			    'label_on'     => __('Show', 'essential-addons-for-elementor-lite'),
 			    'label_off'    => __('Hide', 'essential-addons-for-elementor-lite'),

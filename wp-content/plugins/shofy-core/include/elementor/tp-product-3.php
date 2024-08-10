@@ -492,7 +492,7 @@ class TP_Product_Post_3 extends Widget_Base {
 
                                             <div class="tp-featured-btn tp-el-action-btn">
                                                 <a href="<?php the_permalink(); ?>" class="tp-btn tp-btn-border tp-btn-border-sm">
-                                                    <?php echo esc_html__('Shop Now', 'tpcore') ?>
+                                                    <?php echo esc_html__('Add To Basket', 'tpcore') ?>
                                                     <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M16 7.49988L1 7.49988" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                         <path d="M9.9502 1.47554L16.0002 7.49954L9.9502 13.5245" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

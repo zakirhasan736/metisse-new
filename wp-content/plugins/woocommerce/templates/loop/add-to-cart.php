@@ -1,6 +1,6 @@
 <?php
 /**
- * Loop Shop now
+ * Loop Add To Basket
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/loop/add-to-cart.php.
  *

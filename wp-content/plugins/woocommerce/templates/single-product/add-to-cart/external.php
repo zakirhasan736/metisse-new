@@ -1,6 +1,6 @@
 <?php
 /**
- * External product Shop now
+ * External product Add To Basket
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/add-to-cart/external.php.
  *

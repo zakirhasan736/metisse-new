@@ -18,10 +18,10 @@ class AddToCartForm extends AbstractBlock {
 	/**
 	 * Initializes the AddToCartForm block and hooks into the `wc_add_to_cart_message_html` filter
 	 * to prevent displaying the Cart Notice when the block is inside the Single Product block
-	 * and the Shop now button is clicked.
+	 * and the Add To Basket button is clicked.
 	 *
 	 * It also hooks into the `woocommerce_add_to_cart_redirect` filter to prevent redirecting
-	 * to another page when the block is inside the Single Product block and the Shop now button
+	 * to another page when the block is inside the Single Product block and the Add To Basket button
 	 * is clicked.
 	 *
 	 * @return void
@@ -76,7 +76,7 @@ class AddToCartForm extends AbstractBlock {
 		ob_start();
 
 		/**
-		 * Trigger the single product Shop now action for each product type.
+		 * Trigger the single product Add To Basket action for each product type.
 		*
 		* @since 9.7.0
 		*/
@@ -113,12 +113,12 @@ class AddToCartForm extends AbstractBlock {
 	}
 
 	/**
-	 * Add a hidden input to the Shop now form to indicate that it is a descendent of a Single Product block.
+	 * Add a hidden input to the Add To Basket form to indicate that it is a descendent of a Single Product block.
 	 *
-	 * @param string $product The Shop now Form HTML.
+	 * @param string $product The Add To Basket Form HTML.
 	 * @param string $is_descendent_of_single_product_block Indicates if block is descendent of Single Product block.
 	 *
-	 * @return string The Shop now Form HTML with the hidden input.
+	 * @return string The Add To Basket Form HTML with the hidden input.
 	 */
 	protected function add_is_descendent_of_single_product_block_hidden_input_to_product_form( $product, $is_descendent_of_single_product_block ) {
 
@@ -138,8 +138,8 @@ class AddToCartForm extends AbstractBlock {
 	}
 
 	/**
-	 * Filter the Shop now message to prevent the Notice from being displayed when the Shop now form is a descendent of a Single Product block
-	 * and the Shop now button is clicked.
+	 * Filter the Add To Basket message to prevent the Notice from being displayed when the Add To Basket form is a descendent of a Single Product block
+	 * and the Add To Basket button is clicked.
 	 *
 	 * @param string $message Message to be displayed when product is added to the cart.
 	 */
@@ -153,7 +153,7 @@ class AddToCartForm extends AbstractBlock {
 
 	/**
 	 * Hooks into the `woocommerce_add_to_cart_redirect` filter to prevent redirecting
-	 * to another page when the block is inside the Single Product block and the Shop now button
+	 * to another page when the block is inside the Single Product block and the Add To Basket button
 	 * is clicked.
 	 *
 	 * @param string $url The URL to redirect to after the product is added to the cart.

@@ -32408,7 +32408,7 @@ msgstr ""
 #: patterns/featured-category-triple.php:33
 #: patterns/featured-category-triple.php:54
 #: patterns/featured-category-triple.php:75
-msgid "Shop Now"
+msgid "Add To Basket"
 msgstr ""
 
 #: patterns/featured-category-triple.php:47
@@ -32499,7 +32499,7 @@ msgstr ""
 #: patterns/hero-product-3-split.php:101
 #: assets/client/blocks/featured-category.js:15
 #: assets/client/blocks/featured-product.js:15
-msgid "Shop now"
+msgid "Add To Basket"
 msgstr ""
 
 #: patterns/hero-product-chessboard.php:32

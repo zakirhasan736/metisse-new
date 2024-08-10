@@ -22,7 +22,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Custom Shop now', 'elementor-pro' );
+		return esc_html__( 'Custom Add To Basket', 'elementor-pro' );
 	}
 
 	public function get_icon() {
@@ -34,7 +34,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	public function get_keywords() {
-		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'Shop now' ];
+		return [ 'woocommerce', 'shop', 'store', 'cart', 'product', 'button', 'Add To Basket' ];
 	}
 
 	public function on_export( $element ) {
@@ -136,8 +136,8 @@ class Add_To_Cart extends Widget_Button {
 		$this->update_control(
 			'text',
 			[
-				'default' => esc_html__('Shop now', 'elementor-pro' ),
-				'placeholder' => esc_html__('Shop now', 'elementor-pro' ),
+				'default' => esc_html__('Add To Basket', 'elementor-pro' ),
+				'placeholder' => esc_html__('Add To Basket', 'elementor-pro' ),
 			]
 		);
 
@@ -204,9 +204,9 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	/**
-	 * Before Shop now Quantity
+	 * Before Add To Basket Quantity
 	 *
-	 * Added wrapper tag around the quantity input and "Shop now" button
+	 * Added wrapper tag around the quantity input and "Add To Basket" button
 	 * used to more solidly accommodate the layout when additional elements
 	 * are added by 3rd party plugins.
 	 *
@@ -219,7 +219,7 @@ class Add_To_Cart extends Widget_Button {
 	}
 
 	/**
-	 * After Shop now Quantity
+	 * After Add To Basket Quantity
 	 *
 	 * @since 3.6.0
 	 */

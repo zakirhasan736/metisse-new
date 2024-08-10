@@ -5078,7 +5078,7 @@ msgid "Product Post 3"
 msgstr ""
 
 #: include/elementor/tp-product-3.php:495
-msgid "Shop Now"
+msgid "Add To Basket"
 msgstr ""
 
 #: include/elementor/tp-product-tab.php:45

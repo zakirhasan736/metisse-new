@@ -94,7 +94,7 @@ class Hooks {
     }
 
     /**
-     * This method will remove Shop now button
+     * This method will remove Add To Basket button
      *
      * @since 3.5.1
      *

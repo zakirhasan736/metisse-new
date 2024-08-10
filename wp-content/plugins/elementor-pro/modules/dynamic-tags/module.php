@@ -54,19 +54,19 @@ class Module extends TagsModule {
 		}
 
 		/*
-		 * WooCommerce Shop now Dynamic Tag.
+		 * WooCommerce Add To Basket Dynamic Tag.
 		 *
 		 * The WC ATC Dynamic Tag returns a URL that adds items to a users cart
 		 * via the URL parameters `?add-to-cart=' . $product_id . '&quantity=' . $quantity`.
 		 * Normally this URL method redirects to the website's Home page after adding the items to
 		 * the cart.
 		 *
-		 * Since the behavior of the Tag should be identical to the "Shop now" widget, clicking an
+		 * Since the behavior of the Tag should be identical to the "Add To Basket" widget, clicking an
 		 * element that is using the tag needs to redirect to the Single Product page for the added
 		 * product or the Cart page after this process if the user selected that setting in WooCommerce.
 		 *
 		 * To accomplish that, an extra parameter in the URL ('&e-redirect=') is used. When this
-		 * paramater is found, the WooCommerce Shop now Dynamic Tag will redirect to the
+		 * paramater is found, the WooCommerce Add To Basket Dynamic Tag will redirect to the
 		 * appropriate page.
 		 */
 

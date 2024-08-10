@@ -87,7 +87,7 @@ function wc_get_raw_referer() {
 }
 
 /**
- * Shop now messages.
+ * Add To Basket messages.
  *
  * @param int|array $products Product ID list or single product ID.
  * @param bool      $show_qty Should quantities be shown? Added in 2.6.0.

@@ -52,7 +52,7 @@ class CartController {
 	 *
 	 * @throws RouteException Exception if invalid data is detected.
 	 *
-	 * @param array $request Shop now request params.
+	 * @param array $request Add To Basket request params.
 	 * @return string
 	 */
 	public function add_to_cart( $request ) {
@@ -149,7 +149,7 @@ class CartController {
 		 * Fires when an item is added to the cart.
 		 *
 		 * This hook fires when an item is added to the cart. This is triggered from the Store API in this context, but
-		 * WooCommerce core Shop now events trigger the same hook.
+		 * WooCommerce core Add To Basket events trigger the same hook.
 		 *
 		 * @since 2.5.0
 		 *
@@ -213,7 +213,7 @@ class CartController {
 	 * @throws RouteException Exception if invalid data is detected.
 	 *
 	 * @param \WC_Product $product Product object associated with the cart item.
-	 * @param array       $request Shop now request params.
+	 * @param array       $request Add To Basket request params.
 	 */
 	public function validate_add_to_cart( \WC_Product $product, $request ) {
 		if ( ! $product->is_purchasable() ) {
@@ -288,7 +288,7 @@ class CartController {
 		 * Fires during validation when adding an item to the cart via the Store API.
 		 *
 		 * @param \WC_Product $product Product object being added to the cart.
-		 * @param array       $request Shop now request params including id, quantity, and variation attributes.
+		 * @param array       $request Add To Basket request params including id, quantity, and variation attributes.
 		 * @deprecated 7.1.0 Use woocommerce_store_api_validate_add_to_cart instead.
 		 */
 		wc_do_deprecated_action(
@@ -305,13 +305,13 @@ class CartController {
 		/**
 		 * Fires during validation when adding an item to the cart via the Store API.
 		 *
-		 * Fire action to validate Shop now. Functions hooking into this should throw an \Exception to prevent
-		 * Shop now from happening.
+		 * Fire action to validate Add To Basket. Functions hooking into this should throw an \Exception to prevent
+		 * Add To Basket from happening.
 		 *
 		 * @since 7.1.0
 		 *
 		 * @param \WC_Product $product Product object being added to the cart.
-		 * @param array       $request Shop now request params including id, quantity, and variation attributes.
+		 * @param array       $request Add To Basket request params including id, quantity, and variation attributes.
 		 */
 		do_action( 'woocommerce_store_api_validate_add_to_cart', $product, $request );
 	}
@@ -631,8 +631,8 @@ class CartController {
 		}
 
 		/**
-		 * Fire action to validate Shop now. Functions hooking into this should throw an \Exception to prevent
-		 * Shop now from occurring.
+		 * Fire action to validate Add To Basket. Functions hooking into this should throw an \Exception to prevent
+		 * Add To Basket from occurring.
 		 *
 		 * @param \WC_Product $product Product object being added to the cart.
 		 * @param array       $cart_item Cart item array.
@@ -650,8 +650,8 @@ class CartController {
 		);
 
 		/**
-		 * Fire action to validate Shop now. Functions hooking into this should throw an \Exception to prevent
-		 * Shop now from occurring.
+		 * Fire action to validate Add To Basket. Functions hooking into this should throw an \Exception to prevent
+		 * Add To Basket from occurring.
 		 *
 		 * @since 7.1.0
 		 *
@@ -1071,7 +1071,7 @@ class CartController {
 	 *
 	 * @throws RouteException Exception if invalid data is detected.
 	 *
-	 * @param array $request Shop now request params.
+	 * @param array $request Add To Basket request params.
 	 * @return \WC_Product|Error Returns a product object if purchasable.
 	 */
 	protected function get_product_for_cart( $request ) {
@@ -1128,9 +1128,9 @@ class CartController {
 	}
 
 	/**
-	 * Filter data for Shop now requests.
+	 * Filter data for Add To Basket requests.
 	 *
-	 * @param array $request Shop now request params.
+	 * @param array $request Add To Basket request params.
 	 * @return array Updated request array.
 	 */
 	protected function filter_request_data( $request ) {
@@ -1144,7 +1144,7 @@ class CartController {
 		}
 
 		/**
-		 * Filter cart item data for Shop now requests.
+		 * Filter cart item data for Add To Basket requests.
 		 *
 		 * @since 2.5.0
 		 *
@@ -1166,7 +1166,7 @@ class CartController {
 
 		if ( $product->is_sold_individually() ) {
 			/**
-			 * Filter sold individually quantity for Shop now requests.
+			 * Filter sold individually quantity for Add To Basket requests.
 			 *
 			 * @since 2.5.0
 			 *
@@ -1190,7 +1190,7 @@ class CartController {
 	 *
 	 * @throws RouteException Exception if invalid data is detected.
 	 *
-	 * @param array $request Shop now request params.
+	 * @param array $request Add To Basket request params.
 	 * @return array Updated request array.
 	 */
 	protected function parse_variation_data( $request ) {
@@ -1274,7 +1274,7 @@ class CartController {
 	 *
 	 * @throws RouteException Exception if variation cannot be found.
 	 *
-	 * @param array       $request Shop now request params.
+	 * @param array       $request Add To Basket request params.
 	 * @param \WC_Product $product Product being added to the cart.
 	 * @return int Matching variation ID.
 	 */

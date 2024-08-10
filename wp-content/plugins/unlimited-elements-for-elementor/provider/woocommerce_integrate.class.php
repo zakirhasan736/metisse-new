@@ -138,7 +138,7 @@ class UniteCreatorWooIntegrate{
 	}
 	
 	/**
-	 * Shop now for variation
+	 * Add To Basket for variation
 	 */
 	private function addAddToCartForVariation($arrVariation){
 		
@@ -152,7 +152,7 @@ class UniteCreatorWooIntegrate{
     	$arrVariation["link_addcart_cart"] = UniteFunctionsUC::addUrlParams($this->urlCart, $params);
     	$arrVariation["link_addcart_checkout"] = UniteFunctionsUC::addUrlParams($this->urlCheckout, $params);
 		
-    	//add html ajax Shop now
+    	//add html ajax Add To Basket
     	$addCartAttributes = "href=\"{$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$variationID}\" data-product_sku=\"{$sku}\" rel=\"nofollow\"";
     	
     	$arrVariation["addcart_ajax_attributes"] = $addCartAttributes;
@@ -161,7 +161,7 @@ class UniteCreatorWooIntegrate{
 	}
 	
 	/**
-	 * add Shop now data
+	 * add Add To Basket data
 	 */
 	private function addAddToCartData($arrProduct, $productID, $productSku){
 		
@@ -173,7 +173,7 @@ class UniteCreatorWooIntegrate{
     	$arrProduct["woo_link_addcart_cart"] = UniteFunctionsUC::addUrlParams($this->urlCart, $params);
     	$arrProduct["woo_link_addcart_checkout"] = UniteFunctionsUC::addUrlParams($this->urlCheckout, $params);
     	    	
-    	//add html ajax Shop now
+    	//add html ajax Add To Basket
     	$addCartAttributes = "href=\"{$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$productID}\" data-product_sku=\"{$productSku}\" rel=\"nofollow\"";
     	
     	$addCartAttributesButton = "onclick=\"location.href={$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$productID}\" data-product_sku=\"{$productSku}\" rel=\"nofollow\"";
@@ -603,7 +603,7 @@ class UniteCreatorWooIntegrate{
 		
 		$arrAttributeTitles = $this->getProductAttributeNames($product);
 		
-		//add Shop now links
+		//add Add To Basket links
 		foreach($variations as $key=>$arrVariation){
 			
 			$arrVariation = $this->modifyVariationForOutput($arrVariation, $arrAttributeTitles);
@@ -827,7 +827,7 @@ class UniteCreatorWooIntegrate{
     	$arrProduct["woo_currency"] = $this->currency;
     	$arrProduct["woo_currency_symbol"] = $this->currencySymbol;
 		
-    	//put Shop now link
+    	//put Add To Basket link
     	$arrProduct = $this->addAddToCartData($arrProduct, $productID, $productSku);
     	
     	    	

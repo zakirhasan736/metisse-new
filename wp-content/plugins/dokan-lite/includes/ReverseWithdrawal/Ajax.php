@@ -20,7 +20,7 @@ class Ajax {
      * @since 3.5.1
      */
     public function __construct() {
-        // ajax product Shop now
+        // ajax product Add To Basket
         add_action( 'wp_ajax_dokan_reverse_withdrawal_payment_to_cart', [ $this, 'reverse_withdrawal_payment' ] );
     }
 
