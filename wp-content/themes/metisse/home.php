@@ -17,8 +17,8 @@ get_header();
             <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/company-brand-logo-black.svg" alt="product modal brand logo image">
         </div>
         <div class="new-arrival-product-feature-watches">
-            <div class="product-feature-watches-type-new-arrivel-wrap relative">
-                <div class="product-new-arrival-slider !mb-0">
+            <div class="product-feature-watches-type-new-arrivel-wrap relative w-full">
+                <div class="product-new-arrival-slider w-full !mb-0">
                     <?php
                     // Query to fetch all products
                     $args = array(
