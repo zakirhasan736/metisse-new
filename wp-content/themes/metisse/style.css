@@ -1080,6 +1080,12 @@ Text Domain: metisse
     .product-new-arrival-left-cont {
         background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
     }
+
+    .custom-container-site-width {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
 }
 
 @layer utilities {}

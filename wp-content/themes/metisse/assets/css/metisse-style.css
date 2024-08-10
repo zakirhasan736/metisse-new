@@ -1540,6 +1540,12 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
 }
 
+.custom-container-site-width {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2095,10 +2101,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-6 {
-  gap: 1.5rem;
 }
 
 .gap-\[10px\] {
