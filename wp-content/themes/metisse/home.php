@@ -24,7 +24,7 @@ get_header();
                         array(
                             'taxonomy' => 'product_cat', // Taxonomy name
                             'field' => 'slug', // Select taxonomy term by slug
-                            'terms' => 'Featured Products', // Slug of the "featured" category
+                            'terms' => 'New Arrival', // Slug of the "featured" category
                         ),
                     ),
                 );
@@ -61,53 +61,57 @@ get_header();
                 ?>
             </div>
             <div class="product-slider-arrow-box relative mt-10">
-                <button class="slick-prev-arrow custom-arrow custom-prev-new-arrv custom-prev absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
+                <button class="slick-prev-arrow custom-arrow custom-prev-new-arrv custom-prev absolute bottom-0 right-[54px] transform z-10 w-10 h-10 flex items-center justify-center">
                     <i class="fa fa-angle-left text-lg text-[#131313]"></i>
                 </button>
-                <button class="slick-next-arrow custom-arrow custom-next-new-arrv  custom-next absolute bottom-0 right-[0px] transform  z-10 w-10 h-10 flex items-center justify-center">
+                <button class="slick-next-arrow custom-arrow custom-next-new-arrv custom-next absolute bottom-0 right-[0px] transform z-10 w-10 h-10 flex items-center justify-center">
                     <i class="fa fa-angle-right text-lg text-[#131313]"></i>
                 </button>
             </div>
         </div>
     </div>
 </section>
+
 <script type="text/javascript">
-
     jQuery(document).ready(function($) {
-        $('.product-new-arrival-slider').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false,
-            arrows: true,
-            prevArrow: $('.custom-prev-new-arrv'),
-            nextArrow: $('.custom-next-new-arrv'),
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
+        // Ensure the slider is initialized after the DOM is fully loaded and arrows are properly placed
+        setTimeout(function() {
+            $('.product-new-arrival-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: false,
+                arrows: true,
+                prevArrow: $('.custom-prev-new-arrv'),
+                nextArrow: $('.custom-next-new-arrv'),
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
+                ]
+            });
 
-        // Remove the right margin on the last item to prevent overflow
-        $('.product-new-arrival-slider').on('setPosition', function() {
-            $(this).find('.product--card-item').css('margin-right', '24px');
-            $(this).find('.product--card-item:last-child').css('margin-right', '0');
-        });
+            // Remove the right margin on the last item to prevent overflow
+            $('.product-new-arrival-slider').on('setPosition', function() {
+                $(this).find('.product--card-item').css('margin-right', '24px');
+                $(this).find('.product--card-item:last-child').css('margin-right', '0');
+            });
+        }, 300); // Adding delay to ensure everything is rendered properly
     });
 </script>
+
 <section class="home-product-type-section">
     <?php
     // Get the Elementor template shortcode
