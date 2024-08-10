@@ -158,13 +158,14 @@ get_header();
                 endif;
                 ?>
             </div>
-            <!-- Custom arrows for slider navigation -->
-            <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
-                <i class="fa fa-angle-left text-lg text-[#131313]"></i>
-            </button>
-            <button class="slick-next-arrow custom-arrow custom-next absolute bottom-0 right-[0px] transform  z-10 w-10 h-10 flex items-center justify-center">
-                <i class="fa fa-angle-right text-lg text-[#131313]"></i>
-            </button>
+            <div class="product-slider-arrow-box">
+                <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
+                    <i class="fa fa-angle-left text-lg text-[#131313]"></i>
+                </button>
+                <button class="slick-next-arrow custom-arrow custom-next absolute bottom-0 right-[0px] transform  z-10 w-10 h-10 flex items-center justify-center">
+                    <i class="fa fa-angle-right text-lg text-[#131313]"></i>
+                </button>
+            </div>
         </div>
     </div>
 </section>
