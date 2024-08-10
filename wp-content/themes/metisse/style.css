@@ -1071,6 +1071,11 @@ Text Domain: metisse
         justify-content: flex-start;
         max-width: auto;
     }
+
+    .product--features-watches-btn-box button.add-to-cart-btn {
+        padding: 0 !important;
+        justify-content: flex-start;
+    }
 }
 
 @layer utilities {}
