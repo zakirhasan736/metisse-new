@@ -1540,11 +1540,21 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
 }
 
-/* .custom-container-site-width {
-        display: grid;
-       grid-template-columns: minmax(442px) , auto;
-        gap: 24px;
-    } */
+.custom-container-site-width {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.custom-container-site-width div:first-child {
+  flex: 0 0 442px;
+  width: 442px;
+}
+
+.custom-container-site-width div:nth-child(2) {
+  flex: 0 0 calc(100% - 442px);
+  width: calc(100% - 442px);
+}
 
 .sr-only {
   position: absolute;
