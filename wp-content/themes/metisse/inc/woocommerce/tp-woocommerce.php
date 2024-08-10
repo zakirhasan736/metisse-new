@@ -742,7 +742,7 @@ function metisse_product_grid_type_1()
                         <li class="w-[16px] h-[16px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
                     </ul>
                 </div>
-                <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-start justify-start">
+                <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex items-start justify-start">
                     <p class="product-price text-[29px] text-left font-secondary font-normal capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
                     <button class="add-to-cart-btn mx-auto flex items-center justify-center w-full whitespace-nowrap h-[40px] py-2 px-[0px] border-0 capitalize text-[#BD7048] text-[12px] font-semibold text-center font-secondary leading-[1.2]"> <?php woocommerce_template_loop_add_to_cart('Add To Basket', 'metisse'); ?></button>
                 </div>
