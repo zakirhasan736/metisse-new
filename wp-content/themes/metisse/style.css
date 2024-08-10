@@ -1082,8 +1082,8 @@ Text Domain: metisse
     }
 
     .custom-container-site-width {
-        display: flex;
-        align-items: center;
+        display: grid;
+       grid-template-columns: minmax(442px) , auto;
         gap: 24px;
     }
 }
