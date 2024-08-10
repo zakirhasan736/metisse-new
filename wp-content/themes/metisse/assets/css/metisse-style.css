@@ -2487,6 +2487,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   padding-bottom: 43px;
 }
 
+.pb-\[50px\] {
+  padding-bottom: 50px;
+}
+
 .pb-\[52px\] {
   padding-bottom: 52px;
 }
@@ -2497,10 +2501,6 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
 
 .pb-\[76px\] {
   padding-bottom: 76px;
-}
-
-.pb-\[90px\] {
-  padding-bottom: 90px;
 }
 
 .pb-\[97px\] {
@@ -2525,6 +2525,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-80 {
+  padding-top: 20rem;
 }
 
 .pt-\[114px\] {
@@ -2563,12 +2567,12 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   padding-top: 80px;
 }
 
-.pb-\[50px\] {
-  padding-bottom: 50px;
+.pt-1 {
+  padding-top: 0.25rem;
 }
 
-.pt-80 {
-  padding-top: 20rem;
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-left {

@@ -142,7 +142,6 @@ define('metisse_THEME_JS_DIR', metisse_THEME_URI . '/assets/js/');
 define('metisse_THEME_INC', metisse_THEME_DIR . '/inc/');
 
 
-
 // wp_body_open
 if (!function_exists('wp_body_open')) {
     function wp_body_open()
@@ -401,7 +400,6 @@ function wtwh_validate_name_fields($errors, $username, $email)
 }
 
 // 3. SAVE FIELDS
-
 add_action('woocommerce_created_customer', 'wtwh_save_name_fields');
 
 function wtwh_save_name_fields($customer_id)
@@ -459,7 +457,6 @@ function tp_header_login_shortcode()
 
                 </a>
             </div>
-
         </div>
 
     <?php
@@ -493,9 +490,5 @@ function tp_header_login_shortcode()
 
     return ob_get_clean();
 }
-function remove_purchase_confirmation_email_content()
-{
-    remove_action('woocommerce_after_single_product', 'function_displaying_email_content', 10);
-}
-add_action('wp', 'remove_purchase_confirmation_email_content');
+
 
