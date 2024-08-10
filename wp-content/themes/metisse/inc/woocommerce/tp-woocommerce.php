@@ -443,42 +443,42 @@ if (!function_exists('metisse_content_single_details')) {
         <div class="tp-product-details-inventory d-flex align-items-center mb-[20px]">
 
 
-          
-            <?php
-// Get ACF fields for rating and review count
-$custom_rating = get_field('product_rating_number');
-$custom_review_count = get_field('product_total_review');
-?>
 
-<div class="tp-product-details-rating-wrapper d-flex align-items-center">
-  <div class="tp-product-details-rating">
-        <?php
-        // Output filled stars based on ACF rating value
-        for ($i = 1; $i <= 5; $i++) {
-            if ($i <= $custom_rating) {
-                echo '<span class="filled-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <?php
+            // Get ACF fields for rating and review count
+            $custom_rating = get_field('product_rating_number');
+            $custom_review_count = get_field('product_total_review');
+            ?>
+
+            <div class="tp-product-details-rating-wrapper d-flex align-items-center">
+                <div class="tp-product-details-rating">
+                    <?php
+                    // Output filled stars based on ACF rating value
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($i <= $custom_rating) {
+                            echo '<span class="filled-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
   <path d="M13.103 4.14988C13.4698 3.40672 14.5295 3.40671 14.8964 4.14988L17.6047 9.63659L23.6626 10.522C24.4825 10.6419 24.8093 11.6497 24.2157 12.2279L19.833 16.4966L20.8671 22.5259C21.0072 23.3428 20.1497 23.9658 19.416 23.58L13.9997 20.7316L8.58331 23.58C7.84968 23.9658 6.99213 23.3428 7.13225 22.5259L8.16634 16.4966L3.78369 12.2279C3.19009 11.6497 3.51688 10.6419 4.33679 10.522L10.3947 9.63659L13.103 4.14988Z" fill="#FFBD3E"/>
 </svg></span>';
-            } else {
-                echo '<span class="empty-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        } else {
+                            echo '<span class="empty-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
   <path d="M16.708 10.0792C16.8535 10.3741 17.1347 10.5785 17.46 10.6261L23.5179 11.5115L19.1353 15.7802C18.8994 16.01 18.7917 16.3411 18.8474 16.6656L19.8815 22.6949L14.4651 19.8465C14.1737 19.6933 13.8256 19.6933 13.5342 19.8465L8.11786 22.6949L9.15195 16.6656C9.20761 16.3411 9.09995 16.01 8.86407 15.7802L4.48142 11.5115L10.5393 10.6261C10.8647 10.5785 11.1458 10.3741 11.2914 10.0792L13.9997 4.59251L16.708 10.0792Z" fill="white" stroke="#FFBD3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg></span>';
-            }
-        }
-        ?>
-    </div>
+                        }
+                    }
+                    ?>
+                </div>
 
-    <div class="woocommerce-product-rating tp-product-details-reviews">
-        <?php
-        // Output review count
-        if (comments_open()) {
-            echo '<a href="#reviews" class="woocommerce-review-link text-[18px] sm:text-[16px] font-semibold font-primary !text-[#FF9D0A]" rel="nofollow">';
-            printf(_n('( %s Review )', '( %s Reviews )', $custom_review_count, 'metisse'), '<span class="count">' . esc_html($custom_review_count) . '</span>');
-            echo '</a>';
-        }
-        ?>
-    </div>
-</div>
+                <div class="woocommerce-product-rating tp-product-details-reviews">
+                    <?php
+                    // Output review count
+                    if (comments_open()) {
+                        echo '<a href="#reviews" class="woocommerce-review-link text-[18px] sm:text-[16px] font-semibold font-primary !text-[#FF9D0A]" rel="nofollow">';
+                        printf(_n('( %s Review )', '( %s Reviews )', $custom_review_count, 'metisse'), '<span class="count">' . esc_html($custom_review_count) . '</span>');
+                        echo '</a>';
+                    }
+                    ?>
+                </div>
+            </div>
 
         </div>
         <!-- price -->
@@ -486,12 +486,12 @@ $custom_review_count = get_field('product_total_review');
             <?php woocommerce_template_single_price(); ?>
         </div>
 
-      <div class="tp-product-details-description-full">
-    <?php $product_description = get_the_content(); ?>
-    <?php if (!empty($product_description)) : ?>
-        <p class="mb-[20px] text-[18px] sm:text-[16px] font-normal font-primary text-[#232323] text-left leading-[28px]"><?php echo $product_description; ?></p>
-    <?php endif; ?>
-</div>
+        <div class="tp-product-details-description-full">
+            <?php $product_description = get_the_content(); ?>
+            <?php if (!empty($product_description)) : ?>
+                <p class="mb-[20px] text-[18px] sm:text-[16px] font-normal font-primary text-[#232323] text-left leading-[28px]"><?php echo $product_description; ?></p>
+            <?php endif; ?>
+        </div>
 
 
         <?php if (!empty($enable_flash_sale)) : ?>
@@ -728,26 +728,23 @@ function metisse_product_grid_type_1()
 
 ?>
 
-    <div class="product-card-item border-2 border-[#0000001a] bg-white relative">
-        <div class="product-card-main-cont">
-            <div class="product-img-box h-[270px] relative mb-[24px] md:mb-5 sm:mb-4">
+    <div class="product--card-item relative" style="margin-right: 24px;">
+        <div class="product--card-main-cont flex items-start gap-[20px]">
+            <div class="product--img-box h-[286px] w-[163px] relative">
                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
-
-                <div class="product-card-checkout-btns text-center absolute left-0 w-full h-full flex flex-col items-center justify-center">
-                    <button class="add-to-cart-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-black text-[14px] font-medium text-center mb-[5px] font-primary leading-[1.2] bg-white"> <?php woocommerce_template_loop_add_to_cart('ADD TO BASKET', 'metisse'); ?></button>
-                    <a href="<?php echo esc_url(WC()->cart->get_checkout_url()); ?>" class="buy-now-btn max-w-[208px] mx-auto flex items-center justify-center w-full whitespace-nowrap h-[45px] py-[14px] px-[20px] border-2 border-[#000000F2] capitalize text-white text-[14px] font-medium text-center font-primary leading-[1.2] bg-[#000000F2]"><?php echo esc_html__('Buy Now', 'metisse'); ?></a>
-                </div>
             </div>
-            <div class="product-card-cont px-[16.5px] pb-[22px]">
-                <h3 class="product-title leading-none mb-[7px] text-[18px] text-center font-primary font-bold capitalize text-black"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <p class="product-desc text-[16px] text-center font-primary font-normal leading-normal mb-[14px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
-                <p class="product-price text-[18px] text-center font-primary font-bold capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
-                <div class="product-verient-box">
-                    <p class="varient-title text-[10px] text-center text-black opacity-50 mb-[7px] font-secondary font-semibold tracking-[1.8px] uppercase leading-none">Colour Variants</p>
-                    <!-- <ul class="p-varient-lists flex items-center gap-[6px] justify-center">
-                        <li class="w-[18px] h-[18px] rounded-full bg-[#D9D9D9] border-2  border-[#000]"></li>
-                        <li class="w-[18px] h-[18px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
-                    </ul> -->
+            <div class="product--card-cont pt-5 pb-[22px]">
+                <h3 class="product-title leading-none mb-[7px] text-[14px] text-left font-primary font-normal tracking-[1.4px] uppercase text-[#131313]"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <p class="product-desc text-[12px] text-left font-secondary font-normal leading-normal mb-[29px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
+                <div class="product-verient-box mb-[42px]">
+                    <ul class="p-varient-lists flex items-center gap-[6px] justify-start">
+                        <li class="w-[16px] h-[16px] rounded-full bg-[#D9D9D9] border-2 border-[#000]"></li>
+                        <li class="w-[16px] h-[16px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
+                    </ul>
+                </div>
+                <div class="product--features-watches-btn-box text-left relative left-0 w-full h-full flex flex-col items-start justify-start">
+                    <p class="product-price text-[29px] text-left font-secondary font-normal capitalize text-black mb-[14px]"><?php echo get_woocommerce_currency_symbol() . get_post_meta(get_the_ID(), '_price', true); ?></p>
+                    <button class="add-to-cart-btn mx-auto flex items-center justify-center w-full whitespace-nowrap h-[40px] py-2 px-[0px] border-0 capitalize text-[#BD7048] text-[12px] font-semibold text-center font-secondary leading-[1.2]"> <?php woocommerce_template_loop_add_to_cart('Add To Basket', 'metisse'); ?></button>
                 </div>
             </div>
         </div>
