@@ -45,7 +45,7 @@ update_post_meta(get_the_ID(), 'view_count', $count);
 
 <?php while (have_posts()) : ?>
 	<?php the_post(); ?>
-	<?php wc_get_template_part('content', 'single-product'); ?>
+	<?php _part('content', 'single-product'); ?>
 <?php endwhile; // end of the loop. 
 ?>
 
