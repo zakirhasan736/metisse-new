@@ -1536,6 +1536,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   justify-content: flex-start;
 }
 
+.product-new-arrival-left-cont {
+  background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2093,6 +2097,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   gap: 1rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-\[10px\] {
   gap: 10px;
 }
@@ -2452,6 +2460,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   padding-bottom: 1rem;
 }
 
+.pb-\[112px\] {
+  padding-bottom: 112px;
+}
+
 .pb-\[114px\] {
   padding-bottom: 114px;
 }
@@ -2496,8 +2508,16 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   padding-bottom: 9px;
 }
 
+.pr-\[115px\] {
+  padding-right: 115px;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pt-\[114px\] {
+  padding-top: 114px;
 }
 
 .pt-\[139px\] {
@@ -2530,10 +2550,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .pt-\[80px\] {
   padding-top: 80px;
-}
-
-.pr-\[115px\] {
-  padding-right: 115px;
 }
 
 .text-left {

@@ -1076,6 +1076,10 @@ Text Domain: metisse
         padding: 0 !important;
         justify-content: flex-start;
     }
+
+    .product-new-arrival-left-cont {
+        background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
+    }
 }
 
 @layer utilities {}
