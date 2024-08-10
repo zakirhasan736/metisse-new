@@ -2164,6 +2164,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   gap: 7px;
 }
 
+.gap-\[24px\] {
+  gap: 24px;
+}
+
 .gap-x-\[20px\] {
   -moz-column-gap: 20px;
        column-gap: 20px;
