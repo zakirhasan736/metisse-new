@@ -159,10 +159,10 @@ get_header();
                 ?>
             </div>
             <!-- Custom arrows for slider navigation -->
-            <button class="slick-prev-arrow custom-arrow custom-prev absolute top-1/2 left-[-20px] transform -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full shadow-lg">
+            <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-0 transform  z-10 w-10 h-10 flex items-center justify-center">
                 <i class="fa fa-angle-left text-lg text-[#131313]"></i>
             </button>
-            <button class="slick-next-arrow custom-arrow custom-next absolute top-1/2 right-[-20px] transform -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full shadow-lg">
+            <button class="slick-next-arrow custom-arrow custom-next absolute bottom-0 right-0 transform  z-10 w-10 h-10 flex items-center justify-center">
                 <i class="fa fa-angle-right text-lg text-[#131313]"></i>
             </button>
         </div>
@@ -175,7 +175,7 @@ get_header();
             slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
-            dots: true,
+            dots: false,
             arrows: true,
             prevArrow: $('.custom-prev'),
             nextArrow: $('.custom-next'),
