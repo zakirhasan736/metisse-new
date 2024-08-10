@@ -1527,7 +1527,7 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   max-width: auto;
 }
 
-.product--features-watches-btn-box button.add-to-cart-btn {
+.product-feature-type-featured-product .product--features-watches-btn-box button.add-to-cart-btn {
   padding: 0 !important;
   justify-content: flex-start;
 }
@@ -1539,7 +1539,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 .custom-container-site-width {
   display: flex;
   align-items: center;
-  /* gap: 24px; */
 }
 
 .custom-container-site-width div.product-new-arrival-left-cont {
@@ -2109,6 +2108,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   gap: 20px;
 }
 
+.gap-\[25px\] {
+  gap: 25px;
+}
+
 .gap-\[28px\] {
   gap: 28px;
 }
@@ -2139,10 +2142,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .gap-\[7px\] {
   gap: 7px;
-}
-
-.gap-\[25px\] {
-  gap: 25px;
 }
 
 .gap-x-\[20px\] {
@@ -2272,6 +2271,11 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   background-color: #000000F2;
 }
 
+.bg-\[\#131313\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(19 19 19 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#D9D9D9\] {
   --tw-bg-opacity: 1;
   background-color: rgb(217 217 217 / var(--tw-bg-opacity));
@@ -2297,28 +2301,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#FFFDFD\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 253 253 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#1\] {
-  background-color: #1;
-}
-
-.bg-\[\#13\] {
-  background-color: #13;
-}
-
-.bg-\[\#1313\] {
-  background-color: #1313;
-}
-
-.bg-\[\#131313\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(19 19 19 / var(--tw-bg-opacity));
-}
-
 .bg-center {
   background-position: center;
 }
@@ -2342,6 +2324,11 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .p-\[3px\] {
   padding: 3px;
+}
+
+.\!px-8 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .\!px-\[20px\] {
@@ -2442,11 +2429,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 .py-\[7px\] {
   padding-top: 7px;
   padding-bottom: 7px;
-}
-
-.\!px-8 {
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
 }
 
 .\!pl-0 {
@@ -2597,6 +2579,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   font-size: 10px;
 }
 
+.text-\[11px\] {
+  font-size: 11px;
+}
+
 .text-\[12px\] {
   font-size: 12px;
 }
@@ -2613,6 +2599,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   font-size: 18px;
 }
 
+.text-\[20px\] {
+  font-size: 20px;
+}
+
 .text-\[24px\] {
   font-size: 24px;
 }
@@ -2627,14 +2617,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .text-\[34px\] {
   font-size: 34px;
-}
-
-.text-\[20px\] {
-  font-size: 20px;
-}
-
-.text-\[11px\] {
-  font-size: 11px;
 }
 
 .\!font-bold {
@@ -2717,6 +2699,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   letter-spacing: 3.2px !important;
 }
 
+.tracking-\[1\.1px\] {
+  letter-spacing: 1.1px;
+}
+
 .tracking-\[1\.4px\] {
   letter-spacing: 1.4px;
 }
@@ -2727,10 +2713,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 
 .tracking-\[3\.2px\] {
   letter-spacing: 3.2px;
-}
-
-.tracking-\[1\.1px\] {
-  letter-spacing: 1.1px;
 }
 
 .\!text-\[\#000\] {
@@ -2803,6 +2785,11 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   color: rgb(189 112 72 / var(--tw-text-opacity));
 }
 
+.text-\[\#FFFDFD\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 253 253 / var(--tw-text-opacity));
+}
+
 .text-\[\#fff\] {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2816,16 +2803,6 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[black\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.text-\[\#FFFDFD\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 253 253 / var(--tw-text-opacity));
 }
 
 .\!underline {

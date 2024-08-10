@@ -1072,7 +1072,7 @@ Text Domain: metisse
         max-width: auto;
     }
 
-    .product--features-watches-btn-box button.add-to-cart-btn {
+    .product-feature-type-featured-product .product--features-watches-btn-box button.add-to-cart-btn {
         padding: 0 !important;
         justify-content: flex-start;
     }
@@ -1084,7 +1084,6 @@ Text Domain: metisse
     .custom-container-site-width {
         display: flex;
         align-items: center;
-        /* gap: 24px; */
     }
 
     .custom-container-site-width div.product-new-arrival-left-cont {
