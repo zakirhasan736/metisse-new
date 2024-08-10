@@ -1084,7 +1084,7 @@ Text Domain: metisse
     .custom-container-site-width {
         display: flex;
         align-items: center;
-        gap: 24px;
+        /* gap: 24px; */
     }
 
     .custom-container-site-width div.product-new-arrival-left-cont {
