@@ -733,7 +733,7 @@ function metisse_product_grid_type_1()
             <div class="product--img-box h-[286px] w-[163px] relative">
                 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-[270px] object-cover')); ?></a>
             </div>
-            <div class="product--card-cont pt-5 pb-[22px]">
+            <div class="product--card-cont pt-0 pb-0">
                 <h3 class="product-title leading-none mb-[7px] text-[14px] text-left font-primary font-normal tracking-[1.4px] uppercase text-[#131313]"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <p class="product-desc text-[12px] text-left font-secondary font-normal leading-normal mb-[29px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
                 <div class="product-verient-box mb-[42px]">
