@@ -1087,12 +1087,12 @@ Text Domain: metisse
         gap: 24px;
     }
 
-    .custom-container-site-width div:first-child {
+    .custom-container-site-width div.product-new-arrival-left-cont {
         flex: 0 0 442px;
         width: 442px;
     }
 
-    .custom-container-site-width div:nth-child(2) {
+    .custom-container-site-width div.new-arrival-product-feature-watches {
         flex: 0 0 calc(100% - 442px);
         width: calc(100% - 442px);
     }
