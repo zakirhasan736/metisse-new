@@ -1603,6 +1603,10 @@ section.product-feature-type-featured-product.featured-watches-section button.ad
   right: 54px;
 }
 
+.right-\[0px\] {
+  right: 0px;
+}
+
 .z-10 {
   z-index: 10;
 }

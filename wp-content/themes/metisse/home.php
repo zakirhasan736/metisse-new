@@ -13,7 +13,7 @@ get_header();
 <?php the_content(); ?>
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container">
-               <div class="product-feature-type-new-arrivel-wrap">
+        <div class="product-feature-type-new-arrivel-wrap">
             <div class="grid grid-cols-12 gap-[16px] sm:gap-[12px]">
                 <?php
                 // Query to fetch all products
@@ -159,10 +159,10 @@ get_header();
                 ?>
             </div>
             <!-- Custom arrows for slider navigation -->
-            <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-0 transform  z-10 w-10 h-10 flex items-center justify-center">
+            <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
                 <i class="fa fa-angle-left text-lg text-[#131313]"></i>
             </button>
-            <button class="slick-next-arrow custom-arrow custom-next absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
+            <button class="slick-next-arrow custom-arrow custom-next absolute bottom-0 right-[0px] transform  z-10 w-10 h-10 flex items-center justify-center">
                 <i class="fa fa-angle-right text-lg text-[#131313]"></i>
             </button>
         </div>
