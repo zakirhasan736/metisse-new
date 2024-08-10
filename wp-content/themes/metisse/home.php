@@ -158,7 +158,7 @@ get_header();
                 endif;
                 ?>
             </div>
-            <div class="product-slider-arrow-box">
+            <div class="product-slider-arrow-box mt-10">
                 <button class="slick-prev-arrow custom-arrow custom-prev absolute bottom-0 right-[54px] transform  z-10 w-10 h-10 flex items-center justify-center">
                     <i class="fa fa-angle-left text-lg text-[#131313]"></i>
                 </button>
