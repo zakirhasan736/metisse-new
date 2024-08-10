@@ -14,7 +14,7 @@ get_header();
 <section class="product-feature-type-featured-product overflow-hidden pt-[76px] sm:pt-[60px] pb-[114px] lg:pb-[90px] md:pb-[80px] sm:pb-[60px]">
     <div class="custom-container-site-width">
         <div class="product-new-arrival-left-cont flex items-center justify-end pr-[115px] w-full max-w-full min-w-[442px]">
-            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/images/company-brand-logo-black.svg" alt="product modal brand logo image">
+            <img src="<?php echo esc_url(get_template_directory_uri()) ?>/assets/images/company-brand-logo-black.svg" alt="product modal brand logo image">
         </div>
         <div class="product-feature-watches-type-new-arrivel-wrap relative">
             <div class="product-new-arrival-slider !mb-0">
