@@ -493,9 +493,3 @@ function tp_header_login_shortcode()
 
     return ob_get_clean();
 }
-function remove_purchase_confirmation_email_content()
-{
-    remove_action('woocommerce_after_single_product', 'function_displaying_email_content', 10);
-}
-add_action('wp', 'remove_purchase_confirmation_email_content');
-
