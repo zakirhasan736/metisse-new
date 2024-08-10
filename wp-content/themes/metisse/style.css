@@ -1081,11 +1081,11 @@ Text Domain: metisse
         background: linear-gradient(270deg, rgba(246, 246, 246, 0.00) 0%, #F6F6F6 29.36%);
     }
 
-    .custom-container-site-width {
+    /* .custom-container-site-width {
         display: grid;
        grid-template-columns: minmax(442px) , auto;
         gap: 24px;
-    }
+    } */
 }
 
 @layer utilities {}
