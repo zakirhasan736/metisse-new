@@ -32,8 +32,8 @@ if (!defined('ABSPATH')) {
 
 		<?php if ('yes' === $woocommerce_enable_myaccount_registration) : ?>
 			<div class="col-span-6 sm:col-span-6 h-full">
-				<div class="tp-woo-input-field !mt-0 h-full tp-woo-form-login tp-woo-myaccount-register registaretion-forms">
-					<div class="h-full registaretion-area-form-box pt-[145px] pl-20 md:px-10 pr-[120px] md:py-10  max-w-[460px] w-full ml-auto">
+				<div class="tp-woo-input-field !mt-0 h-full pl-20 md:px-10 pr-[120px] md:py-10 tp-woo-form-login tp-woo-myaccount-register registaretion-forms">
+					<div class="h-full registaretion-area-form-box pt-[145px]  max-w-[460px] w-full ml-auto">
 						<div class="auth-screen-title-box mb-10">
 							<h2 class="tp-woo-myaccount-login-title mb-[8px] text-[24px] !text-[#131313] font-secondary font-bold capitalize md:text-[20px] sm:text-[18px] tracking-[.24px] leading-[1.2]"><?php esc_html_e('New here? Create an account', 'metisse'); ?></h2>
 							<p class="suth-screen-desc text-[12px] text-left font-normal font-secondary leading-[1.5]">Set up an account so we can remember your details and speed up your next visit.</p>
@@ -49,7 +49,7 @@ if (!defined('ABSPATH')) {
 									<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[6px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
 								</p> -->
 
-							<?php endif; ?> 
+							<?php endif; ?>
 							<div class="user-email-pass-box">
 								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
 									<!-- <label for="reg_email" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
@@ -86,8 +86,8 @@ if (!defined('ABSPATH')) {
 		<?php endif; ?>
 
 		<div class="col-span-6 sm:col-span-6 h-full">
-			<div class="tp-woo-input-field !mt-0 h-full tp-woo-form-login login-forms">
-				<div class="h-full login-area-fomr-box pt-[145px] px-20 md:px-10 md:py-10 max-w-[460px] w-full mr-auto">
+			<div class="tp-woo-input-field  px-20 md:px-10 md:py-10 !mt-0 h-full tp-woo-form-login login-forms">
+				<div class="h-full login-area-fomr-box pt-[145px] max-w-[460px] w-full mr-auto">
 					<div class="auth-screen-title-box mb-[41px]">
 						<h2 class="tp-woo-myaccount-login-title mb-[8px] text-[24px] !text-[#131313] font-secondary font-bold capitalize md:text-[20px] sm:text-[18px] tracking-[.24px] leading-[1.2]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
 						<p class="suth-screen-desc text-[12px] text-left font-normal font-secondary leading-[1.5]">Login to manage your account and see your order history.</p>
