@@ -1123,6 +1123,10 @@ Text Domain: metisse
     .user-email-pass-box>p {
         width: 100%;
     }
+
+    label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-form-login__rememberme {
+        margin-top: 0 !important;
+    }
 }
 
 @layer utilities {}
