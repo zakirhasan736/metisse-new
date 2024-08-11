@@ -2963,6 +2963,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.\!text-\[\#5A5A5A\] {
+  --tw-text-opacity: 1 !important;
+  color: rgb(90 90 90 / var(--tw-text-opacity)) !important;
+}
+
 .\!underline {
   text-decoration-line: underline !important;
 }
