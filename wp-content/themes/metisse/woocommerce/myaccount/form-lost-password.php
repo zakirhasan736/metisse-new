@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_lost_password_form');
 ?>
-<div class="customer-authertication-wrapper py-[130px] lg:py-[100px] md:py-[80px] min-h-[650px]">
+<div class="customer-authertication-wrapper custom-container py-[130px] lg:py-[100px] md:py-[80px] min-h-[650px]">
 	<div class="grid grid-cols-12 gap-[35px]" id="customer_login">
 		<div class="col-span-6 sm:col-span-full">
 			<div class="customer-auth-model-side flex items-center justify-center h-full">
