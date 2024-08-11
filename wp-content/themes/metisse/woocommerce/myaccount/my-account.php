@@ -18,14 +18,14 @@
 
 defined('ABSPATH') || exit;
 ?>
-<div class="my-account-main-cont-wrapper custom-container-new">
+<div class="my-account-main-cont-wrapper">
 	<div class="my-account-banner py-[29px] bg-[#0000000d]">
-		<div class="custom-container">
+		<div class="custom-container-new">
 			<h1 class="my-account-title text-left sm:text-center text-[34px] md:text-[28px] sm:text-[24px] text-[#000] font-primary font-normal leading-[1.1]">Account</h1>
 		</div>
 	</div>
 	<div class="my-account-wrapper-box pt-[49px] pb-[52px]">
-		<div class="custom-container-auth-area-box">
+		<div class="custom-container-auth-area-box  custom-container-new">
 			<div class="my-account-wrapper-cont-box flex items-start sm:flex-col gap-[119px] lg:gap-[80px] md:gap-[60px] sm:gap-[65px] min-h-[557px] sm:min-h-auto h-full">
 				<div class="my-account-sidebar h-full min-h-[557px] sm:min-h-[100%] max-w-[230px] sm:max-w-[100%] w-full">
 					<?php
