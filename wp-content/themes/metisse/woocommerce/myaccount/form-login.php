@@ -33,7 +33,7 @@ if (!defined('ABSPATH')) {
 		<?php if ('yes' === $woocommerce_enable_myaccount_registration) : ?>
 			<div class="col-span-6 sm:col-span-6 h-full">
 				<div class="tp-woo-input-field h-full tp-woo-form-login tp-woo-myaccount-register registaretion-forms">
-					<div class="h-full registaretion-area-form-box pt-[145px]  max-w-]460px] w-full ml-auto">
+					<div class="h-full registaretion-area-form-box pt-[145px]  max-w-[460px] w-full ml-auto">
 						<div class="auth-screen-title-box mb-10">
 							<h2 class="tp-woo-myaccount-login-title mb-[8px] text-[24px] !text-[#131313] font-secondary font-bold capitalize md:text-[20px] sm:text-[18px] tracking-[.24px] leading-[1.2]"><?php esc_html_e('New here? Create an account', 'metisse'); ?></h2>
 							<p class="suth-screen-desc text-[12px] text-left font-normal font-secondary leading-[1.5]">Set up an account so we can remember your details and speed up your next visit.</p>
@@ -87,7 +87,7 @@ if (!defined('ABSPATH')) {
 
 		<div class="col-span-6 sm:col-span-6 h-full">
 			<div class="tp-woo-input-field h-full tp-woo-form-login login-forms">
-				<div class="h-full login-area-fomr-box pt-[145px] max-w-]460px] w-full ml-auto">
+				<div class="h-full login-area-fomr-box pt-[145px] max-w-[460px] w-full ml-auto">
 					<div class="auth-screen-title-box mb-19">
 						<h2 class="tp-woo-myaccount-login-title mb-[8px] text-[24px] !text-[#131313] font-secondary font-bold capitalize md:text-[20px] sm:text-[18px] tracking-[.24px] leading-[1.2]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
 						<p class="suth-screen-desc text-[12px] text-left font-normal font-secondary leading-[1.5]">Login to manage your account and see your order history.</p>
