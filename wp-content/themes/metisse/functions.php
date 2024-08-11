@@ -370,12 +370,12 @@ function wtwh_add_name_woo_account_registration()
     <div class="user-data-name-box flex items-center md:flex-col gap-x-[16px] sm:gap-0 w-full">
         <p class="form-row form-row-first  mb-[30px] sm:mb-[15px] w-full">
             <!-- <label for="reg_billing_first_name" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php _e('First name', 'woocommerce'); ?> <span class="required">*</span></label> -->
-            <input type="text" placeholder="First Name" class="input-text   text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="billing_first_name" id="reg_billing_first_name" value="<?php if (!empty($_POST['billing_first_name'])) esc_attr_e($_POST['billing_first_name']); ?>" />
+            <input type="text" placeholder="First Name" class="input-text   text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-b-2 !border-b-[#7B7C79]" name="billing_first_name" id="reg_billing_first_name" value="<?php if (!empty($_POST['billing_first_name'])) esc_attr_e($_POST['billing_first_name']); ?>" />
         </p>
 
         <p class="form-row form-row-last  mb-[30px] sm:mb-[15px] w-full">
             <!-- <label for="reg_billing_last_name" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php _e('Last name', 'woocommerce'); ?> <span class="required">*</span></label> -->
-            <input type="text" placeholder="Last Name" class="input-text   text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="billing_last_name" id="reg_billing_last_name" value="<?php if (!empty($_POST['billing_last_name'])) esc_attr_e($_POST['billing_last_name']); ?>" />
+            <input type="text" placeholder="Last Name" class="input-text   text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-b-2 !border-b-[#7B7C79]" name="billing_last_name" id="reg_billing_last_name" value="<?php if (!empty($_POST['billing_last_name'])) esc_attr_e($_POST['billing_last_name']); ?>" />
         </p>
 
     </div>
@@ -490,5 +490,3 @@ function tp_header_login_shortcode()
 
     return ob_get_clean();
 }
-
-
