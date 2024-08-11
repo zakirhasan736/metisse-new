@@ -1099,6 +1099,10 @@ Text Domain: metisse
     section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
         border-top: 1px solid #DCDCDC;
     }
+
+    .customer-authentication-wrapper .woocommerce-notices-wrapper {
+        display: none;
+    }
 }
 
 @layer utilities {}

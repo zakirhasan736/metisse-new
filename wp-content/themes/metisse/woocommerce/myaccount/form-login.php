@@ -33,8 +33,10 @@ if (!defined('ABSPATH')) {
 		<?php if ('yes' === $woocommerce_enable_myaccount_registration) : ?>
 			<div class="col-span-6 sm:col-span-6">
 				<div class="tp-woo-input-field tp-woo-form-login tp-woo-myaccount-register">
-					<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('Register', 'metisse'); ?></h2>
-
+					<div class="auth-screen-title-box">
+						<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('New here? Create an account', 'metisse'); ?></h2>
+						<p class="suth-screen-desc">Set up an account so we can remember your details and speed up your next visit.</p>
+					</div>
 					<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action('woocommerce_register_form_tag'); ?>>
 
 						<?php do_action('woocommerce_register_form_start'); ?>
@@ -81,7 +83,10 @@ if (!defined('ABSPATH')) {
 
 		<div class="col-span-6 sm:col-span-6">
 			<div class="tp-woo-input-field tp-woo-form-login">
-				<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('Login', 'metisse'); ?></h2>
+				<div class="auth-screen-title-box">
+					<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
+					<p class="suth-screen-desc">Login to manage your account and see your order history.</p>
+				</div>
 				<form class="woocommerce-form woocommerce-form-login login" method="post">
 
 					<?php do_action('woocommerce_login_form_start'); ?>
