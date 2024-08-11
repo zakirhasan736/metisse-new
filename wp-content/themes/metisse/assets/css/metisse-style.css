@@ -1885,6 +1885,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   margin-top: 80px;
 }
 
+.\!mt-0 {
+  margin-top: 0px !important;
+}
+
 .block {
   display: block;
 }
