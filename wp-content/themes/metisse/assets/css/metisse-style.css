@@ -2418,6 +2418,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   background-color: rgb(246 246 246 / var(--tw-bg-opacity));
 }
 
+.\!bg-\[\#F6F6F6\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(246 246 246 / var(--tw-bg-opacity)) !important;
+}
+
 .bg-center {
   background-position: center;
 }
