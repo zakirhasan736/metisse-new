@@ -18,7 +18,7 @@
 
 defined('ABSPATH') || exit;
 ?>
-<div class="my-account-main-cont-wrapper">
+<div class="my-account-main-cont-wrapper custom-container-new">
 	<div class="my-account-banner py-[29px] bg-[#0000000d]">
 		<div class="custom-container">
 			<h1 class="my-account-title text-left sm:text-center text-[34px] md:text-[28px] sm:text-[24px] text-[#000] font-primary font-normal leading-[1.1]">Account</h1>
