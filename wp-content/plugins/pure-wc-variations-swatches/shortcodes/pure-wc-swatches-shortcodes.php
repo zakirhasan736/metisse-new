@@ -29,7 +29,6 @@ if( !function_exists('pure_wc_archive_swatches') ){
 
 		$attribute_keys  = array_keys( $attributes );
 		$variations_json = wp_json_encode( $available_variations );
-		
 		?>
 		<div class="tpwvs-variations-form variations_form" data-product_variations="<?php echo esc_attr( $variations_json ); ?>" data-product_id="<?php echo absint( $product_id ); ?>">
 			<?php if ( empty( $available_variations ) && false !== $available_variations ) { ?>

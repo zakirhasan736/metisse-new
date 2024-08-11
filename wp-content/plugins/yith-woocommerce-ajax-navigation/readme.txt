@@ -1,10 +1,10 @@
 === YITH WooCommerce Ajax Product Filter ===
 
 Contributors: yithemes
-Tags: woocommerce ajax product filter download, woocommerce, widget, ajax, ajax filtered nav, ajax navigation, ajax filtered navigation, woocommerce layered navigation, woocommerce layered nav, product filter, product filters, ajax product filter, woocommerce ajax product filter, woocommerce filters, sidebar filter, sidebar ajax filter, ajax price filter, price filter, product sorting, woocommerce filter, taxonomy filter, attribute filter, attributes filter, woocommerce product sort, ajax sort, woocommerce ajax product filter, advanced product filters, ajax product filters, filters, woocommerce ajax product filters, woocommerce product filters, woocommerce product filters, category filter, attribute filters, woocommerce products filter, woocommerce price filter, yit, yith, yithemes
+Tags: shop filter, Ajax product filter, product filter, woocommerce product filter, woocommerce filter
 Requires at least: 6.3
-Tested up to: 6.5
-Stable tag: 4.32.0
+Tested up to: 6.6
+Stable tag: 5.3.0
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,7 @@ A reliable product filtering is what allows your visitors to enjoy and appreciat
 
 After all, if users can’t easily browse your product lists, they can’t easily find what they are looking for. And if they can’t find it, they can’t buy it. It’s easy to understand. :)
 
-With the **YITH WooCommerce Ajax Product filter** and its new *“2021’s massive redesign”*, you can finally tackle the user experience in your WooCommerce powered shop. You can help your customers easily find and filter your products by categories, tags, taxonomy, and all kinds of attributes like sizes, colors, materials, brands, etc.
+With the **YITH WooCommerce Ajax Product filter** its latest massive redesign, you can finally tackle the user experience in your WooCommerce powered shop. You can help your customers easily find and filter your products by categories, tags, taxonomy, and all kinds of attributes like sizes, colors, materials, brands, etc.
 
 You can create unlimited presets and show the filters on standard WooCommerce pages (Shop, Category pages) or custom pages created with Gutenberg or Elementor. You can add your filters anywhere, using the built-in widget, shortcode, or Gutenberg block. In this way, you can create a preset of filters for the shop page, a preset of filters for a specific product category, another preset of filters for a custom page, and so on: no limits and total maximum control.
 
@@ -41,6 +41,7 @@ You can create unlimited presets and show the filters on standard WooCommerce pa
 * Scroll-to-top option in mobile devices and/or desktop
 * SEO options (Activate/deactivate the indexing of the generated URLs in search engines for the filter operation of the plugin) (New!)
 * Beautiful & modern design, suitable for each kind of shop or theme
+* Performance enhancements: lazy load filters and paginate terms in AJAX to reduce initial page loading time (New!)
 
 See it in action here:
 
@@ -64,6 +65,7 @@ With the latest update, we have improved the UX and added significant features t
 * Show filters as a toggle (opened or collapsed by default)
 * Show or hide the count of items
 * Adoptive filtering: choose whether terms not available must be hidden (as in the free version) **or keep them visible but not clickable (only in premium)**
+* **Variations filtering**: make sure variable products are displayed in the filter results only if at least one of the variations matches the current selection, and replace the product image with the one of the variation (New!)
 * Choose to hide empty terms and out of stock products automatically
 * Customize colors and style of filters area through the dedicated “customization” tab (colors, color swatches size, select and checkbox type, etc.)
 * Upload a custom loader
@@ -134,6 +136,9 @@ If you have problems with our WooCommerce plugins or something is not working as
 
 If none of the previous listed actions helps you solve the problem, then, submit a ticket in the forum and describe your problem accurately, specify WordPress and WooCommerce versions you are using, and any other information that might help us solve your problem as quickly as possible. Thanks!
 
+= How can I report security bugs? =
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/yith-woocommerce-ajax-navigation)
+
 == Screenshots ==
 
 1. Filters on shop page
@@ -152,6 +157,55 @@ If none of the previous listed actions helps you solve the problem, then, submit
 14. Gutenberg block
 
 == Changelog ==
+
+= 5.3.0 - Released on 08 July 2024 =
+
+* New: support for WooCommerce 9.1
+* New: support for WordPress 6.6
+* New: exclude bots from filtering action
+* Update: YITH plugin framework
+
+= 5.2.0 - Released on 24 June 2024 =
+
+* New: support for WooCommerce 9.0
+* New: added table for cache management
+* Update: YITH plugin framework
+* Fix: fatal error when saving post, due to call to wrong method (protected) on Cache_Providere class
+* Fix: Passing null to parameter #1 ($num) of type int|float is deprecated
+* Fix: fatal error on array_values(), Argument #1 ($array) must be of type array, null given
+* Fix: prevent possible XSS on legacy widgets
+* Fix: avoid query error in variations filtering, when filtered attribute set is empty
+* Fix: select fields not correctly initialized when adding new filter to the preset
+* Tweak: changed type of taxonomy labels shown during filter configuration
+
+= 5.1.0 - Released on 20 May 2024 =
+
+* New: support for WooCommerce 8.9
+* Update: YITH plugin framework
+* Tweak: changed cache system, to store fewer final results instead of heavier data still to be processed
+* Tweak: improved row meta handling
+* Fix: improved handling of filterId and filterKey at backend, to avoid possible filters duplication/overriding when saving via AJAX
+* Fix: prevent filters lazy loading when doing shortcode preview in Gutenberg
+* Fix: problem with terms hierarchy when ancestor is not included among selected filters
+* Fix: prevent terms pagination when returning 0 as terms_per_page
+* Fix: js error with MapIterators on FireFox
+* Fix: terms selection field not working for new filters in Preset edit page
+* Fix: term box not appearing in Preset edit page when selecting first term in search box
+
+= 5.0.1 - Released on 22 April 2024 =
+
+* Fix: possible error related to missing functions (not loaded by autoloader)
+
+= 5.0.0 - Released on 22 April 2024 =
+
+* New: option to lazy load filters into the page via AJAX
+* New: option to paginate terms, loading second page via AJAX
+* New: support for WooCommerce 8.8
+* New: term boxes are now paginated on Preset edit page, to avoid excessive JS processing on page loading
+* Update: YITH plugin framework
+* Tweak: major code refactoring
+* Tweak: improved overall performance of Preset edit page, improved saving process
+* Dev: added yith_wcan_query_relevant_term_objects filter
 
 = 4.32.0 - Released on 26 March 2024 =
 

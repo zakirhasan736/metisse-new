@@ -4,7 +4,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 class UniteProviderAdminUC extends UniteCreatorAdmin{
 
-	private $dbVersion = "5";    //used for upgrade db on plugin update
+	private $dbVersion = "6";    //used for upgrade db on plugin update
 	private static $arrMenuPages = array();
 	private static $arrSubMenuPages = array();
 	protected $capability = "manage_options";
@@ -71,6 +71,15 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 	}
 
 	/**
+	 * get instance
+	 */
+	public static function getInstance(){
+
+		return(self::$t);
+	}
+
+
+	/**
 	 * process activate event - install the db (with delta).
 	 */
 	public function onActivate(){
@@ -97,25 +106,37 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 	public function onThemeSetup(){
 	}
 
+
 	/**
 	 * create the tables if not exists
 	 */
 	public function createTables($isForce = false){
 
-		$this->createTable(GlobalsUC::TABLE_ADDONS_NAME, $isForce);
-		$this->createTable(GlobalsUC::TABLE_CATEGORIES_NAME, $isForce);
+		$response1 = $this->createTable(GlobalsUC::TABLE_ADDONS_NAME, $isForce);
+
+		$response2 = $this->createTable(GlobalsUC::TABLE_CATEGORIES_NAME, $isForce);
 
 		$isAddonChangelogEnabled = HelperProviderUC::isAddonChangelogEnabled();
 
+		$response3 = null;
+
 		if($isAddonChangelogEnabled === true)
-			$this->createTable(GlobalsUC::TABLE_CHANGELOG_NAME, $isForce);
+			$response3 = $this->createTable(GlobalsUC::TABLE_CHANGELOG_NAME, $isForce);
 
 		$isFormEntriesEnabled = HelperProviderUC::isFormEntriesEnabled();
 
+		$response4 = null;
+		$response5 = null;
+
 		if($isFormEntriesEnabled === true){
-			$this->createTable(GlobalsUC::TABLE_FORM_ENTRIES_NAME, $isForce);
-			$this->createTable(GlobalsUC::TABLE_FORM_ENTRY_FIELDS_NAME, $isForce);
+			$response4 = $this->createTable(GlobalsUC::TABLE_FORM_ENTRIES_NAME, $isForce);
+			$response5 = $this->createTable(GlobalsUC::TABLE_FORM_ENTRY_FIELDS_NAME, $isForce);
 		}
+
+		$responses = array($response1,$response2,$response3,$response4,$response5);
+
+
+		return($responses);
 	}
 
 
@@ -239,6 +260,7 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 					title VARCHAR(128) NULL,
 					name VARCHAR(64) NULL,
 					type VARCHAR(32) NULL,
+					text TEXT NULL,
   				value LONGTEXT NULL,
 					PRIMARY KEY (id),
 					INDEX entry_id_index (entry_id)
@@ -251,7 +273,10 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 		}
 
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		dbDelta($sql);
+		$response = dbDelta($sql);
+
+
+		return($response);
 	}
 
 	/**
@@ -554,6 +579,8 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 
 		$pathAddons = $pathCurrentTheme . $dirAddons . "/";
 
+		$pathAddons = apply_filters("ue_path_install_addons", $pathAddons);
+
 		$this->installAddonsFromPath($pathAddons);
 	}
 
@@ -585,7 +612,7 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 	 */
 	protected function setPermissionEditor(){
 
-		$this->capability = "edit_posts";
+		$this->capability = "edit_pages";
 	}
 
 	private static function a_____OTHERS____(){
@@ -680,7 +707,7 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 	 */
 	private function getAdminPageBody(){
 
-		ob_start();
+		UniteFunctionsUC::obStart();
 
 		$this->adminPages();
 
@@ -860,9 +887,9 @@ class UniteProviderAdminUC extends UniteCreatorAdmin{
 			if($isAjax == false)
 				return (false);
 		}
-
+		
 		$action = UniteFunctionsUC::getPostGetVariable("action", "", UniteFunctionsUC::SANITIZE_KEY);
-
+			
 		if($action != "unlimitedelements_ajax_action")
 			return (false);
 

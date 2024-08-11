@@ -38,7 +38,7 @@ class Jetpack_WooCommerce_Analytics_Universal {
 		$this->additional_blocks_on_cart_page     = $this->get_additional_blocks_on_page( 'cart' );
 		$this->additional_blocks_on_checkout_page = $this->get_additional_blocks_on_page( 'checkout' );
 
-		// Add To Baskets from non-product pages or lists -- search, store etc.
+		// add to carts from non-product pages or lists -- search, store etc.
 		add_action( 'wp_head', array( $this, 'loop_session_events' ), 2 );
 
 		// Capture cart events.
@@ -65,7 +65,7 @@ class Jetpack_WooCommerce_Analytics_Universal {
 	}
 
 	/**
-	 * On product lists or other non-product pages, add an event listener to "Add To Basket" button click
+	 * On product lists or other non-product pages, add an event listener to "Add to Cart" button click
 	 *
 	 * @deprecated 13.3
 	 */
@@ -128,7 +128,7 @@ class Jetpack_WooCommerce_Analytics_Universal {
 	 * @param string $url Full HTML a tag of the link to remove an item from the cart.
 	 * @param string $key Unique Key ID for a cart item.
 	 *
-	 * @return mixed.
+	 * @return string
 	 */
 	public function remove_from_cart_attributes( $url, $key ) {
 		if ( str_contains( $url, 'data-product_id' ) ) {
@@ -363,6 +363,7 @@ class Jetpack_WooCommerce_Analytics_Universal {
 
 		// loop through products in the order and queue a purchase event.
 		foreach ( $order->get_items() as $order_item ) {
+			// @phan-suppress-next-line PhanUndeclaredMethodInCallable,PhanUndeclaredMethod -- Checked before being called. See also https://github.com/phan/phan/issues/1204.
 			$product_id = is_callable( array( $order_item, 'get_product_id' ) ) ? $order_item->get_product_id() : -1;
 
 			$order_items       = $order->get_items();

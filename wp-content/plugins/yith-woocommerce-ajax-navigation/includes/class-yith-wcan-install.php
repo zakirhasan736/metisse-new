@@ -34,6 +34,13 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 		protected static $stored_version;
 
 		/**
+		 * Stored DB version
+		 *
+		 * @var string
+		 */
+		protected static $stored_db_version;
+
+		/**
 		 * Default preset slug
 		 *
 		 * @var string
@@ -47,6 +54,7 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 		 */
 		public static function init() {
 			add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
+			add_action( 'init', array( __CLASS__, 'check_db_version' ), 5 );
 
 			add_filter( 'yith_wcan_default_accent_color', array( __CLASS__, 'set_default_accent' ) );
 		}
@@ -61,6 +69,19 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 
 			if ( version_compare( self::$stored_version, YITH_WCAN_VERSION, '<' ) ) {
 				self::update();
+			}
+		}
+
+		/**
+		 * Check current version, and trigger db update procedures when needed
+		 *
+		 * @return void
+		 */
+		public static function check_db_version() {
+			self::$stored_db_version = get_option( 'yith_wcan_db_version' );
+
+			if ( version_compare( self::$stored_db_version, YITH_WCAN_DB_VERSION, '<' ) ) {
+				self::update_db();
 			}
 		}
 
@@ -82,6 +103,78 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 			 * Triggered after plugin has been updated to a new version
 			 */
 			do_action( 'yith_wcan_updated' );
+		}
+
+		/**
+		 * DB update/install procedure
+		 *
+		 * @return void
+		 */
+		public static function update_db() {
+			self::maybe_update_tables();
+			self::update_db_version();
+
+			/**
+			 * DO_ACTION: yith_wcan_db_updated
+			 *
+			 * Triggered after database update
+			 */
+			do_action( 'yith_wcan_db_updated' );
+		}
+
+		/**
+		 * Returns DB structure for the plugin
+		 *
+		 * @return string
+		 */
+		public static function get_db_structure() {
+			global $wpdb;
+
+			$db_structure = '';
+
+			$table   = $wpdb->prefix . YITH_WCAN_Cache_Provider_Table::TABLE;
+			$collate = '';
+
+			if ( $wpdb->has_cap( 'collation' ) ) {
+				$collate = $wpdb->get_charset_collate();
+			}
+
+			$db_structure .= "CREATE TABLE {$table} (
+							`ID` BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
+							`group` VARCHAR( 255 ) NOT NULL,
+							`version` VARCHAR( 10 ) NOT NULL,
+							`index` CHAR( 32 ) NULL DEFAULT NULL,
+							`value` LONGTEXT NOT NULL,
+							`expiration` timestamp NOT NULL,
+							PRIMARY KEY  ( `ID` ),
+							UNIQUE KEY cache_entry ( `group`, `version`, `index` ),
+							INDEX cache_set ( `group`, `version` ),
+							KEY cache_version ( `version` ),
+							KEY cache_expiration ( `expiration` )
+						) $collate;";
+
+			return $db_structure;
+		}
+
+		/**
+		 * Create or update tables for the plugin
+		 *
+		 * The dbDelta function will require correct operation depending on current DB structure.
+		 *
+		 * @return void
+		 */
+		public static function maybe_update_tables() {
+			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+			dbDelta( self::get_db_structure() );
+		}
+
+		/**
+		 * Updated version option to latest db version, to avoid executing upgrade multiple times
+		 *
+		 * @return void
+		 */
+		public static function update_db_version() {
+			update_option( 'yith_wcan_db_version', YITH_WCAN_DB_VERSION );
 		}
 
 		/**
@@ -135,6 +228,8 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 			// do incremental upgrade.
 			version_compare( self::$stored_version, '4.0.0', '<' ) && self::do_400_upgrade();
 			version_compare( self::$stored_version, '4.1.0', '<' ) && self::do_410_upgrade();
+			version_compare( self::$stored_version, '5.0.0', '<' ) && self::do_500_upgrade();
+			version_compare( self::$stored_version, '5.1.0', '<' ) && self::do_510_upgrade();
 
 			// space for future revisions.
 
@@ -161,7 +256,7 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 		 * @return bool|YITH_WCAN_Preset
 		 */
 		public static function get_default_preset() {
-			return YITH_WCAN_Preset_Factory::get_preset( self::$default_preset_slug );
+			return YITH_WCAN_Presets_Factory::get_preset( self::$default_preset_slug );
 		}
 
 		/**
@@ -235,6 +330,11 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 				update_option( $option, yith_wcan_get_option( $option ) );
 			}
 
+			/**
+			 * DO_ACTION: yith_wcan_did_400_upgrade
+			 *
+			 * Triggered after upgrade to version 4.0.0.
+			 */
 			do_action( 'yith_wcan_did_400_upgrade' );
 		}
 
@@ -246,7 +346,43 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 		 * @return void.
 		 */
 		protected static function do_410_upgrade() {
+			/**
+			 * DO_ACTION: yith_wcan_did_410_upgrade
+			 *
+			 * Triggered after upgrade to version 4.1.0.
+			 */
 			do_action( 'yith_wcan_did_410_upgrade' );
+		}
+
+		/**
+		 * Upgrade options to version 5.0.0
+		 *
+		 * @return void.
+		 */
+		protected static function do_500_upgrade() {
+			// on new installations of version 5.0.0, set yith_wcan_lazy_load_filters option to yes by default.
+			if ( ! self::$stored_version ) {
+				update_option( 'yith_wcan_lazy_load_filters', 'yes' );
+				update_option( 'yith_wcan_paginate_terms', 'yes' );
+			}
+
+			/**
+			 * DO_ACTION: yith_wcan_did_500_upgrade
+			 *
+			 * Triggered after upgrade to version 5.0.0.
+			 */
+			do_action( 'yith_wcan_did_500_upgrade' );
+		}
+
+		/**
+		 * Upgrade options to version 5.1.0
+		 *
+		 * @return void.
+		 */
+		protected static function do_510_upgrade() {
+			$attribute_lookup_table = get_option( 'woocommerce_attribute_lookup_enabled' );
+
+			update_option( 'yith_woocommerce_variations_filtering', $attribute_lookup_table );
 		}
 
 		/**
@@ -260,6 +396,15 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 			// set taxonomies filters.
 			$filters = array_merge( $filters, self::get_taxonomies_filters() );
 
+			/**
+			 * APPLY_FILTERS: yith_wcan_default_filters
+			 *
+			 * List of filters added to example preset.
+			 *
+			 * @param array $filters Default filters.
+			 *
+			 * @return array
+			 */
 			return apply_filters( 'yith_wcan_default_filters', $filters );
 		}
 
@@ -272,13 +417,22 @@ if ( ! class_exists( 'YITH_WCAN_Install' ) ) {
 			$filters = array();
 
 			// start with taxonomy filters.
-			$supported_taxonomies = YITH_WCAN_Query()->get_supported_taxonomies();
+			$supported_taxonomies = YITH_WCAN_Query::instance()->get_supported_taxonomies();
 
 			foreach ( $supported_taxonomies as $taxonomy_slug => $taxonomy_object ) {
 				$terms = get_terms(
 					array(
 						'taxonomy'   => $taxonomy_slug,
 						'hide_empty' => true,
+						/**
+						 * APPLY_FILTERS: yith_wcan_max_default_term_count
+						 *
+						 * Maximum number of terms added to filters in example preset.
+						 *
+						 * @param int $terms_count Maximum number of terms.
+						 *
+						 * @return int
+						 */
 						'number'     => apply_filters( 'yith_wcan_max_default_term_count', 20 ),
 					)
 				);

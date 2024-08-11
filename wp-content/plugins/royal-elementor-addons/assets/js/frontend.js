@@ -166,9 +166,12 @@
 					stickyAnimationHide = '',
 					headerFooterZIndex = !WprElements.editorCheck() ? $scope.attr('data-wpr-z-index') : $scope.find('.wpr-sticky-section-yes-editor').attr('data-wpr-z-index'),
 					stickType = !WprElements.editorCheck() ? $scope.attr('data-wpr-sticky-type') : $scope.find('.wpr-sticky-section-yes-editor').attr('data-wpr-sticky-type'),
-                    hiddenHeaderClass = $scope.next().hasClass('e-con') ? 'wpr-hidden-header-flex' : 'wpr-hidden-header';
+                    hiddenHeaderClass = $scope.next().hasClass('e-con') ? 'wpr-hidden-header-flex' : 'wpr-hidden-header',
+					distanceFromTop = $scope.offset().top,
+					windowHeight = $(window).height(),
+					elementHeight = $scope.outerHeight(true),
+					distanceFromBottom = $(document).height() - (distanceFromTop + elementHeight);
 
-					var distanceFromTop = $scope.offset().top;
 
 					if ( $scope.data('settings') && $scope.data('settings').sticky_animation ) {
 						stickyAnimation = $scope.data('settings').sticky_animation;
@@ -223,6 +226,10 @@
 
 			    $(window).smartresize(function() { 
 					distanceFromTop = $scope.offset().top;
+					windowHeight = $(window).height(),
+					elementHeight = $scope.outerHeight(true),
+					distanceFromBottom = $(document).height() - (distanceFromTop + elementHeight);
+					
 			        viewportWidth = $('body').prop('clientWidth') + 17;
 					if ( $(window).scrollTop() <= stickyEffectsOffset ) {
 						changePositionType();
@@ -279,10 +286,20 @@
 						let scrollPos = $window.scrollTop();
 						
 						if ( 'fixed' != positionStyle ) {
-							if ( scrollPos > distanceFromTop) {
-								applyPosition();
-							} else if ( scrollPos <= distanceFromTop ) {
-								$scope.css({'position': 'relative' });
+							if ( 'top' === positionLocation ) {
+								if ( scrollPos > distanceFromTop) {
+									applyPosition();
+								} else if ( scrollPos <= distanceFromTop ) {
+									$scope.css({'position': 'relative' });
+								}
+							}
+
+							if ( 'bottom' === positionLocation ) {
+								if ( scrollPos + windowHeight <= $(document).height() - distanceFromBottom ) {
+									applyPosition();
+								} else {
+									$scope.css({'position': 'relative' });
+								}
 							}
 						}
 
@@ -404,10 +421,11 @@
 			        if ( $('#wpadminbar').length ) {
 			            adminBarHeight = $('#wpadminbar').css('height').slice(0, $('#wpadminbar').css('height').length - 2);
 			            // if ( 'top'  ===  positionLocation && ( 'fixed' == $scope.css('position')  || 'sticky' == $scope.css('position') ) ) {
+
 			            if ( 'top'  ===  positionLocation && ( 'fixed' == $scope.css('position') ) ) {
 			                $scope.css('top', +adminBarHeight + offsetTop + 'px');
 			                $scope.css('bottom', 'auto');
-			            } 
+			            }
 			        }
 			    }
 			}
@@ -1143,7 +1161,7 @@
 				});
 			
 				$(window).on("scroll", function(event) {
-					event.preventDefaut();
+					event.preventDefault();
 					event.stopPropagation();
 					// Get the current scroll position
 					var scrollPos = $(this).scrollTop();
@@ -2585,64 +2603,6 @@
 
 			}
 
-			// function checkWishlistAndCompare() {
-			// 	if ( iGrid.find('.wpr-wishlist-add').length ) {
-			// 		iGrid.find('.wpr-wishlist-add').each(function() {
-			// 			var wishlistBtn = $(this);
-			// 			$.ajax({
-			// 				url: WprConfig.ajaxurl,
-			// 				type: 'POST',
-			// 				data: {
-			// 					action: 'check_product_in_wishlist',
-			// 					product_id: wishlistBtn.data('product-id')
-			// 				},
-			// 				success: function(response) {
-			// 					if ( true == response ) {
-			// 						if ( !wishlistBtn.hasClass('wpr-button-hidden') ) {
-			// 							wishlistBtn.addClass('wpr-button-hidden');
-			// 						}
-
-			// 						if ( wishlistBtn.next().hasClass('wpr-button-hidden') ) {
-			// 							wishlistBtn.next().removeClass('wpr-button-hidden');
-			// 						}
-			// 					}
-			// 				},
-			// 				error: function(error) {
-			// 					console.log(error);
-			// 				}
-			// 			});
-			// 		});
-			// 	}
-
-			// 	if ( iGrid.find('.wpr-compare-add').length ) {
-			// 		iGrid.find('.wpr-compare-add').each(function() {
-			// 			var compareBtn = $(this);
-			// 			$.ajax({
-			// 				url: WprConfig.ajaxurl,
-			// 				type: 'POST',
-			// 				data: {
-			// 					action: 'check_product_in_compare',
-			// 					product_id: compareBtn.data('product-id')
-			// 				},
-			// 				success: function(response) {
-			// 					if ( true == response ) {
-			// 						if ( !compareBtn.hasClass('wpr-button-hidden') ) {
-			// 							compareBtn.addClass('wpr-button-hidden');
-			// 						}
-
-			// 						if ( compareBtn.next().hasClass('wpr-button-hidden') ) {
-			// 							compareBtn.next().removeClass('wpr-button-hidden');
-			// 						}
-			// 					}
-			// 				},
-			// 				error: function(error) {
-			// 					console.log(error);
-			// 				}
-			// 			});
-			// 		});
-			// 	}
-			// }
-
 			function checkWishlistAndCompare() {
 				var wishlistArray;
 				
@@ -3000,11 +2960,32 @@
 						var itemUrl = $(this).find( '.wpr-grid-media-hover-bg' ).attr( 'data-url' );
 						
 						// GOGA - leave if necessary
-						if ( iGrid.find( '.wpr-grid-item-title a' ).length ) {
-							if ( '_blank' === iGrid.find( '.wpr-grid-item-title a' ).attr('target') ) {
-								window.open(itemUrl, '_blank').focus();
-							} else {
-								window.location.href = itemUrl;
+						if (iGrid.find('.wpr-grid-item-title a').length) {
+							// Extract the itemUrl
+							if (itemUrl) {
+								try {
+									// Create a URL object to validate the URL
+									var url = new URL(itemUrl);
+
+									// Define a list of allowed protocols
+									var allowedProtocols = ['http:', 'https:'];
+
+									// Check if the URL's protocol is allowed
+									if (allowedProtocols.includes(url.protocol)) {
+										// Safe to use the URL
+										var safeUrl = url.href;
+
+										if ('_blank' === iGrid.find('.wpr-grid-item-title a').attr('target')) {
+											window.open(safeUrl, '_blank').focus();
+										} else {
+											window.location.href = safeUrl;
+										}
+									} else {
+										console.error('Invalid URL scheme:', url.protocol);
+									}
+								} catch (e) {
+									console.error('Invalid URL:', itemUrl);
+								}
 							}
 						}
 					}

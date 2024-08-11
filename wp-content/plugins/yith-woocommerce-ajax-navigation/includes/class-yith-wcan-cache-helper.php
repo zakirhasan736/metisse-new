@@ -20,277 +20,176 @@ if ( ! class_exists( 'YITH_WCAN_Cache_Helper' ) ) {
 	 */
 	class YITH_WCAN_Cache_Helper {
 		/**
-		 * Array of available transients
+		 * Provider
 		 *
-		 * @var array
+		 * @param string
 		 */
-		protected static $transients = array();
-
-		/**
-		 * Array of transients that needs to be saved on shutdown
-		 *
-		 * @var array
-		 */
-		protected static $need_update = array();
+		protected static $provider;
 
 		/**
 		 * Bootstrap the cache
 		 */
 		public static function init() {
-			// init transients array.
-			self::init_transients();
+			$provider = self::get_provider();
 
-			// register transients for update.
-			add_action( 'shutdown', array( __CLASS__, 'update_transients' ), 10 );
-		}
-
-		/**
-		 * Returns a specific value in a transient
-		 *
-		 * @param string $transient Transient name.
-		 * @param string $index     Optional transient's index to return (assumes transient is an array).
-		 *
-		 * @return mixed Value of the transient (or value of the specific index inside transient).
-		 */
-		public static function get( $transient, $index = null ) {
-			if ( apply_filters( 'yith_wcan_suppress_cache', false ) ) {
-				return false;
-			}
-
-			if ( ! isset( self::$transients[ $transient ] ) ) {
-				return false;
-			}
-
-			if ( ! isset( self::$transients[ $transient ]['value'] ) ) {
-				self::$transients[ $transient ]['value'] = get_transient( self::$transients[ $transient ]['name'] );
-			}
-
-			if ( is_null( $index ) ) {
-				return self::$transients[ $transient ]['value'];
-			}
-
-			if ( ! isset( self::$transients[ $transient ]['value'][ $index ] ) ) {
-				return false;
-			}
-
-			return apply_filters( 'yith_wcan_get_transient', self::$transients[ $transient ]['value'][ $index ], $transient, $index );
-		}
-
-		/**
-		 *  Sets a specific value in a transient
-		 *
-		 * @param string $transient Transient name.
-		 * @param mixed  $value     Value to set; could be the entire transient value, or value of a specific index of the transient, assuming it is an array.
-		 * @param string $index     Optional transient's index to set (assumes transient is an array).
-		 * @param bool   $now       Whether to save transient immediately or allow system to do it at shutdown.
-		 *
-		 * @return bool|mixed False on failure, new value otherwise.
-		 */
-		public static function set( $transient, $value, $index = null, $now = false ) {
-			if ( apply_filters( 'yith_wcan_suppress_cache', false ) ) {
-				return false;
-			}
-
-			if ( ! isset( self::$transients[ $transient ] ) ) {
-				return false;
-			}
-
-			if ( is_null( $index ) ) {
-				self::$transients[ $transient ]['value'] = $value;
-			} else {
-				if ( empty( self::$transients[ $transient ]['value'] ) ) {
-					self::$transients[ $transient ]['value'] = array();
-				}
-				self::$transients[ $transient ]['value'][ $index ] = $value;
-			}
-
-			if ( $now ) {
-				set_transient( self::$transients[ $transient ]['name'], self::$transients[ $transient ]['value'], self::$transients[ $transient ]['duration'] );
-			} else {
-				self::mark_for_update( $transient );
-			}
-
-			return $value;
-		}
-
-		/**
-		 * Completely deletes a transient.
-		 *
-		 * @param string $transient Transient name.
-		 * @param bool   $now       Whether to save transient immediately or allow system to do it at shutdown.
-		 *
-		 * @return bool False on failure; true otherwise.
-		 */
-		public static function delete( $transient, $now = false ) {
-			if ( apply_filters( 'yith_wcan_suppress_cache', false ) ) {
-				return false;
-			}
-
-			if ( ! isset( self::$transients[ $transient ] ) ) {
-				return false;
-			}
-
-			if ( $now ) {
-				delete_transient( self::$transients[ $transient ]['name'] );
-			} else {
-				self::$transients[ $transient ]['value'] = false;
-				self::mark_for_update( $transient );
-			}
-
-			return true;
-		}
-
-		/**
-		 * Update transients at shutdown
-		 *
-		 * @return void
-		 */
-		public static function update_transients() {
-			if ( apply_filters( 'yith_wcan_suppress_cache', false ) ) {
+			if ( ! $provider ) {
 				return;
 			}
 
-			if ( empty( self::$need_update ) ) {
-				return;
-			}
-
-			foreach ( self::$need_update as $transient ) {
-				if ( ! isset( self::$transients[ $transient ] ) ) {
-					continue;
-				}
-
-				$value = self::$transients[ $transient ]['value'];
-
-				if ( ! $value ) {
-					delete_transient( self::$transients[ $transient ]['name'] );
-				} else {
-					set_transient( self::$transients[ $transient ]['name'], $value, self::$transients[ $transient ]['duration'] );
-				}
-			}
-
-			self::$need_update = array();
+			self::$provider = $provider;
+			self::$provider::init();
 		}
 
 		/**
-		 * Deletes all plugin transients
-		 *
-		 * @return void
-		 */
-		public static function delete_transients() {
-			// delete current version of the transients.
-			foreach ( self::$transients as $transient_options ) {
-				delete_transient( $transient_options['name'] );
-			}
-
-			// delete past versions of the transients.
-			self::delete_expired_transients();
-
-			delete_transient( 'yith_wcan_exclude_from_catalog_product_ids' );
-		}
-
-		/**
-		 * Deletes old version of the transients still in memory
-		 *
-		 * @return void
-		 */
-		public static function delete_expired_transients() {
-			global $wpdb;
-
-			$cache_version = WC_Cache_Helper::get_transient_version( 'product' );
-			$to_delete     = array();
-
-			foreach ( self::$transients as $transient_options ) {
-				$to_delete[] = str_replace( $cache_version, '%', $transient_options['name'] );
-			}
-
-			$query = "DELETE FROM {$wpdb->options} WHERE 1=1";
-			$args  = array();
-
-			$query .= ' AND ( ';
-			$first  = true;
-			foreach ( $to_delete as $transient_name ) {
-				if ( ! $first ) {
-					$query .= ' OR ';
-				}
-
-				$args[] = "%{$transient_name}%";
-
-				$query .= 'option_name LIKE %s';
-				$first  = false;
-			}
-			$query .= ')';
-
-			$query .= ' AND option_name NOT LIKE %s';
-			$args[] = "%{$cache_version}%";
-
-			$wpdb->query( $wpdb->prepare( $query, $args ) ); // phpcs:ignore WordPress.DB
-		}
-
-		/**
-		 * Init supported transients
-		 *
-		 * @return void
-		 */
-		protected static function init_transients() {
-			$cache_version    = WC_Cache_Helper::get_transient_version( 'product' );
-			$language_postfix = self::get_language_postfix();
-
-			$transient_array    = array();
-			$builtin_transients = array(
-				'queried_products',
-				'object_in_terms',
-				'products_instock',
-			);
-
-			foreach ( $builtin_transients as $transient ) {
-				$default_name = "yith_wcan_{$transient}_{$cache_version}{$language_postfix}";
-
-				$transient_array[ $transient ] = array(
-					'name'     => apply_filters( "yith_wcan_{$transient}_name", $default_name ),
-					'duration' => apply_filters( "yith_wcan_{$transient}_duration", 30 * DAY_IN_SECONDS ),
-				);
-			}
-
-			// add legacy transients.
-			$transient_array['exclude_from_catalog_product_ids'] = array(
-				'name'     => 'yith_wcan_exclude_from_catalog_product_ids',
-				'duration' => 30 * DAY_IN_SECONDS,
-			);
-
-			self::$transients = apply_filters( 'yith_wcan_cache_helper_transients', $transient_array );
-		}
-
-		/**
-		 * Return postfix to be used in transient names, if a multi-language plugin is installed
-		 *
-		 * TODO: remove this method, and filter transient names in WPML compatibility class
+		 * Returns the provider that will manage the cache
 		 *
 		 * @return string
 		 */
-		protected static function get_language_postfix() {
-			$postfix      = '';
-			$current_lang = apply_filters( 'wpml_current_language', null );
+		public static function get_provider() {
+			$provider   = apply_filters( 'yith_wcan_cache_provider', 'table' );
+			$class_name = "YITH_WCAN_Cache_Provider_{$provider}";
 
-			if ( ! empty( $current_lang ) ) {
-				$postfix = "_{$current_lang}";
+			if ( ! class_exists( $class_name ) ) {
+				return false;
 			}
 
-			return $postfix;
+			return $class_name;
 		}
 
 		/**
-		 * Set a transient as requiring update
+		 * Returns a specific value in a cache group
 		 *
-		 * @param string $transient Transient name.
+		 * @param string $group Cache group name.
+		 * @param string $index Optional index to return.
 		 *
-		 * @eturn void
+		 * @return mixed Cached value.
 		 */
-		protected static function mark_for_update( $transient ) {
-			if ( in_array( $transient, self::$need_update, true ) ) {
+		public static function get( $group, $index = null ) {
+			if ( ! self::$provider ) {
+				return false;
+			}
+
+			return self::$provider::get( $group, $index );
+		}
+
+		/**
+		 * Sets a specific value in a cache group
+		 *
+		 * @param string $group Cache grup name.
+		 * @param mixed  $value Value to set; could be the entire transient value, or value of a specific index of the transient, assuming it is an array.
+		 * @param string $index Optional index to set (assumes transient is an array).
+		 *
+		 * @return bool|mixed False on failure, new value otherwise.
+		 */
+		public static function set( $group, $value, $index = null ) {
+			if ( ! self::$provider ) {
+				return false;
+			}
+
+			return self::$provider::set( $group, $value, $index );
+		}
+
+		/**
+		 * Completely deletes a cache group.
+		 *
+		 * @param string $group Cache group name.
+		 * @return bool False on failure; true otherwise.
+		 */
+		public static function delete( $group ) {
+			if ( ! self::$provider ) {
+				return false;
+			}
+
+			return self::$provider::unset( $group );
+		}
+
+		/**
+		 * Deletes all plugin cache groups
+		 *
+		 * @return void
+		 */
+		public static function empty() {
+			if ( ! self::$provider ) {
 				return;
 			}
 
-			self::$need_update[] = $transient;
+			return self::$provider::empty();
+		}
+
+		/**
+		 * Deletes old version of the cache groups still in memory
+		 *
+		 * @return void
+		 */
+		public static function clean() {
+			if ( ! self::$provider ) {
+				return;
+			}
+
+			return self::$provider::clean();
+		}
+
+		/* === QUERY RELATED CACHE === */
+
+		/**
+		 * Returns a query-related index to be used in the cache
+		 *
+		 * @param array $query_vars Array of query vars used to generate cache index,
+		 * @return string
+		 */
+		public static function get_query_index( $query_vars = array() ) {
+			$query_vars = $query_vars ? $query_vars : YITH_WCAN_Query()->get_query_vars();
+			$query_vars = apply_filters( 'yith_wcan_query_vars_for_cache_index', $query_vars );
+
+			return md5( http_build_query( $query_vars ) );
+		}
+
+		/**
+		 * Returns a specific value in a cache group, indexed by an hash that is sensible to current query
+		 *
+		 * @param string $group Cache group name.
+		 * @param string $index Optional group index to return.
+		 *
+		 * @return mixed Cached value.
+		 */
+		public static function get_for_current_query( $group, $index = null ) {
+			$query_index = self::get_query_index();
+			$cache_value = self::get( $group, $query_index );
+
+			if ( ! $index ) {
+				return $cache_value;
+			}
+
+			if ( ! isset( $cache_value[ $index ] ) ) {
+				return false;
+			}
+
+			return apply_filters( 'yith_wcan_get_cache_value_for_current_query', $cache_value[ $index ], $cache_value, $index, $query_index );
+		}
+
+		/**
+		 * Sets a specific value in a cache group, indexed by an hash that is sensible to current query
+		 *
+		 * @param string $group Cache group name.
+		 * @param mixed  $value Value to set
+		 * @param string $index Optional index to set.
+		 *
+		 * @return bool|mixed False on failure, new value otherwise.
+		 */
+		public static function set_for_current_query( $group, $value, $index = null ) {
+			$query_index = self::get_query_index();
+			$cache_value = self::get( $group, $query_index );
+
+			if ( is_null( $index ) ) {
+				$cache_value = $value;
+			} else {
+				if ( empty( $cache_value ) ) {
+					$cache_value = array();
+				}
+				$cache_value[ $index ] = $value;
+			}
+
+			return self::set( $group, $cache_value, $query_index );
 		}
 	}
 }

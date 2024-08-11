@@ -238,7 +238,7 @@
                 $latest = $this->_fs->_fetch_latest_version(
                     $selected_addon->id,
                     true,
-                    WP_FS__TIME_24_HOURS_IN_SEC,
+                    FS_Plugin_Updater::UPDATES_CHECK_CACHE_EXPIRATION,
                     $current_addon_version
                 );
 
@@ -466,7 +466,7 @@
                 return $actions[0];
             }
 
-            ob_start();
+            UniteFunctionsUC::obStart();
 
             ?>
             <div class="fs-cta fs-dropdown">

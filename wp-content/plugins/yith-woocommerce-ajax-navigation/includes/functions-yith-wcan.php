@@ -817,6 +817,18 @@ if ( ! function_exists( 'yith_wcan_wp_get_terms' ) ) {
 	function yith_wcan_wp_get_terms( $args ) {
 		global $wp_version;
 
+		/**
+		 * APPLY_FILTERS: pre_yith_wcan_wp_get_terms
+		 *
+		 * Allow third party code to hijack plugin behaviour
+		 * If someone use this filter, plugin will use returned value instead of calling
+		 * get_terms to query database and retrieve matching terms.
+		 *
+		 * @param array|bool $result Default value: false;
+		 * @param array      $args   Query args.
+		 *
+		 * @return array|bool
+		 */
 		$pre_terms = apply_filters( 'pre_yith_wcan_wp_get_terms', false, $args );
 
 		if ( false !== $pre_terms ) {
@@ -844,6 +856,15 @@ if ( ! function_exists( 'yith_wcan_brands_enabled' ) ) {
 	 * @return bool
 	 */
 	function yith_wcan_brands_enabled() {
+		/**
+		 * APPLY_FILTERS: yith_wcan_brands_enabled
+		 *
+		 * Filters flag representing whether brand plugin is active or not.
+		 *
+		 * @param bool $active Whether brands plugin is enabled.
+		 *
+		 * @return bool
+		 */
 		return apply_filters( 'yith_wcan_brands_enabled', defined( 'YITH_WCBR' ) && YITH_WCBR );
 	}
 }
@@ -900,7 +921,7 @@ if ( ! function_exists( 'yith_wcan_get_preset' ) ) {
 	 * @since 4.0.0
 	 */
 	function yith_wcan_get_preset( $preset = array() ) {
-		return YITH_WCAN_Preset_Factory::get_preset( $preset );
+		return YITH_WCAN_Presets_Factory::get_preset( $preset );
 	}
 }
 
@@ -914,7 +935,7 @@ if ( ! function_exists( 'yith_wcan_get_filter' ) ) {
 	 * @since 4.0.0
 	 */
 	function yith_wcan_get_filter( $filter = array() ) {
-		return YITH_WCAN_Filter_Factory::get_filter( $filter );
+		return YITH_WCAN_Filters_Factory::get_filter( $filter );
 	}
 }
 
@@ -931,7 +952,20 @@ if ( ! function_exists( 'yith_wcan_get_template' ) ) {
 	 * @since 4.0.0
 	 */
 	function yith_wcan_get_template( $template, $atts = array(), $echo = true ) {
-		$default_path  = YITH_WCAN_DIR . 'templates/';
+		$default_path = YITH_WCAN_DIR . 'templates/';
+
+		/**
+		 * APPLY_FILTERS: yith_wcan_template_path
+		 *
+		 * Filters path where plugin searches for internal templates.
+		 *
+		 * @param string $path     Template path.
+		 * @param string $template Searched template.
+		 * @param array  $atts     Attributes to use in the template.
+		 * @param bool   $echo     Whether template should be included or printed.
+		 *
+		 * @return string
+		 */
 		$template_path = apply_filters( 'yith_wcan_template_path', WC()->template_path() . 'yith-wcan', $template, $atts, $echo );
 
 		ob_start();
@@ -1034,6 +1068,15 @@ if ( ! function_exists( 'yith_wcan_get_rating_label' ) ) {
 	 * @return string Label for specified rate.
 	 */
 	function yith_wcan_get_rating_label( $rating ) {
+		/**
+		 * APPLY_FILTERS: yith_wcan_rating_label
+		 *
+		 * Filters label used in review filter, for a specific rating value.
+		 *
+		 * @param string $label Label to filter: %s represents specific rating value.
+		 *
+		 * @return string
+		 */
 		// translators: 1. Rating.
 		return apply_filters( 'yith_wcan_rating_label', sprintf( _x( 'Rated %s out of 5', '[FRONTEND] Star rating label', 'yith-woocommerce-ajax-navigation' ), $rating ), $rating );
 	}
@@ -1136,3 +1179,64 @@ if ( ! function_exists( 'yith_wcan_merge_in_array' ) ) {
 		return array_merge( $part_1, $element, $part_2 );
 	}
 }
+
+if ( ! function_exists( 'yith_wcan_is_known_bot' ) ) {
+	/**
+	 * Checks if current request user agent matches one of the known bot patterns
+	 *
+	 * @return bool Whether user agent matches known bots.
+	 */
+	function yith_wcan_is_known_bot() {
+		/**
+		 * APPLY_FILTERS: yith_wcan_known_bot_pattern
+		 *
+		 * Filters pattern used to determine whether a UserAgent comes from a bot or not.
+		 *
+		 * @param string $pattern Test pattern.
+		 *
+		 * @return bool
+		 */
+		$known_bot_pattern = apply_filters( 'yith_wcan_known_bot_pattern', '/bot|crawl|spider|facebook|amazon|bing/i' );
+		$user_agent        = wc_get_user_agent();
+
+		/**
+		 * APPLY_FILTERS: yith_wcan_is_known_bot
+		 *
+		 * Filters result of the test over user agent, that determines if current user is a known bot
+		 *
+		 * @param string $is_bot            Whether current user is a bot (basing on the user agent).
+		 * @param string $known_bot_pattern Pattern used to recognize bots user agent.
+		 *
+		 * @return bool
+		 */
+		return apply_filters( 'yith_wcan_is_known_bot', preg_match( $known_bot_pattern, $user_agent ), $user_agent );
+	}
+}
+
+if ( ! function_exists( 'yith_wcan_is_excluded' ) ) {
+	/**
+	 * Checks if current request is excluded from filtering action
+	 *
+	 * @return bool Whether current request should be excluded.
+	 */
+	function yith_wcan_is_excluded() {
+		static $is_excluded;
+
+		if ( is_null( $is_excluded ) ) {
+			/**
+			 * APPLY_FILTERS: yith_wcan_is_excluded
+			 *
+			 * Filters result of the test over request, that determines if current one should be excluded from filtering action
+			 *
+			 * @param string $is_excluded Whether current request is excluded.
+			 *
+			 * @return bool
+			 */
+			$is_excluded = apply_filters( 'yith_wcan_is_excluded', yith_wcan_is_known_bot() );
+		}
+
+		return $is_excluded;
+	}
+}
+
+

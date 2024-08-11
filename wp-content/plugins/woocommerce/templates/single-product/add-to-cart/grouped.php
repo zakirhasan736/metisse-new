@@ -1,6 +1,6 @@
 <?php
 /**
- * Grouped product Add To Basket
+ * Grouped product add to cart
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/add-to-cart/grouped.php.
  *

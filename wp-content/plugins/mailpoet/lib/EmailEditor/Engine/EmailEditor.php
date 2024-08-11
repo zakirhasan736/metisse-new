@@ -5,8 +5,10 @@ namespace MailPoet\EmailEditor\Engine;
 if (!defined('ABSPATH')) exit;
 
 
+use MailPoet\EmailEditor\Engine\Patterns\Patterns;
+use MailPoet\EmailEditor\Engine\Templates\TemplatePreview;
+use MailPoet\EmailEditor\Engine\Templates\Templates;
 use MailPoet\Entities\NewsletterEntity;
-use MailPoet\Validator\Builder;
 use WP_Post;
 use WP_Theme_JSON;
 
@@ -17,22 +19,50 @@ use WP_Theme_JSON;
 class EmailEditor {
   public const MAILPOET_EMAIL_META_THEME_TYPE = 'mailpoet_email_theme';
 
-  /** @var EmailApiController */
-  private $emailApiController;
+  private EmailApiController $emailApiController;
+  private Templates $templates;
+  private TemplatePreview $templatePreview;
+  private Patterns $patterns;
+  private SettingsController $settingsController;
 
   public function __construct(
-    EmailApiController $emailApiController
+    EmailApiController $emailApiController,
+    Templates $templates,
+    TemplatePreview $templatePreview,
+    Patterns $patterns,
+    SettingsController $settingsController
   ) {
     $this->emailApiController = $emailApiController;
+    $this->templates = $templates;
+    $this->templatePreview = $templatePreview;
+    $this->patterns = $patterns;
+    $this->settingsController = $settingsController;
   }
 
   public function initialize(): void {
     do_action('mailpoet_email_editor_initialized');
     add_filter('mailpoet_email_editor_rendering_theme_styles', [$this, 'extendEmailThemeStyles'], 10, 2);
+    $this->registerBlockTemplates();
+    $this->registerBlockPatterns();
     $this->registerEmailPostTypes();
-    $this->registerEmailMetaFields();
     $this->registerEmailPostSendStatus();
-    $this->extendEmailPostApi();
+    $isEditorPage = apply_filters('mailpoet_is_email_editor_page', false);
+    if ($isEditorPage) {
+      $this->extendEmailPostApi();
+      $this->settingsController->init();
+    }
+  }
+
+  private function registerBlockTemplates(): void {
+    // Since we cannot currently disable blocks in the editor for specific templates, disable templates when viewing site editor. @see https://github.com/WordPress/gutenberg/issues/41062
+    if (strstr(wp_unslash($_SERVER['REQUEST_URI'] ?? ''), 'site-editor.php') === false) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+      $this->templates->initialize();
+      $this->templatePreview->initialize();
+    }
+  }
+
+  private function registerBlockPatterns(): void {
+    $this->patterns->initialize();
   }
 
   /**
@@ -44,23 +74,6 @@ class EmailEditor {
       register_post_type(
         $postType['name'],
         array_merge($this->getDefaultEmailPostArgs(), $postType['args'])
-      );
-    }
-  }
-
-  private function registerEmailMetaFields(): void {
-    foreach ($this->getPostTypes() as $postType) {
-      register_post_meta(
-        $postType['name'],
-        self::MAILPOET_EMAIL_META_THEME_TYPE,
-        [
-          'show_in_rest' => [
-            'schema' => $this->getEmailThemeDataSchema(),
-          ],
-          'single' => true,
-          'type' => 'object',
-          'default' => ['version' => 2], // The version 2 is important to merge themes correctly
-        ]
       );
     }
   }
@@ -106,20 +119,7 @@ class EmailEditor {
   }
 
   public function getEmailThemeDataSchema(): array {
-    return Builder::object([
-      'version' => Builder::integer(),
-      'styles' => Builder::object([
-        'spacing' => Builder::object([
-          'padding' => Builder::object([
-            'top' => Builder::string(),
-            'right' => Builder::string(),
-            'bottom' => Builder::string(),
-            'left' => Builder::string(),
-          ])->nullable(),
-          'blockGap' => Builder::string()->nullable(),
-        ])->nullable(),
-      ])->nullable(),
-    ])->toArray();
+    return (new EmailStylesSchema())->getSchema();
   }
 
   public function extendEmailThemeStyles(WP_Theme_JSON $theme, WP_Post $post): WP_Theme_JSON {

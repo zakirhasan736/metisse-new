@@ -39,6 +39,9 @@ class ElementsKit_Widget_Lottie extends Widget_Base {
     public function get_help_url() {
         return 'https://wpmet.com/doc/lottie-animation/';
     }
+    protected function is_dynamic_content(): bool {
+        return false;
+    }
 
     protected function register_controls() {
         $this->start_controls_section(
@@ -98,7 +101,7 @@ class ElementsKit_Widget_Lottie extends Widget_Base {
 					'dynamic'       => [
 						'active' => true,
 					],
-                    'placeholder'   => esc_html__( 'https://example.com/file.json', 'elementskit-lite' ),
+                    'placeholder'   => esc_html( 'https://example.com/file.json'),
                     'show_external' => false,
                     'condition'     => [
                         'ekit_lottie_type'  => 'url'

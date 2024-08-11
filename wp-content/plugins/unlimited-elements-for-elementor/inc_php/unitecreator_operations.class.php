@@ -275,14 +275,21 @@ class UCOperations extends UniteElementsBaseUC{
 			UniteFunctionsUC::throwError("Can't make thumb folder: {$pathThumbs}. Please check php and folder permissions");
 
 		$filepathImage = $info["filepath"];
-
-		$filenameThumb = $this->imageView->makeThumb($filepathImage, $pathThumbs, $thumbWidth);
-
+		
+		try{
+			$filenameThumb = $this->imageView->makeThumb($filepathImage, $pathThumbs, $thumbWidth);
+		
+		}catch(Exception $e){
+			$filenameThumb = null;
+		}
+		
 		$urlThumb = "";
 		if(!empty($filenameThumb)){
 			$urlThumbs = $info["url_dir_thumbs"];
 			$urlThumb = $urlThumbs . $filenameThumb;
-		}
+		}else
+			$urlThumb = UniteFunctionsUC::getVal($info, "url_full");
+		
 
 		return ($urlThumb);
 	}
@@ -591,10 +598,10 @@ class UCOperations extends UniteElementsBaseUC{
 	 * put posts meta fields debug
 	 */
 	public function putPostsCustomFieldsDebug($arrPosts, $showCustomFields = false){
-
+		
 		if(empty($arrPosts))
 			return (false);
-
+		
 		dmp("Show the posts meta fields. Please turn off this option before release.");
 
 		foreach($arrPosts as $post){
@@ -603,7 +610,7 @@ class UCOperations extends UniteElementsBaseUC{
 			$this->putPostCustomFieldsDebug($postID, $showCustomFields);
 		}
 	}
-
+	
 	/**
 	 * put posts meta fields debug
 	 */
@@ -639,7 +646,36 @@ class UCOperations extends UniteElementsBaseUC{
 
 		dmp($htmlFields);
 	}
-
+	
+	/**
+	 * put post terms debug
+	 */
+	public function putPostTermsDebug($postID){
+		
+		$strTerms = UniteFunctionsWPUC::getPostTermsTitlesString($postID, true);
+		
+		$strTerms = "<div>Post Terms: <span style='color:green;'>".esc_html($strTerms)."</style></div>";
+		
+		echo $strTerms;
+	}
+	
+	
+	/**
+	 * put posts full debug - show all info about each post
+	 */
+	public function putPostsFullDebug($arrPosts){
+		
+		foreach($arrPosts as $post){
+			$postID = $post->ID;
+			
+			$this->putPostCustomFieldsDebug($postID);
+			$this->putPostTermsDebug($postID);
+			
+		}
+		
+		
+	}
+	
 	private function a____________URL_CONTENTS____________(){
 	}
 

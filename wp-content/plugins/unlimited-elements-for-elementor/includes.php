@@ -12,7 +12,7 @@ if(!defined('UNLIMITED_ELEMENTS_INC'))
 defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 if(!defined("UNLIMITED_ELEMENTS_VERSION"))
-	define("UNLIMITED_ELEMENTS_VERSION", "1.5.103");
+	define("UNLIMITED_ELEMENTS_VERSION", "1.5.116");
 
 $currentFile = __FILE__;
 $currentFolder = dirname($currentFile);
@@ -90,6 +90,7 @@ require_once $folderIncludesMain . 'unitecreator_filters_process.class.php';
 require_once $folderIncludesMain . 'unitecreator_unitegallery.class.php';
 require_once GlobalsUC::$pathProvider . 'integrations.class.php';
 require_once $folderIncludesMain . 'unitecreator_entrance_animations.class.php';
+require_once $folderIncludesMain . 'unitecreator_ajax_search.class.php';
 
 
 require_once $folderIncludesMain . 'manager/unitecreator_manager.class.php';
@@ -111,6 +112,7 @@ require_once GlobalsUC::$pathProvider . 'provider_layouts_exporter.class.php';
 require_once $folderIncludesMain . 'unitecreator_addon_changelog.class.php';
 require_once $folderIncludesMain . 'unitecreator_addon_revisioner.class.php';
 require_once $folderIncludesMain . 'unitecreator_api_integrations.class.php';
+require_once $folderIncludesMain . 'unitecreator_pagination.class.php';
 
 
 //admin only, maybe split later

@@ -522,12 +522,12 @@ Text Domain: metisse
     .woo-my-account-navigation-items.is-active::before {
         content: "";
         position: absolute;
-        width: 6px;
+        width: 100%;
         border-radius: 6px;
         background-color: #AA834C;
-        top: 0;
-        height: 100%;
-        right: -4px;
+        bottom: -2px;
+        height: 3px;
+        right: 0;
     }
 
     .my-account-info-details-wrap a {
@@ -551,17 +551,9 @@ Text Domain: metisse
 
     .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input::placeholder {
         opacity: .5;
+        color: #7B7C79;
     }
 
-    .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input {
-        color: #000 !important;
-        font-family: Lato !important;
-        font-size: 16px !important;
-        font-style: normal;
-        font-weight: 600 !important;
-        line-height: 25px !important;
-        border: 2px solid #000 !important;
-    }
 
     span#select2-shipping_country-container,
     span#select2-shipping_state-container {
@@ -1110,7 +1102,8 @@ Text Domain: metisse
         background: #F6F6F6;
         /* padding-right: 120px; */
     }
-/* 
+
+    /* 
     .tp-woo-input-field.tp-woo-form-login {
         padding-left: 80px;
         padding-right: 80px;
@@ -1135,7 +1128,51 @@ Text Domain: metisse
         border-bottom: 2px solid #B6B9B3 !important;
     }
 
+    .my-account-sidebar {
+        border-bottom: 1px solid #DCDCDC;
+    }
 
+    .woocommerce-MyAccount-content.tp-woo-myaccount-content .woocommerce-info {
+        max-width: 100% !important;
+    }
+
+    .profile__address-content p {
+        font-size: 13px !important;
+    }
+
+    .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input {
+        padding: 10px 8px;
+        border: none !important;
+        border-bottom: 2px solid #B6B9B3 !important;
+        color: #131313;
+        font-kerning: none;
+        font-family: Raleway;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+
+    .woo-user-account-details p.woocommerce-form-row input {
+        outline: none !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        border-bottom: 2px solid #B6B9B3 !important;
+    }
+
+    .reset-password-wrapper p.woocommerce-form-row input {
+        border: 0 !important;
+        border-bottom: 2px solid #B6B9B3 !important;
+    }
+
+    .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row label {
+        display: none;
+    }
+
+    .woocommerce-MyAccount-content.tp-woo-myaccount-content .woocommerce-address-fields {
+        max-width: 768px;
+        width: 100%;
+    }
 }
 
 @layer utilities {}

@@ -33,23 +33,23 @@ $exclude_nav_items = array('downloads', 'compare', 'wishlist');
 
 <div class="my-account-navigation-woo-wrapper h-full">
 	<nav class="woocommerce-MyAccount-navigation">
-		<ul class="flex flex-col sm:flex-row sm:flex-nowrap sm:overflow-x-auto sm:pb-[10px] sm:overflow-y-hidden">
+		<ul class="flex  sm:flex-nowrap gap-3 sm:overflow-x-auto sm:pb-[10px] sm:overflow-y-hidden">
 			<?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
 				<?php if (!in_array($endpoint, $exclude_nav_items)) : ?>
 					<li class="<?php echo wc_get_account_menu_item_classes($endpoint); ?> py-[7px] px-[14px] sm:pb-[15px] relative woo-my-account-navigation-items">
 
 						<?php if ('wishlist' === $endpoint) : ?>
-							<a href="<?php echo home_url($endpoint) . '/' . $key; ?>" class="sm:whitespace-nowrap text-center text-[16px] sm:text-[14px] text-[#000] opacity-50 font-secondary font-bold tracking-[3.2px] uppercase leading-[1.2]"><?php echo esc_html($label); ?></a>
+							<a href="<?php echo home_url($endpoint) . '/' . $key; ?>" class="sm:whitespace-nowrap text-center text-[11px] text-[#717171] font-primary font-normal tracking-[1.1px] uppercase leading-[1.2]"><?php echo esc_html($label); ?></a>
 						<?php else :  ?>
 							<?php
 							// Rename "Order" to "Order History" and "Dashboard" to "Profile"
 							if ($endpoint === 'orders') {
-								$label = esc_html__('Order History', 'woocommerce');
+								$label = esc_html__('Orders', 'woocommerce');
 							} elseif ($endpoint === 'dashboard') {
 								$label = esc_html__('Profile', 'woocommerce');
 							}
 							?>
-							<a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?> " class="sm:whitespace-nowrap text-center text-[16px] sm:text-[14px] opacity-50 text-[#000] font-secondary font-bold tracking-[3.2px] uppercase leading-[1.2]"><?php echo esc_html($label); ?></a>
+							<a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?> " class="sm:whitespace-nowrap text-center text-[11px] text-[#000] font-primary font-normal tracking-[1.1px] uppercase leading-[1.2]"><?php echo esc_html($label); ?></a>
 						<?php endif; ?>
 					</li>
 				<?php endif; ?>

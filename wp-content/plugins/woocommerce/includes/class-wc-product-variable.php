@@ -52,7 +52,9 @@ class WC_Product_Variable extends WC_Product {
 	*/
 
 	/**
-	 * Get the aria-describedby description for the Add To Basket button.
+	 * Get the aria-describedby description for the add to cart button.
+	 * Note that this is to provide the description, not the describedby attribute
+	 * itself.
 	 *
 	 * @return string
 	 */
@@ -66,7 +68,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text.
+	 * Get the add to cart button text.
 	 *
 	 * @return string
 	 */
@@ -75,7 +77,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text description - used in aria tags.
+	 * Get the add to cart button text description - used in aria tags.
 	 *
 	 * @since 3.3.0
 	 * @return string
@@ -358,7 +360,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Returns an array of data for a variation. Used in the Add To Basket form.
+	 * Returns an array of data for a variation. Used in the add to cart form.
 	 *
 	 * @since  2.4.0
 	 * @param  WC_Product $variation Variation product object or ID.
@@ -599,7 +601,7 @@ class WC_Product_Variable extends WC_Product {
 	*/
 
 	/**
-	 * Sync a variable product with it's children. These sync functions sync
+	 * Sync a variable product with its children. These sync functions sync
 	 * upwards (from child to parent) when the variation is saved.
 	 *
 	 * @param WC_Product|int $product Product object or ID for which you wish to sync.

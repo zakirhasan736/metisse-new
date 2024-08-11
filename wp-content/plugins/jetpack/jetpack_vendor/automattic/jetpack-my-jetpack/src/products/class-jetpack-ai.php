@@ -29,6 +29,13 @@ class Jetpack_Ai extends Product {
 	public static $slug = 'jetpack-ai';
 
 	/**
+	 * Whether this product has a free offering
+	 *
+	 * @var bool
+	 */
+	public static $has_free_offering = true;
+
+	/**
 	 * Get the Product info for the API
 	 *
 	 * @throws \Exception If required attribute is not declared in the child class.
@@ -99,7 +106,7 @@ class Jetpack_Ai extends Product {
 	 */
 	public static function get_features_by_tier() {
 		$current_tier        = self::get_current_usage_tier();
-		$current_description = $current_tier === 0
+		$current_description = 0 === $current_tier
 			? __( 'Up to 20 requests', 'jetpack-my-jetpack' )
 			/* translators: number of requests */
 			: sprintf( __( 'Up to %d requests per month', 'jetpack-my-jetpack' ), $current_tier );
@@ -148,6 +155,13 @@ class Jetpack_Ai extends Product {
 					self::UPGRADED_TIER_SLUG => array( 'included' => true ),
 				),
 			),
+			array(
+				'name'  => __( 'Generate featured images', 'jetpack-my-jetpack' ),
+				'tiers' => array(
+					self::CURRENT_TIER_SLUG  => array( 'included' => true ),
+					self::UPGRADED_TIER_SLUG => array( 'included' => true ),
+				),
+			),
 		);
 	}
 
@@ -165,7 +179,7 @@ class Jetpack_Ai extends Product {
 
 		// Bail early if it's not possible to fetch the feature data.
 		if ( is_wp_error( $info ) ) {
-			return null;
+			return 0;
 		}
 
 		$current_tier = isset( $info['current-tier']['value'] ) ? $info['current-tier']['value'] : null;
@@ -179,7 +193,7 @@ class Jetpack_Ai extends Product {
 	 * @return int
 	 */
 	public static function get_next_usage_tier() {
-		if ( ! self::is_site_connected() || ! self::has_required_plan() ) {
+		if ( ! self::is_site_connected() || ! self::has_paid_plan_for_product() ) {
 			return 100;
 		}
 
@@ -202,7 +216,7 @@ class Jetpack_Ai extends Product {
 	 * @return string
 	 */
 	public static function get_description() {
-		return __( 'The most powerful AI tool for WordPress', 'jetpack-my-jetpack' );
+		return __( 'Enhance your writing and productivity with our AI suite', 'jetpack-my-jetpack' );
 	}
 
 	/**
@@ -405,12 +419,23 @@ class Jetpack_Ai extends Product {
 	}
 
 	/**
-	 * Checks whether the current plan (or purchases) of the site already supports the product
+	 * Checks whether the site has a paid plan for this product
 	 *
 	 * @return boolean
 	 */
-	public static function has_required_plan() {
-		return static::does_site_have_feature( 'ai-assistant' );
+	public static function has_paid_plan_for_product() {
+		$purchases_data = Wpcom_Products::get_site_current_purchases();
+		if ( is_wp_error( $purchases_data ) ) {
+			return false;
+		}
+		if ( is_array( $purchases_data ) && ! empty( $purchases_data ) ) {
+			foreach ( $purchases_data as $purchase ) {
+				if ( str_contains( $purchase->product_slug, 'jetpack_ai' ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -419,11 +444,18 @@ class Jetpack_Ai extends Product {
 	 * @return boolean
 	 */
 	public static function is_upgradable() {
-		$has_required_plan = self::has_required_plan();
-		$current_tier      = self::get_current_usage_tier();
+		$has_ai_feature = static::does_site_have_feature( 'ai-assistant' );
+		$current_tier   = self::get_current_usage_tier();
+		$next_tier      = self::get_next_usage_tier();
+
+		// The check below is debatable, not having the feature should not flag as not upgradable.
+		// If user is free (tier = 0), not unlimited (tier = 1) and has a next tier, then it's upgradable.
+		if ( $current_tier !== null && $current_tier !== 1 && $next_tier ) {
+			return true;
+		}
 
 		// Mark as not upgradable if user is on unlimited tier or does not have any plan.
-		if ( ! $has_required_plan || null === $current_tier || 1 === $current_tier ) {
+		if ( ! $has_ai_feature || null === $current_tier || 1 === $current_tier ) {
 			return false;
 		}
 
@@ -454,7 +486,7 @@ class Jetpack_Ai extends Product {
 	 * @return ?string
 	 */
 	public static function get_manage_url() {
-		return '/wp-admin/admin.php?page=my-jetpack#/add-jetpack-ai';
+		return '/wp-admin/admin.php?page=my-jetpack#/jetpack-ai';
 	}
 
 	/**

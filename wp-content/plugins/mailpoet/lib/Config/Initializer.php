@@ -16,6 +16,7 @@ use MailPoet\Cron\CronTrigger;
 use MailPoet\Cron\DaemonActionSchedulerRunner;
 use MailPoet\EmailEditor\Engine\EmailEditor;
 use MailPoet\EmailEditor\Integrations\Core\Initializer as CoreEmailEditorIntegration;
+use MailPoet\EmailEditor\Integrations\MailPoet\Blocks\BlockTypesController;
 use MailPoet\EmailEditor\Integrations\MailPoet\EmailEditor as MailpoetEmailEditorIntegration;
 use MailPoet\Features\FeaturesController;
 use MailPoet\InvalidStateException;
@@ -134,6 +135,9 @@ class Initializer {
   /** @var CoreEmailEditorIntegration */
   private $coreEmailEditorIntegration;
 
+  /** @var BlockTypesController */
+  private $blockTypesController;
+
   /** @var FeaturesController */
   private $featureController;
 
@@ -175,6 +179,7 @@ class Initializer {
     PersonalDataExporters $personalDataExporters,
     DaemonActionSchedulerRunner $actionSchedulerRunner,
     EmailEditor $emailEditor,
+    BlockTypesController $blockTypesController,
     MailpoetEmailEditorIntegration $mailpoetEmailEditorIntegration,
     CoreEmailEditorIntegration $coreEmailEditorIntegration,
     FeaturesController $featureController,
@@ -212,6 +217,7 @@ class Initializer {
     $this->emailEditor = $emailEditor;
     $this->mailpoetEmailEditorIntegration = $mailpoetEmailEditorIntegration;
     $this->coreEmailEditorIntegration = $coreEmailEditorIntegration;
+    $this->blockTypesController = $blockTypesController;
     $this->featureController = $featureController;
     $this->urlHelper = $urlHelper;
   }
@@ -257,6 +263,11 @@ class Initializer {
       new PluginActivatedHook(new DeferredAdminNotices),
       'action',
     ], 10, 2);
+
+    $this->wpFunctions->addAction('plugins_loaded', [
+      $this,
+      'pluginsLoaded',
+    ], 0);
 
     $this->wpFunctions->addAction('init', [
       $this,
@@ -327,11 +338,14 @@ class Initializer {
     }
   }
 
+  public function pluginsLoaded() {
+    $this->hooks->init();
+  }
+
   public function preInitialize() {
     try {
       $this->renderer = $this->rendererFactory->getRenderer();
       $this->setupWidget();
-      $this->hooks->init();
       $this->setupWoocommerceTransactionalEmails();
       $this->assetsLoader->loadStyles();
     } catch (\Exception $e) {
@@ -370,6 +384,7 @@ class Initializer {
       $this->postEditorBlock->init();
       $this->automationEngine->initialize();
       if ($this->featureController->isSupported(FeaturesController::GUTENBERG_EMAIL_EDITOR)) {
+        $this->blockTypesController->initialize();
         $this->emailEditor->initialize();
       }
       $this->wpFunctions->doAction('mailpoet_initialized', MAILPOET_VERSION);

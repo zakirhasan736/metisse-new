@@ -1106,49 +1106,6 @@ class UniteCreatorParamsProcessorWork{
 	}
 
 
-	private function z________SHAPE________(){}
-
-
-	/**
-	 * get the shape addon
-	 */
-	private function getProcessedParamsValue_shapeOutput($data, $value, $param){
-
-		$paramName = UniteFunctionsUC::getVal($param, "name");
-
-		$shapeData = "";
-
-		if(empty($value)){
-			$data[$paramName] = "";
-			return($data);
-		}
-
-		if(empty($this->objShapes))
-			$this->objShapes = new UniteShapeManagerUC();
-
-		$svgContent = $this->objShapes->getShapeSVGContent($value);
-		$data[$paramName] = $svgContent;
-
-		return($data);
-	}
-
-
-	/**
-	 * addon picker output
-	 */
-	private function getProcessedParamsValue_addonPickerOutput($data, $value, $param){
-
-		$addonType = UniteFunctionsUC::getVal($param, "addon_type");
-
-		switch($addonType){
-			case GlobalsUC::ADDON_TYPE_SHAPES:
-				$data = $this->getProcessedParamsValue_shapeOutput($data, $value, $param);
-			break;
-		}
-
-		return($data);
-	}
-
 
 	private function z_________INSTAGRAM_________(){}
 
@@ -1558,10 +1515,14 @@ class UniteCreatorParamsProcessorWork{
 
 		if(is_string($value) === true)
 			$value = array("url" => $value);
-
+		
 		$url = UniteFunctionsUC::getVal($value, "url");
+		
+		if(is_array($url))
+			$url = "";
+		
 		$url = esc_url($url);
-
+		
 		$isExternal = UniteFunctionsUC::getVal($value, "is_external");
 		$noFollow = UniteFunctionsUC::getVal($value, "nofollow");
 
@@ -1593,8 +1554,7 @@ class UniteCreatorParamsProcessorWork{
 		$data[$name . "_html_attributes"] = $addHtml;
 		$data[$name . "_full"] = $urlFull;
 		$data[$name . "_noprefix"] = $urlNoPrefix;
-		
-		
+
 		return $data;
 	}
 
@@ -1927,12 +1887,6 @@ class UniteCreatorParamsProcessorWork{
 			case UniteCreatorDialogParam::PARAM_MAP:
 				$data[$name] = $this->getGoogleMapOutput($value, $name, $param);
 			break;
-			case UniteCreatorDialogParam::PARAM_SHAPE:
-				$data = $this->getProcessedParamsValue_shapeOutput($data, $value, $param);
-			break;
-			case UniteCreatorDialogParam::PARAM_ADDONPICKER:
-				$data = $this->getProcessedParamsValue_addonPickerOutput($data, $value, $param);
-			break;
 		}
 
 		return($data);
@@ -2080,11 +2034,13 @@ class UniteCreatorParamsProcessorWork{
 	 */
 	public function getProcessedItemsData_getImageSize($processType = null){
 
+		
 		if($processType == self::PROCESS_TYPE_CONFIG)
 			return(null);
-
+				
 		$paramsSpecial = $this->addon->getParams(UniteCreatorDialogParam::PARAM_SPECIAL);
 
+		
 		if(empty($paramsSpecial))
 			return(null);
 
@@ -2097,10 +2053,7 @@ class UniteCreatorParamsProcessorWork{
 				continue;
 
 			$value = UniteFunctionsUC::getVal($param, "value");
-
-			if(empty($value))
-				return(null);
-
+			
 			$name = UniteFunctionsUC::getVal($param, "name");
 
 			if(is_array($value)){
@@ -2114,8 +2067,8 @@ class UniteCreatorParamsProcessorWork{
 
 			$arrValues[$destParamName] = $value;
 		}
-
-
+		
+		
 		return($arrValues);
 	}
 
@@ -2160,7 +2113,7 @@ class UniteCreatorParamsProcessorWork{
 	 * get item data
 	 */
 	public function getProcessedItemsData($arrItems, $processType, $forTemplate = true, $filterType = null){
-				
+		
 		$this->validateInited();
 		self::validateProcessType($processType);
 
@@ -2171,7 +2124,7 @@ class UniteCreatorParamsProcessorWork{
 			return $arrItems;
 
 		$this->setProcessType($processType);
-		
+
 		if(empty($arrItems))
 			return array();
 
@@ -2180,10 +2133,10 @@ class UniteCreatorParamsProcessorWork{
 
 		$arrItemsNew = array();
 		$arrItemParams = $this->addon->getParamsItems();
-				
+
 		if(!empty($arrItemsImageSizes))
 			$arrItemParams = $this->getProcessedItemsData_modifyImageItem($arrItemParams, $arrItemsImageSizes);
-		
+
 		$arrItemParams = $this->initProcessParams($arrItemParams);
 		$numItems = count($arrItems);
 
@@ -2201,8 +2154,7 @@ class UniteCreatorParamsProcessorWork{
 
 			$arrParamsNew = $this->addon->setParamsValuesItems($arrItemValues, $arrItemParams);
 			$item = $this->getProcessedParamsValues($arrParamsNew, $processType, $filterType);
-			
-			
+
 			if($this->isOutputProcessType($processType) === true)
 				$item = $this->processFonts($item, "items", $index);
 
@@ -2247,7 +2199,6 @@ class UniteCreatorParamsProcessorWork{
 				$arrItemsNew[] = $item;
 		}
 
-				
 		return $arrItemsNew;
 	}
 

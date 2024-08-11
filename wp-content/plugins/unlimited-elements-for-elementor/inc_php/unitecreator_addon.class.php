@@ -44,6 +44,8 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 	private $arrOriginalValues = array();
 
 	private static $arrCacheRecords = array();
+	private static $arrCacheNameByID = array();
+	
 	private static $arrCacheCats = null;
 	private static $arrCacheCatsFull = null;
 	private static $defaultOptions = null;
@@ -120,7 +122,8 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		
 		UniteFunctionsUC::validateNumeric($num,"test slot");
 		
-		$num = (int)$num;
+		$num = (int)$num;	//Security Update 3
+		
 		if($num < 0 || $num > 3)
 			UniteFunctionsUC::throwError("Wrong test slot number: $num");
 	}
@@ -215,18 +218,36 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 	 * init item by ID
 	 */
 	public function initByID($id){
-
+		
+		
 		UniteFunctionsUC::validateNotEmpty($id, "widget id");
-
+		
+		UniteFunctionsUC::validateNumeric($id,"widget id");
+		
 		$id = (int)$id;
-
-		try{
-			$record = $this->db->fetchSingle(GlobalsUC::$table_addons, "id={$id}");
-		}catch(Exception $e){
-			UniteFunctionsUC::throwError("Widget with ID: {$id} not found");
+		
+		//get from cache:
+		
+		$record = null;
+		
+		$addonName = UniteFunctionsUC::getVal(self::$arrCacheNameByID, "addon_".$id);
+				
+		if(!empty($addonName)){
+			$record = UniteFunctionsUC::getVal(self::$arrCacheRecords, $addonName);
 		}
 
+		if(empty($record)){
+			
+			try{
+				$record = $this->db->fetchSingle(GlobalsUC::$table_addons, "id={$id}");
+			}catch(Exception $e){
+				UniteFunctionsUC::throwError("Widget with ID: {$id} not found");
+			}
+		}
+		
+		
 		$this->initByDBRecord($record);
+		
 	}
 
 	/**
@@ -283,7 +304,25 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 			UniteFunctionsUC::throwError("Widget with name:<b> {$alias} </b> not found");
 		}
 	}
+	
+	/**
+	 * init by block name, in gutenberg
+	 */
+	public function initByBlockName($blockName, $addonType){
+		
+		UniteFunctionsUC::validateNotEmpty($blockName,"block name");
 
+		if(strpos($blockName, GlobalsUnlimitedElements::PLUGIN_NAME) === false)
+			UniteFunctionsUC::throwError("Wrong block found: $blockName");
+		
+		$alias = str_replace(GlobalsUC::PLUGIN_NAME."/","",$blockName);
+		
+		$alias = str_replace("-", "_", $alias);
+		
+		$this->initByAlias($alias, $addonType);
+		
+	}
+	
 	/**
 	 * init by name or alias
 	 */
@@ -533,8 +572,10 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 
 		//cache db record
 		$addonName = UniteFunctionsUC::getVal($record, "name");
-		self::$arrCacheRecords[$addonName] = $record;
-
+		
+		if(!isset(self::$arrCacheRecords[$addonName]))
+			self::$arrCacheRecords[$addonName] = $record;
+		
 		UniteFunctionsUC::validateNotEmpty($record, "The Widget not exists");
 
 		$this->isInited = true;
@@ -542,7 +583,9 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		$this->data = $record;
 
 		$this->id = UniteFunctionsUC::getVal($record, "id");
-
+		
+		self::$arrCacheNameByID["addon_".$this->id] = $addonName; 
+		
 		$this->title = UniteFunctionsUC::getVal($record, "title");
 		$this->name = UniteFunctionsUC::getVal($record, "name");
 		$this->alias = UniteFunctionsUC::getVal($record, "alias");
@@ -763,7 +806,7 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 	 * get addon type
 	 */
 	public function getType(){
-
+		
 		return ($this->type);
 	}
 
@@ -791,7 +834,35 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 
 		return ($this->alias);
 	}
-
+	
+	/**
+	 * get block name by alias for gutenberg init
+	 */
+	public function getBlockName(){
+		
+		$isBG = $this->objAddonType->isBackground;
+		
+		$name = str_replace("_","-",$this->alias);
+		
+		if($isBG == true)		
+			$blockName = GlobalsUnlimitedElements::PLUGIN_NAME . '/ue-' .$name."--bg";
+		else
+			$blockName = GlobalsUnlimitedElements::PLUGIN_NAME . '/ue-' .$name;
+		
+		return($blockName);
+	}
+	
+	/**
+	 * return if the addon is background type
+	 */
+	public function isBackground(){
+		
+		$isBG = $this->objAddonType->isBackground;
+		
+		return($isBG);
+	}
+	
+	
 	/**
 	 * get name or alias according the type
 	 */
@@ -892,8 +963,8 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 
 		$objAddonType = $this->getObjAddonType();
 
-		$typeName = $objAddonType->typeName;
-
+		$typeName = $objAddonType->typeNameCorrection;
+		
 		//get default preview
 		$filenameDefaultPreview = self::FILENAME_PREVIEW . "_$typeName.jpg";
 		$filepathDefaultPreview = GlobalsUC::$pathPlugin . "images/" . $filenameDefaultPreview;
@@ -1828,8 +1899,24 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		return($hasRemote);
 	}
 
+	/**
+	 * check if addon has dynamic settings
+	 */
+	public function hasElementorDynamicSettings(){
+		
+		if(empty($this->arrOriginalValues))
+			return(false);
+			
+		if(is_array($this->arrOriginalValues) == false)
+			return(false);
+			
+		if(array_key_exists("__dynamic__", $this->arrOriginalValues))
+			return(true);
+			
+		return(false);
+	}
 
-
+	
 	private function a_______GET__INCLUDES_____(){
 	}
 
@@ -1942,16 +2029,40 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 	}
 
 	private function a______GET_HTML______(){}
-
-
+	
+	/**
+	 * return if the addon is background for gutenberg editor
+	 */
+	private function isBGForGutenbergEditor(){
+		
+		$isBG = $this->isBackground();
+		
+		if($isBG == false)
+			return(false);
+			
+		if(GlobalsProviderUC::$isInsideEditor == false)
+			return(false);
+			
+		if(GlobalsProviderUC::$renderPlatform != GlobalsProviderUC::RENDER_PLATFORM_GUTENBERG)
+			return(false);
+		
+		return(true);
+	}
+	
+	
 	/**
 	 * get addon config html
 	 * for vc make another function - get config only
 	 * params - source=addon
 	 */
-	public function getHtmlConfig($putMode = false, $isOutputSidebar = false, $options = array()){
 
+	public function getHtmlConfig($putMode = false, $isOutputSidebar = false, $options = array()){
+		
 		$this->validateInited();
+		
+		//check if need to add background extra settings for gutenberg editor
+		
+		$isGutenbergEditorBG = $this->isBGForGutenbergEditor();
 		
 		//save the active addon for inside use
 		
@@ -1966,17 +2077,22 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 
 		$source = UniteFunctionsUC::getVal($this->arrHtmlConfigOptions, "source");
 		$objSettings->setCurrentAddon($this);
-
+		
 		if($source == "addon"){
 			$objSettings->addGlobalParam("source", "addon", UniteSettingsUC::TYPE_IMAGE);
 		}
-
+		
+		if($isGutenbergEditorBG == true)
+			$objSettings->addGutenbergEditorBackgroundSection();
+		
+		
 		//choose if add items chooser
-
+		
 		if(!empty($this->params) || $this->hasItems){
+			
 			if(empty($this->paramsCats))
-				$objSettings->addSap(esc_html__("General", "unlimited-elements-for-elementor"), "config", true);
-
+				$objSettings->addSap(esc_html__("General", "unlimited-elements-for-elementor"), "config", "config");
+			
 			if($this->hasItems == true){
 				if($this->itemsType == self::ITEMS_TYPE_IMAGE && $isOutputSidebar == true){
 					$objSettings->addGallery("uc_items", "", __("Select Images", "unlimited-elements-for-elementor"));
@@ -2027,7 +2143,7 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		}
 
 		$objSettings->addAdvancedSection();
-
+		
 		$numSettings = $objSettings->getNumSettings();
 
 		if($numSettings == 0){
@@ -2046,17 +2162,18 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		}
 
 		$objOutput->init($objSettings);
-
+		
 		if($putMode == true){
 			$objOutput->draw("uc_form_settings_addon", false);
 		}else{
-			ob_start();
+			UniteFunctionsUC::obStart();
 			$objOutput->draw("uc_form_settings_addon", false);
 			$html = ob_get_contents();
 			ob_clean();
-
+			
 			return ($html);
 		}
+		
 	}
 
 	/**
@@ -2148,7 +2265,7 @@ class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		if($putMode == true){
 			$objOutput->draw("uc_form_addon_item_settings", false);
 		}else{
-			ob_start();
+			UniteFunctionsUC::obStart();
 			$objOutput->draw("uc_form_addon_item_settings", false);
 			$html = ob_get_contents();
 			ob_clean();

@@ -51,7 +51,7 @@
         }
 
         function fs_get_template( $path, &$params = null ) {
-            ob_start();
+            UniteFunctionsUC::obStart();
 
             $VARS = &$params;
             require fs_get_template_path( $path );
@@ -118,7 +118,7 @@
     }
 
     if ( ! function_exists( 'fs_enqueue_local_script' ) ) {
-        function fs_enqueue_local_script( $handle, $path, $deps = array(), $ver = false, $in_footer = 'all' ) {
+        function fs_enqueue_local_script( $handle, $path, $deps = array(), $ver = false, $in_footer = true ) {
             wp_enqueue_script( $handle, fs_asset_url( WP_FS__DIR_JS . '/' . trim( $path, '/' ) ), $deps, $ver, $in_footer );
         }
     }

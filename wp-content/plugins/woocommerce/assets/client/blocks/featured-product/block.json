@@ -77,7 +77,7 @@
 		},
 		"linkText": {
 			"type": "string",
-			"default": "Add To Basket"
+			"default": "Shop now"
 		},
 		"overlayColor": {
 			"type": "string",

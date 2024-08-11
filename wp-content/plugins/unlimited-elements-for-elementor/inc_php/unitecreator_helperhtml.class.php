@@ -201,13 +201,6 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$js .= self::TAB2.'var g_ucElIcons = '.$jsonElementorIcons.';'.self::BR;
 
 
-			//output shapes
-			/*
-			$objShapes = new UniteShapeManagerUC();
-			$jsonShapes = $objShapes->getJsonShapes();
-			$js .= self::TAB2.'var g_ucArrSvgShapes = '.$jsonShapes.';'.self::BR;
-			*/
-
 			//get nonce
 			if(method_exists("UniteProviderFunctionsUC", "getNonce"))
 				$js .= self::TAB2 . "var g_ucNonce='".UniteProviderFunctionsUC::getNonce()."';";
@@ -225,7 +218,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function getGlobalDebugDivs(){
 			$html = "";
-
+			
 			$html .= self::TAB2.'<div id="div_debug" class="unite-div-debug"></div>'.self::BR;
 			$html .= self::TAB2.'<div id="debug_line" style="display:none"></div>'.self::BR;
 			$html .= self::TAB2.'<div id="debug_side" style="display:none"></div>'.self::BR;
@@ -283,7 +276,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function getHtmlSettings($filename, $formID, $arrValues = array()){
 
-			ob_start();
+			UniteFunctionsUC::obStart();
 
 			$html = self::putHtmlSettings($filename, $formID, $arrValues);
 			$html = ob_get_contents();
@@ -659,7 +652,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function outputException($e, $prefix="", $forceTrace = false){
 
 			if(empty($prefix))
-				$prefix = GlobalsUC::$currentPluginTitle." Error: ";
+				$prefix = GlobalsUnlimitedElements::$pluginTitleCurrent." Error: ";
 
 			$message = $prefix.$e->getMessage();
 			$trace = $e->getTraceAsString();
@@ -760,7 +753,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$output = new UniteSettingsOutputWideUC();
 			$output->init($settings);
 
-			ob_start();
+			UniteFunctionsUC::obStart();
 			$output->draw($formName);
 
 			$htmlSettings = ob_get_contents();
@@ -1224,7 +1217,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function putPHPInfo(){
 
-			ob_start();
+			UniteFunctionsUC::obStart();
 			HelperHtmlUC::putAddonTypesBrowserDialogs();
 
 			phpinfo();

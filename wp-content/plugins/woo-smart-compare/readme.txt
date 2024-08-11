@@ -3,9 +3,9 @@ Contributors: wpclever
 Donate link: https://wpclever.net
 Tags: woocommerce, wpc, compare, comparison
 Requires at least: 4.0
-Tested up to: 6.5
-Version: 6.2.4
-Stable tag: 6.2.4
+Tested up to: 6.6
+Version: 6.2.8
+Stable tag: 6.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,7 +56,7 @@ Please try other plugins from us:
 - [WPC Smart Wishlist](https://wordpress.org/plugins/woo-smart-wishlist/ "WPC Smart Wishlist")
 - [WPC Smart Quick View](https://wordpress.org/plugins/woo-smart-quick-view/ "WPC Smart Quick View")
 - [WPC Fly Cart](https://wordpress.org/plugins/woo-fly-cart/ "WPC Fly Cart")
-- [WPC AJAX Add To Basket](https://wordpress.org/plugins/wpc-ajax-add-to-cart/ "WPC AJAX Add To Basket")
+- [WPC AJAX Add to Cart](https://wordpress.org/plugins/wpc-ajax-add-to-cart/ "WPC AJAX Add to Cart")
 - [WPC Added To Cart Notification](https://wordpress.org/plugins/woo-added-to-cart-notification/ "WPC Added To Cart Notification")
 
 == Installation ==
@@ -85,6 +85,19 @@ Example:
 `echo do_shortcode('[woosc id="99"]');`
 
 == Changelog ==
+
+= 6.2.8 =
+* Updated: Using WC_AJAX for frontend
+
+= 6.2.7 =
+* Added: Option to reload the count
+
+= 6.2.6 =
+* Fixed: Minor CSS/JS issue in the backend
+
+= 6.2.5 =
+* Updated: Optimized the code
+* Updated: Compatible with WP 6.5 & Woo 8.8
 
 = 6.2.4 =
 * Added: "Remove all" button on the comparison page

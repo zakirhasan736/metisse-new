@@ -1,10 +1,10 @@
-=== ElementsKit Elementor addons and Templates Library===
+=== ElementsKit Elementor addons ===
 Contributors: xpeedstudio, Ataurr, emranio
 Tags: Elementor addons, mega menu builder,  header footer builder, elementor addon, elementor widgets
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 3.1.2
+Stable tag: 3.2.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,11 +26,12 @@ Besides Exclusive features **ElementsKit Elementor addon** has unique and powerf
 
 == = KEY FEATURES == ==
 
-🔥 All time **downloads of ELementsKit : 15,687,888** (16 million all time downloads).
+🔥 All time **downloads of ELementsKit : 20,199,390** (20 million all time downloads).
 - 90+ Free and Premium Widgets
 - 18+ Exclusive Modules
 - 45+ Pre-designed Header & Footer Templates
-- 98+ Ready Pages - 791+ Ready Sections
+- 98+ Ready Pages
+- 791+ Ready Sections
 - WooCommerce Widgets
 - Cross-Browser Compatible
 - Fully Responsive
@@ -39,10 +40,10 @@ Besides Exclusive features **ElementsKit Elementor addon** has unique and powerf
 
 
 == Layoutkit Elementor Template library ==
-ElementsKit page builder addons offers over 112+ ready-made template pages and 500+ built-in sections.
+ElementsKit page builder addons offers over 28+ ready-made template pages.
 
-== 500+ Readymade Section ==
-ElementsKit comes with 500+ readymade section blocks. 
+== 791+ Readymade Section ==
+ElementsKit comes with 791+ readymade section blocks. 
 
 == Modular based and Lightweight ==
 ElementsKit is a Modular-based plugin, it is built with optimization in mind.
@@ -413,7 +414,7 @@ ElementsKit is brought to you by Wpmet, a name **trusted by 10,00,000 satisfied 
  - 📂 [Browse Changelogs](https://wpmet.com/plugin/elementskit/roadmaps/#updates)
 
 
-###  😍 LOVE ShopEngine?
+###  😍 LOVE ElementsKit?
   
 👉 Stay Updated with our [Youtube Channel](https://www.youtube.com/c/Wpmet/videos)
 
@@ -427,7 +428,9 @@ If you like using ElementsKit Elementor addon, then consider checking out our ot
 
 👉 [ShopEngine](https://wpmet.com/plugin/shopengine/)
 👉 [MetForm](https://wpmet.com/plugin/metform/)
-👉 [GetGenie Ai](https://wordpress.org/plugins/getgenie) 
+👉 [GetGenie Ai](https://wordpress.org/plugins/getgenie)
+👉 [GutenKit](https://wpmet.com/plugin/gutenkit/)
+👉  EmailKit
 👉 [Wp Social](https://wpmet.com/plugin/wp-social/) 
 👉 [Wp Fundraising](https://products.wpmet.com/crowdfunding/) 
 👉 [Wp Ultimate Review](https://products.wpmet.com/review/) 
@@ -437,6 +440,34 @@ Visit  [wpmet](https://wpmet.com/)  to learn more about how to get the best of W
 
 
 == Changelog ==
+ElementsKit Elementor Addons Version: 3.2.3 (2024-07-27)
+Added: Support for `is_dynamic_content()`
+
+ElementsKit Elementor Addons Version: 3.2.2 (2024-07-24)
+Fixed: Warning notice on block editor
+
+ElementsKit Elementor Addons Version: 3.2.1 (2024-07-15)
+Improved: Widget area method ajax security
+Fixed: Remove unused code for client logo `arrow typography` and add condition for position `popover toggle`
+Fixed: Funfact widget text alignment issue
+
+ElementsKit Elementor Addons Version: 3.2.0 (2024-06-09)
+Improved: Enhanced security in dynamic content module
+Improved: Performance in dynamic content module
+Fixed: Missing string translation issue
+Fixed: Compatibility issue between team widget popup and elementor loop carousel
+Fixed: Template library button compatibility with container
+Fixed: Minor bugs & improvements
+
+ElementsKit Elementor Addons Version: 3.1.4 (2024-05-20)
+Improved: Social share widget `crawlable` for SEO
+Fixed: Page list widget 'nofollow' issue
+Fixed: Elementor popup not working inside advanced widget
+
+ElementsKit Elementor Addons Version: 3.1.3 (2024-04-28)
+Improved: Image accordion widget sanitization
+Fixed: Nav menu widget indicator responsive issue
+
 ElementsKit Elementor Addons Version: 3.1.2 (2024-04-22)
 Fixed: Add new form button compatibility with gravity form
 Fixed: Template select field not working in protected content widget

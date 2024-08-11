@@ -1,5 +1,5 @@
 /*!
- * PureMetaFields - v1.3 - 2022-03-12
+ * PureMetaFields - v1.3.1 - 2022-03-12
  * https://tpmetabox.net
  * Copyright (c) 2022
  * Licensed GPLv2+
@@ -23,7 +23,7 @@
  }
 
  .tm-meta-column-3:not(#side-sortables .tm-meta-wrapper) .tm-field-row:not(#side-sortables .tm-meta-wrapper){
-    flex: 0 0 31.33%;
+    flex: 0 0 31.3.13%;
  }
 
  .tm-meta-column-4:not(#side-sortables .tm-meta-wrapper) .tm-field-row:not(#side-sortables .tm-meta-wrapper){

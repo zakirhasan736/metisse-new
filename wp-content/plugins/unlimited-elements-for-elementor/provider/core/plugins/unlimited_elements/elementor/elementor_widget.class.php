@@ -523,12 +523,12 @@ class UniteCreatorElementorWidget extends Widget_Base {
     	 if($this->isBGWidget == false){
 
 	    	//add multisource condition
-			
+
     	 	$arrSection = array(
                 'label' => $itemsLabel
     	 	);
-			
-			
+
+
 	    	if($itemsType == "multisource" && GlobalsUC::$isProVersion){
 
 	    		$condition = array($this->listingName."_source"=>"items");
@@ -1057,7 +1057,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
     		break;
     		case UniteCreatorDialogParam::PARAM_POST_SELECT:
 
-    			$placeholder = "All--Posts";
+    			$placeholder = "All Posts";
 
 				$loaderText = __("Loading Data...", "unlimited-elements-for-elementor");
 				$loaderText = UniteFunctionsUC::encodeContent($loaderText);
@@ -1070,7 +1070,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
     		break;
     		case UniteCreatorDialogParam::PARAM_TERM_SELECT:
 
-    			$placeholder = "All--Terms";
+    			$placeholder = "All Terms";
 
     			$loaderText = __("Loading Data...", "unlimited-elements-for-elementor");
 				$loaderText = UniteFunctionsUC::encodeContent($loaderText);
@@ -2034,7 +2034,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
      * add image sizes control
      */
     private function addImageSizesControl($paramImage, $objControls){
-		
+
     	$param = HelperProviderUC::getImageSizesParamFromPostListParam($paramImage);
 
     	$this->addElementorParamUC($param, $objControls);
@@ -2087,7 +2087,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
      * get gallery param default items
      */
     private function getGalleryParamDefaultItems(){
-		
+
     	$arrItems = $this->objAddon->getProcessedItemsData(UniteCreatorParamsProcessor::PROCESS_TYPE_OUTPUT);
     	if(empty($arrItems))
     		$arrItems = array();
@@ -2228,7 +2228,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
 
     	$objPagination = new UniteCreatorElementorPagination();
     	$objPagination->addElementorSectionControls($this, $postListParam);
-		
+
     }
 
     /**
@@ -2376,7 +2376,6 @@ class UniteCreatorElementorWidget extends Widget_Base {
      */
     protected function addFreeVersionCTAControl(){
 
-
     	if(GlobalsUC::$isProVersion == true)
     		return(false);
 
@@ -2414,7 +2413,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
      * register controls with not consolidated addon
      */
    protected function ucRegisterControls_addon(){
-		
+
    		//$name = $this->objAddon->getAlias();
 
    		//check low memory
@@ -2499,10 +2498,10 @@ class UniteCreatorElementorWidget extends Widget_Base {
 	          		if($type === UniteCreatorDialogParam::PARAM_POSTS_LIST){
 	          			$hasPostsList = true;
 	          			$postListParam = $param;
-	
+
 	          			$showImageSizes = UniteFunctionsUC::getVal($postListParam, "show_image_sizes");
 	          			$showImageSizes = UniteFunctionsUC::strToBool($showImageSizes);
-						
+
 	          			if($showImageSizes == true)
 	          				$this->addImageSizesControl($postListParam, $this->objControls);
 
@@ -2600,7 +2599,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
 
           	$forWooCommerce = UniteFunctionsUC::getVal($postListParam, "for_woocommerce_products");
           	$forWooCommerce = UniteFunctionsUC::strToBool($forWooCommerce);
-			
+
           	if($forWooCommerce == true)
           		$labelPosts = esc_html__("Products Query", "unlimited-elements-for-elementor");
 			else
@@ -2623,7 +2622,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
 
           		$this->putListingSections($listingParam);
           }
-		
+
           //add no attributes section
          if($isNoSettings == true){
 
@@ -2655,12 +2654,12 @@ class UniteCreatorElementorWidget extends Widget_Base {
           if($isFontsEnabled == true)
           		$this->addFontControlsUC();
 
-		
+
           //add pagination section if needed
-          
+
           if($hasPostsList == true){
           		$this->addPaginationControls($postListParam);
-			
+
           }else if($hasListing == true){
 
           	$enablePagination = UniteFunctionsUC::getVal($listingParam, "enable_pagination");
@@ -2675,11 +2674,11 @@ class UniteCreatorElementorWidget extends Widget_Base {
           	$listingName = $listingParam["name"];
 
           	$listingParam["condition"] = array($listingName."_source"=>array("posts","products"));
-		
+
           	if($enablePagination == true)
           		$this->addPaginationControls($listingParam);
           }
-		
+
           $showMore = false;
           if($hasPostsList == true || $hasListing == true)
           	$showMore = true;
@@ -2833,7 +2832,7 @@ class UniteCreatorElementorWidget extends Widget_Base {
         }
 
         //woocommerce
-		
+
         $isWooActive = UniteCreatorWooIntegrate::isWooActive();
         if($isWooActive == true){
 
@@ -2845,8 +2844,8 @@ class UniteCreatorElementorWidget extends Widget_Base {
 	        		'condition'=>array($name."_source"=>"products")
 	              )
 	        );
-			
-	        
+
+
 	        $postParam = $listingParam;
 
 	        $postParam["type"] = UniteCreatorDialogParam::PARAM_POSTS_LIST;
@@ -3319,10 +3318,17 @@ class UniteCreatorElementorWidget extends Widget_Base {
      * get global colors array if missing
      */
     public static function getGlobalColors(){
-
+		
     	if(!empty(self::$arrGlobalColors))
     		return(false);
-
+		
+    	//don't run on woocommerce cart page - cause some weird elementor bug
+    	
+    	$isCartOrCheckoutPage = UniteCreatorWooIntegrate::isCartOrCheckoutPage();
+    	
+    	if($isCartOrCheckoutPage == true)
+    		return(array());
+    	
     	self::$arrGlobalColors = array();
 
 		$plugin = \Elementor\Plugin::$instance;
@@ -3343,8 +3349,11 @@ class UniteCreatorElementorWidget extends Widget_Base {
 		if(method_exists($dataManager,"run") == false)
 			return(false);
 
-		$arrColors = $dataManager->run("globals/colors");
-
+		
+		//this function cause items to dissapear from woo cart page
+			
+		$arrColors = $dataManager->run("globals/colors");	
+		
 		if(empty($arrColors))
 			return(false);
 
@@ -3761,32 +3770,35 @@ class UniteCreatorElementorWidget extends Widget_Base {
      */
     protected function ucRenderByAddon($objAddon){
 
+    	
     	try{
-
+	
 	    	if(empty($objAddon)){
 	    		$this->putAddonNotExistErrorMesssage();
 	    		return(false);
 	    	}
-		
+	        
+	    	
 	    	GlobalsProviderUC::$renderPlatform = GlobalsProviderUC::RENDER_PLATFORM_ELEMENTOR;
 	    	
 	    	GlobalsUnlimitedElements::$currentRenderingWidget = $this;
 
 	    	$arrAllSettings = $this->get_settings_for_display();
-			
+
 	    	//check if has dynamic
 
 	    	$arrDynamicSettings = UniteFunctionsUC::getVal($arrAllSettings, "__dynamic__");
-			
+
 	    	if(!empty($arrDynamicSettings))
 	    		$this->hasDynamicSettings = true;
 
 	    	$arrValues = $this->getSettingsValuesUC($arrAllSettings);
-			
+
 	        $widgetID = $this->get_id();
 
 	        $addonTitle = $objAddon->getTitle();
-
+			
+	        
 	        if(GlobalsProviderUC::$isUnderNoWidgetsToDisplay == true){
 	        	echo "<!-- skip widget output: {$addonTitle} -->\n";
 	        	return(false);
@@ -3920,7 +3932,9 @@ class UniteCreatorElementorWidget extends Widget_Base {
 
 	        	$output->processIncludes("js");
 	        }
-
+			
+	        
+	        
 	        $htmlOutput = $output->getHtmlBody($scriptsHardCoded, $putCssIncludesInBody,true,$params);
 
         	echo UniteProviderFunctionsUC::escCombinedHtml($htmlOutput);

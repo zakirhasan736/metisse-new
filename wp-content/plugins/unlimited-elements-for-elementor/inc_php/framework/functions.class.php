@@ -23,7 +23,10 @@ class UniteFunctionsUC{
 	 * throw error
 	 */
 	public static function throwError($message, $code = 0){
-
+		
+		if($code === null)
+			$code = 0;
+		
 		throw new Exception($message, $code);
 	}
 
@@ -198,7 +201,27 @@ class UniteFunctionsUC{
 
 		return($firstValue);
 	}
-
+	
+	/**
+	 * the path is delimited by a dot: field3.2.1
+	 */
+	public static function getArrayValueByPath($arrData, $path){
+	  
+	  if(isset($arrData[$path]))
+	  	return($arrData[$path]);
+		
+	  $current = $arrData;
+	  $pathSegments = explode(".", $path);
+	
+	  foreach ($pathSegments as $segment) {
+	    if (isset($current[$segment])) {
+	      $current = $current[$segment];
+	    } else 
+	      return null; // Return null if a segment is not found
+	  }
+	
+	  return $current;
+	}	
 
 	/**
 	 * get first not empty key from array
@@ -213,7 +236,8 @@ class UniteFunctionsUC{
 		return("");
 	}
 
-
+	
+	
 	/**
 	 * filter array, leaving only needed fields - also array
 	 *
@@ -341,7 +365,23 @@ class UniteFunctionsUC{
 		return($arrOutput);
 	}
 
-
+	/**
+	 * convert simple array to simple assoc items array example: 
+	 * first,second,third to title:first, title:second, title:third
+	 */
+	public static function arrayToArrAssocItems($arr, $fieldName){
+		
+		if(empty($arr))
+			return(array());
+		
+		$arrAssoc = array();
+		foreach($arr as $item)
+			$arrAssoc[] = array($fieldName=>$item);
+		
+		return($arrAssoc);
+	}
+	
+	
 	/**
 	 *
 	 * Convert array to assoc array by some field
@@ -881,8 +921,33 @@ class UniteFunctionsUC{
 
 
 	public static function z_____________STRINGS_____________(){}
+	
+	/**
+	 * comma sparated to array
+	 */
+	public static function csvToArray($strCsv){
+		
+		if(empty($strCsv))
+			return(array());
+		
+		if(is_string($strCsv) == false)
+			return(array());
+			
+		$strCsv = trim($strCsv);
+			
+		$arr = explode(",", $strCsv);
+		
+		if(empty($arr))
+			return(array());
+		
+		foreach($arr as $index => $str) 
+			$arr[$index] = trim($str);
+		
+		
+		return($arr);
+	}
 
-
+	
 	/**
 	 * add tabs to strign lines
 	 */
@@ -1254,7 +1319,7 @@ class UniteFunctionsUC{
 	 * maybe json decode
 	 */
 	public static function maybeCsvDecode($str){
-
+		
 		$str = trim($str);
 
 		if(empty($str))
@@ -1566,7 +1631,7 @@ class UniteFunctionsUC{
 				$position = 0;
 				$tags = array();
 
-				ob_start();
+				self::obStart();
 
 				while ($printedLength < $maxLength && preg_match('{</?([a-z]+)[^>]*>|&#?[a-zA-Z0-9]+;}', $html, $match, PREG_OFFSET_CAPTURE, $position)){
 
@@ -1953,9 +2018,12 @@ class UniteFunctionsUC{
 	 * @param $val
 	 */
 	public static function validateIDsList($val, $fieldName=""){
-
+		
+		if(is_array($val))
+			$val = implode(",", $val);
+		
 		$isValid = self::isValidIDsList($val);
-
+		
 		if($isValid == false)
 			self::throwError("Field <b>$fieldName</b> allow only numbers and comas.");
 
@@ -2009,7 +2077,7 @@ class UniteFunctionsUC{
 
 		if(empty($fieldName))
 			$fieldName = "Field";
-
+		
 		if(self::isAlphaNumeric($val) == false)
 			self::throwError("Field <b>$fieldName</b> allow only english words, numbers and underscore.");
 
@@ -2375,7 +2443,7 @@ class UniteFunctionsUC{
 	 * clear debug file
 	 */
 	public static function clearDebug($filepath = "debug.txt"){
-
+		
 		if(file_exists($filepath))
 			unlink($filepath);
 	}
@@ -2430,7 +2498,10 @@ class UniteFunctionsUC{
 			if(file_exists($filepath) == false)
 				continue;
 
-			unlink($filepath);
+			if(is_dir($filepath))
+				self::deleteDir($filepath);
+			else
+				unlink($filepath);
 		}
 
 	}
@@ -2872,10 +2943,19 @@ class UniteFunctionsUC{
 		$strDate = date("d M Y",$stamp);	//27 Jun 2009
 		return($strDate);
 	}
-
-
-
+	
+	
 	public static function z___________OTHERS__________(){}
+	
+	
+	/**
+	 * ob start with some debug
+	 */
+	public static function obStart(){
+		
+		//dmp("ob start!!!");
+		ob_start();
+	}
 	
 	/**
 	 * check if max debug available
@@ -3361,29 +3441,14 @@ class UniteFunctionsUC{
 
 	/**
 	 * get user's ip address
+	 * use the most reliable way
 	 */
 	public static function getUserIp(){
-
-		$keys = array(
-			"HTTP_CLIENT_IP",
-			"HTTP_X_FORWARDED_FOR",
-			"HTTP_X_FORWARDED",
-			"HTTP_X_CLUSTER_CLIENT_IP",
-			"HTTP_FORWARDED_FOR",
-			"HTTP_FORWARDED",
-			"REMOTE_ADDR",
-		);
-
-		foreach($keys as $key){
-			$value = UniteFunctionsUC::getVal($_SERVER, $key);
-
-			if($value && filter_var($value, FILTER_VALIDATE_IP)){
-				return $value;
-			}
-		}
-
-		// fallback to local ip
-		return "127.0.0.1";
+		
+		if(isset($_SERVER["REMOTE_ADDR"]))
+			return($_SERVER["REMOTE_ADDR"]);
+		
+		return("127.0.0.1");
 	}
 
 }

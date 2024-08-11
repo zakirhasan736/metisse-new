@@ -9,6 +9,7 @@
  */
 
 use Automattic\Jetpack\Constants;
+use Automattic\WooCommerce\Internal\Utilities\HtmlSanitizer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -469,7 +470,7 @@ function wc_get_loop_class() {
 	$loop_index = wc_get_loop_prop( 'loop', 0 );
 	$columns    = absint( max( 1, wc_get_loop_prop( 'columns', wc_get_default_products_per_row() ) ) );
 
-	$loop_index ++;
+	++$loop_index;
 	wc_set_loop_prop( 'loop', $loop_index );
 
 	if ( 0 === ( $loop_index - 1 ) % $columns || 1 === $columns ) {
@@ -896,10 +897,11 @@ function wc_terms_and_conditions_page_content() {
 		return;
 	}
 
-	$page = get_post( $terms_page_id );
+	$sanitizer = wc_get_container()->get( HtmlSanitizer::class );
+	$page      = get_post( $terms_page_id );
 
 	if ( $page && 'publish' === $page->post_status && $page->post_content && ! has_shortcode( $page->post_content, 'woocommerce_checkout' ) ) {
-		echo '<div class="woocommerce-terms-and-conditions" style="display: none; max-height: 200px; overflow: auto;">' . wc_format_content( wp_kses_post( $page->post_content ) ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<div class="woocommerce-terms-and-conditions" style="display: none; max-height: 200px; overflow: auto;">' . wc_format_content( $sanitizer->styled_post_content( $page->post_content ) ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -1354,7 +1356,7 @@ if ( ! function_exists( 'woocommerce_product_archive_description' ) ) {
 if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 
 	/**
-	 * Get the Add To Basket template for the loop.
+	 * Get the add to cart template for the loop.
 	 *
 	 * @param array $args Arguments.
 	 */
@@ -1363,8 +1365,8 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 
 		if ( $product ) {
 			$defaults = array(
-				'quantity'   => 1,
-				'class'      => implode(
+				'quantity'              => 1,
+				'class'                 => implode(
 					' ',
 					array_filter(
 						array(
@@ -1376,11 +1378,11 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 						)
 					)
 				),
-				'attributes' => array(
+				'aria-describedby_text' => $product->add_to_cart_aria_describedby(),
+				'attributes'            => array(
 					'data-product_id'  => $product->get_id(),
 					'data-product_sku' => $product->get_sku(),
 					'aria-label'       => $product->add_to_cart_description(),
-					'aria-describedby' => $product->add_to_cart_aria_describedby(),
 					'rel'              => 'nofollow',
 				),
 			);
@@ -1710,7 +1712,7 @@ if ( ! function_exists( 'woocommerce_show_product_sale_flash' ) ) {
 if ( ! function_exists( 'woocommerce_template_single_add_to_cart' ) ) {
 
 	/**
-	 * Trigger the single product Add To Basket action.
+	 * Trigger the single product add to cart action.
 	 */
 	function woocommerce_template_single_add_to_cart() {
 		global $product;
@@ -1720,7 +1722,7 @@ if ( ! function_exists( 'woocommerce_template_single_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_simple_add_to_cart' ) ) {
 
 	/**
-	 * Output the simple product Add To Basket area.
+	 * Output the simple product add to cart area.
 	 */
 	function woocommerce_simple_add_to_cart() {
 		wc_get_template( 'single-product/add-to-cart/simple.php' );
@@ -1729,7 +1731,7 @@ if ( ! function_exists( 'woocommerce_simple_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_grouped_add_to_cart' ) ) {
 
 	/**
-	 * Output the grouped product Add To Basket area.
+	 * Output the grouped product add to cart area.
 	 */
 	function woocommerce_grouped_add_to_cart() {
 		global $product;
@@ -1751,7 +1753,7 @@ if ( ! function_exists( 'woocommerce_grouped_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_variable_add_to_cart' ) ) {
 
 	/**
-	 * Output the variable product Add To Basket area.
+	 * Output the variable product add to cart area.
 	 */
 	function woocommerce_variable_add_to_cart() {
 		global $product;
@@ -1776,7 +1778,7 @@ if ( ! function_exists( 'woocommerce_variable_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_external_add_to_cart' ) ) {
 
 	/**
-	 * Output the external product Add To Basket area.
+	 * Output the external product add to cart area.
 	 */
 	function woocommerce_external_add_to_cart() {
 		global $product;
@@ -1798,7 +1800,7 @@ if ( ! function_exists( 'woocommerce_external_add_to_cart' ) ) {
 if ( ! function_exists( 'woocommerce_quantity_input' ) ) {
 
 	/**
-	 * Output the quantity input for Add To Basket forms.
+	 * Output the quantity input for add to cart forms.
 	 *
 	 * @param  array           $args Args for the input.
 	 * @param  WC_Product|null $product Product.
@@ -3158,7 +3160,7 @@ if ( ! function_exists( 'woocommerce_single_variation' ) ) {
 if ( ! function_exists( 'woocommerce_single_variation_add_to_cart_button' ) ) {
 
 	/**
-	 * Output the Add To Basket button for variations.
+	 * Output the add to cart button for variations.
 	 */
 	function woocommerce_single_variation_add_to_cart_button() {
 		wc_get_template( 'single-product/add-to-cart/variation-add-to-cart-button.php' );
@@ -3517,7 +3519,7 @@ if ( ! function_exists( 'wc_display_item_downloads' ) ) {
 		if ( ! empty( $downloads ) ) {
 			$i = 0;
 			foreach ( $downloads as $file ) {
-				$i ++;
+				++$i;
 
 				if ( $args['show_url'] ) {
 					$strings[] = '<strong class="wc-item-download-label">' . esc_html( $file['name'] ) . ':</strong> ' . esc_html( $file['download_url'] );
@@ -3987,9 +3989,32 @@ function wc_get_pay_buttons() {
 
 	echo '<div class="woocommerce-pay-buttons">';
 	foreach ( $supported_gateways as $pay_button_id ) {
-		echo sprintf( '<div class="woocommerce-pay-button__%1$s %1$s" id="%1$s"></div>', esc_attr( $pay_button_id ) );
+		printf( '<div class="woocommerce-pay-button__%1$s %1$s" id="%1$s"></div>', esc_attr( $pay_button_id ) );
 	}
 	echo '</div>';
 }
+
+/**
+ * Update the product archive title to the title of the shop page. Fallback to
+ * 'Shop' if the shop page doesn't exist.
+ *
+ * @param string $post_type_name Post type 'name' label.
+ * @param string $post_type      Post type.
+ *
+ * @return string
+ */
+function wc_update_product_archive_title( $post_type_name, $post_type ) {
+	if ( is_shop() && 'product' === $post_type ) {
+		$shop_page_title = get_the_title( wc_get_page_id( 'shop' ) );
+		if ( $shop_page_title ) {
+			return $shop_page_title;
+		}
+
+		return __( 'Shop', 'woocommerce' );
+	}
+
+	return $post_type_name;
+}
+add_filter( 'post_type_archive_title', 'wc_update_product_archive_title', 10, 2 );
 
 // phpcs:enable Generic.Commenting.Todo.TaskFound

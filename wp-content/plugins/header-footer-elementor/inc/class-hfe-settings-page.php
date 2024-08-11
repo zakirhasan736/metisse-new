@@ -131,7 +131,9 @@ class HFE_Settings_Page {
 	 * @return void
 	 */
 	public function hfe_compatibility_callback() {
-		_e( 'The Elementor Header & Footer Builder plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
+		$message      = __( 'The Elementor Header & Footer Builder plugin need compatibility with your current theme to work smoothly.</br></br>Following are two methods that enable theme support for the plugin.</br></br>Method 1 is selected by default and that works fine almost will all themes. In case, you face any issue with the header or footer template, try choosing Method 2.', 'header-footer-elementor' );
+		$allowed_html = [ 'br' => [] ];
+		echo wp_kses( $message, $allowed_html );
 	}
 
 	/**
@@ -165,7 +167,7 @@ class HFE_Settings_Page {
 		<p class="description">
 			<?php
 			echo sprintf(
-				esc_html__( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</>', 'header-footer-elementor' ),
+				wp_kses( 'Sometimes above methods might not work well with your theme, in this case, contact your theme author and request them to add support for the <a href="https://github.com/Nikschavan/header-footer-elementor/wiki/Adding-Header-Footer-Elementor-support-for-your-theme">plugin.</a>', 'header-footer-elementor' ),
 				'<br>'
 			);
 			?>
@@ -515,16 +517,17 @@ class HFE_Settings_Page {
 	 * @return array
 	 */
 	protected function get_white_label() {
-		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : array();
+		$white_labels = is_callable( 'Astra_Admin_Helper::get_admin_settings_option' ) ? \Astra_Admin_Helper::get_admin_settings_option( '_astra_ext_white_label', true ) : [];
 
 		$theme_name = ! empty( $white_labels['astra']['name'] ) ? $white_labels['astra']['name'] : 'Astra';
 
-		return array(
+		return [
 			'theme_name'  => $theme_name,
+			/* translators: %s: theme name */
 			'description' => ! empty( $white_labels['astra']['description'] ) ? $white_labels['astra']['description'] : esc_html( sprintf( __( 'Powering over 1+ Million websites, %s is loved for the fast performance and ease of use it offers. It is suitable for all kinds of websites like blogs, portfolios, business, and WooCommerce stores.', 'header-footer-elementor' ), esc_html( $theme_name ) ) ),
 			'theme_icon'  => ! empty( $white_labels['astra']['icon'] ) ? $white_labels['astra']['icon'] : '',
 			'author_url'  => ! empty( $white_labels['astra']['author_url'] ) ? $white_labels['astra']['author_url'] : 'https://wpastra.com/',
-		);
+		];
 	}
 
 	/**
@@ -549,6 +552,7 @@ class HFE_Settings_Page {
 
 				<p><?php esc_html_e( 'Trusted by more than 1+ Million users, Elementor Header & Footer Builder is a modern way to build advanced navigation for your website.', 'header-footer-elementor' ); ?></p>
 
+				<?php /* translators: %s: theme name */ ?>
 				<p><?php printf( esc_html__( 'This plugin is brought to you by the same team behind the popular WordPress theme %s and a series of Ultimate Addons plugins.', 'header-footer-elementor' ), esc_html( $white_labels['theme_name'] ) ); ?>
 
 			</div>

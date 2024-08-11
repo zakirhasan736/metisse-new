@@ -5,12 +5,11 @@ namespace MailPoet\EmailEditor\Integrations\Core\Renderer\Blocks;
 if (!defined('ABSPATH')) exit;
 
 
-use MailPoet\EmailEditor\Engine\Renderer\ContentRenderer\BlockRenderer;
 use MailPoet\EmailEditor\Engine\SettingsController;
 use MailPoet\EmailEditor\Integrations\Utils\DomDocumentHelper;
 
-class Image implements BlockRenderer {
-  public function render($blockContent, array $parsedBlock, SettingsController $settingsController): string {
+class Image extends AbstractBlockRenderer {
+  protected function renderContent($blockContent, array $parsedBlock, SettingsController $settingsController): string {
     $parsedHtml = $this->parseBlockContent($blockContent);
 
     if (!$parsedHtml) {
@@ -74,7 +73,7 @@ class Image implements BlockRenderer {
       $borderStyles['box-sizing'] = 'border-box';
     }
 
-    return $this->addStyleToElement($blockContent, ['tag_name' => 'img'], $settingsController->convertStylesToString($borderStyles));
+    return $this->addStyleToElement($blockContent, ['tag_name' => 'img'], \WP_Style_Engine::compile_css($borderStyles, ''));
   }
 
   /**
@@ -89,12 +88,12 @@ class Image implements BlockRenderer {
       $height = $styles['height'] ?? null;
       if ($height && $height !== 'auto' && is_numeric($settingsController->parseNumberFromStringWithPixels($height))) {
         $height = $settingsController->parseNumberFromStringWithPixels($height);
-        $html->set_attribute('height', $height);
+        $html->set_attribute('height', esc_attr($height));
       }
 
       if (isset($parsedBlock['attrs']['width'])) {
         $width = $settingsController->parseNumberFromStringWithPixels($parsedBlock['attrs']['width']);
-        $html->set_attribute('width', $width);
+        $html->set_attribute('width', esc_attr($width));
       }
       $blockContent = $html->get_updated_html();
     }
@@ -114,7 +113,7 @@ class Image implements BlockRenderer {
     ];
 
     $styles['font-size'] = $parsedBlock['email_attrs']['font-size'] ?? $themeData['styles']['typography']['fontSize'];
-    return $settingsController->convertStylesToString($styles);
+    return \WP_Style_Engine::compile_css($styles, '');
   }
 
   /**
@@ -138,7 +137,6 @@ class Image implements BlockRenderer {
 
     $styles['width'] = '100%';
     $align = $parsedBlock['attrs']['align'] ?? 'left';
-    $marginTop = $parsedBlock['email_attrs']['margin-top'] ?? '0px';
 
     return '
       <table
@@ -146,24 +144,24 @@ class Image implements BlockRenderer {
         border="0"
         cellpadding="0"
         cellspacing="0"
-        style="' . $settingsController->convertStylesToString($styles) . '"
+        style="' . esc_attr(\WP_Style_Engine::compile_css($styles, '')) . '"
         width="100%"
       >
         <tr>
-          <td align="' . $align . '">
+          <td align="' . esc_attr($align) . '">
             <table
               role="presentation"
               border="0"
               cellpadding="0"
               cellspacing="0"
-              style="' . $settingsController->convertStylesToString($wrapperStyles) . '"
-              width="' . $wrapperWidth . '"
+              style="' . esc_attr(\WP_Style_Engine::compile_css($wrapperStyles, '')) . '"
+              width="' . esc_attr($wrapperWidth) . '"
             >
               <tr>
-                <td style="padding-top:' . $marginTop . '">{image_content}</td>
+                <td>{image_content}</td>
               </tr>
               <tr>
-                <td style="' . $captionStyles . '">{caption_content}</td>
+                <td style="' . esc_attr($captionStyles) . '">{caption_content}</td>
               </tr>
             </table>
           </td>
@@ -179,10 +177,10 @@ class Image implements BlockRenderer {
   private function addStyleToElement($blockContent, array $tag, string $style): string {
     $html = new \WP_HTML_Tag_Processor($blockContent);
     if ($html->next_tag($tag)) {
-      $elementStyle = $html->get_attribute('style');
+      $elementStyle = $html->get_attribute('style') ?? '';
       $elementStyle = !empty($elementStyle) ? (rtrim($elementStyle, ';') . ';') : ''; // Adding semicolon if it's missing
       $elementStyle .= $style;
-      $html->set_attribute('style', $elementStyle);
+      $html->set_attribute('style', esc_attr($elementStyle));
       $blockContent = $html->get_updated_html();
     }
 
@@ -197,7 +195,7 @@ class Image implements BlockRenderer {
     if ($html->next_tag($tag)) {
       $elementStyle = $html->get_attribute('style') ?? '';
       $elementStyle = preg_replace('/' . $styleName . ':(.?[0-9]+px)+;?/', '', $elementStyle);
-      $html->set_attribute('style', $elementStyle);
+      $html->set_attribute('style', esc_attr($elementStyle));
       $blockContent = $html->get_updated_html();
     }
 
@@ -210,15 +208,21 @@ class Image implements BlockRenderer {
    */
   private function parseBlockContent(string $blockContent): ?array {
     // If block's image is not set, we don't need to parse the content
-    if (empty($blockContent)) return null;
+    if (empty($blockContent)) {
+      return null;
+    }
 
     $domHelper = new DomDocumentHelper($blockContent);
 
     $figureTag = $domHelper->findElement('figure');
-    if (!$figureTag) return null;
+    if (!$figureTag) {
+      return null;
+    }
 
     $imgTag = $domHelper->findElement('img');
-    if (!$imgTag) return null;
+    if (!$imgTag) {
+      return null;
+    }
 
     $imageSrc = $domHelper->getAttributeValue($imgTag, 'src');
     $imageHtml = $domHelper->getOuterHtml($imgTag);

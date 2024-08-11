@@ -5,6 +5,69 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.2] - 2024-07-22
+### Changed
+- Update dependencies. [#38402]
+
+## [3.4.1] - 2024-07-08
+### Changed
+- Updated package dependencies. [#38132]
+
+## [3.4.0] - 2024-06-27
+### Added
+- Add on-demand backups feature in the backup package [#37998]
+
+## [3.3.17] - 2024-06-24
+### Changed
+- Update backup header cards layout for responsive design [#37944]
+
+## [3.3.16] - 2024-06-17
+### Changed
+- Updated package dependencies. [#37796]
+
+## [3.3.15] - 2024-06-10
+### Changed
+- Updated package dependencies. [#37669]
+
+## [3.3.14] - 2024-06-03
+### Changed
+- Remove the 'jetpack-identity-crisis' dependency. [#36968]
+
+## [3.3.13] - 2024-05-27
+### Changed
+- Update dependencies. [#37323]
+
+## [3.3.12] - 2024-05-20
+### Changed
+- Updated package dependencies. [#37379] [#37380] [#37382]
+
+## [3.3.11] - 2024-05-09
+### Changed
+- Update dependencies. [#37280]
+
+## [3.3.10] - 2024-05-06
+### Added
+- Add missing package dependencies. [#37141]
+
+### Changed
+- Updated package dependencies. [#37147]
+
+## [3.3.9] - 2024-04-25
+### Changed
+- Internal updates.
+
+## [3.3.8] - 2024-04-22
+### Changed
+- Internal updates.
+
+## [3.3.7] - 2024-04-15
+### Changed
+- Internal updates.
+
+## [3.3.6] - 2024-04-08
+### Changed
+- Updated package dependencies. [#36760]
+
 ## [3.3.5] - 2024-04-01
 ### Changed
 - Update dependencies. [#36655]
@@ -597,6 +660,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add API endpoints and Jetpack Backup package for managing Help…
 
+[3.4.2]: https://github.com/Automattic/jetpack-backup/compare/v3.4.1...v3.4.2
+[3.4.1]: https://github.com/Automattic/jetpack-backup/compare/v3.4.0...v3.4.1
+[3.4.0]: https://github.com/Automattic/jetpack-backup/compare/v3.3.17...v3.4.0
+[3.3.17]: https://github.com/Automattic/jetpack-backup/compare/v3.3.16...v3.3.17
+[3.3.16]: https://github.com/Automattic/jetpack-backup/compare/v3.3.15...v3.3.16
+[3.3.15]: https://github.com/Automattic/jetpack-backup/compare/v3.3.14...v3.3.15
+[3.3.14]: https://github.com/Automattic/jetpack-backup/compare/v3.3.13...v3.3.14
+[3.3.13]: https://github.com/Automattic/jetpack-backup/compare/v3.3.12...v3.3.13
+[3.3.12]: https://github.com/Automattic/jetpack-backup/compare/v3.3.11...v3.3.12
+[3.3.11]: https://github.com/Automattic/jetpack-backup/compare/v3.3.10...v3.3.11
+[3.3.10]: https://github.com/Automattic/jetpack-backup/compare/v3.3.9...v3.3.10
+[3.3.9]: https://github.com/Automattic/jetpack-backup/compare/v3.3.8...v3.3.9
+[3.3.8]: https://github.com/Automattic/jetpack-backup/compare/v3.3.7...v3.3.8
+[3.3.7]: https://github.com/Automattic/jetpack-backup/compare/v3.3.6...v3.3.7
+[3.3.6]: https://github.com/Automattic/jetpack-backup/compare/v3.3.5...v3.3.6
 [3.3.5]: https://github.com/Automattic/jetpack-backup/compare/v3.3.4...v3.3.5
 [3.3.4]: https://github.com/Automattic/jetpack-backup/compare/v3.3.3...v3.3.4
 [3.3.3]: https://github.com/Automattic/jetpack-backup/compare/v3.3.2...v3.3.3

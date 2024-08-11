@@ -64,7 +64,6 @@ function UniteSettingsUC(){
 	 * compare control values
 	 */
 	function isInputValuesEqual(controlValue, value) {
-		
 		var isEqual;
 
 		if (jQuery.isArray(value) === true) {
@@ -72,21 +71,13 @@ function UniteSettingsUC(){
 		} else {
 			if (jQuery.isArray(controlValue) === true)
 				isEqual = jQuery.inArray(String(value), controlValue) !== -1;
-			else{
-							
-				//convert boolean (max change)
-				if(value == "true"){
-					
-					value = g_ucAdmin.strToBool(value);
-					controlValue = g_ucAdmin.strToBool(controlValue);
-					
-					isEqual = (controlValue === value);
-					
-				}else{
-					isEqual = (String(controlValue) === String(value));
-				}
-								
-			}
+			else if (value === "true" || value === "false") {
+				value = g_ucAdmin.strToBool(value);
+				controlValue = g_ucAdmin.strToBool(controlValue);
+
+				isEqual = (controlValue === value);
+			} else
+				isEqual = (String(controlValue) === String(value));
 		}
 
 		return isEqual;
@@ -133,7 +124,7 @@ function UniteSettingsUC(){
 				var objTip = jQuery(this);
 
 				return objTip.data("tipsy-gravity") || "s";
-			},
+			}
 		});
 
 		jQuery(document).on("click", ".uc-tip", function () {
@@ -345,9 +336,6 @@ function UniteSettingsUC(){
 				if(source !== "addon" && jQuery.isNumeric(value) === false)
 					value = g_ucAdmin.urlToRelative(value);
 			break;
-			case "post":
-				value = getPostPickerValue(objInput);
-			break;
 			case "items":
 				value = g_temp.objItemsManager.getItemsData();
 			break;
@@ -384,11 +372,17 @@ function UniteSettingsUC(){
 			case "gallery":
 				value = getGalleryValues(objInput);
 			break;
+			case "buttons_group":
+				value = getButtonsGroupValue(objInput);
+			break;
 			case "icon":
 				value = getIconInputData(objInput);
 			break;
 			case "link":
 				value = getLinkInputValue(objInput);
+			break;
+			case "post":
+				value = getPostPickerValue(objInput);
 			break;
 			default:
 				//custom settings
@@ -505,7 +499,8 @@ function UniteSettingsUC(){
 	/**
 	 * clear input
 	 */
-	function clearInput(objInput, dataname, checkboxDataName){
+	function clearInput(objInput, dataname, checkboxDataName, skipControl){
+
 		var name = getInputName(objInput);
 		var type = getInputType(objInput);
 		var id = objInput.prop("id");
@@ -640,6 +635,11 @@ function UniteSettingsUC(){
 
 				setPostPickerValue(objInput, defaultValue);
 			break;
+			case "post_ids":
+				defaultValue = objInput.data(dataname);
+
+				setPostIdsPickerValue(objInput, defaultValue);
+			break;
 			case "items":
 				if(dataname != "initval")
 					g_temp.objItemsManager.clearItemsPanel();
@@ -657,7 +657,14 @@ function UniteSettingsUC(){
 				objInput.val(defaultValue);
 			break;
 			case "gallery":
-				clearGallery(objInput);
+				defaultValue = objInput.data(dataname);
+
+				setGalleryValues(objInput, defaultValue);
+			break;
+			case "buttons_group":
+				defaultValue = objInput.data(dataname);
+
+				setButtonsGroupValue(objInput, defaultValue);
 			break;
 			case "group_selector":
 			case "map":
@@ -685,7 +692,9 @@ function UniteSettingsUC(){
 
 		objInput.removeData("unite_setting_oldvalue");
 
-		processControlSettingChange(objInput);
+		if(skipControl !== true)
+			processControlSettingChange(objInput);
+
 	}
 
 
@@ -693,9 +702,13 @@ function UniteSettingsUC(){
 	 * set input value
 	 */
 	function setInputValue(objInput, value, objValues){
+		
 		var name = getInputName(objInput);
 		var type = getInputType(objInput);
 		var id = objInput.prop("id");
+
+		if(value == g_vars.NOT_UPDATE_OPTION)
+			return(false);
 
 		switch(type){
 			case "select":
@@ -781,20 +794,21 @@ function UniteSettingsUC(){
 				setIconInputValue(objInput, value);
 			break;
 			case "image":
+								 
 				if (jQuery.isPlainObject(value) === false) {
 					if (jQuery.isNumeric(value) === true) {
 						value = {
 							id: value,
-							url: g_ucAdmin.getVal(objValues, name + "_url"),
+							url: g_ucAdmin.getVal(objValues, name + "_url")
 						};
 					} else {
 						value = {
 							id: g_ucAdmin.getVal(objValues, name + "_imageid"),
-							url: value,
+							url: value
 						};
 					}
 				}
-
+								
 				setImageInputValue(objInput, value);
 			break;
 			case "link":
@@ -802,6 +816,9 @@ function UniteSettingsUC(){
 			break;
 			case "post":
 				setPostPickerValue(objInput, value);
+			break;
+			case "post_ids":
+				setPostIdsPickerValue(objInput, value);
 			break;
 			case "items":
 				g_temp.objItemsManager.setItemsFromData(value);
@@ -815,6 +832,9 @@ function UniteSettingsUC(){
 			break;
 			case "gallery":
 				setGalleryValues(objInput, value);
+			break;
+			case "buttons_group":
+				setButtonsGroupValue(objInput, value);
 			break;
 			case "group_selector":
 			case "map":
@@ -831,6 +851,7 @@ function UniteSettingsUC(){
 
 					//trace error
 					if(success == false){
+						trace(objInput);
 						trace("for setvalue - wrong type: " + type);
 					}
 				}
@@ -850,8 +871,11 @@ function UniteSettingsUC(){
 
 		var objInputs = getObjInputs();
 
-		jQuery.each(objInputs, function () {
-			clearInput(jQuery(this), dataname, checkboxDataName);
+		jQuery.each(objInputs, function (index, input) {
+
+			var objInput = jQuery(input);
+
+			clearInput(objInput, dataname, checkboxDataName, true);
 		});
 
 		t.enableTriggerChange();
@@ -915,6 +939,7 @@ function UniteSettingsUC(){
 	 * set values, clear first
 	 */
 	this.setValues = function (objValues) {
+		
 		validateInited();
 
 		t.disableTriggerChange();
@@ -1028,11 +1053,13 @@ function UniteSettingsUC(){
 			},
 			change: function () {
 				funcChange(null, objWrapper);
-			},
+			}
 		});
 
 		objInput.on("input", function () {
 			objSlider.slider("value", objInput.val());
+
+			funcChange(null, objWrapper);
 		});
 
 		setUnitsPickerChangeHandler(objWrapper, function () {
@@ -1078,7 +1105,6 @@ function UniteSettingsUC(){
 	 * init select2
 	 */
 	function initSelect2(objInput, options) {
-		var isMultiple = objInput.prop("multiple") === true;
 		var dropdownParent = objInput.closest(".unite-setting-input");
 
 		if (dropdownParent.length === 0)
@@ -1089,7 +1115,7 @@ function UniteSettingsUC(){
 
 		var settings = jQuery.extend({
 			dropdownParent: dropdownParent,
-			closeOnSelect: isMultiple === false,
+			closeOnSelect: true,
 			minimumResultsForSearch: 10,
 			templateResult: prepareTemplate,
 			templateSelection: prepareTemplate,
@@ -1100,15 +1126,19 @@ function UniteSettingsUC(){
 			.on("change", function () {
 				appendPlusButton();
 
-				t.onSettingChange(null, objInput, true);
-			}).on("select2:closing", function () {
-			// hide tipsy
-			jQuery(".select2-dropdown").find(".uc-tip").trigger("mouseleave");
-		});
+				t.onSettingChange(null, objInput);
+			})
+			.on("select2:closing", function () {
+				// hide tipsy
+				jQuery(".select2-dropdown").find(".uc-tip").trigger("mouseleave");
+			});
 
 		appendPlusButton();
 
 		function appendPlusButton() {
+			if (settings.ajax)
+				return;
+
 			var objOptions = objInput.find("option");
 			var objSelectedOptions = objOptions.filter(":selected");
 
@@ -1249,7 +1279,7 @@ function UniteSettingsUC(){
 
 				g_colorPickerWrapper.css({
 					"left": posLeft,
-					"top": posTop,
+					"top": posTop
 				});
 			});
 		}
@@ -1371,7 +1401,7 @@ function UniteSettingsUC(){
 	}
 
 	function _______IMAGE_SETTING_____(){}
-
+	
 	/**
 	 * update image url base
 	 */
@@ -1406,323 +1436,362 @@ function UniteSettingsUC(){
 				t.updateImageFieldState(objInput, urlBase);
 		});
 	}
+	
+	
+	/**
+	 * init image chooser
+	 */
+	t.initImageChooser = function (objWrapper, funcChange) {
+		
+		var source = objWrapper.data("source");
+		
+		var objPreview = objWrapper.find(".unite-setting-image-preview");
+		var objChooseButton = objWrapper.find(".unite-setting-image-choose");
+		var objClearButton = objWrapper.find(".unite-setting-image-clear");
+		var objUrl = objWrapper.find(".unite-setting-image-url");
+		var objSize = objWrapper.find(".unite-setting-image-size");
+		
+		if(source == "addon")
+			objSize = null;
+			
+		// make compatible with widget params dialog
+		if (typeof funcChange !== "function") {
+			funcChange = function (){
+				objUrl.trigger("input");
+			};
+		}
+		
+		objUrl.on("change",function(){
+			objUrl.trigger("input");
+		});
+		
+		objUrl.on("input", function (event) {
+						
+			var url = objUrl.val();
 
+			if (url === "")
+				objPreview.removeAttr("style");
+			else
+				objPreview.css("background-image", "url('" + url + "')");
+
+			// reset image id if the input has been changed manually
+			if (event.originalEvent)
+				objWrapper.data("image-id", null);
+
+			var imageId = objWrapper.data("image-id");
+
+			objUrl.closest(".unite-setting-image-section").toggleClass("unite-hidden", !!imageId);
+			
+			if(objSize)
+				objSize.closest(".unite-setting-image-section").toggleClass("unite-hidden", !imageId);
+			
+		});
+		
+		
+		if(objSize){
+			
+			objSize.on("change", function () {
+				
+				objSize.prop("disabled", true);
+				
+				const data = getImageInputValue(objWrapper);
+				
+				g_ucAdmin.ajaxRequest("get_image_url", data, function (response) {
+					data.url = response.url;
+
+					setImageInputValue(objWrapper, data);
+					
+					funcChange(null, objWrapper);
+				}).always(function () {
+					objSize.prop("disabled", false);
+				});
+			});
+			
+		}
+
+		objChooseButton.on("click", function (event) {
+			
+			event.stopPropagation();
+
+			var source = objWrapper.data("source");
+
+			g_ucAdmin.openAddImageDialog(g_uctext.choose_image, function (imageUrl, imageId) {
+								
+				if (source === "addon")
+					setImageInputValue(objWrapper, imageUrl.url_assets_relative);
+				else
+					setImageInputValue(objWrapper, { id: imageId, url: imageUrl });
+
+				funcChange(null, objWrapper);
+				
+			}, false, source);
+		});
+
+		objClearButton.on("click", function (event) {
+			event.stopPropagation();
+
+			setImageInputValue(objWrapper, "");
+
+			funcChange(null, objWrapper);
+		});
+
+		objPreview.on("click", function () {
+			objChooseButton.trigger("click");
+		});
+	}
+
+	/**
+	 * destroy image chooser
+	 */
+	function destroyImageChoosers() {
+		g_objWrapper.find(".unite-setting-image-preview").off("click");
+		g_objWrapper.find(".unite-setting-image-choose").off("click");
+		g_objWrapper.find(".unite-setting-image-clear").off("click");
+		g_objWrapper.find(".unite-setting-image-url").off("input");
+		g_objWrapper.find(".unite-setting-image-size").off("change");
+	}
+
+	/**
+	 * get image input value
+	 */
+	function getImageInputValue(objWrapper) {
+		var id = objWrapper.data("image-id");
+		var url = objWrapper.find(".unite-setting-image-url").val();
+		var size = objWrapper.find(".unite-setting-image-size").val();
+
+		var data = {
+			id: id,
+			url: g_ucAdmin.urlToRelative(url),
+			size: size
+		};
+
+		return data;
+	}
+
+	/**
+	 * set image input value
+	 */
+	function setImageInputValue(objWrapper, value) {
+		
+		if (typeof value === "string")
+			value = { url: value };
+
+		value.id = value.id || null;
+		value.url = g_ucAdmin.urlToFull(value.url);
+		value.size = value.size || "full";
+
+		objWrapper.data("image-id", value.id);
+		objWrapper.find(".unite-setting-image-url").val(value.url).trigger("input");
+		objWrapper.find(".unite-setting-image-size").val(value.size);
+	}
+	
+	
 
 	function _______GALLERY_____(){}
 
+	/**
+	 * init gallery
+	 */
+	function initGallery(objWrapper, funcChange) {
+		var handleChange = function (values) {
+			setGalleryValues(objWrapper, values);
 
+			funcChange(null, objWrapper);
+		};
+
+		objWrapper.find(".unite-setting-gallery-add").on("click", function () {
+			var values = getGalleryValues(objWrapper);
+
+			openGalleryFrame(values.length > 0 ? "edit" : "add", values, handleChange);
+		});
+
+		objWrapper.find(".unite-setting-gallery-edit").on("click", function () {
+			var values = getGalleryValues(objWrapper);
+
+			openGalleryFrame("edit", values, handleChange);
+		});
+
+		objWrapper.find(".unite-setting-gallery-clear").on("click", function () {
+			var text = jQuery(this).data("text");
+			var confirmed = confirm(text);
+
+			if (confirmed)
+				handleChange([]);
+		});
+	}
 
 	/**
-	 * check if thumbnails container is empty and add emty element if needed
+	 * destroy galleries
 	 */
-	function appendEmptyThumbnailElement(objImageContainer, singleImageClass, noImagesClass){
+	function destroyGalleries() {
+		g_objWrapper.find(".unite-setting-gallery-add").off("click");
+		g_objWrapper.find(".unite-setting-gallery-edit").off("click");
+		g_objWrapper.find(".unite-setting-gallery-clear").off("click");
+	}
 
-		var emptyThumbnailsContainerItemHtml = '<div class="'+singleImageClass+' '+noImagesClass+'"><i class="fa fa-plus"></i></div>';
-		var objEmptyThumbnail = objImageContainer.find('.'+noImagesClass);
-		var objImages = objImageContainer.children();
+	/**
+	 * open gallery frame
+	 */
+	function openGalleryFrame(action, images, onChange) {
+		var states = {
+			add: "gallery-library",
+			edit: "gallery-edit"
+		};
 
-		if(objImages.length == 0 && objEmptyThumbnail.length == 0){
+		var options = {
+			frame: "post",
+			state: states[action],
+			multiple: true
+		};
 
-			objImageContainer.append(emptyThumbnailsContainerItemHtml);
+		if (images.length > 0) {
+			var ids = images.map(function (image) {
+				return image.id;
+			});
 
-			var objImageChooser = objImageContainer.next();
+			var attachments = wp.media.query({
+				type: "image",
+				perPage: -1,
+				post__in: ids,
+				orderby: "post__in",
+				order: "ASC"
+			});
 
-			objImageChooser.removeClass('uc-has-items');
-
+			options.selection = new wp.media.model.Selection(attachments.models, {
+				props: attachments.props.toJSON(),
+				multiple: true
+			});
 		}
 
-	}
+		var frame = wp.media(options);
 
-	/**
-	 * count selected images
-	 */
-	function countSelectedImages(objInput, objClearAllButton, singleImageClass){
+		frame.on("update", function (selection) {
+			var images = [];
 
-		var objImages = objInput.find('.'+singleImageClass).not('.unite-setting-gallery-thumbnail--empty');
-		var objCounter = objInput.find('.unite-setting-gallery-status-title');
-		var hiddenClass = 'uc-hidden';
-		var imagesNum = objImages.length;
+			selection.each(function (image) {
+				images.push({
+					id: image.get("id"),
+					url: g_ucAdmin.urlToRelative(image.get("url")),
+				});
+			});
 
-		if(imagesNum == 0 || !imagesNum){
-
-			objCounter.text(0+' images selected');
-
-			//remove invisble class from 'x' button
-			objClearAllButton.addClass(hiddenClass);
-
-		}else{
-
-			objCounter.text(imagesNum+' images selected');
-
-			//add invisble class from 'x' button
-			objClearAllButton.removeClass(hiddenClass);
-
-		}
-
-	}
-
-	/**
-	 * clear the gallery
-	 */
-	function emptyGallery(objInput, objImageContainer, objClearAllButton, singleImageClass, noImagesClass, noConfirm){
-
-		//check if gallery has items first
-		var objImages = objImageContainer.find('.'+singleImageClass).not('.'+noImagesClass);
-
-		//if no items found then do not run function
-		if(!objImages.length)
-		return(false);
-
-		if(noConfirm == null && confirm("Are you sure you want to delete all images from this gallery?") == false)
-			return(false);
-
-		objImages.remove();
-
-		appendEmptyThumbnailElement(objImageContainer, singleImageClass, noImagesClass);
-
-		countSelectedImages(objInput, objClearAllButton, singleImageClass);
-
-	}
-
-	/**
-	 * check if emty element exist and remove it
-	 */
-	function removeEmptyThumbnail(objInput, noImagesClass){
-
-		var objEmptyThumbnail = objInput.find('.'+noImagesClass);
-
-		if(!objEmptyThumbnail.length)
-		return(false);
-
-		objEmptyThumbnail.remove();
-
-	}
-
-	/**
-	 * single image remove
-	 */
-	function removeCurrentImage(objRemover, objInput, objImageContainer, objClearAllButton, singleImageClass, noImagesClass){
-
-		//find object that needs to be removed by remove icon that was clicked
-		var objImage = objRemover.parents('.'+singleImageClass);
-
-		objImage.remove();
-
-		//update counter
-		countSelectedImages(objInput, objClearAllButton, singleImageClass);
-
-		//append empty thumbnail if needed
-		appendEmptyThumbnailElement(objImageContainer, singleImageClass, noImagesClass);
-
-	}
-
-
-
-	/**
-	 * reorder items in container
-	 */
-	function makeSortable($parent) {
-
-		$parent.sortable({
-			cursor: 'move',
-			tolerance: 'pointer', // Set the tolerance option
-			forcePlaceholderSize: true // Set the forcePlaceholderSize option
-
-		});
-	}
-
-	/**
-	 * on image chooser click
-	 */
-	function appendNewImages(newImagesObject, singleImageClass, singleImageClearIconClass, objImageContainer){
-
-		var numSelected = newImagesObject.length;
-
-		for(var i=0;i<numSelected;i++){
-
-			var imageSrc = newImagesObject[i].url;
-			var dataId = newImagesObject[i].id;
-
-			var imageHtml = '<div class="'+singleImageClass+'" style="background-image: url('+imageSrc+')" data-id="'+dataId+'" data-src="'+imageSrc+'"><span class="'+singleImageClearIconClass+'" title="Remove Current Image"><i class="fa fa-trash"></i></span></div>';
-
-			objImageContainer.append(imageHtml);
-
-		}
-
-	}
-
-	/**
-	 * on image chooser click
-	 */
-	function galleryChooseImage(objInput, objChooser){
-
-		var hasItemsClass = 'uc-has-items';
-		var inputEditClass = 'unite-setting-gallery-edit';
-
-		var isItemsAdded = objChooser.hasClass(inputEditClass) && objChooser.hasClass(hasItemsClass);
-
-		//check if images are alreade added, if so then add new ones only on plus icon click
-		if(isItemsAdded == true)
-		return(false);
-
-		g_ucAdmin.openAddImageDialog(g_uctext.choose_images,function(urlImage){
-
-			//add new images
-			setGalleryValues(objInput, urlImage);
-
-		},true);
-
-		objInput.trigger("change")
-
-	}
-
-	/**
-	 * init the gallery
-	 */
-	function initGallery(objInput){
-
-		var objChooser = objInput.find('.unite-setting-gallery-edit:not(.uc-dragging)');
-		var objImageContainer = objInput.find('.unite-setting-gallery-thumbnails');
-		var objAddImage = objInput.find('.unite-setting-gallery-edit-icon');
-
-		var singleImageClass = 'unite-setting-gallery-thumbnail';
-		var noImagesClass = 'unite-setting-gallery-thumbnail--empty';
-		var singleImageClearIconClass = 'unite-setting-gallery-thumbnail-clear-icon';
-		var singleImageClearIconSelector = '.'+singleImageClearIconClass;
-
-		//check if thumbnails container is empty
-		appendEmptyThumbnailElement(objImageContainer, singleImageClass, noImagesClass);
-
-		var objClearAllButton = objInput.find('.unite-setting-gallery-status-clear-icon');
-
-		//set counter
-		countSelectedImages(objInput, objClearAllButton, singleImageClass);
-
-		//init events
-
-		objInput.on("change",function(){
-
-			t.onSettingChange(null,objInput);
-
+			onChange(images);
 		});
 
-
-		//select first image
-		objChooser.on('click', function(){
-
-			var objChooser = jQuery(this);
-			galleryChooseImage(objInput, objChooser);
-
+		frame.on("content:render:browse", function (browser) {
+			browser.sidebar.on("ready", function () {
+				browser.sidebar.unset("gallery");
+			});
 		});
 
-		objAddImage.on('click', function(){
-			var objChooser = jQuery(this);
-			galleryChooseImage(objInput, objChooser);
-
-		});
-
-
-		//remove current image, use delegate method to click on dyamicly added button
-		objInput.delegate(singleImageClearIconSelector, 'click', function(){
-
-			var objRemover = jQuery(this);
-
-			removeCurrentImage(objRemover, objInput, objImageContainer, objClearAllButton, singleImageClass, noImagesClass);
-
-		});
-
-		//clear all images on clear button click
-		objClearAllButton.on('click', function(){
-
-			emptyGallery(objInput, objImageContainer, objClearAllButton, singleImageClass, noImagesClass);
-
-			objInput.trigger("change");
-		});
-
+		frame.open();
 	}
 
+	/**
+	 * render gallery view
+	 */
+	function renderGalleryView(objWrapper) {
+		var objHeader = objWrapper.find(".unite-setting-gallery-header");
+		var objItems = objWrapper.find(".unite-setting-gallery-items");
+		var objEmpty = objWrapper.find(".unite-setting-gallery-empty");
+		var values = getGalleryValues(objWrapper);
+		var count = values.length;
+
+		objEmpty.toggle(count === 0);
+
+		var title = objHeader.data("text-default");
+
+		if (count === 0)
+			title = objHeader.data("text-none");
+		else if (count === 1)
+			title = objHeader.data("text-one");
+
+		objHeader.text(title.replace("%d", count));
+
+		var html = values
+			.slice(0, 7) // max 7 images
+			.map(function (image) {
+				return '<div class="unite-setting-gallery-item">'
+					+ ' <div class="unite-setting-gallery-image">'
+					+ '  <img src="' + g_ucAdmin.urlToFull(image.url) + '" alt="' + image.id + '" />'
+					+ ' </div>'
+					+ '</div>';
+			})
+			.join("");
+
+		objItems
+			.find(".unite-setting-gallery-item:not(:last)")
+			.remove()
+			.end()
+			.prepend(html);
+	}
 
 	/**
 	 * get gallery values
 	 */
-	function getGalleryValues(objInput){
-
-		var imageArray = [];
-		var objImages = objInput.find('.unite-setting-gallery-thumbnail').not('.unite-setting-gallery-thumbnail--empty');
-
-		if(!objImages.length)
-		return(imageArray);
-
-
-		objImages.each(function(){
-
-			var objImage = jQuery(this);
-			var imageUrl = objImage.data('src');
-			var imageId = objImage.data('id');
-
-			var galleryObjItem = {
-				id: imageId,
-				url: imageUrl
-			}
-			imageArray.push(galleryObjItem);
-
-		});
-
-		return(imageArray);
+	function getGalleryValues(objWrapper) {
+		return objWrapper.data("values") || [];
 	}
-
 
 	/**
 	 * set gallery values
 	 */
-	function setGalleryValues(objInput, value){
+	function setGalleryValues(objWrapper, values) {
+		objWrapper.data("values", values || []);
+
+		renderGalleryView(objWrapper);
+	}
 
 
-		var singleImageClass = 'unite-setting-gallery-thumbnail';
-		var singleImageClearIconClass = 'unite-setting-gallery-thumbnail-clear-icon';
-		var noImagesClass = 'unite-setting-gallery-thumbnail--empty';
-		var objImageContainer = objInput.find('.unite-setting-gallery-thumbnails');
-		var objChooser = objInput.find('.unite-setting-gallery-edit:not(.uc-dragging)');
+	function _______BUTTONS_GROUP_____(){}
 
-		//add new images
-		appendNewImages(value, singleImageClass, singleImageClearIconClass, objImageContainer);
+	/**
+	 * init buttons group
+	 */
+	function initButtonsGroup(objWrapper, funcChange) {
+		objWrapper.find(".unite-setting-button").on("click", function () {
+			var value = jQuery(this).data("value");
 
-		//remove empty thumbnail
-		removeEmptyThumbnail(objInput, noImagesClass);
+			setButtonsGroupValue(objWrapper, value);
 
-		var objClearAllButton = objInput.find('.unite-setting-gallery-status-clear-icon');
-
-		//update counter
-		countSelectedImages(objInput, objClearAllButton, singleImageClass);
-
-		makeSortable(objImageContainer);
-
-		var hasItemsClass = 'uc-has-items';
-		var inputEditClass = 'unite-setting-gallery-edit';
-
-		if(objChooser.hasClass(inputEditClass) == true)
-		objChooser.addClass(hasItemsClass);
-
-		objInput.trigger("change");
-
+			funcChange(null, objWrapper);
+		});
 	}
 
 	/**
-	 * clear the gallery
+	 * destroy buttons groups
 	 */
-	function clearGallery(objInput){
-
-		var objImageContainer = objInput.find('.unite-setting-gallery-thumbnails');
-		var objClearAllButton = objInput.find('.unite-setting-gallery-status-clear-icon');
-		var singleImageClass = 'unite-setting-gallery-thumbnail';
-		var noImagesClass = 'unite-setting-gallery-thumbnail--empty';
-
-		emptyGallery(objInput, objImageContainer, objClearAllButton, singleImageClass, noImagesClass, true)
-
-		trace("clear gallery");
-
+	function destroyButtonsGroups() {
+		g_objWrapper.find(".unite-setting-button").off("click");
 	}
 
+	/**
+	 * get buttons group value
+	 */
+	function getButtonsGroupValue(objWrapper) {
+		return objWrapper.data("value") || null;
+	}
+
+	/**
+	 * set buttons group value
+	 */
+	function setButtonsGroupValue(objWrapper, value) {
+		value = value || null;
+
+		var deselectable = objWrapper.data("deselectable");
+		var selectedValue = objWrapper.find(".unite-setting-button.unite-active").data("value");
+
+		if (deselectable && value === selectedValue)
+			value = null;
+
+		objWrapper
+			.find(".unite-setting-button")
+			.removeClass("unite-active")
+			.filter("[data-value=\"" + value + "\"]")
+			.addClass("unite-active");
+
+		objWrapper.data("value", value);
+	}
 
 
 	function _______SAPS_____(){}
@@ -1785,7 +1854,7 @@ function UniteSettingsUC(){
 	 * init saps tabs
 	 */
 	function initSapsTabs(){
-
+		
 		if(!g_objWrapper){
 			g_objSapTabs = null;
 			return(false);
@@ -1808,25 +1877,32 @@ function UniteSettingsUC(){
 	 * init saps accordion type
 	 */
 	function initSapsAccordion(){
+		
 		var objTabs = g_objWrapper.children(".unite-settings-accordion-saps-tabs").children(".unite-settings-tab");
 		var objAccordions = g_objWrapper.children(".unite-postbox:not(.unite-no-accordion)");
 		var objAccordionTitles = objAccordions.children(".unite-postbox-title");
 
 		objTabs.on("click", function () {
+						
 			var objTab = jQuery(this);
+						
 			var objRoot = objTab.closest(".unite-settings-accordion-saps-tabs");
 			var id = objTab.data("id");
 
 			objRoot.find(".unite-settings-tab").removeClass("unite-active");
 			objTab.addClass("unite-active");
-
-			var objContents = objAccordions.hide().filter("[data-tab='" + id + "']").show();
-
+			
+			objAccordions.hide();
+			
+			var objContents = objAccordions.filter("[data-tab='" + id + "']");
+			objContents.show();
+			
 			if (objContents.filter(".unite-active").length === 0)
 				objContents.filter(":first").find(".unite-postbox-title").trigger("click");
 		});
 
 		objAccordionTitles.on("click", function () {
+			
 			var objRoot = jQuery(this).closest(".unite-postbox");
 			var tab = objRoot.data("tab");
 
@@ -1847,6 +1923,7 @@ function UniteSettingsUC(){
 		if (objTabs.length > 0) {
 			objTabs.filter(":first").trigger("click");
 		}
+		
 		else {
 			objAccordions.show();
 
@@ -2321,7 +2398,7 @@ function UniteSettingsUC(){
 
 				if (iconPos > containerHeight)
 					objContainer.scrollTop(iconPos - (containerHeight / 2 - 50));
-			},
+			}
 		});
 
 		// on filter input
@@ -2420,7 +2497,7 @@ function UniteSettingsUC(){
 		var params = {
 			name: name,
 			icons: arrIcons,
-			template: iconsTemplate,
+			template: iconsTemplate
 		};
 
 		if (optParams)
@@ -2501,133 +2578,6 @@ function UniteSettingsUC(){
 		objInput.val(value).trigger("input");
 	}
 
-
-	function __________IMAGE_CHOOSER__________(){}
-
-	/**
-	 * init image chooser
-	 */
-	t.initImageChooser = function (objWrapper, funcChange) {
-		var objPreview = objWrapper.find(".unite-setting-image-preview");
-		var objChooseButton = objWrapper.find(".unite-setting-image-choose");
-		var objClearButton = objWrapper.find(".unite-setting-image-clear");
-		var objUrl = objWrapper.find(".unite-setting-image-url");
-		var objSize = objWrapper.find(".unite-setting-image-size");
-
-		// make compatible with widget params dialog
-		if (typeof funcChange !== "function") {
-			funcChange = function () {
-				objUrl.trigger("input");
-			};
-		}
-
-		objUrl.on("input", function (event) {
-			var url = objUrl.val();
-
-			if (url === "")
-				objPreview.removeAttr("style");
-			else
-				objPreview.css("background-image", "url('" + url + "')");
-
-			// reset image id if the input has been changed manually
-			if (event.originalEvent)
-				objWrapper.data("image-id", null);
-
-			var imageId = objWrapper.data("image-id");
-
-			objUrl.closest(".unite-setting-image-section").toggleClass("unite-hidden", !!imageId);
-			objSize.closest(".unite-setting-image-section").toggleClass("unite-hidden", !imageId);
-		});
-
-		objSize.on("change", function () {
-			objSize.prop("disabled", true);
-
-			const data = getImageInputValue(objWrapper);
-
-			g_ucAdmin.ajaxRequest("get_image_url", data, function (response) {
-				data.url = response.url;
-
-				setImageInputValue(objWrapper, data);
-
-				funcChange(null, objWrapper);
-			}).always(function () {
-				objSize.prop("disabled", false);
-			});
-		});
-
-		objChooseButton.on("click", function (event) {
-			event.stopPropagation();
-
-			var source = objWrapper.data("source");
-
-			g_ucAdmin.openAddImageDialog(g_uctext.choose_image, function (imageUrl, imageId) {
-				if (source === "addon")
-					setImageInputValue(objWrapper, imageUrl.url_assets_relative);
-				else
-					setImageInputValue(objWrapper, { id: imageId, url: imageUrl });
-
-				funcChange(null, objWrapper);
-			}, false, source);
-		});
-
-		objClearButton.on("click", function (event) {
-			event.stopPropagation();
-
-			setImageInputValue(objWrapper, "");
-
-			funcChange(null, objWrapper);
-		});
-
-		objPreview.on("click", function () {
-			objChooseButton.trigger("click");
-		});
-	}
-
-	/**
-	 * destroy image chooser
-	 */
-	function destroyImageChoosers() {
-		g_objWrapper.find(".unite-setting-image-preview").off("click");
-		g_objWrapper.find(".unite-setting-image-choose").off("click");
-		g_objWrapper.find(".unite-setting-image-clear").off("click");
-		g_objWrapper.find(".unite-setting-image-url").off("input");
-		g_objWrapper.find(".unite-setting-image-size").off("change");
-	}
-
-	/**
-	 * get image input value
-	 */
-	function getImageInputValue(objWrapper) {
-		var id = objWrapper.data("image-id");
-		var url = objWrapper.find(".unite-setting-image-url").val();
-		var size = objWrapper.find(".unite-setting-image-size").val();
-
-		url = g_ucAdmin.urlToRelative(url);
-
-		var data = {
-			id: id,
-			url: url,
-			size: size,
-		};
-
-		return data;
-	}
-
-	/**
-	 * set image input value
-	 */
-	function setImageInputValue(objWrapper, value) {
-		if (typeof value === "string")
-			value = { url: value };
-
-		value.id = value.id || null;
-		value.url = g_ucAdmin.urlToFull(value.url);
-		value.size = value.size || "full";
-
-		objWrapper.data("image-id", value.id);
-		objWrapper.find(".unite-setting-image-url").val(value.url).trigger("input");
-		objWrapper.find(".unite-setting-image-size").val(value.size);
-	}
 
 
 	function __________TABS__________(){}
@@ -2824,122 +2774,148 @@ function UniteSettingsUC(){
 	/**
 	 * init post picker
 	 */
-	function initPostPicker(objWrapper, data, selectedValue){
-
-		//fix select focus inside jquery ui dialogs
-		g_ucAdmin.fixModalDialogSelect2();
-
-    	objWrapper.removeData("post_picker_value");
-
+	function initPostPicker(objWrapper, data, selectedValue) {
 		var objSelect = objWrapper.find(".unite-setting-post-picker");
+		var selectedPostId = objSelect.data("selected-post-id");
+		var selectedPostTitle = objSelect.data("selected-post-title");
 
-		var postID = objSelect.data("postid");
-		var postTitle = objSelect.data("posttitle");
-		var placeholder = objSelect.data("placeholder");
+		if (!data)
+			data = [];
 
-		if(!data){
-			var data = [];
-
-			if(postID && postTitle){
-
-				data.push({
-					id:postID,
-					text: postTitle
-				});
-			}
+		if (selectedPostId && selectedPostTitle) {
+			data.push({
+				id: selectedPostId,
+				text: selectedPostTitle,
+			});
 		}
 
-		var urlAjax = g_ucAdmin.getUrlAjax("get_posts_list_forselect");
-
-		objSelect.select2({
-			minimumInputLength:1,
-			data:data,
-			placeholder: placeholder,
+		initSelect2(objSelect, {
 			allowClear: true,
-			ajax:{
-				url:urlAjax,
-				dataType:"json"
+			data: data,
+			minimumInputLength: 1,
+			placeholder: objSelect.data("placeholder"),
+			ajax: {
+				url: g_ucAdmin.getUrlAjax("get_posts_list_forselect"),
+				dataType: "json",
+				data: function (params) {
+					params.q = params.term;
+
+					return params;
+				},
 			}
 		});
 
-		//on change - trigger change event, only first time
+		if (selectedValue)
+			objSelect.val(selectedValue).trigger("change.select2");
 
-		objSelect.on("change", function (e) {
-
-			t.onSettingChange(null, objWrapper, false);
-
+		objSelect.on("change", function () {
+			t.onSettingChange(null, objWrapper);
 		});
-
-
-		//set the value
-		if(selectedValue){
-
-			objSelect.val(selectedValues);
-			objSelect.trigger('change');
-		}
-
 	}
-
-
-	/**
-	 * set post picker value
-	 */
-	function setPostPickerValue(objWrapper, value){
-
-    	if(!value)
-    		var value = [];
-
-    	objWrapper.data("post_picker_value", value);
-
-        if(jQuery.isArray(value) == false)
-        	value = [value];
-
-        //clear the picker
-
-        if (value.length === 0) {
-
-        	initPostPicker(objWrapper);
-
-            return(false);
-        }
-
-        //get titles then init
-
-        var urlAjax = g_ucAdmin.getUrlAjax("get_select2_post_titles");
-
-        jQuery.get(urlAjax, {
-
-            'post_ids': value
-
-        }).then(function (data) {
-
-            var response = JSON.parse(data);
-            var arrData = response.select2_data;
-
-        	initPostPicker(objWrapper, arrData, value);
-
-        });
-
-
-
-	}
-
 
 	/**
 	 * get post picker value
 	 */
-	function getPostPickerValue(objWrapper){
+	function getPostPickerValue(objWrapper) {
+		return objWrapper.find(".unite-setting-post-picker").val();
+	}
 
-    	var value = objWrapper.data("post_picker_value");
+	/**
+	 * set post picker value
+	 */
+	function setPostPickerValue(objWrapper, value) {
+		value = value || [];
 
-    	if(value)
-    		return(value);
+		if (jQuery.isArray(value) === false)
+			value = [value];
 
-		var objSelect = objWrapper.find(".unite-setting-post-picker");
+		if (value.length === 0) {
+			initPostPicker(objWrapper);
 
-		var value = objSelect.select2("val");
+			return;
+		}
 
-		return(value);
+		g_ucAdmin.ajaxRequest("get_select2_post_titles", { post_ids: value }).then(function (response) {
+			initPostPicker(objWrapper, response.select2_data, value);
+		});
+	}
+
+
+	function ______POST_IDS_PICKER____(){}
+
+	/**
+	 * init post ids picker
+	 */
+	function initPostIdsPicker(objInput, data, selectedValue) {
+		var multiple = objInput.data("issingle") !== true;
+		var dataType = objInput.data("datatype");
+		var postType = null;
+
+		if (!data)
+			data = [];
+
+		if (objInput.data("woo") === "yes")
+			postType = "product";
+		else if (dataType === "elementor_template")
+			postType = "elementor_template";
+
+		var action = "get_posts_list_forselect";
+
+		if (dataType === "terms")
+			action = "get_terms_list_forselect";
+		else if (dataType === "users")
+			action = "get_users_list_forselect";
+
+		initSelect2(objInput, {
+			allowClear: multiple === false,
+			data: data,
+			minimumInputLength: 1,
+			multiple: multiple === true,
+			placeholder: objInput.data("placeholdertext"),
+			ajax: {
+				url: g_ucAdmin.getUrlAjax(action),
+				dataType: "json",
+				data: function (params) {
+					params.q = params.term;
+
+					if (postType)
+						params.post_type = postType;
+
+					return params;
+				},
+			},
+		});
+
+		if (selectedValue)
+			objInput.val(selectedValue).trigger("change.select2");
+	}
+
+	/**
+	 * set post ids picker value
+	 */
+	function setPostIdsPickerValue(objInput, value) {
+		value = value || [];
+
+		if (jQuery.isArray(value) === false)
+			value = [value];
+
+		if (!value.length) {
+			initPostIdsPicker(objInput);
+
+			return;
+		}
+
+		var dataType = objInput.data("datatype");
+		var action = "get_select2_post_titles";
+
+		if (dataType === "terms")
+			action = "get_select2_terms_titles";
+		else if (dataType === "users")
+			action = "get_select2_users_titles";
+
+		g_ucAdmin.ajaxRequest(action, { post_ids: value }).then(function (response) {
+			initPostIdsPicker(objInput, response.select2_data, value);
+		});
 	}
 
 
@@ -3388,7 +3364,7 @@ function UniteSettingsUC(){
 			includes[handle] = {
 				handle: handle,
 				type: "css",
-				url: url,
+				url: url
 			};
 		}
 
@@ -3653,10 +3629,9 @@ function UniteSettingsUC(){
 	 * get control action
 	 */
 	function getControlAction(parent, control) {
-				
 		var isEqual = isInputValuesEqual(parent.value, control.value);
 		var action = null;
-		
+
 		switch (control.type) {
 			case "enable":
 			case "disable":
@@ -3675,8 +3650,7 @@ function UniteSettingsUC(){
 					action = "hide";
 			break;
 		}
-		
-		
+
 		return action;
 	}
 
@@ -3684,15 +3658,14 @@ function UniteSettingsUC(){
 	 * get action of multiple parents
 	 */
 	function getControlActionMultiple(parent, control, arrParents) {
-				
 		if (g_temp.cacheValues === null)
 			g_temp.cacheValues = t.getSettingsValues(true);
-				
+
 		var action = null;
 		var mainAction = null;
 		var isShow = null;
 		var isEnable = null;
-		
+
 		jQuery.each(arrParents, function (index, parentID) {
 			if (parentID === parent.id) {
 				action = getControlAction(parent, control);
@@ -3703,7 +3676,7 @@ function UniteSettingsUC(){
 
 				var objParent = {
 					id: parentID,
-					value: parentValue,
+					value: parentValue
 				};
 
 				action = getControlAction(objParent, objControl);
@@ -3750,7 +3723,6 @@ function UniteSettingsUC(){
 	 * process control setting change
 	 */
 	function processControlSettingChange(objInput) {
-				
 		var allowedTypes = ["select", "select2", "radio", "switcher"];
 		var controlType = getInputType(objInput);
 
@@ -3772,11 +3744,10 @@ function UniteSettingsUC(){
 
 		var objParent = {
 			id: controlID,
-			value: controlValue,
+			value: controlValue
 		};
 
 		jQuery.each(arrChildControls, function (childName, objControl) {
-			
 			var isSap = g_ucAdmin.getVal(objControl, "forsap");
 			var rowID;
 			var objChildInput = null;
@@ -3789,7 +3760,7 @@ function UniteSettingsUC(){
 			}
 
 			var objChildRow = jQuery(rowID);
-						
+
 			if (objChildRow.length === 0)
 				return;
 
@@ -3803,7 +3774,7 @@ function UniteSettingsUC(){
 				action = getControlActionMultiple(objParent, objControl, arrParents);
 			else
 				action = getControlAction(objParent, objControl);
-						
+
 			var isChildRadio = false;
 			var isChildColor = false;
 
@@ -3818,7 +3789,7 @@ function UniteSettingsUC(){
 				case "enable":
 				case "disable":
 					var isDisable = (action === "disable");
-					
+
 					objChildRow.toggleClass("setting-disabled", isDisable);
 
 					if (!objChildInput)
@@ -3841,12 +3812,11 @@ function UniteSettingsUC(){
 				break;
 				case "show":
 				case "hide":
-										
 					var isShow = (action === "show");
 					var isHidden = objChildRow.hasClass("unite-setting-hidden");
-					
+
 					objChildRow.toggleClass("unite-setting-hidden", !isShow);
-										
+
 					if (!objChildInput)
 						return;
 
@@ -4060,8 +4030,10 @@ function UniteSettingsUC(){
 	 */
 	function processSelectorReplaces(css, replaces) {
 		jQuery.each(replaces, function (placeholder, replace) {
-			if (typeof replace === "string" || typeof replace === "number")
-				css = g_ucAdmin.replaceAll(css, placeholder, replace);
+			if (typeof replace === "string" || typeof replace === "number") {
+				css = g_ucAdmin.replaceAll(css, placeholder.toLowerCase(), replace);
+				css = g_ucAdmin.replaceAll(css, placeholder.toUpperCase(), replace);
+			}
 		});
 
 		return css;
@@ -4074,7 +4046,7 @@ function UniteSettingsUC(){
 		var style = "";
 
 		for (var selector in selectors) {
-			var value = selectors[selector].toLowerCase();
+			var value = selectors[selector];
 			var css = processSelectorReplaces(value, replaces);
 
 			style += selector + "{" + css + "}";
@@ -4091,7 +4063,7 @@ function UniteSettingsUC(){
 			"{{top}}": value.top + value.unit,
 			"{{right}}": value.right + value.unit,
 			"{{bottom}}": value.bottom + value.unit,
-			"{{left}}": value.left + value.unit,
+			"{{left}}": value.left + value.unit
 		};
 	}
 
@@ -4117,7 +4089,7 @@ function UniteSettingsUC(){
 		return {
 			"{{value}}": value.size + value.unit,
 			"{{size}}": value.size,
-			"{{unit}}": value.unit,
+			"{{unit}}": value.unit
 		};
 	}
 
@@ -4534,6 +4506,7 @@ function UniteSettingsUC(){
 	 * init single input event
 	 */
 	function initInputEvents(objInput, funcChange) {
+		
 		if (!funcChange)
 			funcChange = t.onSettingChange;
 
@@ -4581,6 +4554,9 @@ function UniteSettingsUC(){
 			case "post":
 				initPostPicker(objInput);
 			break;
+			case "post_ids":
+				initPostIdsPicker(objInput);
+			break;
 			case "multiselect":
 				objInput.on("input", funcChange);
 			break;
@@ -4588,7 +4564,10 @@ function UniteSettingsUC(){
 				initSelect2(objInput);
 			break;
 			case "gallery":
-				initGallery(objInput);
+				initGallery(objInput, funcChange);
+			break;
+			case "buttons_group":
+				initButtonsGroup(objInput, funcChange);
 			break;
 			default:
 				//custom setting
@@ -4625,6 +4604,7 @@ function UniteSettingsUC(){
 	 * init settings events
 	 */
 	function initSettingsEvents() {
+		
 		var objInputs = getObjInputs();
 
 		jQuery.each(objInputs, function () {
@@ -4763,6 +4743,8 @@ function UniteSettingsUC(){
 		destroyColorPickers();
 		destroyIconPickers();
 		destroyImageChoosers();
+		destroyGalleries();
+		destroyButtonsGroups();
 		destroyLinks();
 		destroyRangeSliders();
 		destroySubSettings();
@@ -4897,7 +4879,8 @@ function UniteSettingsUC(){
 
 		if (!g_objWrapper)
 			throw new Error("Unable to detect settings wrapper.");
-
+		
+		
 		g_temp.settingsID = g_objWrapper.prop("id");
 		g_temp.isSidebar = g_objWrapper.hasClass("unite-settings-sidebar");
 		g_temp.disableExcludeSelector = g_ucAdmin.getVal(options, "disable_exclude_selector");
@@ -4909,12 +4892,15 @@ function UniteSettingsUC(){
 		initOptions();
 		initItemsPanel();
 		initRepeaters();
+		
 		initSaps();
+		
 		initResponsivePicker();
 		initUnitsPicker();
 		initAnimationsSelector();
 		initGlobalEvents();
-
+		
+		
 		t.updateEvents();
 		t.clearSettingsInit();
 

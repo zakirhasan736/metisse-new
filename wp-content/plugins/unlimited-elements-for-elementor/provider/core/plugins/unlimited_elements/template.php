@@ -3,7 +3,7 @@
 defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 class UCEmptyTemplate{
-
+	
 	const SHOW_DEBUG = false;
 	
 	private $templateID;
@@ -314,14 +314,15 @@ class UCEmptyTemplate{
 			//render in hidden mode
 			
 			$isHidden = false;
+				
+			GlobalsProviderUC::$renderTemplateID = $templateID;
 			
 			if($index > 0){
 				
 				GlobalsProviderUC::$renderJSForHiddenContent = true;
 				$isHidden = true;
-				
 			}
-						
+			
 			$output = HelperProviderCoreUC_EL::getElementorTemplate($templateID, true);
 
 			//set hidden content
@@ -342,6 +343,8 @@ class UCEmptyTemplate{
 			$content .= "<div id='uc_template_$templateID' class='uc-template-holder{$class}' data-id='$templateID' data-link='$urlTemplate'>$output</div>";
 			
 			GlobalsProviderUC::$renderJSForHiddenContent = false;
+			
+			GlobalsProviderUC::$renderTemplateID = null;
 			
 		}
 		

@@ -7,6 +7,7 @@
 
 namespace Automattic\Jetpack\Sync;
 
+use Automattic\Jetpack\Connection\Manager;
 use Automattic\Jetpack\Connection\Urls;
 use Automattic\Jetpack\Constants;
 use Automattic\Jetpack\Modules as Jetpack_Modules;
@@ -402,8 +403,8 @@ class Functions {
 	 *
 	 * @deprecated 1.23.1
 	 *
-	 * @param callable $callable Function to retrieve URL option.
-	 * @param string   $new_value URL Protocol to set URLs to.
+	 * @param string $callable Function name that was used to retrieve URL option.
+	 * @param string $new_value URL Protocol to set URLs to.
 	 * @return string Normalized URL.
 	 */
 	public static function get_protocol_normalized_url( $callable, $new_value ) {
@@ -596,8 +597,8 @@ class Functions {
 	 *
 	 * @since 1.21.0
 	 *
-	 * @param array|obj $any        Source data to be cleaned up.
-	 * @param array     $seen_nodes Built array of nodes.
+	 * @param mixed $any        Source data to be cleaned up.
+	 * @param array $seen_nodes Built array of nodes.
 	 *
 	 * @return array
 	 */
@@ -708,5 +709,16 @@ class Functions {
 		}
 
 		return $enabled_extensions;
+	}
+
+	/**
+	 * Return the list of active connected Jetpack plugins.
+	 *
+	 * @since $$next_version$$
+	 *
+	 * @return array
+	 */
+	public static function get_jetpack_connection_active_plugins() {
+		return ( new Manager() )->get_connected_plugins();
 	}
 }

@@ -28,7 +28,7 @@ do_action('woocommerce_before_edit_account_address_form'); ?>
 
 	<form method="post" class="tp-woo-input-field">
 
-		<h3 class="tp-woo-myaccount-address-title text-[24px] md:text-[20px] sm:text-[18px] font-semibold font-primary capitalize leading-none text-[#000] mb-[35px] sm:mb-[25px]"><?php echo apply_filters('woocommerce_my_account_edit_address_title', $page_title, $load_address); ?></h3><?php // @codingStandardsIgnoreLine 
+		<h3 class="tp-woo-myaccount-address-title text-[18px] font-normal font-secondary capitalize leading-none text-[#131313] mb-[35px] sm:mb-[25px]"><?php echo apply_filters('woocommerce_my_account_edit_address_title', $page_title, $load_address); ?></h3><?php // @codingStandardsIgnoreLine 
 																																																																								?>
 
 		<div class="woocommerce-address-fields">
@@ -45,7 +45,7 @@ do_action('woocommerce_before_edit_account_address_form'); ?>
 			<?php do_action("woocommerce_after_edit_address_form_{$load_address}"); ?>
 
 			<p>
-				<button type="submit" class="tp-btn button !text-[14px] !text-[#fff] h-[52px] mt-[20px] sm:mt-[20px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] <?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_address" value="<?php esc_attr_e('Save address', 'metisse'); ?>"><?php esc_html_e('Save address', 'metisse'); ?></button>
+				<button type="submit" class="tp-btn button !text-[11px] !text-[#FFFDFD] h-[40px] mt-[20px] sm:mt-[20px] !font-secondary !font-normal !bg-[#131313] !py-[8px] !leading-[1.1] w-[197px] <?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_address" value="<?php esc_attr_e('Save address', 'metisse'); ?>"><?php esc_html_e('Save address', 'metisse'); ?></button>
 				<?php wp_nonce_field('woocommerce-edit_address', 'woocommerce-edit-address-nonce'); ?>
 				<input type="hidden" name="action" value="edit_address" />
 			</p>

@@ -57,7 +57,7 @@ class HelperProviderUC{
 		$arrValues["none"] = __("Unsorted","unlimited-elements-for-elementor");
 		$arrValues["menu_order"] = __("Menu Order","unlimited-elements-for-elementor");
 		$arrValues["parent"] = __("Parent Post","unlimited-elements-for-elementor");
-
+		
 		$output = array();
 
 		foreach($arrValues as $type=>$title){
@@ -93,18 +93,34 @@ class HelperProviderUC{
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_TEXTFIELD;
 
 		$settings->addTextBox("title", "", __("Field Title","unlimited-elements-for-elementor"),$params);
-
+		
+		
+		if(UniteCreatorWpmlIntegrate::isWpmlExists()){
+			
+			$objWPML = new UniteCreatorWpmlIntegrate();
+			$arrLanguages = $objWPML->getLanguagesShort(false, true);
+			
+			if(empty($arrLanguages))
+				$arrLanguages = array();
+				
+			foreach($arrLanguages as $lang=>$langName){
+				
+				$settings->addTextBox("title_{$lang}", "", __("Field Title - ","unlimited-elements-for-elementor").$langName,$params);
+			}
+			
+		}
+		
+		
 		//--- meta field name -----
-
+		
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_TEXTFIELD;
 		$params["elementor_condition"] = array("type"=>"meta");
 
 		$settings->addTextBox("meta_name", "", __("Meta Field Name","unlimited-elements-for-elementor"),$params);
-
-
+		
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
-
+		
 		$arrMetaType = array("Text"=>"text","Number"=>"number");
 
 		$settings->addSelect("meta_type", $arrMetaType, __("Meta Type","unlimited-elements-for-elementor"),"text",$params);
@@ -198,6 +214,7 @@ class HelperProviderUC{
 		$arrOrderby = array(
 			"default"=>__("Default", "unlimited-elements-for-elementor"),
 			"ID"=>__("User ID", "unlimited-elements-for-elementor"),
+			"manual"=>__("Manual Order", "unlimited-elements-for-elementor"),
 			"display_name"=>__("Display Name", "unlimited-elements-for-elementor"),
 			"name"=>__("Username", "unlimited-elements-for-elementor"),
 			"login"=>__("User Login", "unlimited-elements-for-elementor"),
@@ -214,7 +231,7 @@ class HelperProviderUC{
 	/**
 	 * get remote parent names
 	 */
-	public static function getArrRemoteParentNames($isSecond = false){
+	public static function getArrRemoteParentNames($isSecond = false, $putCustom = true){
 
 		$arrNames = array();
 
@@ -226,14 +243,14 @@ class HelperProviderUC{
 		$arrNames["third"] = __("Third", "unlimited-elements-for-elementor");
 		$arrNames["fourth"] = __("Fourth", "unlimited-elements-for-elementor");
 
-		if($isSecond == false)
+		if($isSecond == false && $putCustom == true)
 			$arrNames["custom"] = __("Custom Name", "unlimited-elements-for-elementor");
 
 		return($arrNames);
 	}
 
 	/**
-	 * get remote parent names
+	 * get remote sync names
 	 */
 	public static function getArrRemoteSyncNames(){
 
@@ -256,17 +273,17 @@ class HelperProviderUC{
 	 * get gallery defaults
 	 */
 	public static function getArrDynamicGalleryDefaults(){
-
+		
 		$urlImages = GlobalsUC::$urlPluginImages;
-
+		
 		$arrItems = array();
 
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery1.jpg");
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery2.jpg");
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery3.jpg");
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery4.jpg");
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery5.jpg");
-		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery6.jpg");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery1.jpg","title"=>"Gallery 1 Title");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery2.jpg","title"=>"Gallery 2 Title");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery3.jpg","title"=>"Gallery 3 Title");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery4.jpg","title"=>"Gallery 4 Title");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery5.jpg","title"=>"Gallery 5 Title");
+		$arrItems[] = array("id"=>0,"url"=>$urlImages."gallery6.jpg","title"=>"Gallery 6 Title");
 
 		return($arrItems);
 	}
@@ -385,6 +402,7 @@ class HelperProviderUC{
            return($arrSettings);
     }
 
+    
 
 	/**
 	 * modify memory limit setting
@@ -476,10 +494,12 @@ class HelperProviderUC{
 	 * on plugins loaded, load textdomains
 	 */
 	public static function onPluginsLoaded(){
+				
+		GlobalsUC::initAfterPluginsLoaded();
+				
+		GlobalsUnlimitedElements::initAfterPluginsLoaded();
 		
 		load_plugin_textdomain("unlimited-elements-for-elementor", false, GlobalsUC::$pathWPLanguages);
-		
-		GlobalsUC::initAfterPluginsLoaded();
 		
 		UniteCreatorWooIntegrate::initActions();
 		
@@ -633,7 +653,7 @@ class HelperProviderUC{
 		//print custom JS script
 
 		if($scriptType != "css"){
-
+			
 			$isSaparateScripts = HelperProviderCoreUC_EL::getGeneralSetting("js_saparate");
 			$isSaparateScripts = UniteFunctionsUC::strToBool($isSaparateScripts);
 
@@ -862,8 +882,8 @@ class HelperProviderUC{
 
 		$capability = "manage_options";
 		if($permission == "editor")
-			$capability = "edit_posts";
-
+			$capability = "edit_pages";
+		
 		$isUserHasPermission = current_user_can($capability);
 
 		return($isUserHasPermission);
@@ -928,7 +948,10 @@ class HelperProviderUC{
 	 * check if backgrounds enabled
 	 */
 	public static function isBackgroundsEnabled(){
-
+		
+		if(GlobalsUnlimitedElements::$enableElementorSupport == false)
+			return(false);
+		
 		$isBackgroundsEnabled = HelperProviderCoreUC_EL::getGeneralSetting("enable_backgrounds");
 		$isBackgroundsEnabled = UniteFunctionsUC::strToBool($isBackgroundsEnabled);
 
@@ -980,7 +1003,37 @@ class HelperProviderUC{
 
 		HelperUC::$operations->updateUnlimitedElementsGeneralSettings($settings);
 	}
-
+	
+	private function _______DEBUG_________(){}
+	
+	/**
+	 * show debug db tables
+	 */
+	public static function showDebugDBTables(){
+		
+		$db = HelperUC::getDB();
+	
+		$response = $db->fetchSql("SHOW TABLES");
+		
+		echo "<div style='padding-left:30px;padding-top:20px;'>";
+		
+		foreach($response as $row){
+			
+			if(is_string($row)){
+				dmp($row);
+				continue;
+			}
+			
+			$value = UniteFunctionsUC::getArrFirstValue($row);
+			
+			dmp($value);
+		}
+		
+		echo "</div>";
+		
+	}
+	
+	
 	/**
 	 * show last posts queries
 	 */
@@ -997,6 +1050,14 @@ class HelperProviderUC{
 	    HelperUC::$operations->putPostsCustomFieldsDebug($arrLastPosts);
 
 	}
-
+	
+	/**
+	 * show posts debug
+	 */
+	public static function showPostsDebug($arrPosts){
+		
+		HelperUC::$operations->putPostsFullDebug($arrPosts);
+	}
+	
 
 }

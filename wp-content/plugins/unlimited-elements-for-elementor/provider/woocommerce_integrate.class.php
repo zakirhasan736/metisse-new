@@ -36,40 +36,6 @@ class UniteCreatorWooIntegrate{
 		$this->init();
 	}
 
-	/**
-	 * this action should be run inside the product from the widget editor
-	 */
-	public static function onInsideEditorWooProduct($productID){
-		
-		if(self::isWooActive() == false)
-			return(false);
-			
-		if(is_numeric($productID) == false)
-			return(false);
-		
-		if(empty($productID))
-			return(false);
-		
-		//run advanced product labels
-		if(class_exists("BeRocket_products_label")){
-			do_action('berocket_apl_set_label', true, $productID);
-		}
-
-		
-	}
-
-	
-	/**
-	 * bottom product integrations
-	 */
-	public static function onInsideEditorWooProductBottom($productID){
-		
-		//wishlist
-		
-		UniteCreatorPluginIntegrations::putJetWooWishlistButton();
-		
-	}
-	
 	
 	/**
 	 * init actions on start, run on "plugins_loaded" filter
@@ -125,6 +91,8 @@ class UniteCreatorWooIntegrate{
 		return(false);
 	}
 	
+	
+	
 	/**
 	 * check and init instance
 	 */
@@ -138,7 +106,7 @@ class UniteCreatorWooIntegrate{
 	}
 	
 	/**
-	 * Add To Basket for variation
+	 * add to cart for variation
 	 */
 	private function addAddToCartForVariation($arrVariation){
 		
@@ -152,7 +120,7 @@ class UniteCreatorWooIntegrate{
     	$arrVariation["link_addcart_cart"] = UniteFunctionsUC::addUrlParams($this->urlCart, $params);
     	$arrVariation["link_addcart_checkout"] = UniteFunctionsUC::addUrlParams($this->urlCheckout, $params);
 		
-    	//add html ajax Add To Basket
+    	//add html ajax add to cart
     	$addCartAttributes = "href=\"{$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$variationID}\" data-product_sku=\"{$sku}\" rel=\"nofollow\"";
     	
     	$arrVariation["addcart_ajax_attributes"] = $addCartAttributes;
@@ -161,7 +129,7 @@ class UniteCreatorWooIntegrate{
 	}
 	
 	/**
-	 * add Add To Basket data
+	 * add add to cart data
 	 */
 	private function addAddToCartData($arrProduct, $productID, $productSku){
 		
@@ -173,7 +141,7 @@ class UniteCreatorWooIntegrate{
     	$arrProduct["woo_link_addcart_cart"] = UniteFunctionsUC::addUrlParams($this->urlCart, $params);
     	$arrProduct["woo_link_addcart_checkout"] = UniteFunctionsUC::addUrlParams($this->urlCheckout, $params);
     	    	
-    	//add html ajax Add To Basket
+    	//add html ajax add to cart
     	$addCartAttributes = "href=\"{$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$productID}\" data-product_sku=\"{$productSku}\" rel=\"nofollow\"";
     	
     	$addCartAttributesButton = "onclick=\"location.href={$urlAddCart}\" data-quantity=\"1\" class=\"uc-button-addcart product_type_simple add_to_cart_button ajax_add_to_cart\" data-product_id=\"{$productID}\" data-product_sku=\"{$productSku}\" rel=\"nofollow\"";
@@ -603,7 +571,7 @@ class UniteCreatorWooIntegrate{
 		
 		$arrAttributeTitles = $this->getProductAttributeNames($product);
 		
-		//add Add To Basket links
+		//add add to cart links
 		foreach($variations as $key=>$arrVariation){
 			
 			$arrVariation = $this->modifyVariationForOutput($arrVariation, $arrAttributeTitles);
@@ -654,10 +622,9 @@ class UniteCreatorWooIntegrate{
 	}
 	
 	/**
-	 * 
-	 * get product gallery
+	 * get product gallery image id's with featured image as first image
 	 */
-	public function getProductGallery($productID){
+	public function getProductGalleryImageIDs($productID){
 		
 		if(function_exists("wc_get_product") == false)
 			return(array());
@@ -666,8 +633,26 @@ class UniteCreatorWooIntegrate{
 		
 		if(empty($product))
 			return(array());
-				
+		
+		$featuredImageID = $product->get_image_id();
+			
 		$arrAttachmentIDs = $product->get_gallery_image_ids();
+		
+		if(empty($arrAttachmentIDs))
+			$arrAttachmentIDs = array();
+		
+		if(is_array($arrAttachmentIDs) && !empty($featuredImageID))
+			array_unshift($arrAttachmentIDs, $featuredImageID);
+		
+		return($arrAttachmentIDs);
+	}
+	
+	/**
+	 * get product gallery
+	 */
+	public function getProductGallery($productID){
+		
+		$arrAttachmentIDs = $this->getProductGalleryImageIDs($productID);
 		
 		if(empty($arrAttachmentIDs))
 			return(array());
@@ -827,7 +812,7 @@ class UniteCreatorWooIntegrate{
     	$arrProduct["woo_currency"] = $this->currency;
     	$arrProduct["woo_currency_symbol"] = $this->currencySymbol;
 		
-    	//put Add To Basket link
+    	//put add to cart link
     	$arrProduct = $this->addAddToCartData($arrProduct, $productID, $productSku);
     	
     	    	
@@ -882,6 +867,175 @@ class UniteCreatorWooIntegrate{
 		
 	}
 	
+	
+	/**
+	 * get keys by post id
+	 */
+	private function getWooKeys($postID){
+		
+		if(self::isWooActive() == false)
+			return(null);
+		
+		$post = get_post($postID);
+		if(empty($post))
+			return(null);
+		
+		$postType = $post->post_type;
+		
+		$arrData = self::getWooDataByType($postType, $postID);
+		if(empty($arrData))
+			return(false);
+		
+		$arrKeys = array_keys($arrData);
+		
+		
+		return($arrKeys);
+		
+	}
+	
+	
+	
+	/**
+	 * get product ids from current post content
+	 */
+	public function getProductIDsFromCurrentPostContent(){
+		
+		if(is_singular() == false)
+			return(false);
+		
+		$post = get_post();
+		
+		if(empty($post))
+			return(false);
+		
+		$content = $post->post_content;
+		
+		if(empty($content))
+			return(false);
+		
+		$arrLinks = UniteFunctionsUC::parseHTMLGetLinks($content);
+		
+		if(empty($arrLinks))
+			return(false);
+		
+		$arrPostIDs = array();
+		
+		foreach($arrLinks as $link){
+			
+			$postID = url_to_postid($link);
+			
+			if(empty($postID))
+				continue;
+				
+			$arrPostIDs[] = $postID;
+		}
+		
+		return($arrPostIDs);
+	}
+
+	private function __________STATIC_FUNCTIONS________(){}
+	
+	/**
+	 * return if the current pais is a cart page
+	 */
+	public static function isCartOrCheckoutPage(){
+				
+		if(self::isWooActive() == false)
+			return(false);
+		
+		$cartPageID = wc_get_page_id("cart");
+		
+		if(empty($cartPageID))
+			return(false);
+		
+		$currentPageID = get_the_id();
+		
+		if($currentPageID == $cartPageID)
+			return(true);
+		
+		$checkoutID = wc_get_page_id("checkout");
+		
+		if($currentPageID == $checkoutID)
+			return(true);
+		
+		
+		return(false);
+	}
+	
+	/**
+	 * bottom product integrations
+	 */
+	public static function onInsideEditorWooProductBottom($productID){
+		
+		//wishlist
+		
+		UniteCreatorPluginIntegrations::putJetWooWishlistButton();
+		
+	}
+	
+	
+	/**
+	 * this action should be run inside the product from the widget editor
+	 */
+	public static function onInsideEditorWooProduct($productID){
+		
+		if(self::isWooActive() == false)
+			return(false);
+			
+		if(is_numeric($productID) == false)
+			return(false);
+		
+		if(empty($productID))
+			return(false);
+		
+		//run advanced product labels
+		if(class_exists("BeRocket_products_label")){
+			do_action('berocket_apl_set_label', true, $productID);
+		}
+
+		
+	}
+	
+	
+	/**
+	 * get default number of posts in catalog
+	 */
+	public static function getDefaultCatalogNumPosts(){
+		
+		if(function_exists("wc_get_default_products_per_row") == false)
+			return(16);
+		
+		$numProducts = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
+		
+		return($numProducts);
+	}
+	
+	
+	/**
+	 * get woo keys by post id
+	 */
+	public static function getWooKeysByPostID($postID){
+		
+		$instance = self::getInstance();
+		
+		$response = $instance->getWooKeys($postID);
+		
+		return($response);
+	}
+	
+	/**
+	 * get woo keys without post id
+	 */
+	public static function getWooKeysNoPost(){
+		
+		$instance = self::getInstance();
+		
+		$response = $instance->getWooProductKeysNoPost();
+		
+		return($response);
+	}
+	
+	
 	/**
 	 * get the endpoints - url's
 	 */
@@ -932,110 +1086,67 @@ class UniteCreatorWooIntegrate{
 		return($response);
 	}
 	
+	
 	/**
-	 * get keys by post id
+	 * get current product gallery, with featured image as first item
 	 */
-	private function getWooKeys($postID){
+	public static function getCurrentProductGalleryIDs(){
 		
 		if(self::isWooActive() == false)
-			return(null);
-		
-		$post = get_post($postID);
-		if(empty($post))
-			return(null);
-		
-		$postType = $post->post_type;
-		
-		$arrData = self::getWooDataByType($postType, $postID);
-		if(empty($arrData))
-			return(false);
-		
-		$arrKeys = array_keys($arrData);
-		
-		
-		return($arrKeys);
-		
-	}
-	
-	
-	/**
-	 * get woo keys by post id
-	 */
-	public static function getWooKeysByPostID($postID){
-		
-		$instance = self::getInstance();
-		
-		$response = $instance->getWooKeys($postID);
-		
-		return($response);
-	}
-	
-	/**
-	 * get woo keys without post id
-	 */
-	public static function getWooKeysNoPost(){
-		
-		$instance = self::getInstance();
-		
-		$response = $instance->getWooProductKeysNoPost();
-		
-		return($response);
-	}
-	
-	
-	/**
-	 * get default number of posts in catalog
-	 */
-	public static function getDefaultCatalogNumPosts(){
-		
-		if(function_exists("wc_get_default_products_per_row") == false)
-			return(16);
-		
-		$numProducts = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
-		
-		return($numProducts);
-	}
-	
-	
-	
-	/**
-	 * get product ids from current post content
-	 */
-	public function getProductIDsFromCurrentPostContent(){
-		
-		if(is_singular() == false)
-			return(false);
+			return(array());
 		
 		$post = get_post();
 		
 		if(empty($post))
-			return(false);
-		
-		$content = $post->post_content;
-		
-		if(empty($content))
-			return(false);
-		
-		$arrLinks = UniteFunctionsUC::parseHTMLGetLinks($content);
-		
-		if(empty($arrLinks))
-			return(false);
-		
-		$arrPostIDs = array();
-		
-		foreach($arrLinks as $link){
-			
-			$postID = url_to_postid($link);
-			
-			if(empty($postID))
-				continue;
+			return(array());
 				
-			$arrPostIDs[] = $postID;
+		$objInstance = self::getInstance();
+		
+		$arrGallery = $objInstance->getProductGalleryImageIDs($post->ID);
+		
+		
+		return($arrGallery);
+	}
+	
+	/**
+	 * get current product variation images
+	 */
+	public static function getCurrentProductVariationImageItems(){
+		
+		if(self::isWooActive() == false)
+			return(array());
+		
+		$post = get_post();
+		
+		if(empty($post))
+			return(array());
+		
+		if($post->post_type != "product")
+			return(array());
+
+		$postID = $post->ID;
+				
+		$object = self::getInstance();
+		
+		$arrVariations = $object->getProductVariations($postID);
+		
+		if(empty($arrVariations))
+			return(array());
+			
+		$arrImageIDs = array();
+		
+		foreach($arrVariations as $variation){
+			
+			$imageID = UniteFunctionsUC::getVal($variation, "image_id");
+			
+			$arrImageIDs[] = $imageID;
 		}
 		
-		return($arrPostIDs);
+		
+		return($arrImageIDs);
 	}
-
+	
+	
 	private function __________VARIATIONS________(){}
 	
 	
@@ -1078,6 +1189,7 @@ class UniteCreatorWooIntegrate{
 		exit();
 		
 	}
+	
 	
 	private function __________CART________(){}
 	
@@ -1335,15 +1447,21 @@ class UniteCreatorWooIntegrate{
 			if(!empty($urlImage))
 				$imageHTML = "<img class=\"ue-mini-cart-item-image\" src=\"{$urlImage}\" >";
 		
+			
+			//extra html hooks
+			
+			$extraHTML_item = apply_filters("ue_woocart_item_extra_html", "", $wc_product_id);
+			$extraHTML_itemContent = apply_filters("ue_woocart_item_content_extra_html", "" , $wc_product_id);
+			
 $htmlItem = "
 <div class=\"ue-mini-cart-item\" data-key=\"{$cart_item_key}\">
-  {$imageHTML}
+   <a class=\"ue-mini-cart-item-image-wrapper\" href=\"{$product_link}\" target=\"blank\">{$imageHTML}</a>  
    <div class=\"ue-mini-cart-item-content\">
       <div class=\"ue-mini-cart-content-wrapper\">
-         <div class=\"ue-mini-cart-item-title-text\">{$item_name}</div>
-         <div>
+			<a class=\"ue-mini-cart-item-title-text\" href=\"{$product_link}\" target=\"blank\">{$item_name}</a><div>
             <span class=\"ue_mini_qty\">{$quantity} x</span>
             <span class=\"ue_mini_price\">{$priceHtml}</span>
+         {$extraHTML_itemContent}
          </div>
          <div class=\"ue_mini_quantity_input\">
             <span class=\"ue_mini_minus\">-</span>
@@ -1353,6 +1471,7 @@ $htmlItem = "
       </div>
       <div class=\"ue-mini-cart-item-delete\"><i class=\"far fa-trash-alt\"></i></div>
    </div>
+   {$extraHTML_item}   
 </div>
 
 ";
@@ -1381,9 +1500,13 @@ $htmlItem = "
 			$arrTotals = WC()->cart->get_totals();
 			
 			$subtotal = UniteFunctionsUC::getVal($arrTotals, "subtotal");
+			$subtotalTax = UniteFunctionsUC::getVal($arrTotals, "subtotal_tax");
+			
+			$subtotalWithTax = $subtotal + $subtotalTax;
+			
 		}
 		
-		$subtotalHTML = wc_price($subtotal);
+		$subtotalHTML = wc_price($subtotalWithTax);
 		
 		$strNum = "";
 		

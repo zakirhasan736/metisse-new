@@ -15,15 +15,17 @@
 
 // phpcs:disable Universal.Files.SeparateFunctionsFromOO.Mixed -- TODO: Move classes to appropriately-named class files.
 
-/**
- * Init Social_Links if the theme declares support.
- */
-function jetpack_theme_supports_social_links() {
-	if ( ! wp_is_block_theme() && current_theme_supports( 'social-links' ) && function_exists( 'publicize_init' ) ) {
-		new Social_Links();
+if ( ! function_exists( 'jetpack_theme_supports_social_links' ) ) {
+	/**
+	 * Init Social_Links if the theme declares support.
+	 */
+	function jetpack_theme_supports_social_links() {
+		if ( ! wp_is_block_theme() && current_theme_supports( 'social-links' ) && function_exists( 'publicize_init' ) ) {
+			new Social_Links();
+		}
 	}
+	add_action( 'init', 'jetpack_theme_supports_social_links', 30 );
 }
-add_action( 'init', 'jetpack_theme_supports_social_links', 30 );
 
 if ( ! class_exists( 'Social_Links' ) ) {
 
@@ -172,7 +174,7 @@ if ( ! class_exists( 'Social_Links' ) ) {
 		 * Sanitizes social links.
 		 *
 		 * @param array $option The incoming values to be sanitized.
-		 * @returns array
+		 * @return array
 		 */
 		public function sanitize_link( $option ) {
 			foreach ( $this->services as $service ) {
@@ -189,7 +191,7 @@ if ( ! class_exists( 'Social_Links' ) ) {
 		/**
 		 * Returns whether there are any social links set.
 		 *
-		 * @returns bool
+		 * @return bool
 		 */
 		public function has_social_links() {
 			return ! empty( $this->links );
@@ -198,7 +200,7 @@ if ( ! class_exists( 'Social_Links' ) ) {
 		/**
 		 * Return available social links.
 		 *
-		 * @returns array
+		 * @return array
 		 */
 		public function get_social_links() {
 			return $this->links;
@@ -208,7 +210,7 @@ if ( ! class_exists( 'Social_Links' ) ) {
 		 * Short-circuits get_option and get_theme_mod calls.
 		 *
 		 * @param string $link The incoming value to be replaced.
-		 * @returns string $link The social link that we've got.
+		 * @return string $link The social link that we've got.
 		 */
 		public function get_social_link_filter( $link ) {
 			if ( preg_match( '/_jetpack-(.+)$/i', current_filter(), $matches ) && ! empty( $this->links[ $matches[1] ] ) ) {

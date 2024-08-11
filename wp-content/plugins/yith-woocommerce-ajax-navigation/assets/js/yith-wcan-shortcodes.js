@@ -2,50 +2,128 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: ./assets/js/shortcodes/config.js
+;// CONCATENATED MODULE: ./assets/js/shortcodes/globals.js
 
 
 /* global globalThis, jQuery, yith_wcan_shortcodes, accounting */
-var $ = jQuery; // we can do this as WebPack will compact all together inside a closure.
-var $body = $('body');
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var $ = jQuery,
+  // we can do this as WebPack will compact all together inside a closure.
+  $body = $('body'),
+  globals_block = function block($el) {
+    var _yith_wcan_shortcodes;
+    if (typeof $.fn.block === 'undefined') {
+      return;
+    }
+    var background = '#fff center center no-repeat';
+    if ('undefined' !== typeof yith_wcan_shortcodes && (_yith_wcan_shortcodes = yith_wcan_shortcodes) !== null && _yith_wcan_shortcodes !== void 0 && _yith_wcan_shortcodes.loader) {
+      background = "url('".concat(yith_wcan_shortcodes.loader, "') ").concat(background);
+    }
+    $el.block({
+      message: null,
+      overlayCSS: {
+        background: background,
+        opacity: 0.7
+      }
+    });
+  },
+  globals_unblock = function unblock($el) {
+    if (typeof $.fn.unblock === 'undefined') {
+      return;
+    }
+    $el.unblock();
+  },
+  serialize = function serialize($el, _ref) {
+    var formatName = _ref.formatName,
+      filterItems = _ref.filterItems;
+    var result = {},
+      inputs = $el.find(':input').not('[disabled]');
+    if (typeof filterItems === 'function') {
+      inputs = inputs.filter(filterItems);
+    }
+    inputs.each(function () {
+      var t = $(this),
+        name = t.attr('name'),
+        value;
+      if (!name) {
+        return;
+      }
+
+      // removes ending brackets, since are not needed
+      name = name.replace(/^(.*)\[]$/, '$1');
+
+      // offers additional name formatting from invoker
+      if (typeof formatName === 'function') {
+        name = formatName(name);
+      }
+
+      // retrieve value, depending on input type
+      if (t.is('[type="radio"]') && !t.is(':checked')) {
+        return;
+      }
+      value = t.val();
+
+      // if name is composite, try to recreate missing structure
+      if (-1 !== name.indexOf('[')) {
+        var components = name.split('[').map(function (c) {
+            return c.replace(/[\[, \]]/g, '');
+          }),
+          firstComponent = components.shift(),
+          newItem = components.reverse().reduce(function (res, key) {
+            return _defineProperty({}, key, res);
+          }, value);
+        if (typeof result[firstComponent] === 'undefined') {
+          result[firstComponent] = newItem;
+        } else {
+          result[firstComponent] = $.extend(true, result[firstComponent], newItem);
+        }
+      }
+      // else simply append value to result object
+      else {
+        result[name] = value;
+      }
+    });
+    return result;
+  },
+  removeHierarchyFromString = function removeHierarchyFromString(value) {
+    return value.replace(/^(.*>)([^>]+)$/, '$2').replace('&amp;', '&').trim();
+  };
 
 ;// CONCATENATED MODULE: ./assets/js/shortcodes/modules/yith-wcan-filter.js
 
 
 /* global globalThis, jQuery, yith_wcan_shortcodes, accounting */
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function yith_wcan_filter_typeof(o) { "@babel/helpers - typeof"; return yith_wcan_filter_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, yith_wcan_filter_typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, yith_wcan_filter_toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function yith_wcan_filter_defineProperty(e, r, t) { return (r = yith_wcan_filter_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function yith_wcan_filter_toPropertyKey(t) { var i = yith_wcan_filter_toPrimitive(t, "string"); return "symbol" == yith_wcan_filter_typeof(i) ? i : i + ""; }
+function yith_wcan_filter_toPrimitive(t, r) { if ("object" != yith_wcan_filter_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != yith_wcan_filter_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 var YITH_WCAN_Filter = /*#__PURE__*/function () {
-  // currently executing xhr
-
-  // flag set during ajax call handling
-
-  // register original url search param
-
-  // flag set once init has executed
-
-  // flag set when page has at least one active filter.
-
   // init object
   function YITH_WCAN_Filter() {
     _classCallCheck(this, YITH_WCAN_Filter);
-    _defineProperty(this, "xhr", null);
-    _defineProperty(this, "doingAjax", false);
-    _defineProperty(this, "originalSearch", location.search);
-    _defineProperty(this, "initialized", false);
-    _defineProperty(this, "filtered", false);
+    // currently executing xhr
+    yith_wcan_filter_defineProperty(this, "xhr", null);
+    // flag set during ajax call handling
+    yith_wcan_filter_defineProperty(this, "doingAjax", false);
+    // register original url search param
+    yith_wcan_filter_defineProperty(this, "originalSearch", location.search);
+    // flag set once init has executed
+    yith_wcan_filter_defineProperty(this, "initialized", false);
+    // flag set when page has at least one active filter.
+    yith_wcan_filter_defineProperty(this, "filtered", false);
     this.initPopState();
     this.initialized = true;
   }
 
   // init page reload when popstate event alter filters
-  _createClass(YITH_WCAN_Filter, [{
+  return _createClass(YITH_WCAN_Filter, [{
     key: "initPopState",
     value: function initPopState() {
       if (!yith_wcan_shortcodes.reload_on_back) {
@@ -108,6 +186,7 @@ var YITH_WCAN_Filter = /*#__PURE__*/function () {
     key: "_beforeFilter",
     value: function _beforeFilter(response, filters) {
       $(document).trigger('yith-wcan-ajax-loading', [response, filters]);
+      yith_wcan_shortcodes.query_vars = filters;
     }
 
     // actions performed after filter
@@ -134,7 +213,7 @@ var YITH_WCAN_Filter = /*#__PURE__*/function () {
         url = !!yith_wcan_shortcodes.base_url ? yith_wcan_shortcodes.base_url : (location === null || location === void 0 ? void 0 : location.origin) + (location === null || location === void 0 ? void 0 : location.pathname),
         search = '',
         self = this;
-      var haveFilters = _typeof(filters) === 'object' && Object.keys(filters).length;
+      var haveFilters = yith_wcan_filter_typeof(filters) === 'object' && Object.keys(filters).length;
 
       // remove filter session from current url, if any
       if (!!yith_wcan_shortcodes.session_param) {
@@ -272,31 +351,14 @@ var YITH_WCAN_Filter = /*#__PURE__*/function () {
   }, {
     key: "block",
     value: function block($el) {
-      var _yith_wcan_shortcodes3;
-      if (typeof $.fn.block === 'undefined') {
-        return;
-      }
-      var background = '#fff center center no-repeat';
-      if ((_yith_wcan_shortcodes3 = yith_wcan_shortcodes) !== null && _yith_wcan_shortcodes3 !== void 0 && _yith_wcan_shortcodes3.loader) {
-        background = "url('".concat(yith_wcan_shortcodes.loader, "') ").concat(background);
-      }
-      $el.block({
-        message: null,
-        overlayCSS: {
-          background: background,
-          opacity: 0.7
-        }
-      });
+      return globals_block($el);
     }
 
     // unblock dom elements
   }, {
     key: "unblock",
     value: function unblock($el) {
-      if (typeof $.fn.unblock === 'undefined') {
-        return;
-      }
-      $el.unblock();
+      return globals_unblock($el);
     }
 
     // checks if param is one used by layared nav to filter products.
@@ -326,27 +388,25 @@ var YITH_WCAN_Filter = /*#__PURE__*/function () {
       return false;
     }
   }]);
-  return YITH_WCAN_Filter;
 }();
 
 ;// CONCATENATED MODULE: ./assets/js/shortcodes/modules/yith-wcan-reset-button.js
 
 
 /* global globalThis, jQuery, yith_wcan_shortcodes, accounting */
-function yith_wcan_reset_button_typeof(obj) { "@babel/helpers - typeof"; return yith_wcan_reset_button_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, yith_wcan_reset_button_typeof(obj); }
-function yith_wcan_reset_button_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, yith_wcan_reset_button_toPropertyKey(descriptor.key), descriptor); } }
-function yith_wcan_reset_button_createClass(Constructor, protoProps, staticProps) { if (protoProps) yith_wcan_reset_button_defineProperties(Constructor.prototype, protoProps); if (staticProps) yith_wcan_reset_button_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function yith_wcan_reset_button_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function yith_wcan_reset_button_defineProperty(obj, key, value) { key = yith_wcan_reset_button_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function yith_wcan_reset_button_toPropertyKey(arg) { var key = yith_wcan_reset_button_toPrimitive(arg, "string"); return yith_wcan_reset_button_typeof(key) === "symbol" ? key : String(key); }
-function yith_wcan_reset_button_toPrimitive(input, hint) { if (yith_wcan_reset_button_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (yith_wcan_reset_button_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function yith_wcan_reset_button_typeof(o) { "@babel/helpers - typeof"; return yith_wcan_reset_button_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, yith_wcan_reset_button_typeof(o); }
+function yith_wcan_reset_button_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, yith_wcan_reset_button_toPropertyKey(o.key), o); } }
+function yith_wcan_reset_button_createClass(e, r, t) { return r && yith_wcan_reset_button_defineProperties(e.prototype, r), t && yith_wcan_reset_button_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function yith_wcan_reset_button_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function yith_wcan_reset_button_defineProperty(e, r, t) { return (r = yith_wcan_reset_button_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function yith_wcan_reset_button_toPropertyKey(t) { var i = yith_wcan_reset_button_toPrimitive(t, "string"); return "symbol" == yith_wcan_reset_button_typeof(i) ? i : i + ""; }
+function yith_wcan_reset_button_toPrimitive(t, r) { if ("object" != yith_wcan_reset_button_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != yith_wcan_reset_button_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 var YITH_WCAN_Reset_Button = /*#__PURE__*/yith_wcan_reset_button_createClass(
-// current button
-
 // init object
 function YITH_WCAN_Reset_Button(el) {
   yith_wcan_reset_button_classCallCheck(this, YITH_WCAN_Reset_Button);
+  // current button
   yith_wcan_reset_button_defineProperty(this, "$reset", null);
   // current button
   this.$reset = el;
@@ -365,48 +425,55 @@ function YITH_WCAN_Reset_Button(el) {
 
 
 /* global globalThis, jQuery, yith_wcan_shortcodes, accounting */
-function yith_wcan_dropdown_typeof(obj) { "@babel/helpers - typeof"; return yith_wcan_dropdown_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, yith_wcan_dropdown_typeof(obj); }
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function yith_wcan_dropdown_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function yith_wcan_dropdown_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, yith_wcan_dropdown_toPropertyKey(descriptor.key), descriptor); } }
-function yith_wcan_dropdown_createClass(Constructor, protoProps, staticProps) { if (protoProps) yith_wcan_dropdown_defineProperties(Constructor.prototype, protoProps); if (staticProps) yith_wcan_dropdown_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function yith_wcan_dropdown_defineProperty(obj, key, value) { key = yith_wcan_dropdown_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function yith_wcan_dropdown_toPropertyKey(arg) { var key = yith_wcan_dropdown_toPrimitive(arg, "string"); return yith_wcan_dropdown_typeof(key) === "symbol" ? key : String(key); }
-function yith_wcan_dropdown_toPrimitive(input, hint) { if (yith_wcan_dropdown_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (yith_wcan_dropdown_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function yith_wcan_dropdown_typeof(o) { "@babel/helpers - typeof"; return yith_wcan_dropdown_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, yith_wcan_dropdown_typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == yith_wcan_dropdown_typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(yith_wcan_dropdown_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function yith_wcan_dropdown_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function yith_wcan_dropdown_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, yith_wcan_dropdown_toPropertyKey(o.key), o); } }
+function yith_wcan_dropdown_createClass(e, r, t) { return r && yith_wcan_dropdown_defineProperties(e.prototype, r), t && yith_wcan_dropdown_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function yith_wcan_dropdown_defineProperty(e, r, t) { return (r = yith_wcan_dropdown_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function yith_wcan_dropdown_toPropertyKey(t) { var i = yith_wcan_dropdown_toPrimitive(t, "string"); return "symbol" == yith_wcan_dropdown_typeof(i) ? i : i + ""; }
+function yith_wcan_dropdown_toPrimitive(t, r) { if ("object" != yith_wcan_dropdown_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != yith_wcan_dropdown_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
-  // current button
-
-  // main element
-
-  // label element
-
-  // dropdown
-
-  // search input
-
-  // show more link
-
-  // items list
-
-  // current page
-
-  // options
-
   // init object
   function YITH_WCAN_Dropdown(el, opts) {
     var _yith_wcan_shortcodes, _yith_wcan_shortcodes2, _yith_wcan_shortcodes3, _yith_wcan_shortcodes4;
     yith_wcan_dropdown_classCallCheck(this, YITH_WCAN_Dropdown);
+    // current button
     yith_wcan_dropdown_defineProperty(this, "$originalSelect", null);
+    // list of current items.
+    yith_wcan_dropdown_defineProperty(this, "_items", []);
+    // main element
     yith_wcan_dropdown_defineProperty(this, "$_main", null);
+    // label element
     yith_wcan_dropdown_defineProperty(this, "$_label", null);
+    // dropdown
     yith_wcan_dropdown_defineProperty(this, "$_dropdown", null);
+    // search input
     yith_wcan_dropdown_defineProperty(this, "$_search", null);
+    // show more link
     yith_wcan_dropdown_defineProperty(this, "$_showMore", null);
+    // items list
     yith_wcan_dropdown_defineProperty(this, "$_items", null);
+    // whether select should paginate.
+    yith_wcan_dropdown_defineProperty(this, "paginate", false);
+    // whether select has more items than those shown.
+    yith_wcan_dropdown_defineProperty(this, "hasMore", false);
+    // whether items list needs update.
+    yith_wcan_dropdown_defineProperty(this, "needsRefresh", true);
+    // whether select is multiple
+    yith_wcan_dropdown_defineProperty(this, "multiple", false);
+    // current page
     yith_wcan_dropdown_defineProperty(this, "currentPage", 1);
+    // options
     yith_wcan_dropdown_defineProperty(this, "options", {});
     this.$originalSelect = el;
     if (!this.$originalSelect.is('select')) {
@@ -419,6 +486,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
         showSearch: this.$originalSelect.data('show_search'),
         paginate: this.$originalSelect.data('paginate'),
         perPage: defaultPerPage ? defaultPerPage : 10,
+        hasMore: false,
         order: defaultOrder ? defaultOrder : 'ASC',
         getElements: null,
         labels: {
@@ -428,7 +496,10 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
           showMore: (_yith_wcan_shortcodes4 = yith_wcan_shortcodes.labels) === null || _yith_wcan_shortcodes4 === void 0 ? void 0 : _yith_wcan_shortcodes4.show_more
         }
       };
+    this.multiple = this.$originalSelect.prop('multiple');
     this.options = $.extend(defaults, opts);
+    this.paginate = this.options.paginate || false;
+    this.hasMore = this.options.hasMore || false;
     this._hideSelect();
     this._initTemplate();
     this._initActions();
@@ -436,7 +507,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
   }
 
   // hide select
-  yith_wcan_dropdown_createClass(YITH_WCAN_Dropdown, [{
+  return yith_wcan_dropdown_createClass(YITH_WCAN_Dropdown, [{
     key: "_hideSelect",
     value: function _hideSelect() {
       this.$originalSelect.hide();
@@ -509,11 +580,13 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
   }, {
     key: "_initActions",
     value: function _initActions() {
-      var _this$$_main, _this$$_search;
+      var _this$$_main,
+        _this$$_search,
+        _this = this;
       var self = this;
 
       // main open event
-      (_this$$_main = this.$_main) === null || _this$$_main === void 0 ? void 0 : _this$$_main.on('click', function (ev) {
+      (_this$$_main = this.$_main) === null || _this$$_main === void 0 || _this$$_main.on('click', function (ev) {
         ev.stopPropagation();
         self.toggleDropdown();
       });
@@ -522,8 +595,12 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
       });
 
       // search event
-      (_this$$_search = this.$_search) === null || _this$$_search === void 0 ? void 0 : _this$$_search.on('keyup search', function () {
-        self._populateItems();
+      (_this$$_search = this.$_search) === null || _this$$_search === void 0 || _this$$_search.on('keyup search change', function () {
+        _this.paginate = false;
+        _this._populateItems().then(function () {
+          _this.needsRefresh = true;
+        });
+        return false;
       });
 
       // select event
@@ -582,7 +659,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     key: "openDropdown",
     value: function openDropdown() {
       var _this$$_main2;
-      (_this$$_main2 = this.$_main) === null || _this$$_main2 === void 0 ? void 0 : _this$$_main2.addClass('open').removeClass('closed');
+      (_this$$_main2 = this.$_main) === null || _this$$_main2 === void 0 || _this$$_main2.addClass('open').removeClass('closed');
       this._afterDropdownOpen();
     }
 
@@ -591,7 +668,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     key: "closeDropdown",
     value: function closeDropdown() {
       var _this$$_main3;
-      (_this$$_main3 = this.$_main) === null || _this$$_main3 === void 0 ? void 0 : _this$$_main3.removeClass('open').addClass('closed');
+      (_this$$_main3 = this.$_main) === null || _this$$_main3 === void 0 || _this$$_main3.removeClass('open').addClass('closed');
     }
 
     // close all dropdowns
@@ -626,7 +703,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     key: "toggleDropdown",
     value: function toggleDropdown() {
       var _this$$_main4, _this$$_main5;
-      (_this$$_main4 = this.$_main) === null || _this$$_main4 === void 0 ? void 0 : _this$$_main4.toggleClass('open').toggleClass('closed');
+      (_this$$_main4 = this.$_main) === null || _this$$_main4 === void 0 || _this$$_main4.toggleClass('open').toggleClass('closed');
       if ((_this$$_main5 = this.$_main) !== null && _this$$_main5 !== void 0 && _this$$_main5.hasClass('open')) {
         this._afterDropdownOpen();
       }
@@ -641,54 +718,89 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
       if ((_this$$_search2 = this.$_search) !== null && _this$$_search2 !== void 0 && _this$$_search2.length) {
         this.$_search.val('');
       }
-      this._populateItems();
+      this._maybePopulateItems();
     }
-
-    // get elements
+  }, {
+    key: "getItems",
+    value: function () {
+      var _getItems = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(search) {
+        var _this2 = this;
+        var $options, items, perPage;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              if (!this._items.length) {
+                $options = this.getOptions();
+                $options.each(function (i, el) {
+                  var t = $(el),
+                    value = t.val(),
+                    label = t.html();
+                  _this2._items.push({
+                    value: value,
+                    label: label
+                  });
+                });
+              }
+              _context.next = 3;
+              return this.getMatchingElements(search);
+            case 3:
+              items = _context.sent;
+              perPage = this.paginate ? this.options.perPage : 0;
+              if (perPage && items.length > perPage) {
+                this.hasMore = true;
+                items = items.slice(0, perPage);
+              }
+              return _context.abrupt("return", items);
+            case 7:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, this);
+      }));
+      function getItems(_x) {
+        return _getItems.apply(this, arguments);
+      }
+      return getItems;
+    }() // get elements
   }, {
     key: "getMatchingElements",
-    value: function getMatchingElements(search, limit) {
-      var _this = this;
-      var matchingElements = [],
-        $options = this.getOptions(),
+    value: function getMatchingElements(search) {
+      var _this3 = this;
+      var matchingElements = this._items,
         promise;
       promise = new Promise(function (resolve) {
-        // first of all, search across select option
-        $options.each(function () {
-          var t = $(this),
-            value = t.val(),
-            label = t.html(),
-            regex = new RegExp('.*' + search + '.*', 'i'),
-            show = !search || regex.test(value) || regex.test(label);
-          if (show) {
-            matchingElements.push({
-              value: value,
-              label: label
-            });
-          }
-        });
+        matchingElements = search ? matchingElements.filter(function (_ref) {
+          var label = _ref.label,
+            value = _ref.value;
+          var regex = new RegExp('.*' + search + '.*', 'i');
+          return regex.test(value) || regex.test(label);
+        }) : matchingElements;
 
         // then retrieve additional items
-        if (_this.options.getElements) {
+        if (_this3.options.getElements) {
           // we're expecting key => value pairs
-          _this.options.getElements(search).then(function (retrievedElements) {
+          _this3.options.getElements.call(_this3, search).then(function (retrievedElements) {
             if (retrievedElements) {
               // reformat retrieved array
-              retrievedElements = retrievedElements.reduce(function (a, v, i) {
+              retrievedElements = Object.keys(retrievedElements).reduce(function (a, i) {
+                if (!!retrievedElements[i].label) {
+                  a.push(retrievedElements[i]);
+                  return a;
+                }
                 a.push({
-                  label: i,
-                  value: v
+                  label: retrievedElements[i],
+                  value: i
                 });
                 return a;
               }, []);
 
               // merge found results with options
-              matchingElements = $.extend(matchingElements, retrievedElements);
+              matchingElements = [].concat(_toConsumableArray(matchingElements), _toConsumableArray(retrievedElements));
             }
-            resolve(_this._formatItems(matchingElements, limit));
+            resolve(_this3._formatItems(matchingElements));
           });
         } else {
-          resolve(_this._formatItems(matchingElements, limit));
+          resolve(_this3._formatItems(matchingElements));
         }
       });
       return promise;
@@ -697,38 +809,29 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     // format items as key/value pairs for further processing
   }, {
     key: "_formatItems",
-    value: function _formatItems(items, limit) {
-      var _this2 = this;
-      var indexes = [],
-        hasMore = false;
+    value: function _formatItems(items) {
+      var _this4 = this;
+      var indexes = [];
 
       // remove duplicates and sort array of results
-      items.filter(function (v) {
-        if (-1 === indexes.indexOf(v.value)) {
-          indexes.push(v.value);
+      return items.filter(function (_ref2) {
+        var value = _ref2.value,
+          label = _ref2.label;
+        if (-1 === indexes.indexOf(value)) {
+          indexes.push(value);
+
+          // checks if select has a related option.
+          if (!_this4.getOptionByValue(value).length) {
+            _this4.$originalSelect.append("<option class=\"filter-item\" value=\"".concat(value, "\">").concat(label, "</option>"));
+          }
+
+          // add item to final array of elements.
           return true;
         }
-        return false;
-      }).sort(function (a, b) {
-        var order = _this2.options.order,
-          mod = order === 'ASC' ? 1 : -1;
-        if (a.value < b.value) {
-          return -1 * mod;
-        } else if (a.value > b.value) {
-          return mod;
-        }
-        return 0;
-      });
 
-      // paginate when needed
-      if (limit) {
-        hasMore = limit < Object.keys(items).length;
-        items = items.slice(0, limit);
-      }
-      return {
-        items: items,
-        hasMore: hasMore
-      };
+        // item should not be included in the final set.
+        return false;
+      });
     }
 
     // generate item to append to items list
@@ -756,7 +859,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
         rel: 'nofollow',
         'data-title': option.length ? option.data('title') : ''
       });
-      if (this.$originalSelect.prop('multiple')) {
+      if (this.multiple) {
         var $checkbox = $('<input/>', {
             type: 'checkbox',
             value: value
@@ -771,55 +874,32 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
       active ? $item.addClass('active') : $item.removeClass('active');
       return $item;
     }
-
-    // populate items list
+  }, {
+    key: "_maybePopulateItems",
+    value: function _maybePopulateItems() {
+      if (!this.needsRefresh) {
+        return;
+      }
+      this._populateItems();
+    }
   }, {
     key: "_populateItems",
-    value: function _populateItems(page) {
+    value: function _populateItems() {
       var _this$$_search3,
-        _this3 = this;
-      var search = (_this$$_search3 = this.$_search) !== null && _this$$_search3 !== void 0 && _this$$_search3.length ? this.$_search.val() : '',
-        perPage = this.options.paginate ? this.options.perPage : 0,
-        limit;
-      page = page ? parseInt(page) : 1;
-      limit = page * perPage;
-      this.getMatchingElements(search, limit).then(function (resultSet) {
-        var matchingItems = resultSet.items,
-          items = [],
-          hasMore = false;
-
-        // remove all previous items
-        _this3._emptyItems();
-        _this3._hideLoadMore();
-        if (!matchingItems.length) {
-          items.push($('<li/>', {
-            text: _this3.options.labels.noItemsFound
-          }));
-          _this3.currentPage = 1;
-        } else {
-          var _iterator = _createForOfIteratorHelper(matchingItems),
-            _step;
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var v = _step.value;
-              if (v.value === '') {
-                items.unshift(_this3._generateItem(v.value, v.label));
-              } else {
-                items.push(_this3._generateItem(v.value, v.label));
-              }
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-          _this3.currentPage = page;
-          hasMore = resultSet.hasMore;
-        }
-        _this3.$_items.append(items);
-        _this3.$originalSelect.trigger('yith_wcan_dropdown_updated');
-        if (hasMore) {
-          _this3._showLoadMore();
+        _this5 = this;
+      var search = (_this$$_search3 = this.$_search) !== null && _this$$_search3 !== void 0 && _this$$_search3.length ? this.$_search.val() : false;
+      return this.getItems(search).then(function (items) {
+        _this5._emptyItems();
+        _this5._hideLoadMore();
+        _this5.$_items.append(items.map(function (_ref3) {
+          var label = _ref3.label,
+            value = _ref3.value;
+          return _this5._generateItem(value, label);
+        }));
+        _this5.$originalSelect.trigger('yith_wcan_dropdown_updated');
+        _this5.needsRefresh = false;
+        if (_this5.paginate && _this5.hasMore) {
+          _this5._showLoadMore();
         }
       });
     }
@@ -827,12 +907,27 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     // load next page of items
   }, {
     key: "loadNextPage",
-    value: function loadNextPage() {
-      var page = this.currentPage + 1;
-      this._populateItems(page);
-    }
-
-    // set an item as active
+    value: function () {
+      var _loadNextPage = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var _this6 = this;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              this.paginate = false;
+              this._populateItems().then(function () {
+                _this6.hasMore = false;
+              });
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, this);
+      }));
+      function loadNextPage() {
+        return _loadNextPage.apply(this, arguments);
+      }
+      return loadNextPage;
+    }() // set an item as active
   }, {
     key: "_selectItem",
     value: function _selectItem(value) {
@@ -853,7 +948,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
       var $option = this.$originalSelect.find("option[value=\"".concat(value, "\"]"));
       if ($option.length) {
         $option.prop('selected', status);
-        this.closeDropdown();
+        !yith_wcan_shortcodes.instant_filters && this.multiple || this.closeDropdown();
         this.updateLabel();
         this.$originalSelect.trigger('change', [true]);
         return true;
@@ -895,7 +990,7 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
     value: function updateLabel() {
       var _this$$_label;
       var label = this.getLabel();
-      (_this$$_label = this.$_label) === null || _this$$_label === void 0 ? void 0 : _this$$_label.html(label);
+      (_this$$_label = this.$_label) === null || _this$$_label === void 0 || _this$$_label.html(label);
     }
 
     // returns select options
@@ -964,58 +1059,57 @@ var YITH_WCAN_Dropdown = /*#__PURE__*/function () {
       // TBD
     }
   }]);
-  return YITH_WCAN_Dropdown;
 }();
 
 ;// CONCATENATED MODULE: ./assets/js/shortcodes/modules/yith-wcan-preset.js
 
 
 /* global globalThis, jQuery, yith_wcan_shortcodes, accounting */
-function yith_wcan_preset_typeof(obj) { "@babel/helpers - typeof"; return yith_wcan_preset_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, yith_wcan_preset_typeof(obj); }
-function yith_wcan_preset_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function yith_wcan_preset_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, yith_wcan_preset_toPropertyKey(descriptor.key), descriptor); } }
-function yith_wcan_preset_createClass(Constructor, protoProps, staticProps) { if (protoProps) yith_wcan_preset_defineProperties(Constructor.prototype, protoProps); if (staticProps) yith_wcan_preset_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function yith_wcan_preset_defineProperty(obj, key, value) { key = yith_wcan_preset_toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function yith_wcan_preset_toPropertyKey(arg) { var key = yith_wcan_preset_toPrimitive(arg, "string"); return yith_wcan_preset_typeof(key) === "symbol" ? key : String(key); }
-function yith_wcan_preset_toPrimitive(input, hint) { if (yith_wcan_preset_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (yith_wcan_preset_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = yith_wcan_preset_unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function yith_wcan_preset_unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return yith_wcan_preset_arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? yith_wcan_preset_arrayLikeToArray(r, a) : void 0; } }
+function yith_wcan_preset_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function yith_wcan_preset_typeof(o) { "@babel/helpers - typeof"; return yith_wcan_preset_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, yith_wcan_preset_typeof(o); }
+function yith_wcan_preset_regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ yith_wcan_preset_regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == yith_wcan_preset_typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(yith_wcan_preset_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function yith_wcan_preset_asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function yith_wcan_preset_asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { yith_wcan_preset_asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { yith_wcan_preset_asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { yith_wcan_preset_defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function yith_wcan_preset_classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function yith_wcan_preset_defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, yith_wcan_preset_toPropertyKey(o.key), o); } }
+function yith_wcan_preset_createClass(e, r, t) { return r && yith_wcan_preset_defineProperties(e.prototype, r), t && yith_wcan_preset_defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function yith_wcan_preset_defineProperty(e, r, t) { return (r = yith_wcan_preset_toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function yith_wcan_preset_toPropertyKey(t) { var i = yith_wcan_preset_toPrimitive(t, "string"); return "symbol" == yith_wcan_preset_typeof(i) ? i : i + ""; }
+function yith_wcan_preset_toPrimitive(t, r) { if ("object" != yith_wcan_preset_typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != yith_wcan_preset_typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 var YITH_WCAN_Preset = /*#__PURE__*/function () {
-  // main preset node
-
-  // target of the filter, if any
-
-  // filters node
-
-  // filter button
-
-  // nodes created just for modal layout
-
-  // retains current status of filters
-
-  // mobile flag
-
-  // slider timeout
-
-  // registers when status has changed
-
-  // flag to disable filtering
-
   // init object
   function YITH_WCAN_Preset(el) {
     yith_wcan_preset_classCallCheck(this, YITH_WCAN_Preset);
+    // main preset node
     yith_wcan_preset_defineProperty(this, "preset", false);
     yith_wcan_preset_defineProperty(this, "$preset", false);
+    // target of the filter, if any
     yith_wcan_preset_defineProperty(this, "target", false);
     yith_wcan_preset_defineProperty(this, "$target", false);
+    // filters node
     yith_wcan_preset_defineProperty(this, "$filters", false);
+    // filter button
     yith_wcan_preset_defineProperty(this, "$filterButtons", false);
+    // nodes created just for modal layout
     yith_wcan_preset_defineProperty(this, "modalElements", {});
+    // retains current status of filters
     yith_wcan_preset_defineProperty(this, "activeFilters", false);
+    // mobile flag
     yith_wcan_preset_defineProperty(this, "isMobile", false);
+    // slider timeout
     yith_wcan_preset_defineProperty(this, "sliderTimeout", false);
+    // registers when status has changed
     yith_wcan_preset_defineProperty(this, "originalFilters", null);
     yith_wcan_preset_defineProperty(this, "dirty", false);
+    // promise resolved when all async loading is complete.
+    yith_wcan_preset_defineProperty(this, "loaded", void 0);
+    // flag to disable filtering
     yith_wcan_preset_defineProperty(this, "inhibitFilters", false);
     // main preset node
     this.preset = '#' + el.attr('id');
@@ -1026,21 +1120,21 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
     this.$target = this.target ? $(this.target) : false;
     this._regiterStatus();
     this._initFilterButton();
-    this._initResponsive();
     this._initFilters();
+    this._initResponsive();
     this._initActions();
     this.$preset.data('preset', this).addClass('enhanced').trigger('yith_wcan_preset_initialized', [this]);
   }
 
   // init filters
-  yith_wcan_preset_createClass(YITH_WCAN_Preset, [{
+  return yith_wcan_preset_createClass(YITH_WCAN_Preset, [{
     key: "_initFilters",
     value: function _initFilters() {
-      var self = this;
-      this.getFilters().each(function () {
-        var $filter = $(this);
-        self._initFilter($filter);
+      var _this = this;
+      var filters = this.getFilters().get().map(function (filter) {
+        return _this._initFilter($(filter));
       });
+      this.loaded = Promise.all(filters);
       this.maybeShowClearAllFilters();
     }
 
@@ -1048,7 +1142,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_initFilterButton",
     value: function _initFilterButton() {
-      var _this = this;
+      var _this2 = this;
       this.$filterButtons = this.$preset.find('.apply-filters');
       if (!this.$filterButtons.length) {
         return;
@@ -1057,7 +1151,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       // manage filter button
       this.$filterButtons.on('click', function (ev) {
         ev.preventDefault();
-        _this.filter();
+        _this2.filter();
       }).hide();
     }
 
@@ -1074,16 +1168,16 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_initResponsive",
     value: function _initResponsive() {
-      var _this2 = this;
+      var _this3 = this;
       if (!yith_wcan_shortcodes.modal_on_mobile) {
         return;
       }
       var media = window.matchMedia("(max-width: ".concat(yith_wcan_shortcodes.mobile_media_query, "px)"));
       $(window).on('resize', function () {
         var isMobile = !!media.matches;
-        if (isMobile !== _this2.isMobile) {
-          _this2.isMobile = isMobile;
-          _this2._afterLayoutChange();
+        if (isMobile !== _this3.isMobile) {
+          _this3.isMobile = isMobile;
+          _this3._afterLayoutChange();
         }
       }).resize();
     }
@@ -1092,7 +1186,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_initFilter",
     value: function _initFilter($filter) {
-      var _this$$preset;
+      var _this4 = this;
       var self = this,
         handleChange = function handleChange(ev) {
           var t = $(this),
@@ -1100,8 +1194,10 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
             multiple = $currentFilter.length ? 'yes' === $currentFilter.data('multiple') : false,
             $item = t.closest('.filter-item'),
             $items = $item.length ? $currentFilter.find('.filter-item').not($item) : [];
+          if ($currentFilter.is('.filter-price-slider')) {
+            return false;
+          }
           if ($item.is('.disabled') && !$item.is('.active')) {
-            ev.preventDefault();
             return false;
           }
           ev.preventDefault();
@@ -1115,42 +1211,60 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
           self.maybeToggleClearFilter($currentFilter);
         };
 
-      // handle filter activation/deactivation by click on label (no input involved)
-      $filter.find('.filter-item').not('.checkbox').not('.radio').on('click', 'a', function (ev) {
-        var t = $(this),
-          $item = t.closest('.filter-item');
-        if (!$(ev === null || ev === void 0 ? void 0 : ev.delegateTarget).is($item)) {
-          return false;
-        }
-        handleChange.call(this, ev);
-      });
+      // load filter when needed and then init it.
+      // eslint-disable-next-line no-shadow
+      return this._maybeLoadFilter($filter).then(function ($filter) {
+        // handle filter activation/deactivation by click on label (no input involved)
+        $filter.on('click', 'a', function (ev) {
+          var t = $(this),
+            $item = t.closest('.filter-item');
+          if (!$item.length || $item.is('.checkbox') || $item.is('.radio')) {
+            return;
+          }
+          handleChange.call(this, ev);
+        });
 
-      // handle filter activation/deactivation from input change
-      $filter.find(':input').on('change', function (ev) {
-        var t = $(this),
-          $item = t.closest('.filter-item');
-        if ($item.is('.disabled') && !$item.is('.active')) {
-          t.prop('checked', false);
-          return false;
-        }
-        handleChange.call(this, ev);
-      });
+        // handle filter activation/deactivation from input change
+        $filter.on('change', ':input', function (ev) {
+          var t = $(this),
+            $item = t.closest('.filter-item');
+          if ($item.is('.disabled') && !$item.is('.active')) {
+            t.prop('checked', false);
+            return false;
+          }
+          handleChange.call(this, ev);
+        });
 
-      // handle filter activation/deactivation by click on label (there is an input whose state can be switched)
-      $filter.find('label > a').on('click', function (ev) {
-        var t = $(this),
-          $item = t.closest('.filter-item');
-        ev.preventDefault();
-        if ($item.is('.disabled') && !$item.is('.active')) {
-          return false;
-        }
-        var $input = t.parent().find(':input');
-        if ($input.is('[type="radio"]') || $input.is('[type="checkbox"]')) {
-          $input.prop('checked', !$input.prop('checked'));
-        }
-        $input.change();
-      });
+        // handle filter activation/deactivation by click on label (there is an input whose state can be switched)
+        $filter.on('click', 'label > a', function (ev) {
+          var t = $(this),
+            $item = t.closest('.filter-item');
+          ev.preventDefault();
+          if ($item.is('.disabled') && !$item.is('.active')) {
+            return false;
+          }
+          var $input = t.parent().find(':input');
+          if ($input.is('[type="radio"]') || $input.is('[type="checkbox"]')) {
+            $input.prop('checked', !$input.prop('checked'));
+          }
+          $input.change();
+        });
 
+        // init children items, such as tooltip, dropdowns, etc.
+        _this4._initFilterChildren($filter);
+
+        // init clear anchors
+        _this4.maybeShowClearFilter($filter);
+        return $filter;
+      });
+    }
+
+    // performs additional operations after filter init, such as adding tooltip, collapsable handles, custom dropdowns, etc.
+  }, {
+    key: "_initFilterChildren",
+    value: function _initFilterChildren($filter) {
+      var _this$$preset,
+        _this5 = this;
       // init tooltip
       this._initTooltip($filter);
 
@@ -1163,18 +1277,62 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       // init collapsable
       this._initCollapsable($filter);
 
-      // init clear anchors
-      this.maybeShowClearFilter($filter);
+      // init show more link
+      this._initShowMore($filter);
 
       // init custom inputs
       if ((_this$$preset = this.$preset) !== null && _this$$preset !== void 0 && _this$$preset.hasClass('custom-style')) {
         this._initCustomInput($filter);
-        $filter.on('yith_wcan_dropdown_updated', function () {
-          var $dropdown = $(this),
+        $filter.on('yith_wcan_dropdown_updated', function (ev) {
+          var $dropdown = $(ev.target),
             $current = $dropdown.closest('.yith-wcan-filter');
-          self._initCustomInput($current);
+          _this5._initCustomInput($current);
         });
       }
+    }
+
+    // load filter via AJAX
+  }, {
+    key: "_maybeLoadFilter",
+    value: function _maybeLoadFilter($filter) {
+      var _this6 = this;
+      // if filter doesn't require loading, return it as Promise resolve value.
+      if (!$filter.hasClass('filter-placeholder')) {
+        return Promise.resolve($filter);
+      }
+
+      // otherwise load filter via AJAX.
+      return new Promise(function (resolve) {
+        var _yith_wcan_shortcodes;
+        $.ajax({
+          method: 'GET',
+          url: yith_wcan_shortcodes.base_url,
+          data: _objectSpread({
+            'wc-ajax': 'yith_wcan_render_filter',
+            _preset_id: _this6.getId(),
+            _filter_id: $filter.data('filter-id'),
+            security: (_yith_wcan_shortcodes = yith_wcan_shortcodes.nonces) === null || _yith_wcan_shortcodes === void 0 ? void 0 : _yith_wcan_shortcodes.render_filter
+          }, _this6.originalFilters)
+        }).then(function (data) {
+          var _data$data;
+          return resolve(_this6._loadFilter($filter, data.success ? data === null || data === void 0 || (_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.html : ''));
+        });
+      });
+    }
+
+    // replace placeholder with actual filter template.
+  }, {
+    key: "_loadFilter",
+    value: function _loadFilter($filter, filterHTML) {
+      if (!filterHTML) {
+        return $filter.remove();
+      }
+      var $newFilter = $(filterHTML);
+      $filter.replaceWith($newFilter);
+
+      // old filters are outdated, clear them until next .getFilters()
+      this.$filters = false;
+      return $newFilter;
     }
 
     // init tooltip
@@ -1227,16 +1385,40 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
     key: "_initDropdown",
     value: function _initDropdown($filter) {
       var $dropdown = $filter.find('select.filter-dropdown');
-      if (!$dropdown.length) {
+      if (!$dropdown.length || $dropdown.hasClass('enhanced')) {
         return;
       }
       if ($dropdown.hasClass('select2-hidden-accessible') && 'undefined' !== typeof $.fn.selectWoo) {
         $dropdown.selectWoo('destroy');
       }
-      this._initDropdownObject($dropdown, {
+      var self = this,
+        hasMore = $dropdown.data('has-more');
+      this._initDropdownObject($dropdown, _objectSpread({
         paginate: true,
-        perPage: yith_wcan_shortcodes.terms_per_page
-      });
+        hasMore: hasMore,
+        perPage: parseInt(yith_wcan_shortcodes.terms_per_page)
+      }, hasMore ? {
+        getElements: function getElements(search) {
+          var _this7 = this;
+          return yith_wcan_preset_asyncToGenerator( /*#__PURE__*/yith_wcan_preset_regeneratorRuntime().mark(function _callee() {
+            return yith_wcan_preset_regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!((_this7.paginate || !_this7.hasMore) && !search)) {
+                    _context.next = 2;
+                    break;
+                  }
+                  return _context.abrupt("return", _this7._items);
+                case 2:
+                  return _context.abrupt("return", self._getTerms($filter, search));
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee);
+          }))();
+        }
+      } : {}));
     }
 
     // init dropdown object
@@ -1250,7 +1432,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_initPriceSlider",
     value: function _initPriceSlider($filter) {
-      var _this3 = this;
+      var _this8 = this;
       if (!$filter.hasClass('filter-price-slider')) {
         return;
       }
@@ -1282,7 +1464,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         min_interval: step,
         values_separator: ' - ',
         prettify: function prettify(v) {
-          return _this3.formatPrice(v);
+          return _this8.formatPrice(v);
         },
         onChange: function onChange(data) {
           $minInput.val(data.from);
@@ -1310,12 +1492,93 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       this._initHierarchyCollapsable($filter);
     }
 
+    // init show more filters on click.
+  }, {
+    key: "_initShowMore",
+    value: function _initShowMore($filter) {
+      var _this9 = this;
+      var $showMore = $filter.find('.filter-content').children('.show-more');
+      if (!$showMore.length || $showMore.hasClass('initialized')) {
+        return;
+      }
+      $showMore.addClass('initialized').on('click', function () {
+        return _this9._loadItems($filter).then(function () {
+          return $showMore.remove();
+        });
+      });
+    }
+  }, {
+    key: "_getTerms",
+    value: function _getTerms($filter, search) {
+      var _this10 = this;
+      return new Promise(function (resolve) {
+        $.ajax({
+          method: 'GET',
+          beforeSend: function beforeSend() {
+            return globals_block($filter);
+          },
+          complete: function complete() {
+            return globals_unblock($filter);
+          },
+          url: yith_wcan_shortcodes.base_url,
+          data: _objectSpread({
+            'wc-ajax': 'yith_wcan_get_filter_terms',
+            _preset_id: _this10.getId(),
+            _filter_id: $filter.data('filter-id'),
+            security: yith_wcan_shortcodes.nonces.get_filter_terms,
+            search: search
+          }, _this10.originalFilters)
+        }).then(function (data) {
+          var _data$data2;
+          var $items = data.success ? data === null || data === void 0 || (_data$data2 = data.data) === null || _data$data2 === void 0 ? void 0 : _data$data2.items : {};
+          resolve($items);
+        });
+      });
+    }
+
+    // load new page of terms via AJAX
+  }, {
+    key: "_loadItems",
+    value: function _loadItems($filter) {
+      var _this11 = this;
+      return new Promise(function (resolve) {
+        $.ajax({
+          method: 'GET',
+          beforeSend: function beforeSend() {
+            return globals_block($filter);
+          },
+          complete: function complete() {
+            return globals_unblock($filter);
+          },
+          url: yith_wcan_shortcodes.base_url,
+          data: _objectSpread({
+            'wc-ajax': 'yith_wcan_render_remaining_terms',
+            _preset_id: _this11.getId(),
+            _filter_id: $filter.data('filter-id'),
+            security: yith_wcan_shortcodes.nonces.render_remaining_terms
+          }, _this11.originalFilters)
+        }).then(function (data) {
+          var _data$data3;
+          var $items = $filter.find('.filter-content').children('.filter-items');
+
+          // append new items to filter existing ones.
+          $items.append(data.success ? data === null || data === void 0 || (_data$data3 = data.data) === null || _data$data3 === void 0 ? void 0 : _data$data3.html : '');
+
+          // perform additional initalization of the new items in the filter.
+          _this11._initFilterChildren($filter);
+
+          // resolve promise returning jQuery set of the new elements.
+          resolve($items);
+        });
+      });
+    }
+
     // init toggle on click of the title
   }, {
     key: "_initTitleCollapsable",
     value: function _initTitleCollapsable($filter) {
       var $title = $filter.find('.collapsable');
-      if (!$title.length) {
+      if (!$title.length || $title.hasClass('toggle-initialized')) {
         return;
       }
       this._initToggle($title, $title, $filter.find('.filter-content'));
@@ -1340,10 +1603,13 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         }
       }
       $items.each(function () {
-        var $t = $(this),
-          $toggle = $('<span/>', {
-            "class": 'toggle-handle'
-          });
+        var $t = $(this);
+        if ($t.hasClass('toggle-initialized')) {
+          return;
+        }
+        var $toggle = $('<span/>', {
+          "class": 'toggle-handle'
+        });
         $toggle.appendTo($t);
         self._initToggle($toggle, $t, $t.children('ul.filter-items'));
       });
@@ -1353,16 +1619,20 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_initToggle",
     value: function _initToggle($toggle, $container, $target) {
-      var _this4 = this;
+      var _this12 = this;
+      if ($container.hasClass('toggle-initialized')) {
+        return;
+      }
       if ($container.hasClass('closed')) {
         $target.hide();
       }
       $toggle.off('click').on('click', function (ev) {
         ev.stopPropagation();
         ev.preventDefault();
-        _this4.toggle($target, $container);
+        _this12.toggle($target, $container);
         $target.trigger('yith_wcan_after_toggle_element', [$container]);
       });
+      $container.addClass('toggle-initialized');
     }
 
     // init custom input
@@ -1397,28 +1667,33 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_regiterStatus",
     value: function _regiterStatus() {
-      this.originalFilters = this.getFiltersProperties();
+      this.originalFilters = this.mergeProperties(yith_wcan_shortcodes.query_vars, this.getFiltersProperties());
     }
 
     // trigger handling after layout change
   }, {
     key: "_afterLayoutChange",
     value: function _afterLayoutChange() {
+      var _this13 = this;
       if (this.isMobile) {
         var _this$$filterButtons;
         this.$preset.addClass('filters-modal').attr('role', 'dialog').attr('tabindex', '-1').hide();
         this._addCloseModalButton();
         this._addApplyFiltersModalButton();
-        this._switchToCollapsables();
-        (_this$$filterButtons = this.$filterButtons) === null || _this$$filterButtons === void 0 ? void 0 : _this$$filterButtons.hide();
+        this.loaded.then(function () {
+          return _this13._switchToCollapsables();
+        });
+        (_this$$filterButtons = this.$filterButtons) === null || _this$$filterButtons === void 0 || _this$$filterButtons.hide();
       } else {
         var _this$$filterButtons2;
         this.$preset.removeClass('filters-modal').removeClass('open').removeAttr('role').removeAttr('tabindex').show();
         $('body').css('overflow', 'auto').removeClass('yith-wcan-preset-modal-open');
         this._removeCloseModalButton();
         this._removeApplyFiltersModalButton();
-        this._switchBackCollapsables();
-        (_this$$filterButtons2 = this.$filterButtons) === null || _this$$filterButtons2 === void 0 ? void 0 : _this$$filterButtons2.show();
+        this.loaded.then(function () {
+          return _this13._switchBackCollapsables();
+        });
+        (_this$$filterButtons2 = this.$filterButtons) === null || _this$$filterButtons2 === void 0 || _this$$filterButtons2.show();
       }
     }
 
@@ -1440,23 +1715,23 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_removeCloseModalButton",
     value: function _removeCloseModalButton() {
-      var _this$modalElements, _this$modalElements$c;
-      (_this$modalElements = this.modalElements) === null || _this$modalElements === void 0 ? void 0 : (_this$modalElements$c = _this$modalElements.closeButton) === null || _this$modalElements$c === void 0 ? void 0 : _this$modalElements$c.remove();
+      var _this$modalElements;
+      (_this$modalElements = this.modalElements) === null || _this$modalElements === void 0 || (_this$modalElements = _this$modalElements.closeButton) === null || _this$modalElements === void 0 || _this$modalElements.remove();
     }
 
     // show main filter button for the modal
   }, {
     key: "_addApplyFiltersModalButton",
     value: function _addApplyFiltersModalButton() {
-      var _this5 = this;
+      var _this14 = this;
       var $filterButton = $('<button/>', {
         "class": 'apply-filters main-modal-button',
         html: yith_wcan_shortcodes.labels.show_results,
         'data-dismiss': 'modal'
       });
       $filterButton.appendTo(this.$preset).on('click', function () {
-        _this5.filter();
-        _this5.closeModal();
+        _this14.filter();
+        _this14.closeModal();
       });
       this.modalElements.applyFiltersButton = $filterButton;
     }
@@ -1465,8 +1740,8 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_removeApplyFiltersModalButton",
     value: function _removeApplyFiltersModalButton() {
-      var _this$modalElements2, _this$modalElements2$;
-      (_this$modalElements2 = this.modalElements) === null || _this$modalElements2 === void 0 ? void 0 : (_this$modalElements2$ = _this$modalElements2.applyFiltersButton) === null || _this$modalElements2$ === void 0 ? void 0 : _this$modalElements2$.remove();
+      var _this$modalElements2;
+      (_this$modalElements2 = this.modalElements) === null || _this$modalElements2 === void 0 || (_this$modalElements2 = _this$modalElements2.applyFiltersButton) === null || _this$modalElements2 === void 0 || _this$modalElements2.remove();
     }
 
     // convert all filters to collapsable
@@ -1504,9 +1779,9 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_openAllCollapsables",
     value: function _openAllCollapsables() {
-      var _this6 = this;
-      this.$filters.not('.no-title').not(function (i, v) {
-        return _this6.isFilterActive($(v));
+      var _this15 = this;
+      this.getFilters().not('.no-title').not(function (i, v) {
+        return _this15.isFilterActive($(v));
       }).find('.filter-content').show().end().find('.filter-title').removeClass('closed').addClass('opened');
     }
 
@@ -1514,9 +1789,9 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "_closeAllCollapsables",
     value: function _closeAllCollapsables() {
-      var _this7 = this;
-      this.$filters.not('.no-title').not(function (i, v) {
-        return _this7.isFilterActive($(v));
+      var _this16 = this;
+      this.getFilters().not('.no-title').not(function (i, v) {
+        return _this16.isFilterActive($(v));
       }).find('.filter-content').hide().end().find('.filter-title').addClass('closed').removeClass('opened');
     }
 
@@ -1551,7 +1826,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       } else if (this.isMobile && this.dirty) {
         var _this$modalElements$a;
         this.$preset.addClass('with-filter-button');
-        (_this$modalElements$a = this.modalElements.applyFiltersButton) === null || _this$modalElements$a === void 0 ? void 0 : _this$modalElements$a.show();
+        (_this$modalElements$a = this.modalElements.applyFiltersButton) === null || _this$modalElements$a === void 0 || _this$modalElements$a.show();
       }
     }
 
@@ -1561,10 +1836,10 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
     value: function filter() {
       var _window,
         _filter$doFilter,
-        _this8 = this;
+        _this17 = this;
       var filter = (_window = window) === null || _window === void 0 ? void 0 : _window.product_filter;
-      filter === null || filter === void 0 ? void 0 : (_filter$doFilter = filter.doFilter(this.getFiltersProperties(), this.target, this.preset)) === null || _filter$doFilter === void 0 ? void 0 : _filter$doFilter.done(function () {
-        var newPreset = $(_this8.preset);
+      filter === null || filter === void 0 || (_filter$doFilter = filter.doFilter(this.getFiltersProperties(), this.target, this.preset)) === null || _filter$doFilter === void 0 || _filter$doFilter.done(function () {
+        var newPreset = $(_this17.preset);
         if (newPreset.length && yith_wcan_shortcodes.scroll_top) {
           // by default, scroll till top of first preset in the page.
           var targetOffset = newPreset.offset().top;
@@ -1572,7 +1847,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
             // when we have a specific target, use that for the offset.
             var $scrollTarget = $(yith_wcan_shortcodes.scroll_target);
             targetOffset = $scrollTarget.length ? $scrollTarget.offset().top : targetOffset;
-          } else if (_this8.isMobile) {
+          } else if (_this17.isMobile) {
             // otherwise, if we're on mobile, scroll to the top of the page
             // (preset could be in an unexpected location).
             targetOffset = 100;
@@ -1583,15 +1858,22 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         }
 
         // register new filters, clear status flag
-        _this8.originalFilters = _this8.getFiltersProperties();
-        _this8.dirty = false;
+        _this17._regiterStatus();
+        _this17.dirty = false;
       });
       if (this.isMobile) {
         var _this$modalElements$a2;
         this.$preset.removeClass('with-filter-button');
-        (_this$modalElements$a2 = this.modalElements.applyFiltersButton) === null || _this$modalElements$a2 === void 0 ? void 0 : _this$modalElements$a2.hide();
+        (_this$modalElements$a2 = this.modalElements.applyFiltersButton) === null || _this$modalElements$a2 === void 0 || _this$modalElements$a2.hide();
         this.closeModal();
       }
+    }
+
+    // returns preset id
+  }, {
+    key: "getId",
+    value: function getId() {
+      return this.$preset.data('preset-id');
     }
 
     // get all filter nodes
@@ -1839,14 +2121,23 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         if (self.isFilterActive($filter)) {
           var filterProperties = self.getFilterProperties($filter),
             hasProp = false;
-          for (var prop in properties) {
-            if (['min_price', 'max_price', 'price_ranges'].includes(prop) && (filterProperties.min_price || filterProperties.price_ranges)) {
-              hasProp = true;
-              break;
-            } else if (filterProperties[prop]) {
-              hasProp = true;
-              break;
+          var _iterator = _createForOfIteratorHelper(properties),
+            _step;
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var prop = _step.value;
+              if (['min_price', 'max_price', 'price_ranges'].includes(prop) && (filterProperties.min_price || filterProperties.price_ranges)) {
+                hasProp = true;
+                break;
+              } else if (filterProperties[prop]) {
+                hasProp = true;
+                break;
+              }
             }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
           }
           return hasProp;
         }
@@ -1880,7 +2171,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "maybeShowClearFilter",
     value: function maybeShowClearFilter($filter) {
-      var _this9 = this;
+      var _this18 = this;
       if (!this.isFilterActive($filter) || !yith_wcan_shortcodes.show_clear_filter) {
         return;
       }
@@ -1895,10 +2186,10 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         role: 'button'
       }).prependTo($filter.find('.filter-content')).on('click', function (ev) {
         ev.preventDefault();
-        _this9.deactivateFilter($filter, false, yith_wcan_shortcodes.instant_filters);
-        _this9.maybeHideClearFilter($filter);
+        _this18.deactivateFilter($filter, false, yith_wcan_shortcodes.instant_filters);
+        _this18.maybeHideClearFilter($filter);
         if (yith_wcan_shortcodes.instant_filters) {
-          _this9.closeModal();
+          _this18.closeModal();
         }
       });
     }
@@ -1907,7 +2198,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "maybeShowClearAllFilters",
     value: function maybeShowClearAllFilters() {
-      var _this10 = this;
+      var _this19 = this;
       if (!this.isAnyFilterActive() || !this.isMobile) {
         return;
       }
@@ -1922,10 +2213,10 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
         role: 'button'
       }).prependTo(this.$preset.find('.filters-container')).on('click', function (ev) {
         ev.preventDefault();
-        _this10.deactivateAllFilters(yith_wcan_shortcodes.instant_filters);
-        _this10.maybeHideClearAllFilters();
+        _this19.deactivateAllFilters(yith_wcan_shortcodes.instant_filters);
+        _this19.maybeHideClearAllFilters();
         if (yith_wcan_shortcodes.instant_filters) {
-          _this10.closeModal();
+          _this19.closeModal();
         }
       });
     }
@@ -2121,7 +2412,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
     key: "deactivateFilterByProperties",
     value: function deactivateFilterByProperties(properties, doFilter) {
       var self = this,
-        $filters = this.getFiltersByProperties(properties);
+        $filters = this.getFiltersByProperties(Object.keys(properties));
       if (!$filters.length) {
         return false;
       }
@@ -2199,7 +2490,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "openModal",
     value: function openModal() {
-      var _this11 = this;
+      var _this20 = this;
       if (!this.isMobile) {
         return;
       }
@@ -2211,7 +2502,7 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       $('body').css('overflow', 'hidden').addClass('yith-wcan-preset-modal-open');
       this.$preset.show();
       setTimeout(function () {
-        _this11.$preset.addClass('open');
+        _this20.$preset.addClass('open');
       }, 100);
     }
 
@@ -2219,13 +2510,13 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
   }, {
     key: "closeModal",
     value: function closeModal() {
-      var _this12 = this;
+      var _this21 = this;
       if (!this.isMobile) {
         return;
       }
       this.$preset.removeClass('open');
       setTimeout(function () {
-        _this12.$preset.hide();
+        _this21.$preset.hide();
         $('body').css('overflow', 'auto').removeClass('yith-wcan-preset-modal-open');
       }, 300);
     }
@@ -2235,13 +2526,13 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
     key: "formatPrice",
     value: function formatPrice(price) {
       if ('undefined' !== typeof accounting) {
-        var _yith_wcan_shortcodes, _yith_wcan_shortcodes2, _yith_wcan_shortcodes3, _yith_wcan_shortcodes4;
+        var _yith_wcan_shortcodes2, _yith_wcan_shortcodes3, _yith_wcan_shortcodes4, _yith_wcan_shortcodes5;
         price = accounting.formatMoney(price, {
-          symbol: (_yith_wcan_shortcodes = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes === void 0 ? void 0 : _yith_wcan_shortcodes.symbol,
-          decimal: (_yith_wcan_shortcodes2 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes2 === void 0 ? void 0 : _yith_wcan_shortcodes2.decimal,
-          thousand: (_yith_wcan_shortcodes3 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes3 === void 0 ? void 0 : _yith_wcan_shortcodes3.thousand,
+          symbol: (_yith_wcan_shortcodes2 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes2 === void 0 ? void 0 : _yith_wcan_shortcodes2.symbol,
+          decimal: (_yith_wcan_shortcodes3 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes3 === void 0 ? void 0 : _yith_wcan_shortcodes3.decimal,
+          thousand: (_yith_wcan_shortcodes4 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes4 === void 0 ? void 0 : _yith_wcan_shortcodes4.thousand,
           precision: 0,
-          format: (_yith_wcan_shortcodes4 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes4 === void 0 ? void 0 : _yith_wcan_shortcodes4.format
+          format: (_yith_wcan_shortcodes5 = yith_wcan_shortcodes.currency_format) === null || _yith_wcan_shortcodes5 === void 0 ? void 0 : _yith_wcan_shortcodes5.format
         });
       }
       return price;
@@ -2273,8 +2564,9 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
                 set1[prop] = set2[prop];
               } else {
                 // we're dealing with taxonomy
-                var isAttr = 0 === prop.indexOf('filter_'),
-                  glue = isAttr ? ',' : '+';
+                var relation = ($filter === null || $filter === void 0 ? void 0 : $filter.data('relation')) || 'and',
+                  isAttr = 0 === prop.indexOf('filter_'),
+                  glue = !isAttr && 'and' === relation ? '+' : ',';
                 var newValue = set1[prop].replace(',', glue) + glue + set2[prop].replace(',', glue);
                 newValue = newValue.split(glue).filter(function (value, index, arr) {
                   return arr.indexOf(value) === index;
@@ -2294,7 +2586,6 @@ var YITH_WCAN_Preset = /*#__PURE__*/function () {
       return set1;
     }
   }]);
-  return YITH_WCAN_Preset;
 }();
 
 ;// CONCATENATED MODULE: ./assets/js/shortcodes/index.js

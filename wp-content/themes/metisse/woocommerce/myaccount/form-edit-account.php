@@ -24,33 +24,30 @@ do_action('woocommerce_before_edit_account_form'); ?>
 
 	<div class="woo-user-account-details max-w-[570px] w-full">
 		<?php do_action('woocommerce_edit_account_form_start'); ?>
-		<p class=" text-[24px] md:text-[20px] sm:text-[18px] font-semibold font-primary capitalize leading-none text-[#000] mb-[35px] sm:mb-[25px]">
-			<?php esc_html_e('Account Details', 'metisse'); ?>
-		</p>
 
 		<div class="grid grid-cols-12  gap-x-[20px]">
 			<div class="col-span-6 sm:col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_first_name"><?php esc_html_e('First name', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-					<input placeholder="First Name" type="text" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr($user->first_name); ?>" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_first_name"><?php esc_html_e('First name', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
+					<input placeholder="First Name" type="text" class=" text-[18px] sm:text-[14px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#131313] woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr($user->first_name); ?>" />
 				</p>
 			</div>
 			<div class="col-span-6 sm:col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_last_name"><?php esc_html_e('Last name', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-					<input placeholder="Last Name" type="text" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr($user->last_name); ?>" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_last_name"><?php esc_html_e('Last name', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
+					<input placeholder="Last Name" type="text" class=" text-[18px] sm:text-[14px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#131313] woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr($user->last_name); ?>" />
 				</p>
 			</div>
 			<div class="col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_display_name"><?php esc_html_e('Display name', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-					<input type="text" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--text input-text" name="account_display_name" id="account_display_name" value="<?php echo esc_attr($user->display_name); ?>" /> <span><em><?php esc_html_e('This will be how your name will be displayed in the account section and in reviews', 'metisse'); ?></em></span>
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_display_name"><?php esc_html_e('Display name', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
+					<input type="text" class=" text-[18px] sm:text-[14px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#131313] woocommerce-Input woocommerce-Input--text input-text" name="account_display_name" id="account_display_name" value="<?php echo esc_attr($user->display_name); ?>" /> <span><em><?php esc_html_e('This will be how your name will be displayed in the account section and in reviews', 'metisse'); ?></em></span>
 				</p>
 			</div>
 			<div class="col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_email"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-					<input type="email" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr($user->user_email); ?>" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="account_email"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
+					<input type="email" class=" text-[18px] sm:text-[14px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#131313] woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" autocomplete="email" value="<?php echo esc_attr($user->user_email); ?>" />
 				</p>
 			</div>
 		</div>
@@ -58,33 +55,33 @@ do_action('woocommerce_before_edit_account_form'); ?>
 
 		<p>
 			<?php wp_nonce_field('save_account_details', 'save-account-details-nonce'); ?>
-			<button type="submit" class="!text-[14px] !text-[#fff] h-[52px] mt-[20px] sm:mt-[20px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] tp-btn woocommerce-Button button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_account_details" value="<?php esc_attr_e('Save changes', 'metisse'); ?>"><?php esc_html_e('Save changes', 'metisse'); ?></button>
+			<button type="submit" class="!text-[11px] !text-[#fff] h-[40px] mt-[20px] sm:mt-[20px] !font-primary !font-medium !bg-[#000] !py-[8px] !leading-[1.1] w-[197px] tp-btn woocommerce-Button button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_account_details" value="<?php esc_attr_e('Save changes', 'metisse'); ?>"><?php esc_html_e('Save changes', 'metisse'); ?></button>
 			<input type="hidden" name="action" value="save_account_details" />
 		</p>
 
 	</div>
 	<?php do_action('woocommerce_edit_account_form_end'); ?>
 	<div class="reset-password-wrapper mt-[45px] sm:mt-[35px] max-w-[570px] w-full">
-		<p class="text-[24px] md:text-[20px] sm:text-[18px] font-semibold font-primary capitalize leading-none text-[#000] mb-[35px] sm:mb-[25px]">
+		<p class="text-[14px] font-normal font-secondary capitalize leading-none text-[#131313] mb-[35px] sm:mb-[25px]">
 			<?php esc_html_e('Password change', 'metisse'); ?>
 		</p>
 		<div class="grid grid-cols-12 gap-x-[20px]">
 			<div class="col-span-6 sm:col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_current"><?php esc_html_e('Current password', 'metisse'); ?></label>
-					<input placeholder="Current Password" type="password" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_current"><?php esc_html_e('Current password', 'metisse'); ?></label> -->
+					<input placeholder="Current Password" type="password" class=" text-[12px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" />
 				</p>
 			</div>
 			<div class="col-span-6 sm:col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_1"><?php esc_html_e('New password', 'metisse'); ?></label>
-					<input placeholder="New Password" type="password" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_1"><?php esc_html_e('New password', 'metisse'); ?></label> -->
+					<input placeholder="New Password" type="password" class=" text-[12px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" />
 				</p>
 			</div>
 			<div class="col-span-full">
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide  mb-[20px] sm:mb-[12px]">
-					<label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_2"><?php esc_html_e('Confirm new password', 'metisse'); ?></label>
-					<input placeholder="Confirm Password" type="password" class=" text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" />
+					<!-- <label class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]" for="password_2"><?php esc_html_e('Confirm new password', 'metisse'); ?></label> -->
+					<input placeholder="Confirm Password" type="password" class=" text-[12px] font-normal font-secondary leading-[1.5] !py-[12px] !px-[8px] placeholder:opacity-50 !border-b-2 !border-b-[#000] woocommerce-Input woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" />
 				</p>
 			</div>
 		</div>
@@ -95,7 +92,7 @@ do_action('woocommerce_before_edit_account_form'); ?>
 
 	<p>
 		<?php wp_nonce_field('save_account_details', 'save-account-details-nonce'); ?>
-		<button type="submit" class="!text-[14px] !text-[#fff] h-[52px] mt-[20px] sm:mt-[20px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] tp-btn woocommerce-Button button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_account_details" value="<?php esc_attr_e('Save changes', 'metisse'); ?>"><?php esc_html_e('Save changes', 'metisse'); ?></button>
+		<button type="submit" class="!text-[11px] !text-[#fff] h-[40px] mt-[20px] sm:mt-[20px] !font-primary !font-medium !bg-[#000] !py-[8px] !leading-[1.1] w-[197px] tp-btn woocommerce-Button button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="save_account_details" value="<?php esc_attr_e('Save changes', 'metisse'); ?>"><?php esc_html_e('Save changes', 'metisse'); ?></button>
 		<input type="hidden" name="action" value="save_account_details" />
 	</p>
 

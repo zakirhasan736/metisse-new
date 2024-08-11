@@ -11,7 +11,7 @@ use MailPoet\EmailEditor\Integrations\Utils\DomDocumentHelper;
 use WP_Style_Engine;
 
 class Column extends AbstractBlockRenderer {
-  public function render(string $blockContent, array $parsedBlock, SettingsController $settingsController): string {
+  protected function renderContent(string $blockContent, array $parsedBlock, SettingsController $settingsController): string {
     $content = '';
     foreach ($parsedBlock['innerBlocks'] ?? [] as $block) {
       $content .= render_block($block);
@@ -55,8 +55,8 @@ class Column extends AbstractBlockRenderer {
       $cellStyles['background-size'] = 'cover';
     }
 
-    $wrapperClassname = 'block wp-block-column';
-    $contentClassname = 'email_column';
+    $wrapperClassname = 'block wp-block-column email-block-column';
+    $contentClassname = 'email-block-column-content';
     $wrapperCSS = WP_Style_Engine::compile_css([
       'vertical-align' => $isStretched ? 'top' : $block_attributes['verticalAlignment'],
     ], '');

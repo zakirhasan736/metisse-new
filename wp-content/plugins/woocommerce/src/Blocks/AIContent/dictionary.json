@@ -245,7 +245,7 @@
 			],
 			"buttons": [
 				{
-					"default": "Add To Basket",
+					"default": "Shop now",
 					"ai_prompt": "A two words button text to go to the product collection page"
 				}
 			]

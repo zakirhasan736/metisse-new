@@ -264,7 +264,7 @@ class UniteCreatorActions{
 				case "delete_addon":
 
 					HelperProviderUC::verifyAdminPermission();
-
+			
 					$addons->deleteAddonFromData($data);
 
 					HelperUC::ajaxResponseSuccess(esc_html__("The addon deleted successfully", "unlimited-elements-for-elementor"));
@@ -313,7 +313,7 @@ class UniteCreatorActions{
 					HelperUC::ajaxResponseSuccess(esc_html__("Widgets Removed", "unlimited-elements-for-elementor"), $response);
 				break;
 				case "update_addons_order":
-
+				
 					HelperProviderUC::verifyAdminPermission();
 
 					$addons->saveOrderFromData($data);
@@ -353,7 +353,7 @@ class UniteCreatorActions{
 				case "get_addon_settings_html":    //from elementor/gutenberg
 
 					$html = $addons->getAddonSettingsHTMLFromData($data);
-
+										
 					HelperUC::ajaxResponseData(array("html" => $html));
 				break;
 				case "get_addon_item_settings_html":  //from elementor
@@ -369,9 +369,9 @@ class UniteCreatorActions{
 					HelperUC::ajaxResponseData($response);
 				break;
 				case "get_addon_output_data":  //from elementor editor bg/gutenberg
-
-					$response = $addons->getAddonOutputData($data);
-
+										
+					$response = $addons->getAddonOutputData($data, true);
+					
 					HelperUC::ajaxResponseData($response);
 				break;
 				case "show_preview":
@@ -404,7 +404,7 @@ class UniteCreatorActions{
 					HelperUC::ajaxResponseData($response);
 				break;
 				case "delete_test_addon_data":
-					
+					//Security Update 3
 					HelperProviderUC::verifyAdminPermission();
 					
 					$addons->deleteTestAddonData($data);
@@ -445,10 +445,11 @@ class UniteCreatorActions{
 
 				break;
 				case "get_image_url":
+					
 					$id = UniteFunctionsUC::getVal($data, "id");
 					$size = UniteFunctionsUC::getVal($data, "size", "full");
 					$url = UniteProviderFunctionsUC::getImageUrlFromImageID($id, $size);
-
+					
 					HelperUC::ajaxResponseData(array("url" => $url));
 				break;
 				case "get_version_text":
@@ -583,12 +584,6 @@ class UniteCreatorActions{
 						HelperUC::ajaxResponseSuccess(esc_html__("Widget Updated", "unlimited-elements-for-elementor"));
 
 				break;
-				case "get_shapes_css":
-
-					$objShapes = new UniteShapeManagerUC();
-					$objShapes->outputCssShapes();
-					exit;
-				break;
 				case "save_screenshot":
 
 					$response = $operations->saveScreenshotFromData($data);
@@ -667,7 +662,7 @@ class UniteCreatorActions{
 					HelperUC::ajaxResponseSuccess(esc_html__("Template Imported", "unlimited-elements-for-elementor"), $response);
 				break;
 				case "save_instagram_connect_data":
-
+				
 					HelperProviderUC::verifyAdminPermission();
 
 					$objServices = new UniteServicesUC();
@@ -686,12 +681,12 @@ class UniteCreatorActions{
 					HelperInstaUC::redirectToGeneralSettings();
 				break;
 				case "save_google_connect_data":
-
+					
 					HelperProviderUC::verifyAdminPermission();
 
 					$objServices = new UniteServicesUC();
 					$objServices->includeGoogleAPI();
-
+					
 					try{
 						$params = array();
 						$error = UniteFunctionsUC::getVal($data, "error");
@@ -700,6 +695,7 @@ class UniteCreatorActions{
 							UniteFunctionsUC::throwError($error);
 
 						UEGoogleAPIHelper::saveCredentials($data);
+						
 					}catch(Exception $exception){
 						$params = array("google_connect_error" => $exception->getMessage());
 					}
@@ -707,7 +703,7 @@ class UniteCreatorActions{
 					UEGoogleAPIHelper::redirectToSettings($params);
 				break;
 				case "remove_google_connect_data":
-
+					
 					HelperProviderUC::verifyAdminPermission();
 
 					$objServices = new UniteServicesUC();

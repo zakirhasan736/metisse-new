@@ -41,7 +41,8 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 
 		return ($arrPreviews);
 	}
-
+	
+	
 	/**
 	 * get active filter where string
 	 */
@@ -76,12 +77,15 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * get items by id's
 	 */
 	private function getAddonsByIDs($addonIDs){
-
+		
 		$strAddons = implode(",", $addonIDs);
+		
+		UniteFunctionsUC::validateIDsList($strAddons,"addons id's");
+		
 		$tableAddons = GlobalsUC::$table_addons;
 		$sql = "select * from {$tableAddons} where id in({$strAddons})";
 		$arrAddons = $this->db->fetchSql($sql);
-
+		
 		return ($arrAddons);
 	}
 
@@ -106,7 +110,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * get layouts array
 	 */
 	public function getArrAddonsShort($order = "", $params = array(), $addonType = null){
-
+		
 		if(empty($params))
 			$params = array();
 
@@ -171,7 +175,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 			$objAddon->initByDBRecord($record);
 			$arrAddons[] = $objAddon;
 		}
-
+		
 		return ($arrAddons);
 	}
 
@@ -408,6 +412,8 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 
 		UniteFunctionsUC::validateNotEmpty($catID, "category id");
 
+		UniteFunctionsUC::validateNumeric($catID, "category id");
+		
 		$tableAddons = GlobalsUC::$table_addons;
 		$query = "select MAX(ordering) as maxorder from {$tableAddons} where catid={$catID}";
 
@@ -447,6 +453,9 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		if($catID === null){
 			$query = "select count(*) as num_addons from {$tableAddons}";
 		}else{
+			
+			UniteFunctionsUC::validateNumeric($catID,"Category ID");
+			
 			$query = "select count(*) as num_addons from {$tableAddons} as a";
 			$arrWhere[] = "a.catid=$catID";
 		}
@@ -467,59 +476,99 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	/**
 	 * get addon output, for the editor
 	 */
-	public function getAddonOutput($objAddon, $isWrap = true, $includeSelectors = false){
-
-		$processType = UniteCreatorParamsProcessor::PROCESS_TYPE_OUTPUT_BACK;
-
+	public function getAddonOutput($objAddon, $options = array()){
+		
+		$isWrap = UniteFunctionsUC::getVal($options, "wrap", false);
+		$includeSelectors = UniteFunctionsUC::getVal($options, "selectors", false);
+		$rootId = UniteFunctionsUC::getVal($options, "root_id");
+		
+		$params = array(
+			"wrap_js_timeout" => $isWrap,
+			"add_selectors_css" => $includeSelectors,
+			"root_id" => $rootId,
+		);
+		
+		$cacheOutput = false;
+		if(GlobalsProviderUC::$isInsideEditor == true)
+			$cacheOutput = true;
+		
+		if($cacheOutput == true){
+			UniteFunctionsUC::obStart();
+		}
+		
 		$objOutput = new UniteCreatorOutput();
-		$objOutput->setProcessType($processType);
-
-		//put show debug here
-
+		$objOutput->setProcessType(UniteCreatorParamsProcessor::PROCESS_TYPE_OUTPUT_BACK);
 		$objOutput->checkOutputDebug($objAddon);
-
 		$objOutput->initByAddon($objAddon);
-
-		if($isWrap == true)
-			$params = array("wrap_js_timeout" => true);
-		else
-			$params = array();
-
-		if($includeSelectors == true)
-			$params["add_selectors_css"] = true;
-
-		$htmlAddon = $objOutput->getHtmlBody(true, false, true, $params);
-
-		$outputID = $objOutput->getWidgetID();
-
-		$arrIncludes = $objOutput->getProcessedIncludes(true);
+		
+		$htmlBefore = null;
+		
+		if($cacheOutput == true){
+			$htmlBefore = ob_get_contents();			
+			ob_end_clean();
+		}
+		
+		$html = $objOutput->getHtmlBody(true, false, true, $params);
+		
+		
+		if(!empty($htmlBefore)){
+			$html = $htmlBefore.$html;
+		}
+		
+		$includes = $objOutput->getProcessedIncludes(true);
+		$outputId = $objOutput->getWidgetID();
 
 		$arr = array();
-		$arr["html"] = $htmlAddon;
-		$arr["includes"] = $arrIncludes;
+		$arr["html"] = $html;
+		$arr["includes"] = $includes;
 
-		if($includeSelectors == true)
-			$arr["output_id"] = $outputID;
+		if($includeSelectors === true)
+			$arr["output_id"] = $outputId;
 
-		return ($arr);
+		return $arr;
 	}
 
 	/**
+	 * check addon global variables
+	 */
+	private function checkInitAddonGlobalVars($addonData){
+		
+		//set edit mode
+		$source = UniteFunctionsUC::getVal($addonData, "source");
+		if($source == "editor")
+			GlobalsProviderUC::$isInsideEditor = true;
+		
+		$platform = UniteFunctionsUC::getVal($addonData, "platform");
+		if($platform == "gutenberg")
+			GlobalsProviderUC::$renderPlatform = GlobalsProviderUC::RENDER_PLATFORM_GUTENBERG;
+		
+	}
+	
+	
+	/**
 	 * get addon output data
 	 */
-	public function getAddonOutputData($addonData){
-
-		//set addon type
+	public function getAddonOutputData($addonData, $isWrap = false){
+		
+		$this->checkInitAddonGlobalVars($addonData);
+					
 		$objAddon = $this->prepareAddonByData($addonData);
-
-		$isIncludeSelectors = UniteFunctionsUC::getVal($addonData, "selectors");
-
-		$isIncludeSelectors = UniteFunctionsUC::strToBool($isIncludeSelectors);
-
-		$arrAddonContents = $this->getAddonOutput($objAddon, true, $isIncludeSelectors);
-
-		return ($arrAddonContents);
+		
+		$rootId = UniteFunctionsUC::getVal($addonData, "root_id");
+		$includeSelectors = UniteFunctionsUC::getVal($addonData, "selectors");
+		$includeSelectors = UniteFunctionsUC::strToBool($includeSelectors);
+		
+		$outputOptions = array(
+			"root_id" => $rootId,
+			"selectors" => $includeSelectors,
+			"wrap"=>$isWrap
+		);
+		 
+		$output = $this->getAddonOutput($objAddon, $outputOptions);
+		
+		return($output);
 	}
+	
 
 	/**
 	 * get addon config html by data
@@ -552,14 +601,16 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * get item settings html
 	 */
 	public function getAddonSettingsHTMLFromData($data){
-
+		
+		$this->checkInitAddonGlobalVars($data);
+		
 		$objAddon = $this->initAddonByData($data);
-
+		
 		//remember the addon for use inside the settings classes (used for multisource)
 		GlobalsProviderUC::$activeAddonForSettings = $objAddon;
-
+		
 		$html = $objAddon->getHtmlConfig(false, true);
-
+		
 		return ($html);
 	}
 
@@ -640,8 +691,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * prepare addon by data
 	 */
 	public function prepareAddonByData($addonData){
-
-
+		
 		$addonName = UniteFunctionsUC::getVal($addonData, "name");
 		$addonType = UniteFunctionsUC::getVal($addonData, "addontype");
 
@@ -652,7 +702,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 
 		if(empty($addonName) && !empty($addonID) && is_numeric($addonID)){
 			//  init by id
-
+			
 			$objAddon->initByID($addonID);
 		}else{
 			//  init by name or alias and type
@@ -721,9 +771,10 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		$addons = array();
 
 		foreach($arrAddons as $key => $addonID){
+			
 			$addon = new UniteCreatorAddon();
 			$addon->initByID($addonID);
-
+			
 			$addons[] = $addon;
 			$arrAddons[$key] = $addon->getID();
 		}
@@ -743,11 +794,11 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * save items order
 	 */
 	private function saveAddonsOrder($arrAddonIDs){
-
+		
 		//get items assoc
 		$arrAddons = $this->getAddonsByIDs($arrAddonIDs);
 		$arrAddons = UniteFunctionsUC::arrayToAssoc($arrAddons, "id");
-
+		
 		$order = 0;
 		foreach($arrAddonIDs as $addonID){
 			$order++;
@@ -755,10 +806,11 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 			$arrAddon = UniteFunctionsUC::getVal($arrAddons, $addonID);
 			if(!empty($arrAddon) && $arrAddon["ordering"] == $order)
 				continue;
-
+			
 			$arrUpdate = array();
 			$arrUpdate["ordering"] = $order;
 			$this->db->update(GlobalsUC::$table_addons, $arrUpdate, array("id" => $addonID));
+			
 		}
 	}
 
@@ -995,15 +1047,19 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * delete addon from imput data
 	 */
 	public function deleteAddonFromData($data){
-
+		
 		$addonID = UniteFunctionsUC::getVal($data, "addonID");
 		UniteFunctionsUC::validateNotEmpty($addonID, "Widget ID");
 
+		UniteFunctionsUC::validateNumeric($addonID,"widget id");
+		
 		$addon = new UniteCreatorAddon();
 		$addon->initByID($addonID);
-
+		
+		$addonID = (int)$addonID;
+		
 		$this->db->delete(GlobalsUC::$table_addons, "id={$addonID}");
-
+		
 		$addon->triggerAfterDeleteAction();
 	}
 
@@ -1097,15 +1153,17 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * save items order from data
 	 */
 	public function saveOrderFromData($data){
-
+		
 		$addonType = $this->getAddonTypeFromData($data);
 		$isLayout = HelperUC::isLayoutAddonType($addonType);
 
 		$addonsIDs = UniteFunctionsUC::getVal($data, "addons_order");
-
+		
+		UniteFunctionsUC::validateIDsList($addonsIDs,"addons_order");
+		
 		if(empty($addonsIDs))
 			return (false);
-
+		
 		if($isLayout == false)
 			$this->saveAddonsOrder($addonsIDs);
 		else{
@@ -1188,8 +1246,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	 * init addon by data
 	 */
 	public function initAddonByData($data){
-
-
+				
 		if(is_string($data)){
 			$data = json_decode($data);
 			$data = UniteFunctionsUC::convertStdClassToArray($data);

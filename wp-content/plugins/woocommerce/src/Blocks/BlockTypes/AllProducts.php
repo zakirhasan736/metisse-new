@@ -30,7 +30,7 @@ class AllProducts extends AbstractBlock {
 		$this->asset_data_registry->add( 'maxRows', wc_get_theme_support( 'product_blocks::max_rows', 6 ) );
 		$this->asset_data_registry->add( 'defaultRows', wc_get_theme_support( 'product_blocks::default_rows', 3 ) );
 
-		// Hydrate the All Product block with data from the API. This is for the Add To Basket buttons which show current quantity in cart, and events.
+		// Hydrate the All Product block with data from the API. This is for the add to cart buttons which show current quantity in cart, and events.
 		if ( ! is_admin() && ! WC()->is_rest_api_request() ) {
 			$this->asset_data_registry->hydrate_api_request( '/wc/store/v1/cart' );
 		}

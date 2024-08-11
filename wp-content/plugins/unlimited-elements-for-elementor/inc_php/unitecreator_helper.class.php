@@ -284,16 +284,21 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * used for run code once functionality
 		 */
 		public static function isRunCodeOnce($key){
-
+			
 			$isAlreadyRun = UniteFunctionsUC::getVal(self::$arrRunOnceCache, $key);
-
+			
+			//run the code anyway, if located inside hidden template content output
+			
+			if(!empty(GlobalsProviderUC::$renderTemplateID))
+				$isAlreadyRun = false;
+			
 			if($isAlreadyRun === true){
-				return(false);
+				return(false);			//don't run the code
 			}
 
 			self::$arrRunOnceCache[$key] = true;
 
-			return(true);
+			return(true);		//run the code
 		}
 
 		/**
@@ -1684,23 +1689,28 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 		return (false);
 	}
-
+	
+	
 	/**
 	 * check if gutenberg edit mode
 	 */
-	private static function isGutenbergEditMode(){
+	public static function isGutenbergEditMode(){
 
+		
 		if(function_exists("get_current_screen") === false)
 			return false;
-
+		
 		$screen = get_current_screen();
 
 		if($screen === null)
 			return false;
-
-		return $screen->is_block_editor();
+		
+		$isBlockEditor = $screen->is_block_editor();
+		
+		return $isBlockEditor;
 	}
-
+	
+	
 	/**
 	 * check if edit mode
 	 */

@@ -12,6 +12,7 @@ use Automattic\Jetpack\Constants;
 use Automattic\Jetpack\Stats\WPCOM_Stats;
 use Jetpack_Options;
 use WP_Error;
+use WP_REST_Request;
 use WP_REST_Server;
 
 /**
@@ -380,6 +381,18 @@ class REST_Controller {
 			)
 		);
 
+		// Get Devices stats time series.
+		register_rest_route(
+			static::$namespace,
+			// /stats/devices/screensize
+			sprintf( '/sites/%d/stats/devices/(?P<device_property>[\w]+)', Jetpack_Options::get_option( 'id' ) ),
+			array(
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => array( $this, 'get_devices_stats_time_series' ),
+				'permission_callback' => array( $this, 'can_user_view_general_stats_callback' ),
+			)
+		);
+
 		// Rerun commercial classificiation.
 		register_rest_route(
 			static::$namespace,
@@ -387,6 +400,17 @@ class REST_Controller {
 			array(
 				'methods'             => WP_REST_Server::EDITABLE,
 				'callback'            => array( $this, 'run_commercial_classification' ),
+				'permission_callback' => array( $this, 'can_user_view_general_stats_callback' ),
+			)
+		);
+
+		// Purchases endpoint.
+		register_rest_route(
+			static::$namespace,
+			sprintf( '/sites/%d/purchases', Jetpack_Options::get_option( 'id' ) ),
+			array(
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => array( $this, 'get_site_purchases' ),
 				'permission_callback' => array( $this, 'can_user_view_general_stats_callback' ),
 			)
 		);
@@ -871,6 +895,27 @@ class REST_Controller {
 	}
 
 	/**
+	 * Get Devices stats time series.
+	 *
+	 * @param WP_REST_Request $req The request object.
+	 * @return array
+	 */
+	public function get_devices_stats_time_series( $req ) {
+		return WPCOM_Client::request_as_blog_cached(
+			sprintf(
+				'/sites/%d/stats/devices/%s?%s',
+				Jetpack_Options::get_option( 'id' ),
+				$req->get_param( 'device_property' ),
+				$this->filter_and_build_query_string(
+					$req->get_params()
+				)
+			),
+			'v1.1',
+			array( 'timeout' => 10 )
+		);
+	}
+
+	/**
 	 * Dismiss or delay stats notices.
 	 *
 	 * @param WP_REST_Request $req The request object.
@@ -1065,6 +1110,25 @@ class REST_Controller {
 			),
 			null,
 			'wpcom'
+		);
+	}
+
+	/**
+	 * Get purchases array; I don't see anything sensetive in there, so didn't sentinizie it.
+	 * Plus it is the same case as Jetpack.
+	 *
+	 * @param WP_REST_Request $req The request object.
+	 * @return array
+	 */
+	public function get_site_purchases( $req ) {
+		return WPCOM_Client::request_as_blog_cached(
+			sprintf(
+				'/sites/%d/purchases?%s',
+				Jetpack_Options::get_option( 'id' ),
+				$this->filter_and_build_query_string(
+					$req->get_query_params()
+				)
+			)
 		);
 	}
 

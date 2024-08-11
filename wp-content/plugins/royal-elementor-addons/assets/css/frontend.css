@@ -8067,7 +8067,9 @@ select.wpr-category-select {
 }
 
 .wpr-member-social {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 45px;
     height: 45px;
     line-height: 45px;
@@ -14331,7 +14333,7 @@ flex-grow: 0; */
     border-collapse: collapse;
 }
 
-.wpr-comapre-table-wrap {
+.wpr-compare-table-wrap {
     min-height: 1px;
 }
 
@@ -16602,6 +16604,14 @@ dl.variation dd {
     overflow: hidden;
 }
 
+.woocommerce.woocommerce-checkout .wpr-checkout-order-review-table-inner #order_review,
+.woocommerce.woocommerce-checkout .wpr-checkout-order-review-table-inner #order_review_heading,
+.woocommerce-page.woocommerce-checkout .wpr-checkout-order-review-table-inner #order_review,
+.woocommerce-page.woocommerce-checkout .wpr-checkout-order-review-table-inner #order_review_heading {
+    float: none;
+    width: auto;
+}
+
 .wpr-checkout-order-review-table #order_review table {
   border: none !important;
 }
@@ -18096,6 +18106,10 @@ dl.variation dd {
     top: 100%;
 }
 
+.wpr-field-group input {
+    margin: 0;
+}
+
 .wpr-form-fields-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -18189,9 +18203,10 @@ dl.variation dd {
 }
 
 .wpr-field-group .wpr-form-field-textual:focus {
-  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+  /* -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset; */
   outline: 0;
+  box-shadow: none;
 }
 
 .wpr-field-group .wpr-form-field-textual::-webkit-input-placeholder {
@@ -18249,7 +18264,7 @@ dl.variation dd {
   padding-right: 20px;
 }
 
-.wpr-field-group .wpr-select-wrap:before {
+.wpr-field-group .wpr-select-wrap.wpr-fi-svg-no:before {
   content: "\e92a";
   font-family: "eicons";
   font-size: 15px;
@@ -18265,6 +18280,21 @@ dl.variation dd {
 
 .wpr-field-group.wpr-form-field-type-select-multiple .wpr-select-wrap:before {
   content: "";
+}
+
+.wpr-select-wrap svg {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  pointer-events: none;
+}
+  
+.wpr-select-wrap svg path {
+  width: 15px;
+  height: 15px;
 }
 
 .wpr-field-sub-group {

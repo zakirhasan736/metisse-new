@@ -781,7 +781,7 @@ class WC_Form_Handler {
 	}
 
 	/**
-	 * Add To Basket action.
+	 * Add to cart action.
 	 *
 	 * Checks for a valid request, does validation (via hooks) and then redirects if valid.
 	 *
@@ -868,7 +868,7 @@ class WC_Form_Handler {
 				}
 				$quantity_set = true;
 
-				// Add To Basket validation.
+				// Add to cart validation.
 				$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $item, $quantity );
 
 				// Suppress total recalculation until finished.
@@ -900,7 +900,7 @@ class WC_Form_Handler {
 	 * Handle adding variable products to the cart.
 	 *
 	 * @since 2.4.6 Split from add_to_cart_action.
-	 * @throws Exception If Add To Basket fails.
+	 * @throws Exception If add to cart fails.
 	 * @param int $product_id Product ID to add to the cart.
 	 * @return bool success or not
 	 */

@@ -97,29 +97,31 @@
 		const listItem = swatch.closest( 'li' );
 		if(listItem.length > 1){
 			const thumbnail = listItem.find( 'img:first' );
-			// if ( 0 === listItem.find( '.tpwvs-original-thumbnail' ).length ) {
-			// 	const originalThumbnail = thumbnail.clone();
-			// 	thumbnail.after( '<span class="tpwvs-original-thumbnail"></span>' );
-			// 	listItem
-			// 		.find( '.tpwvs-original-thumbnail' )
-			// 		.html( originalThumbnail );
-			// }
-			thumbnail.attr( 'src', imageData.full_src );
-			thumbnail.attr( 'srcset', '' );
+			thumbnail.css({
+				transition: 500,
+				opacity:0
+			})
+			setTimeout(function(){
+				thumbnail.css({
+					opacity:1
+				})
+				thumbnail.attr( 'src', imageData.full_src );
+				thumbnail.attr( 'srcset', '' );
+			}, 400);
 		}else{
 			const listItem = swatch.closest( '.has-post-thumbnail' );
 			const thumbnail = listItem.find( 'img:first' );
-			console.log(thumbnail, thumbnail.find( '.tpwvs-original-thumbnail' ).length);
-			
-			// if ( 0 === thumbnail.find( '.tpwvs-original-thumbnail' ).length ) {
-			// 	const originalThumbnail = thumbnail.clone();
-			// 	thumbnail.after( '<span class="tpwvs-original-thumbnail"></span>' );
-			// 	thumbnail
-			// 		.find( '.tpwvs-original-thumbnail' )
-			// 		.html( originalThumbnail );
-			// }
-			thumbnail.attr( 'src', imageData.full_src );
-			thumbnail.attr( 'srcset', '' );
+			thumbnail.css({
+				transition: 500,
+				opacity:0
+			})
+			setTimeout(function(){
+				thumbnail.css({
+					opacity:1
+				})
+				thumbnail.attr( 'src', imageData.full_src );
+				thumbnail.attr( 'srcset', '' );
+			}, 400);
 		}
 		
 	}

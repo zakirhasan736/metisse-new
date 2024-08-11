@@ -5,9 +5,218 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.20.1.1] - 2024-04-03
+## [4.32.0] - 2024-08-05
+### Added
+- Add Tracks events for Welcome Flow [#38641]
+
+### Changed
+- change Jetpack AI product page link redirect [#38691]
+- copy updates [#38648]
+- Modify the Google Analytics notice to notify of the feature removal. [#38701]
+
+## [4.31.0] - 2024-08-01
+### Added
+- Update Welcome Banner and set async site-only connection [#38534]
+
+### Changed
+- Fixup versions [#38612]
+- My Jetpack: modify Jetpack AI product class and interstitial links [#38602]
+- React: Changing global JSX namespace to React.JSX [#38585]
+
+## [4.30.0] - 2024-07-29
+### Added
+- Async card update after async site connection [#38549]
+- My Jetpack: add A/A experiment to test for correct random assignment and prevent bias in metric performance. [#38327]
+- Show View button on product card along with upgrade cta [#38550]
+
+### Changed
+- Final minor enhancements to the Protect product card in My Jetpack. [#38420]
+
+### Removed
+- Remove functionality that hid 1 value on the backup card for mid-sized screens [#38441]
+
 ### Fixed
+- Include Jetpack Legacy plans when checking if user has social included with plan [#38516]
+- Update all tracks to snake case, camel case is not supported [#38576]
+
+## [4.29.0] - 2024-07-22
+### Added
+- Added the auto-firewall status to the Protect product  card in My Jetpack. [#38332]
+- Added the number of logins blocked to the Protect card in My Jetpack. [#38396]
+
+### Changed
+- Connection Screen: Removed mention of Stats from the list of available free features. [#38328]
+- Display My Jetpack products segemented by ownership. [#38283]
+- My Jetpack: Updated social icons in the connection screen. [#38334]
+- Updated statuses to make more sense in relation to ownership. [#38390]
+
+## [4.28.0] - 2024-07-15
+### Added
+- Add scan/threat info to the Protect card in My Jetpack. [#38165]
+
+### Changed
+- Protect card: Add the Last scan time (with tooltip) based on product state. [#38091]
+- Updated package dependencies. [#38091]
+
+### Fixed
+- Fix Learn More link destination when the site was never connected. [#38225]
+
+## [4.27.2] - 2024-07-10
+### Fixed
+- Social: Fixed plan slug [#38222]
+
+## [4.27.1] - 2024-07-03
+### Changed
+- Updated package dependencies. [#38132]
+
+## [4.27.0] - 2024-07-01
+### Added
+- Add the Google Analytics deprecation notice. [#38078]
+
+### Changed
+- Reduce amount of historically active modules updates by only triggering on activation of plugin is a jetpack plugin [#38065]
+
+### Fixed
+- Fix an issue where the connection error hook was always resetting the notice [#38120]
+
+## [4.26.0] - 2024-06-27
+### Changed
+- Jetpack AI: Add Title Optimization section on the product page. [#38072]
+
+## [4.25.4] - 2024-06-26
+### Fixed
+- Move historically active modules sync to admin_init [#38041]
+
+## [4.25.3] - 2024-06-24
+### Added
+- Add more default args for tracks events [#37974]
+
+## [4.25.2] - 2024-06-21
+### Fixed
+- Remove the need for api requests in broken modules check [#37908]
+
+## [4.25.1] - 2024-06-17
+### Fixed
+- Remove check for broken modules from red bubble connection check [#37911]
+
+## [4.25.0] - 2024-06-17
+### Changed
+- Show tooltip on card hover instead of letter hover [#37858]
+- Update connection footer to conditionally render warnings or errors [#37802]
+- Update connection status card tests to TS [#37829]
+
+## [4.24.7] - 2024-06-13
+### Changed
+- Updated package dependencies. [#37796]
+
+## [4.24.6] - 2024-06-11
+### Changed
+- Conditionally show connection banner as error or info [#37707]
+- Updated package dependencies. [#37779]
+
+## [4.24.5] - 2024-06-10
+### Changed
+- Change codebase to use clsx instead of classnames. [#37708]
+
+## [4.24.4] - 2024-06-10
+### Added
+- Add mechanism to track previously working plugins [#37537]
+
+### Changed
+- Move PRODUCT_STATUSES to constants file [#37748]
+- Send user to siteless pricing page if site is not connected [#37667]
+
+## [4.24.3] - 2024-06-05
+### Changed
+- Updated package dependencies. [#37669]
+
+## [4.24.2] - 2024-06-03
+### Changed
+- Update ToS wording. [#37536]
+- Update CTA on A4A banner in My Jetpack. [#37628]
+
+## [4.24.1] - 2024-05-24
+### Changed
+- Update Search to require user connection. [#37496]
+
+## [4.24.0] - 2024-05-23
+### Changed
+- Improve the active/inactive statuses on My Jetpack. [#37217]
+
+## [4.23.3] - 2024-05-20
+### Added
+- Add tracks events for dropdown on action buttons. [#37292]
+
+### Changed
+- Updated package dependencies. [#37379] [#37380] [#37382]
+
+## [4.23.2] - 2024-05-09
+### Changed
+- My Jetpack Agency banner copy change. [#37248]
+
+### Fixed
+- Fix typo [#37303]
+
+## [4.23.1] - 2024-05-08
+### Changed
+- Update dependencies.
+
+## [4.23.0] - 2024-05-06
+### Added
+- Add a has_free_offering boolean on My Jetpack products. [#36710]
+- Add copy for AI features on connection screen. [#37218]
+- Define `$module_name` static property on `Hybrid_Product` (defaulting to null). [#37201]
+- Jetpack AI: Add new badge to Featured Image video on the product page. [#37197]
+- My Jetpack: Add errors from the connection package to the new notice component. [#36840]
+
+### Changed
+- Change "go back" in My Jetpack interstitials to always return to the My Jetpack page. [#36685]
+- Fix z-index issue and close action button dropdown when clicked outside. [#37169]
+- Jetpack AI: Add featured image generation as a feature on the product interstitial. [#37199]
+- Jetpack AI: Include video about featured image generation on the product page. [#37192]
+- Updated package dependencies. [#37147] [#37148] [#37160]
+
+## [4.22.3] - 2024-04-29
+### Changed
+- Internal updates.
+
+## [4.22.2] - 2024-04-25
+### Fixed
+- My Jetpack: Fix issue where the TOS component was being called inside of a <p>, throwing a warning that <p> can't be a descendant of <p>. This also fixes the font size of the TOS text. [#37034]
+
+## [4.22.1] - 2024-04-22
+### Changed
+- Internal updates.
+
+## [4.22.0] - 2024-04-11
+### Added
+- Add new tracking event for product activations made through My Jetpack [#36745]
+- My Jetpack: add a way to connect a Jetpack site to WordPress.com asynchronously and update the message in the notice to reflect that. [#36771]
+
+### Fixed
+- Ensure page_view gets loaded before product_card_loaded [#36790]
+
+## [4.21.0] - 2024-04-08
+### Added
+- Add 'from' property to connection call to WP.com. [#36741]
+- My Jetpack: Update Notice component to allow adding a loading text when an action is in a loading state. Add a new resetNotice action to NoticeContext. [#36614]
+
+### Changed
+- My Jetpack: Show Boost score increase in Boost product card. [#36072]
+- Updated package dependencies. [#36756] [#36760] [#36761]
+- Update My Jetpack to use the Notice component from @automattic/jetpack-components and be more consistent with the other notices in Jetpack. [#36711]
+
+### Removed
+- My Jetpack: Removed custom Notice component from My Jetpack. [#36772]
+- My Jetpack: Remove red bubble from connection notice in favor of using the status of the Notice component. [#36773]
+
+### Fixed
+- Fix cache on front end request for boost speed scores [#36700]
 - fix tier upgrades in my Jetpack [#36705]
+
+## [4.20.2] - 2024-04-02
+### Fixed
+- Fix Boost score inconsistency [#36679]
 
 ## [4.20.1] - 2024-04-01
 ### Added
@@ -1407,7 +1616,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created package
 
-[4.20.1.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.20.1...4.20.1.1
+[4.32.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.31.0...4.32.0
+[4.31.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.30.0...4.31.0
+[4.30.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.29.0...4.30.0
+[4.29.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.28.0...4.29.0
+[4.28.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.27.2...4.28.0
+[4.27.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.27.1...4.27.2
+[4.27.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.27.0...4.27.1
+[4.27.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.26.0...4.27.0
+[4.26.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.25.4...4.26.0
+[4.25.4]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.25.3...4.25.4
+[4.25.3]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.25.2...4.25.3
+[4.25.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.25.1...4.25.2
+[4.25.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.25.0...4.25.1
+[4.25.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.7...4.25.0
+[4.24.7]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.6...4.24.7
+[4.24.6]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.5...4.24.6
+[4.24.5]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.4...4.24.5
+[4.24.4]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.3...4.24.4
+[4.24.3]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.2...4.24.3
+[4.24.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.1...4.24.2
+[4.24.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.24.0...4.24.1
+[4.24.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.23.3...4.24.0
+[4.23.3]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.23.2...4.23.3
+[4.23.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.23.1...4.23.2
+[4.23.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.23.0...4.23.1
+[4.23.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.22.3...4.23.0
+[4.22.3]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.22.2...4.22.3
+[4.22.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.22.1...4.22.2
+[4.22.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.22.0...4.22.1
+[4.22.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.21.0...4.22.0
+[4.21.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.20.2...4.21.0
+[4.20.2]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.20.1...4.20.2
 [4.20.1]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.20.0...4.20.1
 [4.20.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.19.0...4.20.0
 [4.19.0]: https://github.com/Automattic/jetpack-my-jetpack/compare/4.18.0...4.19.0

@@ -1,4 +1,123 @@
 
+version 1.5.116:
+
+* Fix: fixed some editor select2 bug
+
+version 1.5.115:
+
+* Feature: added option to use form fields contents in subject and from name fields in submit button
+* Feature: added woocommerce minicart extra html hooks
+* Fix: fixed instagram username validation. added dot to the check.
+* Fix: fixed image chooser field update inside the widget editor
+* Feature: filtering now works inside elementor popup
+* Bug fix: some small bug with fitlering pagination and avoid duplicated option
+* Feature: added option to sort users by ids in users query
+* Feature: integrated get main category functionality with rank math
+* Feature: added integration with wpml for sorting filter
+
+
+
+version 1.5.114:
+
+* Feature: implimented "advanced cache" option for "dynamic popup"
+* Feature: improved json/csv api usage in multisrouce, added paths as field names and data key selection
+* Feature: added option for disabled buttons in pagination
+* Change: updated freemius sdk version to the latest
+* Fix: removed "custom remote name" from background widgets style
+* Fix: Galleries - fixed fullscreen button on a slider that contains link
+* Fix: in filters fixed init pagination number after init request
+* Fix: fixed optin "is derect parent" in terms selection
+* Fix: fixed get titles with empty posts for in terms selector 
+* Fix: fixed some filters related php bug of empty request on sync with grid.
+
+
+version 1.5.113:
+
+* Fix: fixed some small security issues found by wordfence
+* Feature: added search fitler to url replace in post widgets filters
+
+
+version 1.5.112:
+
+* Feature: made a small integration with simple author box plugin
+* Feature: added "timezone" for google events api
+* Feature: added "current product gallery" as a gallery source for WooCommerce
+* Feature: added option for dynamic popup advanced cache
+* Feature: added integration for fvplayer
+* Feature: added links to woo minicart title and image
+* Feature: added option to send reply in form to email that set in form field
+
+
+
+version 1.5.111:
+
+* Feature: added option in general settings: 'Taxonomy Separator Sign in Ajax Filter' for backward compatability
+* Changed - changed the default taxonomy saparator to ":" instead of "~"
+* Fix: fixed getting elementor dynamic item fields in ajax 
+* Fix: background widgets didn't worked with rocket lazy load
+* Fix: filters checkboxes wasn't visible in some cases
+* Fix: avoid error messages on very old elementor versions
+
+
+version 1.5.110:
+
+* Fix: remote arrows was sendin next/prev commands twice
+* Fix: fix some password protected content related security issue
+* Fix: fix some sql security small issue 
+
+
+version 1.5.109:
+
+* Feature: added option to get page views of some post using WPP plugin
+* Feature: added option for "show db tables" in troubleshooting
+* Fix: fixed form editor form validation, excluded placeholders
+* Fix: fixed get filters based on wpml language with post count
+* Fix: Fixed some remote connection code items click code
+* Fix: Fixed clear all filters button not working bug
+* Fix: fixed multisource acf repeater checkboxes type get
+
+
+
+version 1.5.108:
+
+* Feature: update freemius SDK
+* Fix: fixed bug with select filter and active filters widgets
+* Fix: fixed bug with several main checkbox filters unselecting
+* Fix: Fixed some small security issue
+
+
+version 1.5.107:
+
+* Fix - fixed weird elementor no products on cart page bug
+* Feature - added elementor dynamic options to api integrations
+* Fix - fixed bug with faq schema output
+* Fix - fixed general settings show items at start
+* Feature - added option to get images from current product variations for the dynamic gallery.
+* Feature - added preperation for the enhanced ajax search
+
+
+version 1.5.106:
+
+* Fix - fixed some main/child roles checkbox filter issues
+* Fix - fixed some bug with widget posts debug not showed full info
+* Fix - fixed dissapearing gallery titles since last version.
+
+
+version 1.5.105:
+
+* Fix: fixed some filters and request related issue
+* Fix: fixed specific post and terms select
+
+
+version 1.5.104:
+
+* Feature: added support for unselect items in sync functionality
+* Feature: added feature - sort terms by parent -> children, and levels number class
+* Fix: fixed some load more issue with dynamic template loop and post lists inside
+* Fix: fixed woo category image not fetched bug
+* Fix: fixed some cases of sticky elementor elements with filters
+* Fix: fixed remote connection with single background parent and remote widget
+
 
 version 1.5.103:
 
@@ -1293,7 +1412,7 @@ version 1.4.69
 -feature: added choose image size select option to image attribute
 -bug fix: added missing thumb sizes for image select
 -feature: added "image_attributes" placeholder for image output in widget editor
--change: changed button "Add To Basket" to "select options" for variable products in woocommerce list widgets
+-change: changed button "add to cart" to "select options" for variable products in woocommerce list widgets
 
 
 
@@ -1663,7 +1782,7 @@ version 1.4.22
 
 -feature: added users meta data and profile url 
 -feature: added woo currency symbol
--feature: added woo Add To Basket button
+-feature: added woo add to cart button
 -feature: added slider attribute
 -new widget: logo grid
 -new widget: logo carousel

@@ -162,7 +162,7 @@ class WC_Product_External extends WC_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text for the single page.
+	 * Get the add to cart button text for the single page.
 	 *
 	 * @access public
 	 * @return string
@@ -172,7 +172,7 @@ class WC_Product_External extends WC_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text.
+	 * Get the add to cart button text.
 	 *
 	 * @access public
 	 * @return string
@@ -182,7 +182,7 @@ class WC_Product_External extends WC_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text description - used in aria tags.
+	 * Get the add to cart button text description - used in aria tags.
 	 *
 	 * @since 3.3.0
 	 * @return string

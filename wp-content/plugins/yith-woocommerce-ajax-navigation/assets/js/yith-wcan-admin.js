@@ -146,8 +146,11 @@ jQuery( function ( $ ) {
 				ajaxurl,
 				data,
 				function ( response ) {
+					if ( ! response.success ) {
+						return;
+					}
 					spinner.hide();
-					container.html( response.content );
+					container.html( response.data );
 					$( document ).trigger( 'yith_colorpicker' );
 				},
 				'json'
@@ -210,13 +213,6 @@ jQuery( function ( $ ) {
 
 		window.alert( yith_wcan_admin.messages.confirm_copy );
 	} );
-
-	// Init filters handling
-	$( document )
-		.on( 'yith_wcan_filters_init', function () {
-			new YITH_WCAN_Filters( jQuery );
-		} )
-		.trigger( 'yith_wcan_filters_init' );
 
 	// Init upgrade note modal
 	$( document )
@@ -291,6 +287,8 @@ jQuery( function ( $ ) {
 
 	$( document )
 		.find( '.yith-add-button' )
+		.first()
+		.clone( true )
 		.appendTo( '.yith-plugin-fw__panel__content__page__title' );
 
 	$( document ).on(

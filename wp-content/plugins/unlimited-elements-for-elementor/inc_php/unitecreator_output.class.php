@@ -36,9 +36,13 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	private $isShowDebugData = false;
 	private $debugDataType = "";
 	private $valuesForDebug = null;
-
+	
 	private $itemsSource = "";
-
+	
+	private $isGutenberg = false;
+	private $isBackground = false;
+	private $isGutenbergBackground = false;
+	
 	private static $arrScriptsHandles = array();
 
 	private static $arrUrlCacheCss = array();
@@ -52,7 +56,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	public static $bufferCssIncludes;
 
 	private static $arrGeneratedIDs = array();
-
+		
 	private $htmlDebug = "";
 
 
@@ -67,9 +71,11 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		else
 			$this->objTemplate = new UniteCreatorTemplateEngine();
 
-
 		$this->processType = UniteCreatorParamsProcessor::PROCESS_TYPE_OUTPUT;
-
+		
+		if(GlobalsProviderUC::$renderPlatform == GlobalsProviderUC::RENDER_PLATFORM_GUTENBERG)
+			$this->isGutenberg = true;
+		
 	}
 
 
@@ -83,7 +89,8 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$this->processType = $type;
 
 	}
-
+	
+	
 	/**
 	 * validate inited
 	 */
@@ -335,7 +342,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 		$arrProcessedIncludes = array_merge($arrIncludesJS, $arrIncludesCss);
 		$arrProcessedIncludes = $this->excludeExistingInlcudes($arrProcessedIncludes);
-
+		
 		// add widget scripts to editor
 		if(!empty(HelperUC::$arrWidgetScripts)){
 			foreach(HelperUC::$arrWidgetScripts as $handle => $urlScript){
@@ -386,11 +393,13 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			if(empty($handle))
 				$handle = HelperUC::getUrlHandle($url, $addonName);
-
+			
 			$isInCache = $this->isIncludeInCache($url, $handle, $type);
-
-			if($isInCache == true){
-
+			
+			//if inside hidden template - no cache needed. should output the css each time.
+			
+			if($isInCache == true && GlobalsProviderUC::$isInsideHiddenTemplate !== true){
+				
 				continue;
 			}
 
@@ -433,16 +442,16 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 		return($html);
 	}
-
-
+	
+	
 	/**
 	 * process includes
 	 * includes type = "all,js,css"
 	 */
 	public function processIncludes($includesType = "all"){
-
+		
 		$arrIncludes = $this->getProcessedIncludes(true, true, $includesType);
-
+		
 		$addonName = $this->addon->getName();
 
 		$arrDep = $this->addon->getIncludesJsDependancies();
@@ -453,7 +462,6 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			$url = $include["url"];
 			$handle = UniteFunctionsUC::getVal($include, "handle");
 			$deps = UniteFunctionsUC::getVal($include, "deps");
-
 
 			if(empty($handle))
 				$handle = HelperUC::getUrlHandle($url, $addonName);
@@ -484,9 +492,12 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			}
 
 		}
-
+		
+		//process special includes if available
+		
 	}
-
+	
+	
 	private function a________PREVIEW_HTML________(){}
 
 	/**
@@ -592,11 +603,14 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 						? HelperHtmlUC::getCSSSelectorValueByParam(UniteCreatorDialogParam::PARAM_BACKGROUND, "radial-gradient")
 						: HelperHtmlUC::getCSSSelectorValueByParam(UniteCreatorDialogParam::PARAM_BACKGROUND, "linear-gradient");
 
-					$css = str_replace(
-						array("{{angle}}", "{{position}}", "{{color1}}", "{{stop1}}", "{{color2}}", "{{stop2}}"),
-						array($angle, $position, $color1, $stop1, $color2, $stop2),
-						$selectorValue
-					);
+					$css = $this->processCSSSelectorReplaces($selectorValue, array(
+						"{{angle}}" => $angle,
+						"{{position}}" => $position,
+						"{{color1}}" => $color1,
+						"{{stop1}}" => $stop1,
+						"{{color2}}" => $color2,
+						"{{stop2}}" => $stop2,
+					));
 
 					$style .= $this->prepareCSSSelectorStyle($selector, $css);
 				}
@@ -765,11 +779,12 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		if($x !== "" && $y !== "" && $blur !== "" && $color !== ""){
 			$selectorValue = HelperHtmlUC::getCSSSelectorValueByParam(UniteCreatorDialogParam::PARAM_TEXTSHADOW);
 
-			$css = str_replace(
-				array("{{x}}", "{{y}}", "{{blur}}", "{{color}}"),
-				array($x, $y, $blur, $color),
-				$selectorValue
-			);
+			$css = $this->processCSSSelectorReplaces($selectorValue, array(
+				"{{x}}" => $x,
+				"{{y}}" => $y,
+				"{{blur}}" => $blur,
+				"{{color}}" => $color,
+			));
 		}
 
 		$selector = $this->combineCSSSelectors($selectors);
@@ -801,11 +816,14 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		if($x !== "" && $y !== "" && $blur !== "" && $spread !== "" && $color !== "" && $position !== ""){
 			$selectorValue = HelperHtmlUC::getCSSSelectorValueByParam(UniteCreatorDialogParam::PARAM_BOXSHADOW);
 
-			$css = str_replace(
-				array("{{x}}", "{{y}}", "{{blur}}", "{{spread}}", "{{color}}", "{{position}}"),
-				array($x, $y, $blur, $spread, $color, $position),
-				$selectorValue
-			);
+			$css = $this->processCSSSelectorReplaces($selectorValue, array(
+				"{{x}}" => $x,
+				"{{y}}" => $y,
+				"{{blur}}" => $blur,
+				"{{spread}}" => $spread,
+				"{{color}}" => $color,
+				"{{position}}" => $position,
+			));
 		}
 
 		$selector = $this->combineCSSSelectors($selectors);
@@ -837,11 +855,13 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		if($blur !== "" && $brightness !== "" && $contrast !== "" && $saturation !== "" && $hue !== ""){
 			$selectorValue = HelperHtmlUC::getCSSSelectorValueByParam(UniteCreatorDialogParam::PARAM_CSS_FILTERS);
 
-			$css = str_replace(
-				array("{{blur}}", "{{brightness}}", "{{contrast}}", "{{saturate}}", "{{hue}}"),
-				array($blur, $brightness, $contrast, $saturation, $hue),
-				$selectorValue
-			);
+			$css = $this->processCSSSelectorReplaces($selectorValue, array(
+				"{{blur}}" => $blur,
+				"{{brightness}}" => $brightness,
+				"{{contrast}}" => $contrast,
+				"{{saturate}}" => $saturation,
+				"{{hue}}" => $hue,
+			));
 		}
 
 		$selector = $this->combineCSSSelectors($selectors);
@@ -904,11 +924,12 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$left = UniteFunctionsUC::getVal($value, "left");
 		$unit = UniteFunctionsUC::getVal($value, "unit", "px");
 
-		$css = str_replace(
-			array("{{top}}", "{{right}}", "{{bottom}}", "{{left}}"),
-			array($top . $unit, $right . $unit, $bottom . $unit, $left . $unit),
-			$selectorValue
-		);
+		$css = $this->processCSSSelectorReplaces($selectorValue, array(
+			"{{top}}" => $top . $unit,
+			"{{right}}" => $right . $unit,
+			"{{bottom}}" => $bottom . $unit,
+			"{{left}}" => $left . $unit,
+		));
 
 		return $css;
 	}
@@ -943,11 +964,11 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		if($size === "")
 			return "";
 
-		$css = str_replace(
-			array(self::SELECTOR_VALUE_PLACEHOLDER, "{{size}}", "{{unit}}"),
-			array($size . $unit, $size, $unit),
-			$selectorValue
-		);
+		$css = $this->processCSSSelectorReplaces($selectorValue, array(
+			self::SELECTOR_VALUE_PLACEHOLDER => $size . $unit,
+			"{{size}}" => $size,
+			"{{unit}}" => $unit,
+		));
 
 		return $css;
 	}
@@ -960,7 +981,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		if($value === null || $value === "")
 			return "";
 
-		$css = str_replace(self::SELECTOR_VALUE_PLACEHOLDER, $value, $selectorValue);
+		$css = $this->processCSSSelectorReplaces($selectorValue, array(self::SELECTOR_VALUE_PLACEHOLDER => $value));
 
 		return $css;
 	}
@@ -1085,6 +1106,19 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	}
 
 	/**
+	 * process css selector replaces
+	 */
+	private function processCSSSelectorReplaces($css, $replaces){
+
+		foreach($replaces as $placeholder => $replace){
+			$css = str_replace(strtolower($placeholder), $replace, $css);
+			$css = str_replace(strtoupper($placeholder), $replace, $css);
+		}
+
+		return $css;
+	}
+
+	/**
 	 * prepare param css selectors
 	 */
 	private function prepareParamCSSSelectors($param){
@@ -1101,7 +1135,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			$selector = $this->prepareCSSSelector($selector);
 
-			$selectors[$selector] = strtolower($selectorValue);
+			$selectors[$selector] = $selectorValue;
 		}
 
 		return $selectors;
@@ -1226,7 +1260,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			}
 
 			$itemStyles = $this->processParamsCSSSelector($itemParams);
-			$itemStyles = str_replace("{{current_item}}", ".elementor-repeater-item-" . $itemId, $itemStyles);
+			$itemStyles = $this->processCSSSelectorReplaces($itemStyles, array("{{current_item}}" => ".elementor-repeater-item-" . $itemId));
 
 			$styles .= $itemStyles;
 		}
@@ -1238,7 +1272,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	 * get selectors css
 	 */
 	public function getSelectorsCss(){
-
+				
 		$style = $this->processPreviewParamsSelectors();
 
 		return $style;
@@ -1480,7 +1514,14 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$this->valuesForDebug = $arrValues;
 
 	}
-
+	
+	/**
+	 * get debug html
+	 */
+	public function getHtmlDebug(){
+		
+		return($this->htmlDebug);
+	}
 
 	/**
 	 * put debug data html
@@ -1665,9 +1706,10 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			//$postMeta = get_post_meta($post_id)
 
-			return($html);
 		}
 
+
+		return($html);
 
 	}
 
@@ -1711,7 +1753,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	 */
 	private function putDebugDataHtml($arrData, $arrItemData){
 
-		$html = "<div style='font-size:16px;color:black;text-decoration:none;background-color:white;padding:3px;'>";
+		$html = "<div class='uc-debug-output' style='font-size:16px;color:black;text-decoration:none;background-color:white;padding:3px;'>";
 
 		$html .= dmpGet("<b>Widget Debug Data</b> (turned on by setting in widget advanced section)<br>",true);
 
@@ -1722,7 +1764,6 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			$arrItemData = $this->putDebugDataHtml_getItemsFromListing($paramListing, $arrData);
 		}
-
 
 		switch($this->debugDataType){
 			case "post_titles":
@@ -1746,7 +1787,109 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$this->htmlDebug = $html;
 	}
 
+	private function a________GUTENBERG_BACKGROUND___________(){}
+	
+	/**
+	 * modify js for gutenberg background output
+	 */
+	private function modifyGutenbergBGJS($js){
+		
+		$ucID = $this->generatedID;
+		
+		$js = "
+jQuery(document).ready(function(){ \n
+	jQuery(\"#{$ucID}-root\").parent().css({\"position\":\"relative\"});
+	jQuery(\"#{$ucID}-root\").addClass(\"uc-background-active\");
+	
+$js 
+}) //onready wrapper;
+		";
 
+		return($js);
+	}
+	
+	/**
+	 * modify css for gutenberg output
+	 */
+	private function modifyGutenbergBGCSS($css){
+		
+				
+		
+		$ucID = $this->generatedID;
+		
+		$isInsideEditor = $this->isInsideEditor();
+		
+		//back css
+		
+		if($isInsideEditor == true){
+			
+			$css = "#{$ucID}-root .uc-background-editor-placeholder{
+				font-size:12px;
+				padding:20px;
+				color:black;
+			}
+			
+			#{$ucID}-root{
+				position:relative;
+				border:1px solid gray;
+				background-color:lightgray;
+			}
+			
+			$css";
+			
+			return($css);
+		}
+		
+		//front css
+
+		$arrValues = $this->addon->getOriginalValues();
+		$backgroundLocation = UniteFunctionsUC::getVal($arrValues, "background_location");
+		
+		$zIndex = -1;
+		if($backgroundLocation == "front")
+			$zIndex = 999;
+		
+		$css = "
+/* background wrapper */
+#{$ucID}-root.uc-background-active{
+	position: absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	z-index:{$zIndex} !important;
+}
+$css
+";
+		
+	return($css);	
+	}
+	
+	/**
+	 * modify gutenberg bg html
+	 */
+	private function modifyGutenbergBGHTML(){
+				
+		$html = "";
+		
+		$isInsideEditor = $this->isInsideEditor();
+		
+		if($isInsideEditor == false)
+			return($html);
+
+		$addonTitle = $this->addon->getTitle();
+		
+		$addonTitle = esc_html($addonTitle);
+		
+		$text = __("Background Placeholder for ","unlimited-elements-for-elementor");
+		
+		$text2 = __("Will cover the parent block in front end.","unlimited-elements-for-elementor");
+		
+		$html .= "<div class='uc-background-editor-placeholder'>{$text} <b>{$addonTitle}</b>. $text2</div>";
+		
+		return($html);
+	}
+	
 	private function a________GENERAL___________(){}
 
 
@@ -1880,7 +2023,8 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	 * place output by shortcode
 	 */
 	public function getHtmlBody($scriptHardCoded = true, $putCssIncludes = false, $putCssInline = true, $params = null){
-
+		
+		
 		$this->validateInited();
 
 		//render the js inside "template" tag always if available
@@ -1895,20 +2039,33 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		try{
 			$html = $this->objTemplate->getRenderedHtml(self::TEMPLATE_HTML);
 			$html = $this->processHtml($html);
-
+			
 			if(!empty($this->htmlDebug))
 				$html = $this->htmlDebug . $html;
-
+			
 			//make css
 			$css = $this->objTemplate->getRenderedHtml(self::TEMPLATE_CSS);
 			$js = $this->objTemplate->getRenderedHtml(self::TEMPLATE_JS);
-
+			
+			$arrData = $this->getConstantData();
+						
+			if($this->isGutenbergBackground){
+				$params["wrap_js_timeout"] = false;
+				
+				$js = $this->modifyGutenbergBGJS($js);
+				
+				$css = $this->modifyGutenbergBGCSS($css);
+				
+			}
+			
+			
 			//fetch selectors (add google font includes on the way)
 			$isAddSelectors = UniteFunctionsUC::getVal($params, "add_selectors_css");
 			$isAddSelectors = UniteFunctionsUC::strToBool($isAddSelectors);
 
 			$cssSelectors = "";
 
+			
 			if($isAddSelectors === true)
 				$cssSelectors = $this->getSelectorsCss();
 
@@ -1917,12 +2074,12 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			if($putCssIncludes == true)
 				$arrCssIncludes = $this->getProcessedIncludes(true, true, "css");
-
+						
 			if($isOutputComments == true)
 				$output = "\n<!-- start {$title} -->";
 			else
 				$output = "\n";
-
+			
 			//add css includes if needed
 			if(!empty($arrCssIncludes)){
 				$htmlIncludes = $this->getHtmlIncludes($arrCssIncludes);
@@ -1932,7 +2089,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 				else
 					$output .= "\n" . $htmlIncludes;
 			}
-
+						
 			//add css
 			if(!empty($css)){
 				$css = "/* widget: $title */" . self::BR2 . $css . self::BR2;
@@ -1958,14 +2115,38 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			}
 
 			//add html
+			
+			$addWrapper = false;
+			if(GlobalsProviderUC::$renderPlatform == GlobalsProviderUC::RENDER_PLATFORM_GUTENBERG)
+				$addWrapper = true;
+
 			if($isAddSelectors == true)
-				$output .= "\n<div id=\"{$this->getWidgetWrapperID()}\">";
+				$addWrapper = true;
+				
+				
+			if($addWrapper == true){
 
+				$id = $this->getWidgetWrapperID();
+				
+				$rootId = UniteFunctionsUC::getVal($params, "root_id");
+
+				if(empty($rootId) === true)
+					$rootId = $this->getWidgetID();
+
+				$output .= "\n<div id=\"" . esc_attr($id) . "\" class=\"ue-widget-root\" data-id=\"" . esc_attr($rootId) . "\">";
+			}
+			
+			
 			$output .= "\n\n" . $html;
-
+						
 			if($isAddSelectors == true)
 				$output .= "\n</div>";
-
+			
+			//add background placeholder after the wrapper
+			
+			if($this->isGutenbergBackground)
+				$output .= $this->modifyGutenbergBGHTML();
+				
 			//add js
 			$isOutputJs = false;
 
@@ -1974,7 +2155,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 			if(isset($params["wrap_js_start"]) || isset($params["wrap_js_timeout"]))
 				$isOutputJs = true;
-
+						
 			//output js
 			if($isOutputJs == true){
 				$isJSAsModule = $this->addon->getOption("js_as_module");
@@ -2060,8 +2241,23 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 		return $this->getWidgetID() . "-root";
 	}
-
-
+	
+	/**
+	 * get if inside editor or not
+	 */
+	private function isInsideEditor(){
+		
+		$data = $this->getConstantData();
+		
+		$insideEditor = UniteFunctionsUC::getVal($data, "uc_inside_editor");
+		
+		if($insideEditor == "yes")
+			return(true);
+		
+		return(false);
+	}
+	
+	
 	/**
 	 * get addon contstant data that will be used in the template
 	 */
@@ -2116,11 +2312,11 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$isInsideEditor = false;
 		if($this->processType == UniteCreatorParamsProcessor::PROCESS_TYPE_OUTPUT_BACK)
 			$isInsideEditor = true;
-
+		
 		//$data["is_inside_editor"] = $isInsideEditor;
-
+		
 		$data = UniteProviderFunctionsUC::addSystemConstantData($data);
-
+		
 		$data = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_ADD_ADDON_OUTPUT_CONSTANT_DATA, $data);
 
 		$this->cacheConstants = $data;
@@ -2472,12 +2668,13 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			$itemIndex = 0;
 
 			foreach($arrItemData as $key => $item){
+								
 				$itemIndex++;
 
 				$arrItem = $item["item"];
 				$arrItem["item_index"] = $itemIndex;
 				$arrItem["item_id"] = $this->generatedID . "_item" . $itemIndex;
-
+				
 				$arrItemData[$key]["item"] = $arrItem;
 			}
 
@@ -2503,6 +2700,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 
 		if($this->isShowDebugData === true)
 			$this->putDebugDataHtml($arrData, $arrItemData);
+		
 	}
 
 
@@ -2543,9 +2741,17 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$this->itemsType = $this->addon->getItemsType();
 
 		$this->arrOptions = $this->addon->getOptions();
-
+		
+		$typeName = $this->addon->getType();
+		
+		if($typeName == GlobalsUC::ADDON_TYPE_BGADDON)
+			$this->isBackground = true;
+				
+		if($this->isBackground == true && $this->isGutenberg == true)
+			$this->isGutenbergBackground = true;
+					
 		//modify by special type
-
+		
 		switch($this->itemsType){
 			case "instagram":
 			case "post":

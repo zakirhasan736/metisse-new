@@ -87,8 +87,10 @@ function UniteAdminUC(){
 	 * debug html on the top of the page (from the master view)
 	 */
 	this.debug = function(html){
-		html += "<a href='javascript:jQuery(\"#div_debug\").hide()' class='unite-debug-close'>X</a>";
+		
+		html += "<a href='javascript:void(0)' onclick='javascript:jQuery(\"#div_debug\").hide()' class='unite-debug-close'>X</a>";
 		jQuery("#div_debug").show().html(html);
+		
 	};
 
 
@@ -427,7 +429,7 @@ function UniteAdminUC(){
 	this.getRandomString = function(numChars) {
 
 		if(!numChars)
-			 var numChars = 8;
+			 numChars = 8;
 
 		var text = "";
 		var possible = "abcdefghijklmnopqrstuvwxyz0123456789";

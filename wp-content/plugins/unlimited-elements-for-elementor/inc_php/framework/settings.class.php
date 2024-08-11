@@ -49,6 +49,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		const TYPE_RANGE = "range";
 		const TYPE_HIDDEN = "hidden";
 		const TYPE_SWITCHER = "switcher";
+		const TYPE_BUTTONS_GROUP = "buttons_group";
 		const TYPE_DIMENTIONS = "dimentions";
 		const TYPE_TYPOGRAPHY = "typography";
 		const TYPE_TEXTSHADOW = "textshadow";
@@ -467,7 +468,10 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			if(is_array($name))
 				UniteFunctionsUC::throwError("addSap function: sap name can't be array: $text");
-
+			
+			if(is_numeric($tab) || $tab === true)
+				UniteFunctionsUC::throwError("The tab should not be numeric");
+			
 			if(empty($tab))
 				$tab = self::TAB_CONTENT;
 
@@ -486,7 +490,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$sap["text"] = $text;
 			$sap["icon"] = $icon;
 			$sap["tab"] = $tab;
-
+			
+			
 			if(!empty($params))
 				$sap = array_merge($sap, $params);
 
@@ -651,22 +656,22 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$this->add($name,$defaultValue,$text,self::TYPE_CHECKBOX,$arrParams);
 		}
 
-
 		/**
 		 * add text box
 		 */
-		public function addTextBox($name,$defaultValue = "",$text = "",$arrParams = array()){
-			$this->add($name,$defaultValue,$text,self::TYPE_TEXT,$arrParams);
+		public function addTextBox($name, $defaultValue = "", $text = "", $arrParams = array()){
+
+			$this->add($name, $defaultValue, $text, self::TYPE_TEXT, $arrParams);
 		}
 
 		/**
 		 * add hidden input
 		 */
-		public function addHiddenInput($name,$defaultValue = "",$text = "",$arrParams = array()){
+		public function addHiddenInput($name, $defaultValue = "", $text = "", $arrParams = array()){
 
 			$arrParams["hidden"] = true;
 
-			$this->add($name,$defaultValue,$text,self::TYPE_HIDDEN,$arrParams);
+			$this->add($name, $defaultValue, $text, self::TYPE_HIDDEN, $arrParams);
 		}
 
 		/**
@@ -753,10 +758,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		/**
 		 * add post picker
 		 */
-		public function addPostPicker($name,$defaultValue = "",$text = "",$arrParams = array()){
-			$this->add($name,$defaultValue,$text,self::TYPE_POST,$arrParams);
-		}
+		public function addPostPicker($name, $defaultValue = "", $text = "", $arrParams = array()){
 
+			$arrParams["label_block"] = true;
+
+			$this->add($name, $defaultValue, $text, self::TYPE_POST, $arrParams);
+		}
 
 		/**
 		 * add color picker setting
@@ -764,7 +771,6 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public function addColorPicker($name,$defaultValue = "",$text = "",$arrParams = array()){
 			$this->add($name,$defaultValue,$text,self::TYPE_COLOR,$arrParams);
 		}
-
 
 		/**
 		 * add repeater
@@ -1314,7 +1320,31 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 
 		private function a______XML_______(){}
-
+		
+		/**
+		 * check load condition for external form load
+		 */
+		private function isLoadConditionMet($loadCondition){
+			
+			if(empty($loadCondition))
+				return(true);
+				
+			switch($loadCondition){
+				case "elementor_enabled":
+					
+					return (GlobalsUnlimitedElements::$enableElementorSupport == true);
+				break;
+				case "gutenberg_enabled":
+					
+					return (GlobalsUnlimitedElements::$enableGutenbergSupport == true);
+				break;
+				default:
+					return(true);
+				break;
+			}
+				
+			return(true);
+		}
 
 		/**
 		 *
@@ -1342,6 +1372,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$sapLabel = (string)UniteFunctionsUC::getVal($attribs, "label");
 				$sapIcon = (string)UniteFunctionsUC::getVal($attribs, "icon");
 				$loadFrom = (string)UniteFunctionsUC::getVal($attribs, "loadfrom");
+				$loadCondition = (string)UniteFunctionsUC::getVal($attribs, "load_condition");
 				$loadParam = (string)UniteFunctionsUC::getVal($attribs, "loadparam");
 				$loadedSettingsType = (string)UniteFunctionsUC::getVal($attribs, "loadtype");
 				$nodraw = (string)UniteFunctionsUC::getVal($attribs, "nodraw");
@@ -1362,12 +1393,16 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				if(!empty($nodraw)){
 					$sapParams["nodraw"] = UniteFunctionsUC::strToBool($nodraw);
 				}
-
-				UniteFunctionsUC::validateNotEmpty($sapName,"sapName");
-
+				
+				UniteFunctionsUC::validateNotEmpty($sapName,"name in fieldset attributes: $sapLabel");
+				
 				if(!empty($loadFrom)){
-
-					$this->addExternalSettings($loadFrom, $loadParam, $loadedSettingsType);
+					
+					$isConditionMet = $this->isLoadConditionMet($loadCondition);
+					
+					if($isConditionMet == true)
+						$this->addExternalSettings($loadFrom, $loadParam, $loadedSettingsType);
+					
 					continue;
 				}
 
@@ -1684,9 +1719,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * add settings from external file
 		 */
 		private function addExternalSettings($filename, $loadParam = null, $loadType = null){
+			
+			$filepathSettings = GlobalsUnlimitedElements::$pathPluginSettings."{$filename}.xml";
 
-			$filepathSettings = GlobalsUC::$pathSettings."{$filename}.xml";
-
+			if(file_exists($filepathSettings) == false)
+				$filepathSettings = GlobalsUC::$pathSettings."{$filename}.xml";
+			
 			if(file_exists($filepathSettings) == false)
 				UniteFunctionsUC::throwError("The file: {$filename}.xml don't found in settings folder");
 

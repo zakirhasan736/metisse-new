@@ -195,10 +195,18 @@ const isMediaSourceConnected = async ( source: MediaSource ) =>
  *
  * @returns {boolean} True if the inserter is opened false otherwise.
  */
-const isInserterOpened = (): boolean =>
-	select( 'core/edit-post' )?.isInserterOpened() ||
-	select( 'core/edit-site' )?.isInserterOpened() ||
-	select( 'core/edit-widgets' )?.isInserterOpened?.();
+const isInserterOpened = (): boolean => {
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+	const selectIsInserterOpened = ( select( 'core/editor' ) as any )?.isInserterOpened;
+
+	const editorIsInserterOpened = selectIsInserterOpened?.();
+
+	return (
+		editorIsInserterOpened ||
+		select( 'core/edit-site' )?.isInserterOpened() ||
+		select( 'core/edit-widgets' )?.isInserterOpened()
+	);
+};
 
 const registerInInserter = ( mediaCategoryProvider: () => object ) =>
 	// Remove as soon @types/wordpress__block-editor is up to date

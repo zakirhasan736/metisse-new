@@ -43,7 +43,7 @@ global $woocommerce;
 
 ?>
 
-<p class="tp-woo-myaccount-address-msg woocommerce-message text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#000]">
+<p class="tp-woo-myaccount-address-msg woocommerce-message text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313]">
 	<?php echo apply_filters('woocommerce_my_account_my_address_description', esc_html__('The following addresses will be used on the checkout page by default.', 'metisse')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 	?>
 </p>
@@ -88,50 +88,50 @@ global $woocommerce;
 				<div class="profile__address-content">
 
 					<div class="profile__address-header d-sm-flex align-items-center ">
-						<h3 class="profile__address-title text-[24px] md:text-[20px] sm:text-[18px] font-semibold font-primary capitalize leading-none text-[#000]"><?php echo esc_html__('Billing Address', 'metisse'); ?></h3>
-						<a href="<?php echo esc_url(wc_get_endpoint_url('edit-address', 'billing')); ?>" class="edit text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#AA834C] !underline"><?php echo array_key_exists('billing', $get_addresses) ? esc_html__('Edit', 'metisse') : esc_html__('Add', 'metisse'); ?></a>
+						<h3 class="profile__address-title text-[16px] font-normal font-secondary capitalize leading-[1.5] text-[#131313]"><?php echo esc_html__('Billing Address', 'metisse'); ?></h3>
+						<a href="<?php echo esc_url(wc_get_endpoint_url('edit-address', 'billing')); ?>" class="edit text-[12px] font-normal font-secondary leading-1.5] !text-[#AA834C] !underline"><?php echo array_key_exists('billing', $get_addresses) ? esc_html__('Edit', 'metisse') : esc_html__('Add', 'metisse'); ?></a>
 					</div>
 
 					<?php if (!empty($billing_address)) : ?>
 						<?php if (!empty($name)) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Name:', 'metisse'); ?></span><?php echo esc_html($name); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Name:', 'metisse'); ?></span><?php echo esc_html($name); ?></p>
 						<?php endif; ?>
 
 						<!-- street -->
 						<?php if ($email) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Email:', 'metisse'); ?></span><?php echo esc_html($email); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Email:', 'metisse'); ?></span><?php echo esc_html($email); ?></p>
 						<?php endif; ?>
 						<!-- phone -->
 						<?php if ($phone) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Phone number:', 'metisse'); ?></span><?php echo esc_html($phone); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Phone number:', 'metisse'); ?></span><?php echo esc_html($phone); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($company) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Company:', 'metisse'); ?></span><?php echo esc_html($company); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Company:', 'metisse'); ?></span><?php echo esc_html($company); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($add_1) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Address 1:', 'metisse'); ?></span><?php echo esc_html($add_1); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Address 1:', 'metisse'); ?></span><?php echo esc_html($add_1); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($add_2) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Address 2:', 'metisse'); ?></span><?php echo esc_html($add_2); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Address 2:', 'metisse'); ?></span><?php echo esc_html($add_2); ?></p>
 						<?php endif; ?>
 						<!-- city -->
 						<?php if ($city) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('City:', 'metisse'); ?></span><?php echo esc_html($city); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('City:', 'metisse'); ?></span><?php echo esc_html($city); ?></p>
 						<?php endif; ?>
 						<!-- state -->
 						<?php if ($state) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('State/province/area:', 'metisse'); ?></span><?php echo esc_html($state); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('State/province/area:', 'metisse'); ?></span><?php echo esc_html($state); ?></p>
 						<?php endif; ?>
 						<!-- zip code -->
 						<?php if ($postcode) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Zip code:', 'metisse'); ?></span><?php echo esc_html($postcode); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Zip code:', 'metisse'); ?></span><?php echo esc_html($postcode); ?></p>
 						<?php endif; ?>
 						<!-- country -->
 						<?php if ($country) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Country:', 'metisse'); ?></span><?php echo esc_html($country); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Country:', 'metisse'); ?></span><?php echo esc_html($country); ?></p>
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>
@@ -174,46 +174,46 @@ global $woocommerce;
 				</div>
 				<div class="profile__address-content">
 					<div class="profile__address-header d-sm-flex align-items-center">
-						<h3 class="profile__address-title text-[24px] md:text-[20px] sm:text-[18px] font-semibold font-primary capitalize leading-none text-[#000]"><?php echo esc_html__('Shipping Address', 'metisse'); ?></h3>
-						<a href="<?php echo esc_url(wc_get_endpoint_url('edit-address', 'shipping')); ?>" class="edit text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#AA834C] !underline"><?php echo array_key_exists('shipping', $get_addresses) ? esc_html__('Edit', 'metisse') : esc_html__('Add', 'metisse'); ?></a>
+						<h3 class="profile__address-title text-[16px] font-normal font-secondary capitalize leading-[1.5] text-[#131313]"><?php echo esc_html__('Shipping Address', 'metisse'); ?></h3>
+						<a href="<?php echo esc_url(wc_get_endpoint_url('edit-address', 'shipping')); ?>" class="edit text-[12px] font-normal font-secondary leading-[25px] !text-[#AA834C] !underline"><?php echo array_key_exists('shipping', $get_addresses) ? esc_html__('Edit', 'metisse') : esc_html__('Add', 'metisse'); ?></a>
 					</div>
 
 					<?php if (!empty($shipping_address)) : ?>
 						<?php if (!empty($name)) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Name:', 'metisse'); ?></span><?php echo esc_html($name); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Name:', 'metisse'); ?></span><?php echo esc_html($name); ?></p>
 						<?php endif; ?>
 
 						<!-- phone -->
 						<?php if ($phone) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Phone number:', 'metisse'); ?></span><?php echo esc_html($phone); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Phone number:', 'metisse'); ?></span><?php echo esc_html($phone); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($company) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Company:', 'metisse'); ?></span><?php echo esc_html($company); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Company:', 'metisse'); ?></span><?php echo esc_html($company); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($add_1) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Address 1:', 'metisse'); ?></span><?php echo esc_html($add_1); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Address 1:', 'metisse'); ?></span><?php echo esc_html($add_1); ?></p>
 						<?php endif; ?>
 						<!-- street -->
 						<?php if ($add_2) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Address 2:', 'metisse'); ?></span><?php echo esc_html($add_2); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Address 2:', 'metisse'); ?></span><?php echo esc_html($add_2); ?></p>
 						<?php endif; ?>
 						<!-- city -->
 						<?php if ($city) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('City:', 'metisse'); ?></span><?php echo esc_html($city); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('City:', 'metisse'); ?></span><?php echo esc_html($city); ?></p>
 						<?php endif; ?>
 						<!-- state -->
 						<?php if ($state) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('State/province/area:', 'metisse'); ?></span><?php echo esc_html($state); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('State/province/area:', 'metisse'); ?></span><?php echo esc_html($state); ?></p>
 						<?php endif; ?>
 						<!-- zip code -->
 						<?php if ($postcode) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Zip code:', 'metisse'); ?></span><?php echo esc_html($postcode); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Zip code:', 'metisse'); ?></span><?php echo esc_html($postcode); ?></p>
 						<?php endif; ?>
 						<!-- country -->
 						<?php if ($country) : ?>
-							<p class="text-[16px] sm:text-[12px] font-medium font-primary text-[#000]"><span class="text-[16px] sm:text-[12px] font-semibold font-primary text-[#000]"><?php esc_html_e('Country:', 'metisse'); ?></span><?php echo esc_html($country); ?></p>
+							<p class="text-[12px] font-medium font-secondary text-[#717171]"><span class="text-[13px] font-normal font-secondary text-[#717171]"><?php esc_html_e('Country:', 'metisse'); ?></span><?php echo esc_html($country); ?></p>
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>

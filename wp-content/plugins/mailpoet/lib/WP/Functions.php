@@ -566,6 +566,10 @@ class Functions {
     return wp_get_current_user();
   }
 
+  public function wpGetImageMime($file) {
+    return wp_get_image_mime($file);
+  }
+
   public function wpGetPostTerms($postId, $taxonomy = 'post_tag', array $args = []) {
     return wp_get_post_terms($postId, $taxonomy, $args);
   }
@@ -974,5 +978,9 @@ class Functions {
 
   public function getTaxonomy($taxonomy) {
     return get_taxonomy($taxonomy);
+  }
+
+  public function wpIsMaintenanceMode(): bool {
+    return wp_is_maintenance_mode();
   }
 }

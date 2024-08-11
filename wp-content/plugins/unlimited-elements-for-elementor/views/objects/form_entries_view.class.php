@@ -317,7 +317,7 @@ class UCFormEntriesView extends WP_List_Table{
 	protected function column_main($item){
 
 		$id = $item["id"];
-		$label = $item["main"]["value"];
+		$label = $item["main"]["text"] ?: $item["main"]["value"];
 		$status = $this->getFilter(self::FILTER_STATUS);
 
 		$form = new UniteCreatorForm();
@@ -584,7 +584,7 @@ class UCFormEntriesView extends WP_List_Table{
 				$key = "field:{$field["title"]}";
 
 				$fieldHeaders[$key] = $field["title"];
-				$row[$key] = $field["value"];
+				$row[$key] = $field["text"] ?: $field["value"];
 			}
 
 			$rows[] = $row;
@@ -762,7 +762,7 @@ class UCFormEntriesView extends WP_List_Table{
 		if($action !== self::ACTION_VIEW)
 			$url["ucwindow"] = "blank";
 
-		return '<a href="?' . http_build_query($url) . '">' . esc_html($label) . '</a>';
+		return '<a href="?' . http_build_query($url) . '">' . nl2br(esc_html($label)) . '</a>';
 	}
 
 	/**

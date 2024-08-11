@@ -149,7 +149,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		try{
 
 			HelperUC::validateDBTablesExists();
-
+		
 		}catch(Exception $e){
 			UniteFunctionsUC::throwError("DB Tables don't installed. Please refresh the page.");
 		}
@@ -2307,7 +2307,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$output = new UniteSettingsOutputWideUC();
 		$output->init($settings);
 
-		ob_start();
+		UniteFunctionsUC::obStart();
 		$output->draw("uc_category_settings");
 
 		$htmlSettings = ob_get_contents();

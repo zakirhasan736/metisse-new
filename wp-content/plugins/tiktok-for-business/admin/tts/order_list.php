@@ -17,7 +17,7 @@ class OrderList {
 	public static function init() {
 		// check for woo install
 		self::modify_table();
-		self::add_tiktok_filter();
+		// self::add_tiktok_filter();
 		self::load_style_and_script();
 	}
 
@@ -110,7 +110,7 @@ class OrderList {
 				// wc_get_order() defaults to the global $post object, so we don't need to pass a parameter.
 				global $post;
 				$order                     = wc_get_order( $post->ID );
-				$is_tiktok_order           = ! ! $order->get_meta( 'tiktok_order' );
+				$is_tiktok_order           = (bool) $order->get_meta( 'tiktok_order' );
 				$tiktok_order_id           = $order->get_meta( 'tiktok_order_id' );
 				$tiktok_fulfillment_type   = $order->get_meta( 'tiktok_fulfillment_type' );
 				$is_tiktok_fulfillment_3pl = $tiktok_fulfillment_type === $pl_3;
@@ -197,7 +197,7 @@ class OrderList {
 					[
 						'page'     => $curr_page,
 						'paginate' => true,
-						'limit'    => 100,
+						'limit'    => 10,
 						'meta_key' => 'tiktok_order',
 						'type'     => 'shop_order',
 					]
@@ -207,7 +207,7 @@ class OrderList {
 					$new_orders = wc_get_orders(
 						[
 							'page'     => $curr_page,
-							'limit'    => 100,
+							'limit'    => 10,
 							'meta_key' => 'tiktok_order',
 							'type'     => 'shop_order',
 						]

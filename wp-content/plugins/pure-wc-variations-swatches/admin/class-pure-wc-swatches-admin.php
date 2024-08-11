@@ -4,7 +4,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @link       https://themepure.net
- * @since      1.1.1
+ * @since      1.1.3
  *
  * @package    Tp_Wvs
  * @subpackage Tp_Wvs/admin
@@ -28,7 +28,7 @@ class Tp_Wvs_Admin {
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.1.1
+	 * @since    1.1.3
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -37,7 +37,7 @@ class Tp_Wvs_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.1.1
+	 * @since    1.1.3
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -47,7 +47,7 @@ class Tp_Wvs_Admin {
 	 * Current taxonomy id
 	 *
 	 * @var string
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public $taxonomy;
 
@@ -55,7 +55,7 @@ class Tp_Wvs_Admin {
 	 * Keep default values of all settings.
 	 *
 	 * @var array
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public $defaults = [
 		'tpwvs_general' => [
@@ -86,7 +86,7 @@ class Tp_Wvs_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.1.1
+	 * @since    1.1.3
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -100,7 +100,7 @@ class Tp_Wvs_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.1.1
+	 * @since    1.1.3
 	 */
 	public function enqueue_styles() {
 
@@ -130,7 +130,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param string $option option name to get value from.
 	 * @return array
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function get_option( $option ) {
 		$db_values = get_option( $option, [] );
@@ -142,7 +142,7 @@ class Tp_Wvs_Admin {
 	 * Updates settings data in database.
 	 *
 	 * @return void
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function tpwvs_update_settings() {
 		//check_ajax_referer( 'tpwvs_update_settings', 'security' );
@@ -180,7 +180,7 @@ class Tp_Wvs_Admin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
-	 * @since    1.1.1
+	 * @since    1.1.3
 	 */
 	public function enqueue_scripts() {
 
@@ -224,7 +224,7 @@ class Tp_Wvs_Admin {
 
 		if( (isset($_GET['page']) && $_GET['page'] == 'pure-wc-variation-swatches') ){
 
-			wp_enqueue_script( 'react-script', plugin_dir_url( __DIR__ ) . 'build/index.js', array( 'wp-element', 'wp-components' ), '1.1.1', true );
+			wp_enqueue_script( 'react-script', plugin_dir_url( __DIR__ ) . 'build/index.js', array( 'wp-element', 'wp-components' ), '1.1.3', true );
 			wp_localize_script('react-script', 'tpwvs_admin_settings', array(
 				'menu_url' => $this->admin_react_base_url(),
 				'api_url'  => admin_url( 'admin-ajax.php' ),
@@ -240,27 +240,15 @@ class Tp_Wvs_Admin {
 	 * Admin Settings Menus Page
 	 */
 	public function admin_settings_menu(){
-		if(defined('PURE_WC_SHOPBUILD_VERSION')){
-			add_submenu_page(
-				'pure-wc-shopbuild',
-				__('Pure Swatches', 'pure-wc-shopbuild'),
-				__('Pure Swatches', 'pure-wc-shopbuild'),
-				'manage_options',
-				'pure-wc-variation-swatches',
-				array($this, 'admin_settings_template'),
-				1
-			);
-		}else{
-			add_menu_page(
-				__('Pure Swatches', 'pure-wc-swatches'),
-				__('Pure Swatches', 'pure-wc-swatches'),
-				'manage_options',
-				$this->plugin_name,
-				array($this, 'admin_settings_template'),
-				'dashicons-admin-settings',
-				8
-			);
-		}
+		add_menu_page(
+			__('Pure Swatches', 'pure-wc-swatches'),
+			__('Pure Swatches', 'pure-wc-swatches'),
+			'manage_options',
+			$this->plugin_name,
+			array($this, 'admin_settings_template'),
+			'dashicons-admin-settings',
+			8
+		);
 	}
 
 	/**
@@ -295,7 +283,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param array $fields default array with option 'select'.
 	 * @return array
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function add_swatch_types( $fields ) {
 		if ( ! function_exists( 'get_current_screen' ) ) {
@@ -322,7 +310,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param object $term current term object.
 	 * @return void
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function add_form_fields( $term ) {
 		$type         = TP_Wvs_Helper::get_attr_type_by_name( $this->taxonomy );
@@ -343,7 +331,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param int $term_id cureent term id.
 	 * @return void
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function save_term_fields( $term_id ) {
 		$meta_key = '';
@@ -367,7 +355,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param array $columns Taxonomy header column.
 	 * @return array
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function add_attribute_column( $columns ) {
 		global $taxnow;
@@ -397,7 +385,7 @@ class Tp_Wvs_Admin {
 	 * @param string $column current term column.
 	 * @param id     $term_id current term id.
 	 * @return mixed
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function add_preview_markup( $columns, $column, $term_id ) {
 		global $taxnow;
@@ -441,7 +429,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param string $type term meta type.
 	 * @return array
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function term_meta_fields( $type ) {
 		if ( empty( $type ) ) {
@@ -479,7 +467,7 @@ class Tp_Wvs_Admin {
 	 * @param array  $field term meta type data array.
 	 * @param object $term current term data.
 	 * @return void
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function term_meta_fields_markup( $field, $term ) {
 		if ( ! is_array( $field ) ) {
@@ -526,7 +514,7 @@ class Tp_Wvs_Admin {
 	 *
 	 * @param object $term current term object.
 	 * @return void
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function edit_form_fields( $term ) {
 		$type         = TP_Wvs_Helper::get_attr_type_by_name( $this->taxonomy );
@@ -552,7 +540,7 @@ class Tp_Wvs_Admin {
 	 * @param string $key options key.
 	 * @param string $data user input to be saved in database.
 	 * @return boolean
-	 * @since  1.1.1
+	 * @since  1.1.3
 	 */
 	public function update_settings( $key, $data ) {
 		$data = ! empty( $data) ? json_decode( stripslashes( $data ), true ) : array(); // phpcs:ignore

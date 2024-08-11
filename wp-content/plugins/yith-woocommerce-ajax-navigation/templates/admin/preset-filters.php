@@ -40,10 +40,12 @@ if ( ! defined( 'YITH_WCAN' ) ) {
 			if ( $show_more ) {
 				$filters = array_slice( $filters, 0, YITH_WCAN_Presets::FILTERS_PER_PAGE, true );
 			}
+			$filter_key = 0;
 
-			foreach ( $filters as $filter_key => $filter ) :
+			foreach ( $filters as $filter ) :
 				$filter_id = $filter->get_id();
 				include YITH_WCAN_DIR . 'templates/admin/preset-filter.php';
+				$filter_key++;
 			endforeach;
 		endif;
 		?>
@@ -61,8 +63,9 @@ if ( ! defined( 'YITH_WCAN' ) ) {
 
 <script type="text/template" id="tmpl-yith-wcan-filter">
 	<?php
-	$filter    = yith_wcan_get_filter();
-	$filter_id = '{{data.id}}';
+	$filter     = yith_wcan_get_filter();
+	$filter_id  = '{{data.id}}';
+	$filter_key = '{{data.key}}';
 
 	require YITH_WCAN_DIR . 'templates/admin/preset-filter.php';
 	?>
@@ -70,7 +73,7 @@ if ( ! defined( 'YITH_WCAN' ) ) {
 
 <?php
 // retrieve supported filter types.
-$supported_types = array_keys( YITH_WCAN_Filter_Factory::get_supported_types() );
+$supported_types = array_keys( YITH_WCAN_Filters_Factory::get_supported_types() );
 ?>
 
 <?php if ( in_array( 'tax', $supported_types, true ) ) : ?>
@@ -78,13 +81,17 @@ $supported_types = array_keys( YITH_WCAN_Filter_Factory::get_supported_types() )
 		<?php
 		$filter_id    = '{{data.id}}';
 		$term_id      = '{{data.term_id}}';
-		$term_name    = '{{data.name}}';
-		$term_options = array(
-			'label'   => '{{data.label}}',
-			'tooltip' => '{{data.tooltip}}',
+		$term_options = YITH_WCAN_Filter::get_default_term_options( 'edit' );
+		$term_options = array_combine(
+			array_keys( $term_options ),
+			array_map(
+				fn ( $v, $prop ) => "{{data.$prop}}",
+				$term_options,
+				array_keys( $term_options )
+			)
 		);
 
-		YITH_WCAN()->admin->filter_term_field( $filter_id, $term_id, $term_name, $term_options );
+		YITH_WCAN()->admin->filter_term_field( $filter_id, $term_id, $term_options );
 		?>
 	</script>
 <?php endif; ?>
@@ -94,9 +101,14 @@ $supported_types = array_keys( YITH_WCAN_Filter_Factory::get_supported_types() )
 		<?php
 		$range_id  = '{{data.range_id}}';
 		$filter_id = '{{data.id}}';
-		$range     = array(
-			'min' => '{{data.min}}',
-			'max' => '{{data.max}}',
+		$range     = YITH_WCAN_Filter::get_default_price_range();
+		$range     = array_combine(
+			array_keys( $range ),
+			array_map(
+				fn ( $v, $prop ) => "{{data.$prop}}",
+				$range,
+				array_keys( $range )
+			)
 		);
 
 		include YITH_WCAN_DIR . 'templates/admin/preset-filter-range.php';

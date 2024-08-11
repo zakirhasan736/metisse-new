@@ -43,8 +43,8 @@ class Settings {
             ],
             'catalog_mode_hide_add_to_cart_button' => [
                 'name'    => 'catalog_mode_hide_add_to_cart_button',
-                'label'   => __( 'Remove Add To Basket Button', 'dokan-lite' ),
-                'desc'    => __( 'Check to remove Add To Basket option.', 'dokan-lite' ),
+                'label'   => __( 'Remove Add to Cart Button', 'dokan-lite' ),
+                'desc'    => __( 'Check to remove Add to Cart option.', 'dokan-lite' ),
                 'type'    => 'switcher',
                 'default' => 'off',
             ],

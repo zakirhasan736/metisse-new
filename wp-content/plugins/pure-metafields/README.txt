@@ -1,15 +1,15 @@
 === Pure Metafields ===
 Contributors: themepure
 Donate link: https://help.themepure.net/support/
-Tags: Metabox, Metafields, Custom Post Field, Post Metafield, Post Metabox, Page Metabox, Page Metafield, Custom Field
+Tags: Metabox, Metafields, Custom Post Field, Post Metafield, Page Metabox
 Requires PHP: 7.4
 Requires at least: 5.6
 Tested up to: 6.4
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Pure Metafields is a simple and very light weight plugin that is used to create custom metabox for wordpress any post type like page, post event your custom post can support it.
+Pure Metafields is very light weight plugin tused to create custom metabox for any post type like page, post and your custom post type support it.
 
 == Description ==
 
@@ -495,7 +495,7 @@ Yes, contributions are welcome! If you have any ideas or improvements for the pl
 == Changelog ==
 
 
-= 1.3  =
+= 1.3.1  =
 
 * Update: No Update.
 
@@ -547,7 +547,7 @@ Yes, contributions are welcome! If you have any ideas or improvements for the pl
 
 * Update: Select field issue solved.
 
-= 1.1.3  =
+= 1.1.3.1  =
 
 * Update: Fields issue solved.
 
@@ -575,6 +575,9 @@ Yes, contributions are welcome! If you have any ideas or improvements for the pl
 
 = 1.3  =
 * Update: Multiselect field issue solved
+
+= 1.3.1  =
+* Update: Docs Updated
 
 == Upgrade Notice ==
 = 1.0.0 =

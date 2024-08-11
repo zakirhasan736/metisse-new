@@ -95,6 +95,7 @@ class UniteCreatorTemplateEngineWork{
 
 				//get dynamic settings from the widget if exists
 				$arrDynamicSettings = apply_filters("ue_get_current_widget_settings", array());
+				
 			}
 		}
 
@@ -171,19 +172,31 @@ class UniteCreatorTemplateEngineWork{
 
 		// if a sap, then no new line
 		$newLine = empty($sap);
-
+		
 		foreach($this->arrItems as $index => $itemParams){
+			
 			$this->outputItem($index, $itemParams, $templateName, $sap, $newLine);
+			
 		}
 	}
 
 	/**
 	 * check the callable for a forbidden function
 	 */
-	private function validateFilterCallable($filter, $callable){
-
+	private function validateFilterCallable($filter, $callable){	//Security Update 2
+		
+		$isClosure = $callable instanceof Closure;
+		
+		if($isClosure == false){
+			
+			if(is_string($callable) == false)
+				$callable = "";
+			
+			UniteFunctionsUC::throwError("Function {$filter} can execute only arrow functions. Not php functions like this: \"" . $callable . "\" is forbidden for the.");
+		}
+		
 		$forbiddenFunctions = array("exec", "eval", "system", "shell_exec", "show_source", "passthru", "pcntl_exec", "proc_open");
-
+		
 		if(is_string($callable) === true && in_array($callable, $forbiddenFunctions) === true)
 			UniteFunctionsUC::throwError("Function \"" . $callable . "\" is forbidden for the \"" . $filter . "\" filter.");
 	}
@@ -194,7 +207,7 @@ class UniteCreatorTemplateEngineWork{
 	public function filter($env, $array, $arrow){
 
 		$this->validateFilterCallable("filter", $arrow);
-
+		
 		return twig_array_filter($env, $array, $arrow);
 	}
 
@@ -355,12 +368,15 @@ class UniteCreatorTemplateEngineWork{
 
 			self::$arrCollectedSchemaItems = array();
 		}
-
-		$arrItems = HelperUC::$operations->getArrSchema($arrWidgetItems, "faq",$titleKey, $contentKey);
-
-		if(empty($arrItems))
+		
+		if(empty($arrWidgetItems))
 			return(false);
-
+		
+		$arrItems = HelperUC::$operations->getArrSchema($arrWidgetItems, "faq",$titleKey, $contentKey);
+		
+		if(empty($arrWidgetItems))
+			return(false);
+		
 		$jsonItems = json_encode($arrItems);
 
 		$htmlSchema = '<script type="application/ld+json">'.$jsonItems.'</script>';
@@ -835,9 +851,9 @@ class UniteCreatorTemplateEngineWork{
 	 * get post author
 	 */
 	public function getPostAuthor($authorID, $getMeta = false, $getAvatar = false){
-
+		
 		$arrUserData = UniteFunctionsWPUC::getUserDataById($authorID, $getMeta, $getAvatar);
-
+		
 		return($arrUserData);
 	}
 
@@ -1133,7 +1149,7 @@ class UniteCreatorTemplateEngineWork{
 
 			break;
 			case "put_unite_gallery_item":
-
+				
 				$htmlItem = UniteCreatorUniteGallery::getUniteGalleryHtmlItem($arg1);
 
 				echo $htmlItem;
@@ -1161,7 +1177,7 @@ class UniteCreatorTemplateEngineWork{
 			case "get_wc_gallery":
 
 				$productID = $arg1;
-
+				
 				$objWoo = UniteCreatorWooIntegrate::getInstance();
 				$arrGallery = $objWoo->getProductGallery($productID);
 
@@ -1218,7 +1234,7 @@ class UniteCreatorTemplateEngineWork{
 				return($arg1);
 			break;
 			case "get_term_image":
-
+				
 				//termID, meta key
 
 				$arrImage = UniteFunctionsWPUC::getTermImage($arg1, $arg2);
@@ -1262,7 +1278,7 @@ class UniteCreatorTemplateEngineWork{
 				$arrTerms = $arg1;
 
 				HelperUC::$operations->putTermsCustomFieldsDebug($arrTerms);
-
+			
 			break;
 			case "put_post_content":
 
@@ -1345,9 +1361,9 @@ class UniteCreatorTemplateEngineWork{
 			case "get_product_attributes":
 
 				$objWoo = UniteCreatorWooIntegrate::getInstance();
-
+				
 				$arrAttributes = $objWoo->getProductAttributes($arg1);
-
+				
 				return($arrAttributes);
 
 			break;
@@ -1489,11 +1505,16 @@ class UniteCreatorTemplateEngineWork{
 				}
 			break;
 			case "get_variable":
-
-				$getVarValue = UniteFunctionsUC::getGetVar($arg1,"",UniteFunctionsUC::SANITIZE_TEXT_FIELD);
-
+				
+				$getVarValue = UniteFunctionsUC::getGetVar($arg1,"",UniteFunctionsUC::SANITIZE_NOTHING);
+				
 				return($getVarValue);
 			break;
+			case "wpp_get_page_views":	//get post views using wordpress popular posts plugin
+						
+				$count = UniteCreatorPluginIntegrations::WPP_getPostViews($arg1);
+				
+				return($count);
 			break;
 			default:
 
@@ -1527,7 +1548,7 @@ class UniteCreatorTemplateEngineWork{
 	 */
 	protected function initTwig_addExtraFunctions(){
 
-		//override filters
+		//override filters - disable those functions
 		$filterFilter = new Twig\TwigFilter("filter", array($this, "filter"), array("needs_environment" => true));
 		$filterMap = new Twig\TwigFilter("map", array($this, "map"), array("needs_environment" => true));
 
@@ -1837,7 +1858,7 @@ class UniteCreatorTemplateEngineWork{
 
 		if($isInsideItems == true)
 			$params = GlobalsProviderUC::$lastItemParams;
-
+		
 		$output = $this->twig->render($name, $params);
 
 		return($output);

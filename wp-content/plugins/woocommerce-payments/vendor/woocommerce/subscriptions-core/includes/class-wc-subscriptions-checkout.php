@@ -43,7 +43,7 @@ class WC_Subscriptions_Checkout {
 		add_action( 'woocommerce_before_checkout_process', array( __CLASS__, 'force_registration_during_checkout' ), 10 );
 		add_filter( 'woocommerce_checkout_registration_enabled', array( __CLASS__, 'maybe_enable_registration' ) );
 
-		// Override the WC default "ADD TO BASKET" text to "Sign up now" (in various places/templates)
+		// Override the WC default "Add to cart" text to "Sign up now" (in various places/templates)
 		add_filter( 'woocommerce_order_button_text', array( __CLASS__, 'order_button_text' ) );
 
 		// Check the "Ship to different address" checkbox if the shipping address of the originating order is different to the billing address.

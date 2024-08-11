@@ -8,7 +8,7 @@
 defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
-
+	
 	const TYPE_FONT_PANEL = "fonts_panel";
 	const TYPE_ITEMS = "items";
 	const INSTAGRAM_DEFAULT_VALUE = "@gianlucavacchi";
@@ -29,7 +29,9 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 
 	private $currentAddon;
 	private $currentTabs;
-
+	private static $addEditWidgetHTML = null;
+	
+	
 
 	private function a___________GETTERS_________(){}
 
@@ -372,7 +374,6 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 	 */
 	public function addFontPanel($arrParamNames, $arrFontsData, $name = null, $options = array()){
 
-		$value = "";
 		$arrParams = array();
 		$arrParams["font_param_names"] = $arrParamNames;
 		if(!empty($options))
@@ -389,10 +390,11 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 	/**
 	 * add gallery setting
 	 */
-	public function addGallery($name, $defualtValue, $text){
+	public function addGallery($name, $defaultValue, $text, $params = array()){
 
-		$this->add($name, $defualtValue, $text, self::TYPE_GALLERY);
+		$params["label_block"] = true;
 
+		$this->add($name, $defaultValue, $text, self::TYPE_GALLERY, $params);
 	}
 
 
@@ -476,6 +478,16 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		$params["label_block"] = true;
 
 		$this->add($name, $value, $title, self::TYPE_DIMENTIONS, $params);
+	}
+
+	/**
+	 * add buttons group
+	 */
+	public function addButtonsGroup($name, $items, $title, $value, $params = array()){
+
+		$params["items"] = $items;
+
+		$this->add($name, $value, $title, self::TYPE_BUTTONS_GROUP, $params);
 	}
 
 	/**
@@ -776,20 +788,20 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 				$params["origtype"] = UniteCreatorDialogParam::PARAM_REPEATER;
 				$params["hide_label"] = true;
 				$params["title_field"] = "{{{title}}} ({{{type}}})";
-
+				
 				$description = UniteFunctionsUC::getVal($param, "description");
 
 				if(!empty($description))
 					$params["description"] = $description;
 
 				$settingsItems = HelperProviderUC::getSortFilterRepeaterFields();
-
+				
 				$settingsValues = HelperProviderUC::getSortFilterDefaultValues();
 
 				$title = UniteFunctionsUC::getVal($param, "title");
 
 				$this->addRepeater("{$name}_fields", $settingsItems, $settingsValues, $title, $params);
-
+				
 			break;
 			case "currency_api":
 				UniteCreatorAPIIntegrations::getInstance()->addServiceSettingsFields($this, UniteCreatorAPIIntegrations::TYPE_CURRENCY_EXCHANGE, $name, $condition);
@@ -947,7 +959,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 				$type = "hide";
 				$nameParent = substr($nameParent, 0, -1);	//cut last character
 			}
-			
+
     		$this->addControl($nameParent, $nameChild, $type, $value);
     	}
 
@@ -966,7 +978,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		foreach($this->arrSettings as $setting){
 
 			$elementorCondition	 = UniteFunctionsUC::getVal($setting, "elementor_condition");
-			
+
 			if(empty($elementorCondition))
 				continue;
 
@@ -1222,6 +1234,9 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 			case "uc_statictext":
 				$this->addStaticText($title, $name, $extra);
 				$isUpdateValue = false;
+			break;
+			case UniteCreatorDialogParam::PARAM_GALLERY:
+				$this->addGallery($name, $defaultValue, $title, $extra);
 			break;
 			case UniteCreatorDialogParam::PARAM_ICON:
 				$this->addIconPicker($name,$value,$title,$extra);
@@ -1610,31 +1625,65 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		}
 
 		$this->addControl("show_widget_debug_data", "widget_debug_data_type", "show", "true");
-
-		$this->addEditWidgetButton();
+		
+       if(self::$addEditWidgetHTML === null){
+	    	self::$addEditWidgetHTML = HelperProviderCoreUC_EL::getGeneralSetting("show_edit_html_button");
+	    	self::$addEditWidgetHTML = UniteFunctionsUC::strToBool(self::$addEditWidgetHTML);
+       }
+	   
+		if(self::$addEditWidgetHTML === true)
+			$this->addEditWidgetButton();
+		
 	}
+	
+	/**
+	 * add the background section
+	 */
+	public function addGutenbergEditorBackgroundSection(){
+		
+		$this->addSap(esc_html__("Background", "unlimited-elements-for-elementor"), "uc_background");
+		
+		$params = array();
+		$params["description"] = __("Choose the background location.", "unlimited-elements-for-elementor");
+
+		$arrItems = array(
+			'back'  => __( 'In Background', 'unlimited-elements-for-elementor' ),
+			'front' => __( 'In Foregroud', 'unlimited-elements-for-elementor' )
+			/*
+			'body' => __( 'Site Body Background', 'unlimited-elements-for-elementor' ),
+			'body_front' => __( 'Site Body Foreground', 'unlimited-elements-for-elementor' ),
+			'layout' => __( 'Layout Background', 'unlimited-elements-for-elementor' ),
+			'layout_front' => __( 'Layout Foreground', 'unlimited-elements-for-elementor' )
+			*/
+		);
+		
+		$arrItems = array_flip($arrItems);
+		
+		$this->addSelect("background_location", $arrItems, __( 'Background Location', 'unlimited-elements-for-elementor' ), "back", $params);
+		
+	}
+	
 	
 	/**
 	 * add image sizes param
 	 */
 	private function addImageSizesParam($paramImage){
-		
+
     	$param = HelperProviderUC::getImageSizesParamFromPostListParam($paramImage);
-    	
+
     	$this->addByCreatorParam($param);
-    	
+
 	}
-	
+
 	/**
 	 * add pagination and filtering section
 	 */
 	private function addPaginationAndFilteringSection($postListParam){
-		
-    	$objPagination = new UniteCreatorElementorPagination();
-    	$objPagination->addUniteSettingsSection($this, $postListParam);
-				
+
+		$objPagination = new UniteCreatorElementorPagination();
+		$objPagination->addUniteSettingsSection($this, $postListParam);
 	}
-	
+
 	/**
 	 * add settings by creator params - works for single widget only (not for elementor)
 	 */
@@ -1650,7 +1699,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 
 		// put params with cats
 		$arrParamsWithCats = $this->sortParamsByCats($arrCats, $arrParams);
-	
+
 		if(empty($arrParamsWithCats) === true)
 			return;
 
@@ -1660,7 +1709,6 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		$addPagination = false;
 		
 		foreach($arrParamsWithCats as $catID => $arrCat){
-			
 			$title = UniteFunctionsUC::getVal($arrCat, "title");
 			$tab = UniteFunctionsUC::getVal($arrCat, "tab");
 			$arrParams = UniteFunctionsUC::getVal($arrCat, "params");
@@ -1673,7 +1721,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 			unset($sapParams["params"]);
 
 			$this->addByCreatorParam_handleConditions($sapParams, true);
-			
+
 			foreach($arrParams as $param){
 				$type = UniteFunctionsUC::getVal($param, "type");
 				
@@ -1681,9 +1729,8 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 				
 				switch($type) {
 					case UniteCreatorDialogParam::PARAM_LISTING:
-						
 						$useFor = UniteFunctionsUC::getVal($param, "use_for");
-												
+
 						switch($useFor){
 							case "remote":
 							case "filter":
@@ -1748,7 +1795,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 			}
 			
 		}
-		
+
 		// add control by elementor conditions - from posts list, terms list etc.
 		$this->addControls_byElementorConditions();
 	}
@@ -1767,152 +1814,122 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 			$label = esc_html__("Posts Query", "unlimited-elements-for-elementor");
 
 		$this->addSap($label, "section_query");
-		
+
 		$this->addByCreatorParam($param);
 	}
-	
-	
+
+
 	/**
 	 * add multisource sections
 	 */
 	private function addMultisourceSections($listingParam){
-		
-    	$name = UniteFunctionsUC::getVal($listingParam, "name");
-		
-    	$useFor = UniteFunctionsUC::getVal($listingParam, "use_for");
-    	$isForGallery = ($useFor == "gallery");
 
-    	//multisource
+		$name = UniteFunctionsUC::getVal($listingParam, "name");
+		$useFor = UniteFunctionsUC::getVal($listingParam, "use_for");
 
-    	$isForItems = ($useFor == "items");
-    	
-    	switch($useFor){
-    		case "remote":
-    		case "filter":
-    			return(false);
-    		break;
-    	}
-    	
-    	//control to hide the items
-    	
-		$this->addControl($name."_source", "items", "show", "items", true);
-    	
+		switch($useFor){
+			case "remote":
+			case "filter":
+				return;
+		}
+
+		$isForGallery = ($useFor === "gallery");
+		$isForItems = ($useFor === "items");
+
+		//control to hide the items
+		$this->addControl($name . "_source", "items", "show", "items", true);
+
 		//set text prefix
+		$textPrefix = __("Items ", "unlimited-elements-for-elementor");
 
-		$textPrefix = __("Items ","unlimited-elements-for-elementor");
-		if($isForGallery == true)
-			$textPrefix = __("Gallery ","unlimited-elements-for-elementor");
-    	
-			
-        //------ posts -------------
-		
-			
-		$label = $textPrefix.__("Posts Query", "unlimited-elements-for-elementor");
-		
+		if($isForGallery === true)
+			$textPrefix = __("Gallery ", "unlimited-elements-for-elementor");
+
+		//------ posts -------------
+		$label = $textPrefix . __("Posts Query", "unlimited-elements-for-elementor");
+
 		$this->addSap($label, "uc_section_listing_posts_query");
-		$this->addControl($name."_source", "uc_section_listing_posts_query", "show", "posts", true);
-		
-		
-        $postParam = $listingParam;
+		$this->addControl($name . "_source", "uc_section_listing_posts_query", "show", "posts", true);
 
-        $postParam["type"] = UniteCreatorDialogParam::PARAM_POSTS_LIST;
-        $postParam["name"] = $name."_posts";
-		
-        $this->addByCreatorParam($postParam);
-    	
-                
-        if($isForItems == true){
-        
-        	//------ terms -------------
-        	
-			$label = $textPrefix.__("Terms Query", "unlimited-elements-for-elementor");
-			
+		$postParam = $listingParam;
+
+		$postParam["type"] = UniteCreatorDialogParam::PARAM_POSTS_LIST;
+		$postParam["name"] = $name . "_posts";
+
+		$this->addByCreatorParam($postParam);
+
+		if($isForItems === true){
+			//------ terms -------------
+			$label = $textPrefix . __("Terms Query", "unlimited-elements-for-elementor");
+
 			$this->addSap($label, "uc_section_listing_terms_query");
-			$this->addControl($name."_source", "uc_section_listing_terms_query", "show", "terms", true);
-        	
-	        $termParam = $listingParam;
+			$this->addControl($name . "_source", "uc_section_listing_terms_query", "show", "terms", true);
 
-	        $termParam["type"] = UniteCreatorDialogParam::PARAM_POST_TERMS;
-	        $termParam["name"] = $name."_terms";
-			
-        	$this->addByCreatorParam($termParam);
-        	
-        
-        	//------ users -------------
+			$termParam = $listingParam;
 
-			$label = $textPrefix.__("Users Query", "unlimited-elements-for-elementor");
-			
+			$termParam["type"] = UniteCreatorDialogParam::PARAM_POST_TERMS;
+			$termParam["name"] = $name . "_terms";
+
+			$this->addByCreatorParam($termParam);
+
+			//------ users -------------
+			$label = $textPrefix . __("Users Query", "unlimited-elements-for-elementor");
+
 			$this->addSap($label, "uc_section_listing_users_query");
-			$this->addControl($name."_source", "uc_section_listing_users_query", "show", "users", true);
-        	
-	        $usersParam = $listingParam;
-			
-	        $usersParam["type"] = UniteCreatorDialogParam::PARAM_USERS;
-	        $usersParam["name"] = $name."_users";
-			
-        	$this->addByCreatorParam($usersParam);
-        	
-        	//------ menu -------------
-        	
-			$label = $textPrefix.__("Menu Query", "unlimited-elements-for-elementor");
-			
+			$this->addControl($name . "_source", "uc_section_listing_users_query", "show", "users", true);
+
+			$usersParam = $listingParam;
+
+			$usersParam["type"] = UniteCreatorDialogParam::PARAM_USERS;
+			$usersParam["name"] = $name . "_users";
+
+			$this->addByCreatorParam($usersParam);
+
+			//------ menu -------------
+			$label = $textPrefix . __("Menu Query", "unlimited-elements-for-elementor");
+
 			$this->addSap($label, "uc_section_listing_menu_query");
-			$this->addControl($name."_source", "uc_section_listing_menu_query", "show", "menu", true);
-        	
-	        $menuParam = $listingParam;
-			
-	        $menuParam["type"] = UniteCreatorDialogParam::PARAM_MENU;
-	        $menuParam["name"] = $name."_menu";
-	        $menuParam["usefor"] = "multisource";
-			
-        	$this->addByCreatorParam($menuParam);
-        	
-        	
-        	//------ gallery -------------
-			
-        	/*
-        	
-			$label = $textPrefix.__("Select Items Images", "unlimited-elements-for-elementor");
-			
+			$this->addControl($name . "_source", "uc_section_listing_menu_query", "show", "menu", true);
+
+			$menuParam = $listingParam;
+
+			$menuParam["type"] = UniteCreatorDialogParam::PARAM_MENU;
+			$menuParam["name"] = $name . "_menu";
+			$menuParam["usefor"] = "multisource";
+
+			$this->addByCreatorParam($menuParam);
+
+			//------ gallery -------------
+			$label = $textPrefix . __("Select Items Images", "unlimited-elements-for-elementor");
+
 			$this->addSap($label, "uc_section_listing_gallery");
-			$this->addControl($name."_source", "uc_section_listing_gallery", "show", "gallery", true);
-        	
-	        $galleryParam = $listingParam;
+			$this->addControl($name . "_source", "uc_section_listing_gallery", "show", "gallery", true);
 
-			$galleryDefaults = HelperProviderUC::getArrDynamicGalleryDefaults();
+			$galleryParam = $listingParam;
+			$galleryParam["type"] = UniteCreatorDialogParam::PARAM_GALLERY;
+			$galleryParam["name"] = $name . "_gallery";
+			$galleryParam["default_value"] = HelperProviderUC::getArrDynamicGalleryDefaults();
+			$galleryParam["add_dynamic"] = true;
 
-	        $galleryParam["type"] = UniteCreatorDialogParam::PARAM_GALLERY;
-	        $galleryParam["name"] = $name."_gallery";
-			$galleryParam["default_value"] = $galleryDefaults;
-    		$galleryParam["add_dynamic"] = true;
-        	
-        	$this->addByCreatorParam($galleryParam);
-        	
-        	*/
-        
-        }	//for items
-        	
-        
-        //woocommerce
-        $isWooActive = UniteCreatorWooIntegrate::isWooActive();
-        
-        if($isWooActive == true){
-			
-        	$label = $textPrefix.__("Products Query", "unlimited-elements-for-elementor");
-			
+			$this->addByCreatorParam($galleryParam);
+		}
+
+		//woocommerce
+		$isWooActive = UniteCreatorWooIntegrate::isWooActive();
+
+		if($isWooActive === true){
+			$label = $textPrefix . __("Products Query", "unlimited-elements-for-elementor");
+
 			$this->addSap($label, "uc_section_listing_products_query");
-			$this->addControl($name."_source", "uc_section_listing_products_query", "show", "products", true);
-        	
-	        $postParam["type"] = UniteCreatorDialogParam::PARAM_POSTS_LIST;
-	        $postParam["name"] = $name."_products";
-	        $postParam["for_woocommerce_products"] = true;
-        	
-	        $this->addByCreatorParam($postParam);
-	        
-        }
-        
-       	
+			$this->addControl($name . "_source", "uc_section_listing_products_query", "show", "products", true);
+
+			$postParam["type"] = UniteCreatorDialogParam::PARAM_POSTS_LIST;
+			$postParam["name"] = $name . "_products";
+			$postParam["for_woocommerce_products"] = true;
+
+			$this->addByCreatorParam($postParam);
+		}
 	}
-	
-	
+
+
 }

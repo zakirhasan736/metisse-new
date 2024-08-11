@@ -866,12 +866,12 @@ body.page-template.page-template-elementor_theme.page.page-id-11.logged-in.admin
 .woo-my-account-navigation-items.is-active::before {
   content: "";
   position: absolute;
-  width: 6px;
+  width: 100%;
   border-radius: 6px;
   background-color: #AA834C;
-  top: 0;
-  height: 100%;
-  right: -4px;
+  bottom: -2px;
+  height: 3px;
+  right: 0;
 }
 
 .my-account-info-details-wrap a {
@@ -894,20 +894,12 @@ body.page-template.page-template-elementor_theme.page.page-id-11.logged-in.admin
 
 .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input::-moz-placeholder {
   opacity: .5;
+  color: #7B7C79;
 }
 
 .woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input::placeholder {
   opacity: .5;
-}
-
-.woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input {
-  color: #000 !important;
-  font-family: Lato !important;
-  font-size: 16px !important;
-  font-style: normal;
-  font-weight: 600 !important;
-  line-height: 25px !important;
-  border: 2px solid #000 !important;
+  color: #7B7C79;
 }
 
 span#select2-shipping_country-container,
@@ -1589,6 +1581,52 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   border-bottom: 2px solid #B6B9B3 !important;
 }
 
+.my-account-sidebar {
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.woocommerce-MyAccount-content.tp-woo-myaccount-content .woocommerce-info {
+  max-width: 100% !important;
+}
+
+.profile__address-content p {
+  font-size: 13px !important;
+}
+
+.woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row input {
+  padding: 10px 8px;
+  border: none !important;
+  border-bottom: 2px solid #B6B9B3 !important;
+  color: #131313;
+  font-kerning: none;
+  font-family: Raleway;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.woo-user-account-details p.woocommerce-form-row input {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-bottom: 2px solid #B6B9B3 !important;
+}
+
+.reset-password-wrapper p.woocommerce-form-row input {
+  border: 0 !important;
+  border-bottom: 2px solid #B6B9B3 !important;
+}
+
+.woocommerce-address-fields__field-wrapper.woo-user-edit-address-wrapper p.form-row label {
+  display: none;
+}
+
+.woocommerce-MyAccount-content.tp-woo-myaccount-content .woocommerce-address-fields {
+  max-width: 768px;
+  width: 100%;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1746,6 +1784,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   margin-bottom: 0.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .mb-40 {
   margin-bottom: 10rem;
 }
@@ -1816,6 +1858,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
 .mb-\[42px\] {
   margin-bottom: 42px;
+}
+
+.mb-\[45px\] {
+  margin-bottom: 45px;
 }
 
 .mb-\[53px\] {
@@ -2066,10 +2112,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   max-width: 208px;
 }
 
-.max-w-\[230px\] {
-  max-width: 230px;
-}
-
 .max-w-\[240px\] {
   max-width: 240px;
 }
@@ -2178,10 +2220,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   gap: 10px;
 }
 
-.gap-\[119px\] {
-  gap: 119px;
-}
-
 .gap-\[12px\] {
   gap: 12px;
 }
@@ -2194,10 +2232,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   gap: 25px;
 }
 
-.gap-\[28px\] {
-  gap: 28px;
-}
-
 .gap-\[30px\] {
   gap: 30px;
 }
@@ -2208,6 +2242,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
 .gap-\[3px\] {
   gap: 3px;
+}
+
+.gap-\[45px\] {
+  gap: 45px;
 }
 
 .gap-\[56px\] {
@@ -2351,6 +2389,16 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   border-color: transparent;
 }
 
+.\!border-b-\[\#000\] {
+  --tw-border-opacity: 1 !important;
+  border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
+}
+
+.\!border-b-\[\#131313\] {
+  --tw-border-opacity: 1 !important;
+  border-bottom-color: rgb(19 19 19 / var(--tw-border-opacity)) !important;
+}
+
 .\!border-b-\[\#7B7C79\] {
   --tw-border-opacity: 1 !important;
   border-bottom-color: rgb(123 124 121 / var(--tw-border-opacity)) !important;
@@ -2364,6 +2412,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 .border-b-\[\#717171\] {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(113 113 113 / var(--tw-border-opacity));
+}
+
+.border-b-\[\#DCDCDC\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(220 220 220 / var(--tw-border-opacity));
 }
 
 .border-b-\[\#ccc\] {
@@ -2477,9 +2530,19 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   padding-right: 6px !important;
 }
 
+.\!px-\[8px\] {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
 .\!py-2 {
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
+}
+
+.\!py-\[12px\] {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
 }
 
 .\!py-\[14px\] {
@@ -2490,6 +2553,16 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 .\!py-\[16px\] {
   padding-top: 16px !important;
   padding-bottom: 16px !important;
+}
+
+.\!py-\[8px\] {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .px-8 {
@@ -2572,16 +2645,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   padding-bottom: 7px;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-
 .\!pl-0 {
   padding-left: 0px !important;
 }
@@ -2650,8 +2713,16 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   padding-bottom: 9px;
 }
 
+.pl-20 {
+  padding-left: 5rem;
+}
+
 .pr-\[115px\] {
   padding-right: 115px;
+}
+
+.pr-\[120px\] {
+  padding-right: 120px;
 }
 
 .pt-0 {
@@ -2706,18 +2777,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   padding-top: 80px;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
-}
-
-.pl-20 {
-  padding-left: 5rem;
-}
-
-.pr-\[120px\] {
-  padding-right: 120px;
-}
-
 .text-left {
   text-align: left;
 }
@@ -2732,6 +2791,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
 .\!font-primary {
   font-family: Poppins, sans-serif !important;
+}
+
+.\!font-secondary {
+  font-family: Raleway, sans-serif !important;
 }
 
 .font-primary {
@@ -2766,8 +2829,16 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   font-size: 10px;
 }
 
+.text-\[11px\] {
+  font-size: 11px;
+}
+
 .text-\[12px\] {
   font-size: 12px;
+}
+
+.text-\[13px\] {
+  font-size: 13px;
 }
 
 .text-\[14px\] {
@@ -2999,6 +3070,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   color: rgb(90 90 90 / var(--tw-text-opacity));
 }
 
+.text-\[\#717171\] {
+  --tw-text-opacity: 1;
+  color: rgb(113 113 113 / var(--tw-text-opacity));
+}
+
 .text-\[\#7B7C79\] {
   --tw-text-opacity: 1;
   color: rgb(123 124 121 / var(--tw-text-opacity));
@@ -3197,6 +3273,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     gap: 60px;
   }
 
+  .md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .md\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -3210,21 +3291,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   .md\:py-\[80px\] {
     padding-top: 80px;
     padding-bottom: 80px;
-  }
-
-  .md\:px-1 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
-  .md\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
   }
 
   .md\:pb-\[45px\] {
@@ -3251,16 +3317,8 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     font-size: 16px !important;
   }
 
-  .md\:text-\[14px\] {
-    font-size: 14px;
-  }
-
   .md\:text-\[20px\] {
     font-size: 20px;
-  }
-
-  .md\:text-\[24px\] {
-    font-size: 24px;
   }
 
   .md\:text-\[26px\] {
@@ -3333,10 +3391,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     height: 100%;
   }
 
-  .sm\:min-h-\[100\%\] {
-    min-height: 100%;
-  }
-
   .sm\:w-\[200px\] {
     width: 200px;
   }
@@ -3349,16 +3403,8 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     width: 100%;
   }
 
-  .sm\:max-w-\[100\%\] {
-    max-width: 100%;
-  }
-
   .sm\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .sm\:flex-row {
-    flex-direction: row;
   }
 
   .sm\:flex-col {
@@ -3444,10 +3490,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
   .sm\:text-\[18px\] {
     font-size: 18px;
-  }
-
-  .sm\:text-\[20px\] {
-    font-size: 20px;
   }
 
   .sm\:text-\[22px\] {

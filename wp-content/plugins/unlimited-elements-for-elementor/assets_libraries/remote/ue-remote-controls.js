@@ -7,12 +7,13 @@ function UERemoteGeneralAPI(){
 	var g_isTypeEvents = false;
 	var g_options = null;
 
-
 	var g_vars = {
+		parent_id:"",
 		class_items:"",
 		class_active:"",
 		selector_item_trigger:"",
 		add_set_active_code:false,
+		active_code_first_unselected:false,
 		listen_class_change:true,
 		enableDebug:false,
 		is_editor:false,
@@ -80,11 +81,11 @@ function UERemoteGeneralAPI(){
 	 * get total items
 	 */
 	function getNumTotal(){
-
+		
 		var objItems = g_objParent.find("."+g_vars.class_items);
-
+		
 		var numTotal = objItems.length;
-
+				
 		return(numTotal);
 	}
 
@@ -108,10 +109,10 @@ function UERemoteGeneralAPI(){
 	function getNumCurrent(){
 
 		var objCurrent = getObjCurrentItem();
-
+		
 		if(objCurrent.length == 0)
-			return(0);
-
+			return(-1);
+		
 		var index = objCurrent.index();
 
 		return(index);
@@ -155,7 +156,7 @@ function UERemoteGeneralAPI(){
 
 		if(num < 0)
 			num = 0;
-
+		
 		if(!num)
 			num = 0;
 
@@ -165,24 +166,57 @@ function UERemoteGeneralAPI(){
 		return(num);
 	}
 
-
+	/**
+	 * unselect all selected items if available
+	 */
+	function unselectItems(){
+		
+		var objItem = getObjCurrentItem();
+				
+		if(objItem.length == null){
+			
+			if(g_vars.enableDebug)
+				trace("Unselect Item - Selected Item not found "+g_vars.parent_id);
+			
+			return(false);
+		}
+				
+		objItem.removeClass(g_vars.class_active);
+		
+		if(g_vars.enableDebug)
+			trace("Items Unselected: " + g_vars.parent_id);
+		
+	}
+	
+	
 	/**
 	 * change item
 	 */
 	function changeItem(mixed){
-
+		
 		var numItem = getItemNum(mixed);
 
 		var objItem = getItem(numItem);
-
-		if(objItem == null)
+		
+		if(objItem == null){
+			
+			if(g_vars.enableDebug)
+				trace("General API: changeItem - item not found");
+			
 			return(false);
-
+		}
+		
 		var numCurrent = getNumCurrent();
-
-		if(numCurrent == numItem)
+		
+		if(numCurrent === numItem){
+			
+			if(g_vars.enableDebug)
+				trace("General API: changeItem - num current == numitem - skip (" + numItem+" )");
+			
 			return(false);
-
+		}
+		
+		
 		if(!g_vars.selector_item_trigger){
 
 			objItem.trigger(g_vars.trigger_event);
@@ -245,7 +279,7 @@ function UERemoteGeneralAPI(){
 		}
 
 		if(g_vars.enableDebug){
-			trace("DEBUG - Action: " + action+" arg1: "+arg1+" arg2: "+arg2);
+			trace("Action (General): " + action+" arg1: "+arg1+" arg2: "+arg2);
 		}
 
 		switch(action){
@@ -260,9 +294,9 @@ function UERemoteGeneralAPI(){
 				return(current);
 			break;
 			case "get_total_items":
-
+				
 				var total = getNumTotal();
-
+				
 				if(g_vars.enableDebug)
 					trace("response: "+total);
 
@@ -270,12 +304,14 @@ function UERemoteGeneralAPI(){
 
 			break;
 			case 'change_item':
-
-				if(g_vars.enableDebug)
-					console.trace();
-
+				
 				changeItem(arg1);
 
+			break;
+			case "unselect_items":
+				
+				unselectItems();
+				
 			break;
 			case "pause":
 			case "play":
@@ -337,7 +373,7 @@ function UERemoteGeneralAPI(){
 	 * add set active events
 	 */
 	function initEvents_setActive(){
-
+		
 		if(g_vars.enableDebug == true)
 			trace("start initEvents_setActive")
 
@@ -354,7 +390,7 @@ function UERemoteGeneralAPI(){
 		//activate first item
 
 		var objFirstItem = getItem(0);
-
+		
 		if(objFirstItem == null){
 
 			if(g_vars.enableDebug == true)
@@ -362,9 +398,13 @@ function UERemoteGeneralAPI(){
 
 			return(false);
 		}
-
-		objFirstItem.addClass(g_vars.class_active);
-
+		
+		
+		if(g_vars.active_code_first_unselected !== true)
+			objFirstItem.addClass(g_vars.class_active);
+		else if(g_vars.enableDebug == true)
+			trace("skip activating first item: g_vars.active_code_first_unselected=true");
+		
 		objItems.on(g_vars.trigger_event, function(event){
 
 			var objItem = jQuery(this);
@@ -436,25 +476,35 @@ function UERemoteGeneralAPI(){
 	 * init by classes
 	 */
 	function initByClasses(){
-
+				
 		try{
-
+			
 			var widgetName = g_objParent.data("widgetname");
-
+			
 			g_vars.class_items = getVal(g_options, "class_items");
-
-			if(!g_vars.class_items)
+			
+			if(!g_vars.class_items){
+				
+				var widgetID = g_objParent.attr("id");
+				trace("missing class_items in "+widgetID);
+				trace(g_vars);
+				
 				throw new Error(widgetName +" - missing 'class_items' option");
-
+			}
+			
 			g_vars.class_active = getVal(g_options, "class_active");
 
 			if(!g_vars.class_active)
 				throw new Error(widgetName +" - missing 'class_active' in options");
-
+			
+			g_vars.parent_id = g_objParent.attr("id");
+			
 			g_vars.selector_item_trigger = getVal(g_options, "selector_item_trigger");
 
 			g_vars.add_set_active_code = getVal(g_options, "add_set_active_code");
-
+			
+			g_vars.active_code_first_unselected = getVal(g_options, "active_code_first_unselected");
+			
 			if(g_vars.add_set_active_code === true)
 				g_vars.listen_class_change = false;
 
@@ -475,11 +525,11 @@ function UERemoteGeneralAPI(){
 	 * init the api
 	 */
 	this.init = function(objParent, options, isEditor){
-
+		
 		//not allow to init general api without options
 		if(!options)
 			return(false);
-
+				
 		g_vars.is_editor = isEditor;
 
 		g_objParent = objParent;
@@ -494,16 +544,16 @@ function UERemoteGeneralAPI(){
 
 		if(enableDebug == true)
 			g_vars.enableDebug = true;
-
+		
 		if(g_vars.enableDebug == true){
 			trace("init general api");
 			trace(objParent);
 			trace(options);
 		}
-
+		
 		if(isEditor == true)
 			g_vars.trigger_event = "ucclick";
-
+		
 		if(g_isTypeEvents == false)
 			initByClasses();
 
@@ -578,9 +628,17 @@ function UERemoteGalleryAPI(){
 				return(total);
 			break;
 			case 'change_item':
-
+				
+				if(arg1 < 0)
+					arg1 = 0;
+					
 				g_api.selectItem(arg1);
-
+				
+			break;
+			case "unselect_items":
+				
+				g_api.selectItem(0);
+				
 			break;
 			case "is_playing":
 
@@ -778,7 +836,7 @@ function UERemoteCarouselAPI(){
 
       			var currentItem = g_owl.relative(g_owl.current());
 
-      			if(enableDebug == true){
+      			if(enableDebug === true){
       				trace("num current: " + currentItem);
       			}
 
@@ -803,7 +861,7 @@ function UERemoteCarouselAPI(){
 
             break;
 			case 'change_item':
-
+				
 				var total = getTotalItems()
 				var currentItem = g_owl.relative(g_owl.current());
 
@@ -811,17 +869,19 @@ function UERemoteCarouselAPI(){
 
 				if(slideNum == currentItem)
 					return(false);
-
+				
 				if(slideNum >= total)
 					slideNum = (total-1);
 				else
 					if(slideNum < 0)
 						slideNum = 0;
-
+				
                 g_owlCarousel.trigger('to.owl.carousel', [slideNum, null, true]);
-
+                
                 resetAutoplay();
 
+			break;
+			case "unselect_items":
 			break;
 			default:
 				throw new Error("Carousel API: Wrong action: "+action);
@@ -948,19 +1008,26 @@ function UESyncObject(){
 
 		if(g_objApis.length == 0)
 			return(false);
-
+				
 		var numItems = objAPI.doAction("get_total_items");
 
 		//check with first existing api number of items
 		for(var elID in g_objApis){
-
+			
 			var firstExistingAPI = g_objApis[elID];
 
 			var numItemsExisting = firstExistingAPI.doAction("get_total_items");
-
-			if(numItemsExisting !== numItems)
+			
+			if(numItemsExisting !== numItems){
+				
+				var objElement = objAPI.getElement();
+				var elementID = objElement.attr("id");
+				
+				trace("Sync failed "+elementID+" has "+numItems+" items and "+elID+" has "+numItemsExisting+ " items");
+				
 				throw new Error("Sync failed, number of items should be the same. Now it's "+numItems+" and "+numItemsExisting);
-
+			}
+			
 			return(false);
 		}
 
@@ -999,7 +1066,7 @@ function UESyncObject(){
 	 * get all ips except the given
 	 */
 	function mapAPIs(func, objElement){
-
+		
 		if(typeof ucRemoteDebugEnabled != "undefined")
 			g_vars.show_debug = true;
 
@@ -1032,9 +1099,9 @@ function UESyncObject(){
 	 * activate change command on all other apis
 	 */
 	function onItemChange(objAPI){
-
+		
 		var numCurrent = objAPI.doAction("get_num_current");
-
+		
 		var objElement = objAPI.getElement();
 
 		if(g_vars.show_debug == true){
@@ -1043,11 +1110,14 @@ function UESyncObject(){
 			trace(objElement);
 			trace(g_objApis);
 		}
-
+		
 		mapAPIs(function(api){
-
-			api.doAction("change_item", numCurrent);
-
+						
+			if(numCurrent < 0)
+				api.doAction("unselect_items");
+			else
+				api.doAction("change_item", numCurrent);
+			
 		}, objElement);
 
 	}
@@ -1170,9 +1240,10 @@ function UESyncObject(){
 	 * add widget to sync object
 	 */
 	this.addAPI = function(objAPI){
-
+		
+		
 		var id = getElementID(objAPI);
-
+		
 		if(g_objApis.hasOwnProperty(id))
 			return(false);
 
@@ -1267,8 +1338,7 @@ function UERemoteWidgets(){
 		show_connection_debug:false,
 		debug_show_ids:false,
 		debug_show_widget: "",
-		trace_debug:false,	//debug
-		show_trace_when_debug_on: false
+		trace_debug:false	//debug
 	};
 
 	var g_types = {
@@ -1432,15 +1502,23 @@ function UERemoteWidgets(){
 	 * detect closest parent
 	 */
 	function detectClosestParent(objParents){
-
+		
+		var objContainer = jQuery("body");
+		
+		//twick for tempalte switcher
+		var objTemplateHolder = g_objWidget.closest(".uc-template-holder");
+		
+		if(objTemplateHolder.length)
+			objContainer = objTemplateHolder;
+		
 		if(!objParents)
-			var objParents = jQuery(".uc-remote-parent").not(g_objWidget);
-
+			var objParents = objContainer.find(".uc-remote-parent").not(g_objWidget);
+		
 		if(g_vars.trace_debug){
 			trace("detect closest start. group:");
 			trace(objParents);
 		}
-
+		
 		var numParents = objParents.length;
 
 		if(numParents == 0)
@@ -1499,9 +1577,9 @@ function UERemoteWidgets(){
 		var objForceParent = getVal(g_vars.init_options, "force_parent_obj");
 
 		var widgetID = g_objWidget.attr("id");
-
+		
 		if(g_vars.trace_debug)
-			trace("start set parent for: "+widgetID);
+			trace("start set parent for: "+widgetID+", parent name: "+g_parentID);
 
 		if(objForceParent){
 
@@ -1512,9 +1590,10 @@ function UERemoteWidgets(){
 				trace(g_objParent);
 			}
 
-			return(false);
+			return(true);
 		}
-
+		
+		
 		if(!g_parentID)
 		   throw new Error("Parent controller ID not found");
 
@@ -1550,9 +1629,23 @@ function UERemoteWidgets(){
 					trace("detected from group");
 					trace(g_objParent);
 				}
-
-				if(!g_objParent || g_objParent.length == 0)
+				
+				if(!g_objParent || g_objParent.length == 0){
+					
+				   //set another try
+				   var isAnotherTry = g_objWidget.data("uc_parent_detect_another_try");
+				   if(!isAnotherTry){
+					   g_objWidget.data("uc_parent_detect_another_try", true);
+					   
+					   if(g_vars.trace_debug)
+						   trace("Set another try for parent detect");
+					   
+					   return(false);
+				   }
+				
 				   throw new Error("Parent widget with remote name: '"+g_parentID+"' not found");
+				}
+				
 			}
 
 		}
@@ -1565,14 +1658,15 @@ function UERemoteWidgets(){
 
 			var parentID = g_objParent.attr("id");
 			var widgetID = g_objWidget.attr("id");
-
+			
 			trace("widget: "+widgetID+" connected to: "+parentID);
 
 		}
 
 		if(!g_objParent || g_objParent.length == 0)
 			  throw new Error("Remote parent not found");
-
+		
+		return(true);
 	}
 
 
@@ -1580,7 +1674,7 @@ function UERemoteWidgets(){
 	 * init api variable
 	 */
 	function initAPI(){
-
+		
 		if(g_vars.trace_debug == true){
 			trace("start init api function");
 		}
@@ -1636,18 +1730,24 @@ function UERemoteWidgets(){
 
 		if(optionsFromData)
 			g_vars.options_api = optionsFromData;
-
+		
+		var optionsAPI = {};
+		
+		var optionsAPI = jQuery.extend({},g_vars.options_api);
+		
+		if(jQuery.isEmptyObject(g_vars.options_api) == false)
+			jQuery.extend({},optionsAPI, g_vars.options_api);
+			
 		if(g_vars.trace_debug == true){
-			if(g_vars.options_api)
-				trace(g_vars.options_api);
-			else
-				g_vars.options_api = {};
-
-			g_vars.options_api.trace_debug = true;
+			
+			if(optionsAPI)
+				trace(optionsAPI);
+				
+			optionsAPI["trace_debug"] = true;			
 		}
-
+		
 		var isInited = g_api.init(g_objParent, g_vars.options_api, isEditor);
-
+		
 		if(g_vars.trace_debug == true){
 			trace("inited: " + isInited);
 		}
@@ -1660,9 +1760,12 @@ function UERemoteWidgets(){
 	*	init parent
 	*/
 	function initParent(){
-
-		setParentObject();
-
+		
+		var isParentSet = setParentObject();
+		
+		if(isParentSet == false)
+			return(false);
+		
 		var isInited = initAPI();
 
 		return(isInited);
@@ -1676,30 +1779,44 @@ function UERemoteWidgets(){
 
 		if(!g_objWidget)
 			initWidget(widgetID);
-
+		
 		//init the debug related
-
+		
 		var isDebug = g_objWidget.data("debug");
 		if(isDebug === true || typeof ucRemoteDebugEnabled != "undefined"){
-
-			if(g_vars.show_trace_when_debug_on == true)
-				g_vars.trace_debug = true;
-
+			
+			g_vars.trace_debug = true;
 			g_vars.show_connection_debug = true;
+			
 		}
-
-
+		
+		if(g_vars.trace_debug){
+			if(!widgetID)
+				widgetID = g_objWidget.attr("id");
+			
+			trace("Initing Remote Widget: "+widgetID);
+		}
+		
 		g_vars.is_inited = initParent();
 
 		if(g_vars.is_inited == false){
 
-			if(g_vars.trace_debug == true){
+			if(!g_objParent){
+				
+				setTimeout(func, 1000);	//try onWidgetInit in a second again
+				
+			}else{
+				
+				if(g_vars.trace_debug == true){
 
-				trace(g_objParent);
-				trace("set object ready event");	//onWidgetInit
+					trace(g_objParent);
+					trace("set object ready event");	//onWidgetInit
+				}
+				
+				g_objParent.on("uc-object-ready", func);
+				
 			}
-
-			g_objParent.on("uc-object-ready", func);
+			
 
 		}
 	}
@@ -1710,7 +1827,7 @@ function UERemoteWidgets(){
 	* objElement can be jQuery object or selector
 	*/
 	this.setAction = function(action, objElement, allowMultiple){
-
+		
 		if(g_vars.trace_debug == true){
 			trace("set action: "+action);
 		}
@@ -1735,8 +1852,12 @@ function UERemoteWidgets(){
 		var linkedAction = objElement.data("uc-action");
 
 		if(allowMultiple !== true)
-			if(linkedAction)
+			if(linkedAction){
+				
+				trace("not allow multiple action: "+action);
+				
 				return(false);
+			}
 
 		objElement.data("uc-action", action);
 
@@ -1762,7 +1883,7 @@ function UERemoteWidgets(){
 		checkWidgetDebug();
 
 		var isEditorMode = isInsideEditor();
-
+		
 		//in editor mode check debug every second
 
 		if(isEditorMode == true){
@@ -2076,7 +2197,7 @@ function UERemoteWidgets(){
 		var widgetID = g_objParent.attr("id");
 
 		var text = "connected to <a href='#"+widgetID+"' style='color:green;text-decoration:underline'><b>" + widgetName + "</b></a>";
-
+		
 		displayTextOnWidget(g_objWidget, text, "debug");
 
 	}
@@ -2116,10 +2237,10 @@ function UERemoteWidgets(){
 	 * change item by action (0 - total-1)
 	 */
 	function changeItemByAction(dir){
-
+		
 		var current = t.doAction("get_num_current");
 		var total = t.doAction("get_total_items");
-
+		
 		switch(dir){
 			case "next":
 
@@ -2133,13 +2254,14 @@ function UERemoteWidgets(){
 				var num = current-1;
 				if(num < 0)
 					num = total-1;
-
+				
 			break;
 			default:
 				throw new Error("wrong direction type: "+dir);
 			break;
 		}
-
+		
+		
 		t.doAction("change_item", num);
 
 	}
@@ -2154,7 +2276,14 @@ function UERemoteWidgets(){
 			trace("Do Action: ");
 			trace(action+ " "+arg1+" "+arg2);
 		}
-
+		
+		if(!g_api){
+			if(g_vars.trace_debug)
+				trace("empty g_api, exit");
+			
+			return(false);
+		}
+		
 		switch(action){
 			case "prev":
 			case "next":
@@ -2164,17 +2293,17 @@ function UERemoteWidgets(){
 				if(apiType == "carousel"){
 
 					g_api.doAction(action);
-
+					
 					return(false);
 				}
-
+				
 				changeItemByAction(action);
 				return(false);
 			break;
 		}
 
 		var response = g_api.doAction(action, arg1, arg2);
-
+		
 		if(g_vars.trace_debug){
 			trace("Response: ");
 			trace(response);
@@ -2251,35 +2380,30 @@ function UERemoteWidgets(){
 
 	function _______EDITOR_RELATED_________(){}
 
-
+	
 	/**
 	 * check if inside editor
 	 */
 	function isInsideEditor(){
-
+		
 		if(g_vars.is_editor !== null)
 			return g_vars.is_editor;
-
-		if (typeof window.parent === "undefined") {
-			g_vars.is_editor = false;
-
-			return false;
+		
+		//check for gutenberg
+		
+		if(typeof g_ucAdmin !== "undefined"){
+			g_vars.is_editor = true;
+			return(true);
 		}
-
+		
 		// check for elementor
-		if (typeof window.parent.elementor !== "undefined") {
+		if (window.self !== window.top && typeof window.parent.elementor !== "undefined") {
+			
 			g_vars.is_editor = true;
 
 			return true;
 		}
-
-		// check for gutenberg
-		if (typeof window.parent.wp !== "undefined" && typeof window.parent.wp.blocks !== "undefined") {
-			g_vars.is_editor = true;
-
-			return true;
-		}
-
+				
 		g_vars.is_editor = false;
 
 		return false;
@@ -2301,7 +2425,7 @@ function UERemoteWidgets(){
 	 * check widget inside editor
 	 */
 	function checkWidgetInsideEditor(){
-
+				
 		//check for disconnect
 		try{
 
@@ -2355,9 +2479,12 @@ function UERemoteWidgets(){
 	* on widget init
 	*/
 	this.onWidgetInit = function(widgetID, func, options){
-
+		
 		try{
-
+			
+			if(g_vars.is_inited == true)
+				return(false);
+			
 			if(g_vars.trace_debug == true){
 				trace("on widget init");
 			}
@@ -2372,14 +2499,14 @@ function UERemoteWidgets(){
 
 			if(options && g_vars.init_options == null)
 				g_vars.init_options = options;
-
+			
 			if(g_vars.debug_show_widget && g_vars.debug_show_widget == widgetID)
 				g_vars.trace_debug = true;
-
+			
 			initGlobal(widgetID, t.onWidgetInit);
 
 			if(g_vars.is_inited == false){
-
+				
 				if(g_vars.trace_debug == true){
 					trace(widgetID+" not inited yet, waiting for parent init");
 				}
@@ -2409,9 +2536,13 @@ function UERemoteWidgets(){
 			//widget is inited
 
 			onWidgetReady();
-
-			g_vars.funcOnInit(g_objWidget);
-
+					
+			if(g_vars.funcOnInit){
+				
+				g_vars.is_inited = true;
+				g_vars.funcOnInit(g_objWidget);				
+			}
+				
 		}catch(message){
 
 
@@ -2434,10 +2565,11 @@ function UERemoteWidgets(){
 	 * start sync
 	 */
 	function startParentSync(){
-
+				
 		var syncID = g_objParent.data("syncid");
 
-
+		//if under template switcher - modify sync id
+			
 		if(g_vars.trace_debug == true){
 			trace("Start parent sync");
 			trace(g_objParent);
@@ -2453,9 +2585,9 @@ function UERemoteWidgets(){
 		}
 
 		var objSync = g_remoteConnection.getSyncObject(syncID);
-
+		
 		var isEditorMode = isInsideEditor();
-
+				
 		objSync.setOptions(syncID, isEditorMode);
 
 		var isInited = initAPI();
@@ -2614,7 +2746,7 @@ function UERemoteConnection(){
 
 		if(objSync)
 			return(objSync);
-
+		
 		var objSync = new UESyncObject();
 
 		window[syncRealID] = objSync;
@@ -2662,10 +2794,10 @@ function UERemoteConnection(){
 //body init
 
 jQuery(document).on("uc-remote-parent-init",function(event, objParent, optionsAPI){
-
+	
 	var objRemote = new UERemoteWidgets();
 	objRemote.onParentInit(objParent, optionsAPI);
-
+	
 });
 
 window.ueRemoteConnection = new UERemoteConnection();

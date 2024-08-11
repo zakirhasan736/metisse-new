@@ -286,7 +286,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 			'price' => esc_html__( 'Price', 'wpr-addons' ),
 			'pro-sd' => esc_html__( 'Sale Dates (Pro)', 'wpr-addons' ),
 			'rating' => esc_html__( 'Rating', 'wpr-addons' ),
-			'add-to-cart' => esc_html__('Add To Basket', 'wpr-addons' ),
+			'add-to-cart' => esc_html__( 'Add to Cart', 'wpr-addons' ),
 			'pro-ws' => esc_html__( 'Wishlist Button (Expert)', 'wpr-addons' ),
 			'pro-cm' => esc_html__( 'Compare Button (Expert)', 'wpr-addons' ),
 			'lightbox' => esc_html__( 'Lightbox', 'wpr-addons' ),
@@ -763,7 +763,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => 'No Posts Found!',
+				'default' => 'No Products Found!',
 				'condition' => [
 					'query_selection' => [ 'dynamic', 'current' ],
 				]
@@ -1900,7 +1900,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => 'Add To Basket',
+				'default' => 'Add to Cart',
 				'condition' => [
 					'element_select' => 'add-to-cart',
 				]
@@ -5465,11 +5465,11 @@ class Wpr_Woo_Grid extends Widget_Base {
 		$this->end_controls_section();
 
 		// Styles ====================
-		// Section: Add To Basket ------
+		// Section: Add to Cart ------
 		$this->start_controls_section(
 			'section_style_add_to_cart',
 			[
-				'label' => esc_html__('Add To Basket', 'wpr-addons' ),
+				'label' => esc_html__( 'Add to Cart', 'wpr-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -9196,7 +9196,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '</div>';
 	}
 
-	// Render Add To Basket
+	// Render Add To Cart
 	public function render_product_add_to_cart( $settings, $class ) {
 		global $product;
 
@@ -9224,7 +9224,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 			'aria-label="'. esc_attr($product->add_to_cart_description()) .'"',
 			'data-product_id="'. esc_attr($product->get_id()) .'"',
 			'data-product_sku="'. esc_attr($product->get_sku()) .'"',
-			'data-atc-popup="'. $settings['element_show_added_tc_popup']  .'"',
+			'data-atc-popup="'. esc_attr( $settings['element_show_added_tc_popup'] ) .'"',
 			'data-atc-animation="'. $popup_notification_animation  .'"',
 			'data-atc-fade-out-in="'. $popup_notification_fade_out_in  .'"',
 			'data-atc-animation-time="'. $popup_notification_animation_duration  .'"'
@@ -9291,7 +9291,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '<div class="'. esc_attr($class) .'">';
 			echo '<div class="inner-block">';
 			
-			// WooCommerce Hook: Before Add To Basket Button
+			// WooCommerce Hook: Before Add to Cart Button
 			// do_action('woocommerce_before_shop_loop_item');
 
 			if ( $button_HTML != apply_filters( 'woocommerce_loop_add_to_cart_link', $button_HTML, $product ) ) {
@@ -9301,7 +9301,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				echo '<a '. implode( ' ', $attributes ) .'><span>'. $button_HTML .'</span></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		
-			// WooCommerce Hook: After Add To Basket Button
+			// WooCommerce Hook: After Add to Cart Button
 			// do_action('woocommerce_after_shop_loop_item');
 
 			echo '</div>';
@@ -9593,7 +9593,8 @@ class Wpr_Woo_Grid extends Widget_Base {
 			echo '<div class="inner-block">';
 
 			echo '<span>'. wp_kses_post($product->get_price_html()) .'</span>';
-			$sale_price_dates_to    = ( $date = get_post_meta( $product->get_id(), '_sale_price_dates_to', true ) ) ? date_i18n( 'Y-m-d', $date ) : '';
+
+			$sale_price_dates_to = ( $date = get_post_meta( $product->get_id(), '_sale_price_dates_to', true ) ) ? date_i18n( 'Y-m-d', $date ) : '';
 		
 			// Apply filter to $sale_price_dates_to
 			$sale_price_dates_to = apply_filters( 'wpr_custom_sale_price_dates_to_filter', $sale_price_dates_to, $product );
@@ -10334,6 +10335,8 @@ class Wpr_Woo_Grid extends Widget_Base {
 			'data-slick' => wp_json_encode( $slider_options ),
 		] );
 	}
+
+	public $my_upsells;
 
 	protected function render() {
 		// Get Settings

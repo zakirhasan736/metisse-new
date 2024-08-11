@@ -119,7 +119,7 @@ class ProductButton extends AbstractBlock {
 
 			$default_quantity = 1;
 			/**
-			* Filters the change the quantity to Add To Basket.
+			* Filters the change the quantity to add to cart.
 			*
 			* @since 10.9.0
 			* @param number $default_quantity The default quantity.
@@ -130,13 +130,13 @@ class ProductButton extends AbstractBlock {
 			$context = array(
 				'quantityToAdd'          => $quantity_to_add,
 				'productId'              => $product->get_id(),
-				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __('Add To Basket', 'woocommerce' ),
+				'addToCartText'          => null !== $product->add_to_cart_text() ? $product->add_to_cart_text() : __( 'Add to cart', 'woocommerce' ),
 				'temporaryNumberOfItems' => $number_of_items_in_cart,
 				'animationStatus'        => 'IDLE',
 			);
 
 			/**
-			 * Allow filtering of the Add To Basket button arguments.
+			 * Allow filtering of the add to cart button arguments.
 			 *
 			 * @since 9.7.0
 			 */
@@ -167,8 +167,8 @@ class ProductButton extends AbstractBlock {
 			);
 
 			$div_directives = '
-				data-wc-interactive=\'' . wp_json_encode( $interactive, JSON_NUMERIC_CHECK ) . '\'
-				data-wc-context=\'' . wp_json_encode( $context, JSON_NUMERIC_CHECK ) . '\'
+				data-wc-interactive=\'' . wp_json_encode( $interactive, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) . '\'
+				data-wc-context=\'' . wp_json_encode( $context, JSON_NUMERIC_CHECK | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP ) . '\'
 			';
 
 			$button_directives = '
@@ -186,7 +186,7 @@ class ProductButton extends AbstractBlock {
 			';
 
 			/**
-			 * Filters the Add To Basket button class.
+			 * Filters the add to cart button class.
 			 *
 			 * @since 8.7.0
 			 *

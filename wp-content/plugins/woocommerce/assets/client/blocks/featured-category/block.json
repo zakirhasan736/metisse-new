@@ -80,7 +80,7 @@
 			"default": 500
 		},
 		"linkText": {
-			"default": "Add To Basket",
+			"default": "Shop now",
 			"type": "string"
 		},
 		"categoryId": {

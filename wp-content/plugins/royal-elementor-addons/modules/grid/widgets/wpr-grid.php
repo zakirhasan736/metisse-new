@@ -535,6 +535,13 @@ class Wpr_Grid extends Widget_Base {
 		];
 	}
 
+	public function add_repeater_args_element_cf_tag() {
+		return [
+			'type' => Controls_Manager::HIDDEN,
+			'default' => ''
+		];
+	}
+
 	public function add_repeater_args_element_custom_field_style() {
 		return [
 			'type' => Controls_Manager::HIDDEN,
@@ -2086,6 +2093,8 @@ class Wpr_Grid extends Widget_Base {
 		$repeater->add_control( 'element_custom_field_wrapper_html', $this->add_repeater_args_element_custom_field_wrapper_html() );
 
 		$repeater->add_control( 'custom_field_wrapper_html_divider2', $this->add_repeater_args_custom_field_wrapper_html_divider2() );
+
+		$repeater->add_control( 'element_cf_tag', $this->add_repeater_args_element_cf_tag() );
 
 		$repeater->add_control( 'element_custom_field_style', $this->add_repeater_args_element_custom_field_style() );
 
@@ -9244,8 +9253,7 @@ class Wpr_Grid extends Widget_Base {
 			echo '<span data-filter="*" class="wpr-active-filter '. $pointer_item_class_name .'">'. $left_icon . esc_html($settings['filters_all_text']) . $right_icon . $post_count .'</span>'. $right_separator; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</li>';
 		}
-		
-		// var_dump(get_the_archive_title());
+
 		$q = get_queried_object();
 		// category title : custom post type archive title
 		$category_name = is_category() ? strtolower($q->name) : 'no-category';

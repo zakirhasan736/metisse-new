@@ -102,7 +102,7 @@ class Plugin {
 		// Twitter
 		require WPR_ADDONS_PATH . 'classes/modules/wpr-load-more-tweets.php';
 
-		// Twitter
+		// Meta Keys
 		require WPR_ADDONS_PATH . 'classes/wpr-custom-meta-keys.php';
 
 		// Particles
@@ -443,6 +443,14 @@ class Plugin {
 			]
 		);
 
+		// wp_enqueue_script(
+		// 	'wpr-wrong-update-js',
+		// 	WPR_ADDONS_URL . 'assets/js/admin/wrong-update.js',
+		// 	[
+		// 		'jquery'
+		// 	]
+		// );
+
 		wp_localize_script(
 			'wpr-plugin-notice-js',
 			'WprPluginNotice',
@@ -634,7 +642,7 @@ class Plugin {
 			true
 		);
 
-		$args = ['nonce' => wp_create_nonce( 'wpr-addons-editor-js' )];
+		$args = ['nonce' => wp_create_nonce( 'wpr-addons-editor-js' ), 'adminURL' => admin_url(), 'isWooCommerceActive' => class_exists('WooCommerce') ? true : false];
 
 		$args = array_merge($args, Utilities::get_registered_modules());
 
@@ -989,6 +997,22 @@ class Plugin {
 		}
 
 		add_filter( 'pre_get_posts', [$this, 'wpr_custom_posts_per_page'] );
+		add_filter('excerpt_more', [$this, 'wpr_custom_excerpt_more']);
+		add_filter('excerpt_length', [$this, 'wpr_custom_excerpt_length']);
+	}
+	
+	/*
+	** Custom function to modify excerpt more text
+	*/
+	function wpr_custom_excerpt_more($more) { // TODO: check
+		return ''; // Change to '...' or any other text if desired
+	}
+
+	/*
+	** Custom function to modify excerpt more length
+	*/
+	function wpr_custom_excerpt_length($length) {
+		return 999;
 	}
 
 	public function wpr_custom_posts_per_page( $query ) {

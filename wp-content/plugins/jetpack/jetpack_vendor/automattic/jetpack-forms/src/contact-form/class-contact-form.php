@@ -8,6 +8,8 @@
 namespace Automattic\Jetpack\Forms\ContactForm;
 
 use Automattic\Jetpack\Sync\Settings;
+use PHPMailer\PHPMailer\PHPMailer;
+use WP_Error;
 
 /**
  * Class for the contact-form shortcode.
@@ -48,7 +50,7 @@ class Contact_Form extends Contact_Form_Shortcode {
 	/**
 	 * Form we are currently looking at. If processed, will become $last
 	 *
-	 * @var Whatever
+	 * @var Contact_Form
 	 */
 	public static $current_form;
 
@@ -308,7 +310,11 @@ class Contact_Form extends Contact_Form_Shortcode {
 				"</h4>\n\n";
 
 			// Don't show the feedback details unless the nonce matches
-			if ( $feedback_id && isset( $_GET['_wpnonce'] ) && wp_verify_nonce( stripslashes( $_GET['_wpnonce'] ), "contact-form-sent-{$feedback_id}" ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			if (
+				$feedback_id
+				&& isset( $_GET['_wpnonce'] )
+				&& wp_verify_nonce( sanitize_key( wp_unslash( $_GET['_wpnonce'] ) ), "contact-form-sent-{$feedback_id}" )
+			) {
 				$r_success_message .= self::success_message( $feedback_id, $form );
 			}
 
@@ -444,8 +450,8 @@ class Contact_Form extends Contact_Form_Shortcode {
 	/**
 	 * Returns a success message to be returned if the form is sent via AJAX.
 	 *
-	 * @param int                 $feedback_id - the feedback ID.
-	 * @param object Contact_Form $form - the contact form.
+	 * @param int          $feedback_id - the feedback ID.
+	 * @param Contact_Form $form - the contact form.
 	 *
 	 * @return string $message
 	 */
@@ -474,8 +480,8 @@ class Contact_Form extends Contact_Form_Shortcode {
 	 * Returns a compiled form with labels and values in a form of  an array
 	 * of lines.
 	 *
-	 * @param int                 $feedback_id - the feedback ID.
-	 * @param object Contact_Form $form - the form.
+	 * @param int          $feedback_id - the feedback ID.
+	 * @param Contact_Form $form - the form.
 	 *
 	 * @return array $lines
 	 */
@@ -567,8 +573,8 @@ class Contact_Form extends Contact_Form_Shortcode {
 	 * Returns a compiled form with labels and values formatted for the email response
 	 * in a form of an array of lines.
 	 *
-	 * @param int                 $feedback_id - the feedback ID.
-	 * @param object Contact_Form $form - the form.
+	 * @param int          $feedback_id - the feedback ID.
+	 * @param Contact_Form $form - the form.
 	 *
 	 * @return array $lines
 	 */
@@ -1034,7 +1040,7 @@ class Contact_Form extends Contact_Form_Shortcode {
 			if ( isset( $_POST['contact-form-id'] ) && 'block-template-part-' . $block_template_part !== $_POST['contact-form-id'] ) { // phpcs:Ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
 				return false;
 			}
-		} elseif ( isset( $_POST['contact-form-id'] ) && $post->ID !== (int) $_POST['contact-form-id'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
+		} elseif ( isset( $_POST['contact-form-id'] ) && ( empty( $post ) || $post->ID !== (int) $_POST['contact-form-id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- check done by caller process_form_submission()
 			return false;
 		}
 
@@ -1048,35 +1054,50 @@ class Contact_Form extends Contact_Form_Shortcode {
 
 		// For each of the "standard" fields, grab their field label and value.
 		if ( isset( $field_ids['name'] ) ) {
-			$field          = $this->fields[ $field_ids['name'] ];
-			$comment_author = Contact_Form_Plugin::strip_tags(
-				stripslashes(
-					/** This filter is already documented in core/wp-includes/comment-functions.php */
-					apply_filters( 'pre_comment_author_name', addslashes( $field->value ) )
-				)
-			);
+			$field = $this->fields[ $field_ids['name'] ];
+
+			if ( is_string( $field->value ) ) {
+				$comment_author = Contact_Form_Plugin::strip_tags(
+					stripslashes(
+						/** This filter is already documented in core/wp-includes/comment-functions.php */
+						apply_filters( 'pre_comment_author_name', addslashes( $field->value ) )
+					)
+				);
+			} elseif ( is_array( $field->value ) ) {
+				$field->value = '';
+			}
 		}
 
 		if ( isset( $field_ids['email'] ) ) {
-			$field                = $this->fields[ $field_ids['email'] ];
-			$comment_author_email = Contact_Form_Plugin::strip_tags(
-				stripslashes(
-					/** This filter is already documented in core/wp-includes/comment-functions.php */
-					apply_filters( 'pre_comment_author_email', addslashes( $field->value ) )
-				)
-			);
+			$field = $this->fields[ $field_ids['email'] ];
+
+			if ( is_string( $field->value ) ) {
+				$comment_author_email = Contact_Form_Plugin::strip_tags(
+					stripslashes(
+						/** This filter is already documented in core/wp-includes/comment-functions.php */
+						apply_filters( 'pre_comment_author_email', addslashes( $field->value ) )
+					)
+				);
+			} elseif ( is_array( $field->value ) ) {
+				$field->value = '';
+			}
 		}
 
 		if ( isset( $field_ids['url'] ) ) {
-			$field              = $this->fields[ $field_ids['url'] ];
-			$comment_author_url = Contact_Form_Plugin::strip_tags(
-				stripslashes(
-					/** This filter is already documented in core/wp-includes/comment-functions.php */
-					apply_filters( 'pre_comment_author_url', addslashes( $field->value ) )
-				)
-			);
-			if ( 'http://' === $comment_author_url ) {
-				$comment_author_url = '';
+			$field = $this->fields[ $field_ids['url'] ];
+
+			if ( is_string( $field->value ) ) {
+				$comment_author_url = Contact_Form_Plugin::strip_tags(
+					stripslashes(
+						/** This filter is already documented in core/wp-includes/comment-functions.php */
+						apply_filters( 'pre_comment_author_url', addslashes( $field->value ) )
+					)
+				);
+				if ( 'http://' === $comment_author_url ) {
+					$comment_author_url = '';
+				}
+			} elseif ( is_array( $field->value ) ) {
+				$field->value = '';
 			}
 		}
 
@@ -1348,7 +1369,7 @@ class Contact_Form extends Contact_Form_Shortcode {
 
 		if ( 'publish' === $feedback_status ) {
 			// Increase count of unread feedback.
-			$unread = get_option( 'feedback_unread_count', 0 ) + 1;
+			$unread = (int) get_option( 'feedback_unread_count', 0 ) + 1;
 			update_option( 'feedback_unread_count', $unread );
 		}
 

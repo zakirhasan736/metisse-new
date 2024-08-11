@@ -29,40 +29,8 @@ $allowed_html = array(
 );
 ?>
 
-<div class="user-info-box flex gap-[28px] items-center">
-	<span>
-		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-			<path d="M6.6665 35V33.3333C6.6665 27.8105 11.1437 23.3333 16.6665 23.3333H23.3332C28.856 23.3333 33.3332 27.8105 33.3332 33.3333V35" stroke="black" stroke-width="2" stroke-linecap="round" />
-			<path d="M19.9997 18.3333C16.3178 18.3333 13.333 15.3486 13.333 11.6667C13.333 7.98477 16.3178 5 19.9997 5C23.6815 5 26.6663 7.98477 26.6663 11.6667C26.6663 15.3486 23.6815 18.3333 19.9997 18.3333Z" stroke="black" stroke-width="2" stroke-linecap="round" />
-		</svg>
-	</span>
-	<div class="user-info-main">
-		<div class="user-info">
-			<p class="text-[28px] md:text-[24px] sm:text-[20px] font-semibold font-primary capitalize leading-none text-[#000]">
-				<?php
-				printf(
-					/* translators: 1: user display name */
-					esc_html__('Welcome back, %s', 'woocommerce'),
-					'<strong>' . esc_html($current_user->display_name) . '</strong>'
-				);
-				?>
-			</p>
-			<p class="text-[16px] md:text-[14px] sm:text-[12px] font-medium font-primary leading-[25px] text-[#000]">
-				<?php
-				printf(
-					/* translators: 1: user email */
-					// esc_html__('Email: %s', 'woocommerce'),
-					'<strong>' . esc_html($current_user->user_email) . '</strong>'
-				);
-				?>
-			</p>
-		</div>
 
-	</div>
-
-</div>
-
-<p class="mt-[12px] text-[16px] sm:text-[12px] font-medium font-primary leading-[25px] text-[#000] my-account-info-details-wrap">
+<p class="mt-[12px] text-[14px] font-normal font-secondary leading-[25px] text-[#000] my-account-info-details-wrap">
 	<?php
 	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
 	$dashboard_desc = __('From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce');
@@ -85,12 +53,12 @@ $allowed_html = array(
 			$billing_address = WC()->customer->get_billing_address();
 			if (!empty($billing_address)) {
 				echo '<div class="address-title-box flex justify-between items-center max-w-[440px] w-full">';
-				echo '<p class="text-[16px] sm:text-[14px] font-bold font-primary leading-[25px] text-[#000] opacity-50 tracking-[3.2px] uppercase">' . __('Billing Address:', 'woocommerce') . '</p>';
-				echo '<a class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#AA834C] !underline" href="' . esc_url(wc_get_account_endpoint_url('edit-address/billing')) . '">' . __('Edit', 'woocommerce') . '</a>';
+				echo '<p class="text-[14px] font-medium font-secondary leading-[1.5] text-[#717171] tracking-[1.4px] uppercase">' . __('Billing Address:', 'woocommerce') . '</p>';
+				echo '<a class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313] !underline" href="' . esc_url(wc_get_account_endpoint_url('edit-address/billing')) . '">' . __('Edit', 'woocommerce') . '</a>';
 				echo '</div>';
-				echo '<p class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#000]">' . wp_kses_post($billing_address) . '</p>';
+				echo '<p class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313]">' . wp_kses_post($billing_address) . '</p>';
 			} else {
-				echo '<p class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#000]">' . __('Billing Address:', 'woocommerce') . '</p> ' . __('Not available', 'woocommerce');
+				echo '<p class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313]">' . __('Billing Address:', 'woocommerce') . '</p> ' . __('Not available', 'woocommerce');
 			}
 			?>
 		</div>
@@ -101,12 +69,12 @@ $allowed_html = array(
 			$shipping_address = WC()->customer->get_shipping_address();
 			if (!empty($shipping_address)) {
 				echo '<div class="address-title-box flex justify-between items-center max-w-[440px] w-full">';
-				echo '<p class="text-[16px] sm:text-[14px] font-bold font-primary leading-[25px] text-[#000] opacity-50 tracking-[3.2px] uppercase">' . __('Shipping Address:', 'woocommerce') . '</p>';
-				echo '<a class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#AA834C] !underline" href="' . esc_url(wc_get_account_endpoint_url('edit-address/shipping')) . '">' . __('Edit', 'woocommerce') . '</a>';
+				echo '<p class="text-[14px] font-medium font-secondary leading-[1.5] text-[#717171] tracking-[1.4px] uppercase">' . __('Shipping Address:', 'woocommerce') . '</p>';
+				echo '<a class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313] !underline" href="' . esc_url(wc_get_account_endpoint_url('edit-address/shipping')) . '">' . __('Edit', 'woocommerce') . '</a>';
 				echo '</div>';
-				echo '<p class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#000]" >' . wp_kses_post($shipping_address) . '</p>';
+				echo '<p class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313]" >' . wp_kses_post($shipping_address) . '</p>';
 			} else {
-				echo '<p class="text-[16px] sm:text-[14px] font-medium font-primary leading-[25px] !text-[#000]">' . __('Shipping Address:', 'woocommerce') . '</p> ' . __('Not available', 'woocommerce');
+				echo '<p class="text-[12px] font-normal font-secondary leading-[1.5] !text-[#131313]">' . __('Shipping Address:', 'woocommerce') . '</p> ' . __('Not available', 'woocommerce');
 			}
 			?>
 		</div>

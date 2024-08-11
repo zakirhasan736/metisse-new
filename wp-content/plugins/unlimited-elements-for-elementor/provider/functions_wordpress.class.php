@@ -93,7 +93,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			if(empty($tableName))
 				UniteFunctionsUC::throwError("Empty table name!!!");
-
+			
 			$sql = "show tables like '$tableName'";
 
 			$table = $wpdb->get_var($sql);
@@ -431,14 +431,43 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			return(false);
 		}
-
-		public static function a_______TAXANOMIES_______(){}
-
+		
+		public static function a_______TERMS_______(){}
+		
+		
+		/**
+		 * sort terms by parents by levels parent -> children / parent -> children
+		 */
+		public static function sortTermsByParents($arrTermsObjects, $parent = 0, $level = 0){
+			
+			if(empty($arrTermsObjects))
+				return(array());
+			
+			$arrSorted = array();
+			
+		    foreach ($arrTermsObjects as $term) {
+		    	
+		        if ($term->parent != $parent) 
+		        	continue; 
+		        	
+		        $term->level = $level;
+		        
+	            $arrSorted[] = $term;
+	            
+	            $arrChildren = self::sortTermsByParents($arrTermsObjects, $term->term_id, $level+1 );
+	            $arrSorted = array_merge($arrSorted, $arrChildren);
+		    }
+			
+		    
+			return($arrSorted);
+		}
+		
+		
 		/**
 		 * get term parent ids, including current term id
 		 */
 		public static function getTermParentIDs($objTerm){
-
+			
 			$currentTermID = $objTerm->term_id;
 
 			$cacheKey = "term_".$currentTermID;
@@ -494,7 +523,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$data["slug"] = $term->slug;
 			$data["description"] = $term->description;
 			$data["taxonomy"] = $term->taxonomy;
-
+			
 			if(isset($term->parent))
 				$data["parent_id"] = $term->parent;
 
@@ -508,7 +537,13 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			//get link
 			$link = get_term_link($term);
 			$data["link"] = $link;
-
+			
+			//level (custom attribute after sorting)
+			
+			if(property_exists($term,"level"))			
+				$data["level"] = $term->level;
+			
+			
 			return($data);
 		}
 
@@ -829,7 +864,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$post = get_post($post);
 
 			$arrTerms = self::getPostTermsTitles($post, $withTax);
-
+			
 			if(empty($arrTerms))
 				return("");
 
@@ -837,7 +872,63 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			return($strTerms);
 		}
+		
+		/**
+		 * get terms titles string 
+		 */
+		public static function getTermsTitlesString($arrTerms){
+			
+			if(empty($arrTerms))
+				return("");
+				
+			$arrTermsNames = self::getTermsTitles($arrTerms, true, true);
+						
+			$strTerms = implode(", ", $arrTermsNames);
 
+			return($strTerms);
+		}
+		
+		
+		/**
+		 * get terms titles
+		 */
+		public static function getTermsTitles($arrTerms, $withTax = true, $withID = false){
+			
+			$arrTitles = array();
+			
+			if(empty($arrTerms))
+				return(array());
+
+			foreach($arrTerms as $term){
+				
+				$term = (array)$term;
+				
+				$name = UniteFunctionsUC::getVal($term, "name");
+				
+				$termID = UniteFunctionsUC::getVal($term, "term_id"); 
+				
+				if($withTax == true){
+					
+					$taxanomy = UniteFunctionsUC::getVal($term, "taxonomy");
+										
+					if(!empty($taxanomy) && $taxanomy != "category")
+						$name .= "($taxanomy)";
+				}
+				if($withID == true)
+				
+					$name = "{$name}[$termID]";
+				
+				if(empty($name))
+					continue;
+				
+				$arrTitles[] = $name;
+			}
+			
+			
+			return($arrTitles);
+		}
+		
+		
 		/**
 		 * get post terms titles
 		 */
@@ -847,31 +938,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			if(empty($arrTermsWithTax))
 				return(array());
-
-			$arrTitles = array();
-
-			foreach($arrTermsWithTax as $taxanomy=>$arrTerms){
-
-				if(empty($arrTerms))
-					continue;
-
-				foreach($arrTerms as $term){
-
-					$name = UniteFunctionsUC::getVal($term, "name");
-
-					if($withTax == true){
-						$taxonomy = UniteFunctionsUC::getVal($term, "taxonomy");
-
-						if(!empty($taxanomy) && $taxanomy != "category")
-							$name .= "($taxanomy)";
-					}
-
-					if(empty($name))
-						continue;
-
-					$arrTitles[] = $name;
-				}
-			}
+			
+			$arrTerms = array();
+			foreach($arrTermsWithTax as $tax=>$arrTermsItems)
+				$arrTerms = array_merge($arrTerms, $arrTermsItems);
+			
+			$arrTitles = self::getTermsTitles($arrTerms, $withTax);
 
 			return($arrTitles);
 		}
@@ -909,7 +981,10 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			return($arrTermIDs);
 		}
-
+		
+		
+		public static function a_______TAXANOMIES_______(){}
+		
 
 		/**
 		 *
@@ -918,12 +993,11 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getTaxonomiesAssoc(){
 
 			$arr = get_taxonomies();
-
-			unset($arr["post_tag"]);
+			
 			unset($arr["nav_menu"]);
 			unset($arr["link_category"]);
 			unset($arr["post_format"]);
-
+			
 			return($arr);
 		}
 
@@ -931,7 +1005,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * get all tax assoc
 		 */
 		public static function getAllTaxonomiesAssoc(){
-
+			
 			$arr = get_taxonomies();
 
 			return($arr);
@@ -1029,7 +1103,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 	 * set arguments tax query, merge with existing if avaliable
 	 */
 	public static function mergeArgsTaxQuery($args, $arrTaxQuery){
-
+		
 		if(empty($arrTaxQuery))
 			return ($args);
 
@@ -1052,7 +1126,54 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 		return ($args);
 	}
-
+	
+		/**
+		 * get tax query (for posts query) from array of terms
+		 */
+		public static function getTaxQueryFromTerms($arrTerms){
+			
+			if(empty($arrTerms))
+				return(array());
+			
+			$arrByTax = array();
+			
+			foreach($arrTerms as $term){
+				
+				$taxonomy = $term->taxonomy;
+				
+				$arrTaxTerms = UniteFunctionsUC::getVal($arrByTax, $taxonomy);
+				
+				if(empty($arrTaxTerms))
+					$arrTaxTerms = array();
+				
+				$arrTaxTerms[] = $term->term_id;
+				
+				$arrByTax[$taxonomy] = $arrTaxTerms;
+			}
+			
+			//make the tax query
+			
+			$arrTaxQuery = array();
+			
+			foreach($arrByTax as $taxonomy=>$arrTermIDs){
+				
+				$arrItem = array(
+					"taxonomy"=>$taxonomy,
+					"field"=>"id",
+					"terms"=>$arrTermIDs,
+					"operator"=>"IN",
+				);
+				
+				$arrTaxQuery[] = $arrItem;
+			}
+			
+			if(count($arrTaxQuery) > 1)
+				$arrTaxQuery["relation"] = "OR";
+			
+			return($arrTaxQuery);
+		}
+		
+		
 
 		public static function a_________TAXONOMY_LEVELS___________(){}
 
@@ -1540,6 +1661,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$arr["term_id"] = __("Term ID", "unlimited-elements-for-elementor");
 			$arr["description"] = __("Description", "unlimited-elements-for-elementor");
 			$arr["parent"] = __("Parent", "unlimited-elements-for-elementor");
+			$arr["parent_children"] = __("Parent and Children", "unlimited-elements-for-elementor");
 			$arr["count"] = __("Count - (number of posts associated)", "unlimited-elements-for-elementor");
 
 			return($arr);
@@ -1713,16 +1835,14 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			return($arrCustomFields);
 		}
-
-
+		
 		/**
-		 * get post meta data
+		 * modify meta array
 		 */
-		public static function getPostMeta($postID, $getSystemVars = true, $prefix = null){
-
-			$arrMeta = get_post_meta($postID);
+		public static function modifyMetaArray($arrMeta, $getSystemVars = true, $prefix = null){
+			
 			$arrMetaOutput = array();
-
+			
 			foreach($arrMeta as $key=>$item){
 
 				//filter by key
@@ -1741,8 +1861,19 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 				$arrMetaOutput[$key] = $item;
 			}
+			
+			return($arrMetaOutput);
+		}
 
+		/**
+		 * get post meta data
+		 */
+		public static function getPostMeta($postID, $getSystemVars = true, $prefix = null){
 
+			$arrMeta = get_post_meta($postID);
+			
+			$arrMetaOutput = self::modifyMetaArray($arrMeta, $getSystemVars, $prefix);
+			
 			return($arrMetaOutput);
 		}
 
@@ -1777,7 +1908,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * get term meta image id. guess what the image is by the type
 		 */
 		public static function getTermMetaImageID($termID){
-
+		
 			$isAcfActive = UniteCreatorAcfIntegrate::isAcfActive();
 
 			//get iamge from acf if exists
@@ -1793,8 +1924,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					return($arrImageIDs["thumbnail_id"]);
 				
 				$imageID = UniteFunctionsUC::getArrFirstValue($arrImageIDs);
-				
-				return($imageID);
+								
+				if(!empty($imageID) && is_numeric($imageID))
+					return($imageID);
 			}
 			
 			$arrMeta = self::getTermMeta($termID);
@@ -2454,7 +2586,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$postType = $postType[0];
 
 		$args["post_type"] = $postType;
-
+		
 		if(!empty($arrTax))
 			$args["tax_query"] = $arrTax;
 
@@ -2618,18 +2750,18 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		$db = self::getDB();
 
 		$tablePosts = UniteProviderFunctionsUC::$tablePosts;
-
+				
 		$strIDs = implode(",", $arrIDs);
-
+		
+		UniteFunctionsUC::validateIDsList($strIDs,"post ids");
+		
 		if(empty($strIDs))
 			return (array());
-
-		$strIDs = $db->escape($strIDs);
-
+		
 		$sql = "select ID as id,post_title as title, post_type as type from $tablePosts where ID in($strIDs)";
-
+		
 		$response = $db->fetchSql($sql);
-
+		
 		if(empty($response))
 			return (array());
 
@@ -2656,21 +2788,16 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 		if(empty($post))
 			return ("");
-
-		//UniteFunctionsUC::showTrace();
-		//dmp($post);
-
+		
 		$postID = $post->ID;
 
 		//protection against infinate loops
 
 		if(isset(self::$cachePostContent[$postID]))
 			return (self::$cachePostContent[$postID]);
-
-		self::$cachePostContent[$postID] = $post->post_content;
-
+				
 		$isEditMode = GlobalsProviderUC::$isInsideEditor;
-
+		
 		if($isEditMode == false)
 			$content = get_the_content(null, false, $post);
 		else
@@ -2770,11 +2897,14 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 	 * update post ordering
 	 */
 	public static function updatePostOrdering($postID, $ordering){
-
+		
+		if(is_numeric($ordering) == false)
+			return(false);
+		
 		$arrUpdate = array(
 			'menu_order' => $ordering,
 		);
-
+		
 		self::updatePost($postID, $arrUpdate);
 	}
 
@@ -2782,7 +2912,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 	 * update post content
 	 */
 	public static function updatePostContent($postID, $content){
-
+		
 		$arrUpdate = array("post_content" => $content);
 		self::updatePost($postID, $arrUpdate);
 	}
@@ -3439,6 +3569,22 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 	}
 
 	/**
+	 * get all user meta data
+	 */
+	public static function getAllUserMeta($userID){
+		
+		$arrMeta = get_user_meta($userID, '', true);
+
+		if(empty($arrMeta))
+			return (array());
+		
+		$arrMeta = self::modifyMetaArray($arrMeta);
+		
+		return($arrMeta);
+	}
+	
+	
+	/**
 	 * get user meta
 	 */
 	public static function getUserMeta($userID, $arrMetaKeys = null, $addPrefixed = false){
@@ -3449,7 +3595,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			return (null);
 
 		$arrKeys = self::getUserMetaKeys();
-
+		
 		if(is_array($arrMetaKeys) == false)
 			$arrMetaKeys = array();
 
@@ -3457,7 +3603,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$arrKeys = array_merge($arrKeys, $arrMetaKeys);
 
 		$arrMetaKeys = UniteFunctionsUC::arrayToAssoc($arrMetaKeys);
-
+				
 		$arrOutput = array();
 		foreach($arrKeys as $key){
 			$metaValue = UniteFunctionsUC::getVal($arrMeta, $key);
@@ -3477,7 +3623,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 			$arrOutput[$key] = $metaValue;
 		}
-
+		
+		
+		
 		return ($arrOutput);
 	}
 
@@ -3522,6 +3670,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 		$userData = $objUser->data;
 
+		
 		$userData = UniteFunctionsUC::convertStdClassToArray($userData);
 
 		$arrData = array();
@@ -3571,9 +3720,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		//add meta
 		if($getMeta == true){
 			$arrMeta = self::getUserMeta($userID, $arrMetaKeys);
+			
 			if(!empty($arrMeta))
 				$arrData = $arrData + $arrMeta;
 		}
+		
+		$arrData = apply_filters("unlimited_elements_get_user_data", $arrData);
 
 		return ($arrData);
 	}
@@ -3592,7 +3744,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			else
 				$objUser = get_user_by("slug", $userID);
 		}
-
+		
 		//if emtpy user - return empty
 		if(empty($objUser)){
 			$arrEmpty = array();
@@ -3900,7 +4052,16 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 
 	public static function a___________OTHER_FUNCTIONS__________(){
 	}
-
+	
+	/**
+	 * clear all filters of wordpress
+	 * needed for some functionality not to be distrubting by other filters and hooks
+	 */
+	public static function clearAllWPFilters(){
+		global $wp_filter;
+		$wp_filter = array();
+	}
+	
 	/**
 	 * print registered includes
 	 */

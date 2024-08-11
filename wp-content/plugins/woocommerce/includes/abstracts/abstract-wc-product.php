@@ -1928,22 +1928,22 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text for the single page.
+	 * Get the add to cart button text for the single page.
 	 *
 	 * @return string
 	 */
 	public function single_add_to_cart_text() {
-		return apply_filters( 'woocommerce_product_single_add_to_cart_text', __('Add To Basket', 'woocommerce' ), $this );
+		return apply_filters( 'woocommerce_product_single_add_to_cart_text', __( 'Add to cart', 'woocommerce' ), $this );
 	}
 
 	/**
-	 * Get the aria-describedby description for the Add To Basket button.
+	 * Get the aria-describedby description for the add to cart button.
 	 *
 	 * @return string
 	 */
 	public function add_to_cart_aria_describedby() {
 		/**
-		 * Filter the aria-describedby description for the Add To Basket button.
+		 * Filter the aria-describedby description for the add to cart button.
 		 *
 		 * @since 7.8.0
 		 *
@@ -1954,7 +1954,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text.
+	 * Get the add to cart button text.
 	 *
 	 * @return string
 	 */
@@ -1963,7 +1963,7 @@ class WC_Product extends WC_Abstract_Legacy_Product {
 	}
 
 	/**
-	 * Get the Add To Basket button text description - used in aria tags.
+	 * Get the add to cart button text description - used in aria tags.
 	 *
 	 * @since  3.3.0
 	 * @return string
