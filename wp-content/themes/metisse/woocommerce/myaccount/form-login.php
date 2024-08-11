@@ -115,7 +115,7 @@ if (!defined('ABSPATH')) {
 							</label>
 						</p>
 						<div class="auth-submit flex items-start flex-col md:gap-[15px]">
-							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[11px] text-[#5A5A5A] !h-[40px] !font-primary !font-normaL bg-transparent border border-[#5A5A5A] hover:border-[#131313] hover:bg-[#131313] hover:text-[#FFFDFD] !uppercase !py-2 px-8 !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Login', 'metisse'); ?>"><?php esc_html_e('Login', 'metisse'); ?></button>
+							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[11px] !text-[#5A5A5A] !h-[40px] !font-primary !font-normaL bg-transparent border border-[#5A5A5A] hover:border-[#131313] hover:bg-[#131313] hover:text-[#FFFDFD] !uppercase !py-2 px-8 !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Login', 'metisse'); ?>"><?php esc_html_e('Login', 'metisse'); ?></button>
 							<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
 						</div>
 
