@@ -1127,6 +1127,11 @@ Text Domain: metisse
     label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-form-login__rememberme {
         margin-top: 0 !important;
     }
+
+    .user-data-name-box input {
+        border: none !important;
+        border-bottom: 2px solid #B6B9B3 !important;
+    }
 }
 
 @layer utilities {}

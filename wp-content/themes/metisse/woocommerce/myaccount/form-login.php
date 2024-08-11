@@ -46,21 +46,21 @@ if (!defined('ABSPATH')) {
 
 								<!-- <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
 									<label for="reg_username" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Username', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-									<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#7B7C79]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
+									<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
 								</p> -->
 
 							<?php endif; ?> 
 							<div class="user-email-pass-box">
 								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
 									<!-- <label for="reg_email" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
-									<input placeholder="johndoe@domain.com" type="email" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#7B7C79] !bg-[#F6F6F6]" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" />
+									<input placeholder="johndoe@domain.com" type="email" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3] !bg-[#F6F6F6]" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" />
 								</p>
 
 								<?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
 
 									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
 										<!-- <label for="reg_password" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
-										<input placeholder="Password" type="password" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#7B7C79] !bg-[#F6F6F6]" name="password" id="reg_password" autocomplete="new-password" />
+										<input placeholder="Password" type="password" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3] !bg-[#F6F6F6]" name="password" id="reg_password" autocomplete="new-password" />
 									</p>
 
 								<?php else : ?>
@@ -98,11 +98,11 @@ if (!defined('ABSPATH')) {
 						<div class="user-email-pass-box">
 							<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-first mb-[30px] sm:mb-[15px]">
 								<!-- <label for="username" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
-								<input type="text" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#7B7C79]" placeholder="johndoe@domain.com" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
+								<input type="text" class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3]" placeholder="johndoe@domain.com" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
 							</p>
 							<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-last">
 								<!-- <label for="password" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
-								<input class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#7B7C79]" placeholder="••••••••••" type="password" name="password" id="password" autocomplete="current-password" />
+								<input class="woocommerce-Input outline-none woocommerce-Input--text input-text text-[12px] sm:text-[11px] text-[#7B7C79] font-semibold font-primary leading-[1.5] !py-[16px] !px-[20px] placeholder:opacity-50 !border-0 !border-b-2 !border-b-[#B6B9B3]" placeholder="••••••••••" type="password" name="password" id="password" autocomplete="current-password" />
 							</p>
 						</div>
 						<?php do_action('woocommerce_login_form'); ?>

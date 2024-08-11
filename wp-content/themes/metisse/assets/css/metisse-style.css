@@ -1583,6 +1583,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   margin-top: 0 !important;
 }
 
+.user-data-name-box input {
+  border: none !important;
+  border-bottom: 2px solid #B6B9B3 !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2250,6 +2255,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   border-width: 1px !important;
 }
 
+.\!border-0 {
+  border-width: 0px !important;
+}
+
 .\!border-2 {
   border-width: 2px !important;
 }
@@ -2272,10 +2281,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
 .border-\[2px\] {
   border-width: 2px;
-}
-
-.\!border-0 {
-  border-width: 0px !important;
 }
 
 .\!border-b-2 {
@@ -2356,6 +2361,32 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   border-bottom-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 
+.\!border-b-\[\#7B7C7\] {
+  border-bottom-color: #7B7C7 !important;
+}
+
+.\!border-b-\[\#7B7C\] {
+  border-bottom-color: #7B7C !important;
+}
+
+.\!border-b-\[\#7B7\] {
+  --tw-border-opacity: 1 !important;
+  border-bottom-color: rgb(119 187 119 / var(--tw-border-opacity)) !important;
+}
+
+.\!border-b-\[\#\] {
+  border-bottom-color: # !important;
+}
+
+.\!border-b-\[\] {
+  border-bottom-color:  !important;
+}
+
+.\!border-b-\[\#B6B9B3\] {
+  --tw-border-opacity: 1 !important;
+  border-bottom-color: rgb(182 185 179 / var(--tw-border-opacity)) !important;
+}
+
 .\!bg-\[\#000000f2\] {
   background-color: #000000f2 !important;
 }
@@ -2368,6 +2399,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 .\!bg-\[\#131313\] {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(19 19 19 / var(--tw-bg-opacity)) !important;
+}
+
+.\!bg-\[\#F6F6F6\] {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(246 246 246 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-\[\#0000000d\] {
@@ -2415,16 +2451,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#F6F6F6\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(246 246 246 / var(--tw-bg-opacity));
-}
-
-.\!bg-\[\#F6F6F6\] {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(246 246 246 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-center {
