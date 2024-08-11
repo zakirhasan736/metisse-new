@@ -113,12 +113,13 @@ if (!defined('ABSPATH')) {
 								<input class="woocommerce-form__input woocommerce-form__input-checkbox woocommerce-form-login__input-checkbox !h-[18px] !w-[18px] cursor-pointer border-[2px] border-solid border-[rgba(6, 11, 38, 0.1)] bg-[rgba(6, 11, 38, 0.04)] rounded-sm" name="rememberme" type="checkbox" id="rememberme" value="forever" />
 								<span class="text-[14px] leading-[14px] text-[#1a1b1f] capitalize font-primary font-medium"><?php esc_html_e('Remember me', 'metisse'); ?></span>
 							</label>
+						</p>
 						<div class="auth-submit flex items-start flex-col md:gap-[15px]">
 							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px]<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Log in', 'metisse'); ?>"><?php esc_html_e('Log in', 'metisse'); ?></button>
 
 							<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
 						</div>
-						</p>
+
 
 						<?php do_action('woocommerce_login_form_end'); ?>
 
