@@ -1113,6 +1113,16 @@ Text Domain: metisse
         padding-left: 80px;
         padding-right: 80px;
     }
+
+    .user-email-pass-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .user-email-pass-box>p {
+        width: 100%;
+    }
 }
 
 @layer utilities {}

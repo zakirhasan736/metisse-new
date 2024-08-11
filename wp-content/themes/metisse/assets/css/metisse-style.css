@@ -1569,6 +1569,16 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   padding-right: 80px;
 }
 
+.user-email-pass-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.user-email-pass-box>p {
+  width: 100%;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
