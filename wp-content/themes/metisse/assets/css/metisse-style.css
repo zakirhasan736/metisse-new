@@ -3231,6 +3231,14 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     padding-top: 80px;
   }
 
+  .md\:pt-1 {
+    padding-top: 0.25rem;
+  }
+
+  .md\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
   .md\:\!text-\[16px\] {
     font-size: 16px !important;
   }
@@ -3311,6 +3319,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
   .sm\:h-\[30px\] {
     height: 30px;
+  }
+
+  .sm\:h-full {
+    height: 100%;
   }
 
   .sm\:min-h-\[100\%\] {
