@@ -2012,6 +2012,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   height: 100%;
 }
 
+.h-\[4px\] {
+  height: 4px;
+}
+
 .min-h-\[557px\] {
   min-height: 557px;
 }

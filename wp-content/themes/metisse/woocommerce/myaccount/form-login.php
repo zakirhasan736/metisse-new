@@ -73,7 +73,7 @@ if (!defined('ABSPATH')) {
 
 							<p class="woocommerce-form-row form-row">
 								<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-								<button type="submit" class="tp-login-btn woocommerce-Button woocommerce-button button !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] sm:w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e('Register', 'metisse'); ?>"><?php esc_html_e('Register', 'metisse'); ?></button>
+								<button type="submit" class="tp-login-btn woocommerce-Button woocommerce-button button !text-[14px] !text-[#fff] h-[40px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e('Register', 'metisse'); ?>"><?php esc_html_e('Register', 'metisse'); ?></button>
 							</p>
 
 							<?php do_action('woocommerce_register_form'); ?>
@@ -115,7 +115,7 @@ if (!defined('ABSPATH')) {
 							</label>
 						</p>
 						<div class="auth-submit flex items-start flex-col md:gap-[15px]">
-							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px]<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Log in', 'metisse'); ?>"><?php esc_html_e('Log in', 'metisse'); ?></button>
+							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[14px] !text-[#fff] h-[40px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Log in', 'metisse'); ?>"><?php esc_html_e('Log in', 'metisse'); ?></button>
 
 							<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
 						</div>
