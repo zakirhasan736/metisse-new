@@ -33,12 +33,12 @@ do_action('woocommerce_before_customer_registration_form');
                 <?php do_action('woocommerce_register_form_start'); ?>
 
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="reg_first_name"><?php esc_html_e('First Name', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+                    <!-- <label for="reg_first_name"><?php esc_html_e('First Name', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
                     <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="first_name" id="reg_first_name" autocomplete="given-name" value="<?php echo (!empty($_POST['first_name'])) ? esc_attr(wp_unslash($_POST['first_name'])) : ''; ?>" />
                 </p>
 
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                    <label for="reg_last_name"><?php esc_html_e('Last Name', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+                    <!-- <label for="reg_last_name"><?php esc_html_e('Last Name', 'metisse'); ?>&nbsp;<span class="required">*</span></label> -->
                     <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="last_name" id="reg_last_name" autocomplete="family-name" value="<?php echo (!empty($_POST['last_name'])) ? esc_attr(wp_unslash($_POST['last_name'])) : ''; ?>" />
                 </p>
 
