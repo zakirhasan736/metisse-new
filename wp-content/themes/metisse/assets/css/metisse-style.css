@@ -1816,6 +1816,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   margin-bottom: 7px;
 }
 
+.mb-\[8px\] {
+  margin-bottom: 8px;
+}
+
 .mb-\[9px\] {
   margin-bottom: 9px;
 }
@@ -2618,6 +2622,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
 
 .pt-\[80px\] {
   padding-top: 80px;
+}
+
+.pt-\[145px\] {
+  padding-top: 145px;
 }
 
 .text-left {
