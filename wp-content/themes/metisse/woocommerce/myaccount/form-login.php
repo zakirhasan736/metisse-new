@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
 ?>
 
 <div class="customer-authentication-wrapper h-[636px]">
-	<div class="grid grid-cols-12 gap-[35px] sm:grid-cols-6" id="customer_login">
+	<div class="grid grid-cols-12 sm:grid-cols-6" id="customer_login">
 		<?php
 		do_action('woocommerce_before_customer_login_form');
 
@@ -32,93 +32,97 @@ if (!defined('ABSPATH')) {
 
 		<?php if ('yes' === $woocommerce_enable_myaccount_registration) : ?>
 			<div class="col-span-6 sm:col-span-6">
-				<div class="tp-woo-input-field tp-woo-form-login tp-woo-myaccount-register">
-					<div class="auth-screen-title-box">
-						<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('New here? Create an account', 'metisse'); ?></h2>
-						<p class="suth-screen-desc">Set up an account so we can remember your details and speed up your next visit.</p>
+				<div class="tp-woo-input-field tp-woo-form-login tp-woo-myaccount-register registaretion-forms">
+					<div class="registaretion-area-form-box">
+						<div class="auth-screen-title-box">
+							<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('New here? Create an account', 'metisse'); ?></h2>
+							<p class="suth-screen-desc">Set up an account so we can remember your details and speed up your next visit.</p>
+						</div>
+						<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action('woocommerce_register_form_tag'); ?>>
+
+							<?php do_action('woocommerce_register_form_start'); ?>
+
+							<?php if ('no' === get_option('woocommerce_registration_generate_username')) : ?>
+
+								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
+									<label for="reg_username" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Username', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+									<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
+								</p>
+
+							<?php endif; ?>
+
+							<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
+								<label for="reg_email" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+								<input placeholder="johndoe@domain.com" type="email" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" />
+							</p>
+
+							<?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
+
+								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
+									<label for="reg_password" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+									<input placeholder="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="password" id="reg_password" autocomplete="new-password" />
+								</p>
+
+							<?php else : ?>
+
+								<p><?php esc_html_e('A link to set a new password will be sent to your email address.', 'metisse'); ?></p>
+
+							<?php endif; ?>
+
+							<p class="woocommerce-form-row form-row">
+								<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
+								<button type="submit" class="tp-login-btn woocommerce-Button woocommerce-button button !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] sm:w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e('Register', 'metisse'); ?>"><?php esc_html_e('Register', 'metisse'); ?></button>
+							</p>
+
+							<?php do_action('woocommerce_register_form'); ?>
+							<?php do_action('woocommerce_register_form_end'); ?>
+
+						</form>
 					</div>
-					<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action('woocommerce_register_form_tag'); ?>>
-
-						<?php do_action('woocommerce_register_form_start'); ?>
-
-						<?php if ('no' === get_option('woocommerce_registration_generate_username')) : ?>
-
-							<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
-								<label for="reg_username" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Username', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-								<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
-							</p>
-
-						<?php endif; ?>
-
-						<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
-							<label for="reg_email" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-							<input placeholder="johndoe@domain.com" type="email" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" />
-						</p>
-
-						<?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
-
-							<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
-								<label for="reg_password" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-								<input placeholder="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="password" id="reg_password" autocomplete="new-password" />
-							</p>
-
-						<?php else : ?>
-
-							<p><?php esc_html_e('A link to set a new password will be sent to your email address.', 'metisse'); ?></p>
-
-						<?php endif; ?>
-
-						<p class="woocommerce-form-row form-row">
-							<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-							<button type="submit" class="tp-login-btn woocommerce-Button woocommerce-button button !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px] sm:w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?> woocommerce-form-register__submit" name="register" value="<?php esc_attr_e('Register', 'metisse'); ?>"><?php esc_html_e('Register', 'metisse'); ?></button>
-						</p>
-
-						<?php do_action('woocommerce_register_form'); ?>
-						<?php do_action('woocommerce_register_form_end'); ?>
-
-					</form>
 				</div>
 			</div>
 		<?php endif; ?>
 
 		<div class="col-span-6 sm:col-span-6">
-			<div class="tp-woo-input-field tp-woo-form-login">
-				<div class="auth-screen-title-box">
-					<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
-					<p class="suth-screen-desc">Login to manage your account and see your order history.</p>
-				</div>
-				<form class="woocommerce-form woocommerce-form-login login" method="post">
-
-					<?php do_action('woocommerce_login_form_start'); ?>
-
-					<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-first mb-[30px] sm:mb-[15px]">
-						<label for="username" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" placeholder="johndoe@domain.com" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
-					</p>
-					<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-last">
-						<label for="password" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
-						<input class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" placeholder="••••••••••" type="password" name="password" id="password" autocomplete="current-password" />
-					</p>
-
-					<?php do_action('woocommerce_login_form'); ?>
-
-					<p class="form-row mt-[30px] sm:mt-[20px]">
-						<?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-					<div class="auth-submit flex items-center justify-between md:flex-col md:gap-[15px]">
-						<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px]<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Log in', 'metisse'); ?>"><?php esc_html_e('Log in', 'metisse'); ?></button>
-
-						<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme flex items-center gap-[10px] cursor-pointer !font-primary !font-medium" for="rememberme">
-							<input class="woocommerce-form__input woocommerce-form__input-checkbox woocommerce-form-login__input-checkbox !h-[18px] !w-[18px] cursor-pointer border-[2px] border-solid border-[rgba(6, 11, 38, 0.1)] bg-[rgba(6, 11, 38, 0.04)] rounded-sm" name="rememberme" type="checkbox" id="rememberme" value="forever" />
-							<span class="text-[14px] leading-[14px] text-[#1a1b1f] capitalize font-primary font-medium"><?php esc_html_e('Remember me', 'metisse'); ?></span>
-						</label>
-
-						<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
+			<div class="tp-woo-input-field tp-woo-form-login login-forms">
+				<div class="login-area-fomr-box">
+					<div class="auth-screen-title-box">
+						<h2 class="tp-woo-myaccount-login-title mb-[53px] sm:mb-[30px] text-[34px] !text-[#000] font-primary font-normal capitalize md:text-[28px] sm:text-[24px]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
+						<p class="suth-screen-desc">Login to manage your account and see your order history.</p>
 					</div>
-					</p>
+					<form class="woocommerce-form woocommerce-form-login login" method="post">
 
-					<?php do_action('woocommerce_login_form_end'); ?>
+						<?php do_action('woocommerce_login_form_start'); ?>
 
-				</form>
+						<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-first mb-[30px] sm:mb-[15px]">
+							<label for="username" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Email address', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+							<input type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" placeholder="johndoe@domain.com" name="username" id="username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
+						</p>
+						<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide form-row-last">
+							<label for="password" class="mb-[3px] text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Password', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
+							<input class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" placeholder="••••••••••" type="password" name="password" id="password" autocomplete="current-password" />
+						</p>
+
+						<?php do_action('woocommerce_login_form'); ?>
+
+						<p class="form-row mt-[30px] sm:mt-[20px]">
+							<?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
+						<div class="auth-submit flex items-center justify-between md:flex-col md:gap-[15px]">
+							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[14px] !text-[#fff] h-[52px] !font-primary !font-medium !bg-[#000] !py-[14px] !leading-[1.1] w-[197px]<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Log in', 'metisse'); ?>"><?php esc_html_e('Log in', 'metisse'); ?></button>
+
+							<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme flex items-center gap-[10px] cursor-pointer !font-primary !font-medium" for="rememberme">
+								<input class="woocommerce-form__input woocommerce-form__input-checkbox woocommerce-form-login__input-checkbox !h-[18px] !w-[18px] cursor-pointer border-[2px] border-solid border-[rgba(6, 11, 38, 0.1)] bg-[rgba(6, 11, 38, 0.04)] rounded-sm" name="rememberme" type="checkbox" id="rememberme" value="forever" />
+								<span class="text-[14px] leading-[14px] text-[#1a1b1f] capitalize font-primary font-medium"><?php esc_html_e('Remember me', 'metisse'); ?></span>
+							</label>
+
+							<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
+						</div>
+						</p>
+
+						<?php do_action('woocommerce_login_form_end'); ?>
+
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>

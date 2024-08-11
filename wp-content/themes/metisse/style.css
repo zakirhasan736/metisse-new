@@ -1103,6 +1103,16 @@ Text Domain: metisse
     .customer-authentication-wrapper .woocommerce-notices-wrapper {
         display: none;
     }
+
+    .tp-woo-input-field.tp-woo-form-login.tp-woo-myaccount-register {
+        background: #F6F6F6;
+        padding-right: 120px;
+    }
+
+    .tp-woo-input-field.tp-woo-form-login {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
 }
 
 @layer utilities {}
