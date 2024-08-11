@@ -87,7 +87,7 @@ if (!defined('ABSPATH')) {
 
 		<div class="col-span-6 sm:col-span-6 h-full">
 			<div class="tp-woo-input-field h-full tp-woo-form-login login-forms">
-				<div class="h-full login-area-fomr-box pt-[145px] max-w-[460px] w-full ml-auto">
+				<div class="h-full login-area-fomr-box pt-[145px] max-w-[460px] w-full mr-auto">
 					<div class="auth-screen-title-box mb-19">
 						<h2 class="tp-woo-myaccount-login-title mb-[8px] text-[24px] !text-[#131313] font-secondary font-bold capitalize md:text-[20px] sm:text-[18px] tracking-[.24px] leading-[1.2]"><?php esc_html_e('Welcome back!', 'metisse'); ?></h2>
 						<p class="suth-screen-desc text-[12px] text-left font-normal font-secondary leading-[1.5]">Login to manage your account and see your order history.</p>

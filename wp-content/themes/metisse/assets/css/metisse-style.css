@@ -1876,6 +1876,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   margin-left: auto;
 }
 
+.mr-auto {
+  margin-right: auto;
+}
+
 .block {
   display: block;
 }
