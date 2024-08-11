@@ -2274,6 +2274,10 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   border-width: 2px;
 }
 
+.\!border-0 {
+  border-width: 0px !important;
+}
+
 .\!border-b-2 {
   border-bottom-width: 2px !important;
 }
