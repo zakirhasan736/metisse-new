@@ -24,8 +24,8 @@ do_action('woocommerce_before_customer_login_form');
 
 
 $woocommerce_enable_myaccount_registration = get_option('woocommerce_enable_myaccount_registration');
-// $form_col = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? 'col-lg-6' : 'col-lg-6';
-// $form_row = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? '' : 'justify-content-center';
+$form_col = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? 'col-lg-6' : 'col-lg-6';
+$form_row = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? '' : 'justify-content-center';
 
 ?>
 

@@ -22,8 +22,8 @@ if (!defined('ABSPATH')) {
 do_action('woocommerce_before_customer_login_form');
 
 $woocommerce_enable_myaccount_registration = get_option('woocommerce_enable_myaccount_registration');
-// $form_col = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? 'col-lg-6' : 'col-lg-6';
-// $form_row = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? '' : 'justify-content-center';
+$form_col = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? 'col-lg-6' : 'col-lg-6';
+$form_row = get_option('woocommerce_enable_myaccount_registration') === 'yes' ? '' : 'justify-content-center';
 ?>
 <div class="customer-authertication-wrapper register-auth">
 	<div class="grid grid-cols-12 gap-[35px] sm:grid-cols-6" id="customer_login">
