@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 <div class="my-account-main-cont-wrapper">
 	<div class="my-account-wrapper-box pt-[49px] pb-[52px]">
 		<div class="custom-container-auth-area-box  custom-container-new">
-			<div class="my-account-wrapper-cont-box flex items-start sm:flex-col gap-[119px] lg:gap-[80px] md:gap-[60px] sm:gap-[65px] min-h-[557px] sm:min-h-auto h-full">
+			<div class="my-account-wrapper-cont-box flex items-start flex-col gap-[119px] lg:gap-[80px] md:gap-[60px] sm:gap-[65px] min-h-[557px] sm:min-h-auto h-full">
 				<div class="my-account-sidebar h-full min-h-[557px] sm:min-h-[100%] max-w-[230px] sm:max-w-[100%] w-full">
 					<?php
 					/**
