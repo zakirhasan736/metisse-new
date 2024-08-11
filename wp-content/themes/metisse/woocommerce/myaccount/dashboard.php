@@ -42,7 +42,7 @@ $allowed_html = array(
 				<?php
 				printf(
 					/* translators: 1: user display name */
-					esc_html__('Hello, %s', 'woocommerce'),
+					esc_html__('Welcome back, %s', 'woocommerce'),
 					'<strong>' . esc_html($current_user->display_name) . '</strong>'
 				);
 				?>
