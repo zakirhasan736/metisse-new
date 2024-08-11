@@ -2583,6 +2583,21 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   padding-bottom: 7px;
 }
 
+.\!px-\[2px\] {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+.\!px-\[px\] {
+  padding-left: px !important;
+  padding-right: px !important;
+}
+
+.\!px-\[6px\] {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+
 .\!pl-0 {
   padding-left: 0px !important;
 }
