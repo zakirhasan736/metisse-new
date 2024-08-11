@@ -107,7 +107,7 @@ if (!defined('ABSPATH')) {
 						</div>
 						<?php do_action('woocommerce_login_form'); ?>
 
-						<p class="form-row mt-[30px] sm:mt-[20px]">
+						<p class="form-row">
 							<?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
 							<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme flex items-center gap-[10px] cursor-pointer !font-primary !font-medium" for="rememberme">
 								<input class="woocommerce-form__input woocommerce-form__input-checkbox woocommerce-form-login__input-checkbox !h-[18px] !w-[18px] cursor-pointer border-[2px] border-solid border-[rgba(6, 11, 38, 0.1)] bg-[rgba(6, 11, 38, 0.04)] rounded-sm" name="rememberme" type="checkbox" id="rememberme" value="forever" />
@@ -115,7 +115,7 @@ if (!defined('ABSPATH')) {
 							</label>
 						</p>
 						<div class="auth-submit flex items-start flex-col md:gap-[15px]">
-							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[11px] !text-[#5A5A5A] !h-[40px] !font-primary !font-normaL bg-transparent border border-[#5A5A5A] hover:border-[#131313] hover:bg-[#131313] hover:text-[#FFFDFD] !uppercase !py-2 px-8 !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Login', 'metisse'); ?>"><?php esc_html_e('Login', 'metisse'); ?></button>
+							<button type="submit" class="woocommerce-button button woocommerce-form-login__submit !text-[11px] text-[#5A5A5A] !h-[40px] !font-primary !font-normaL bg-transparent border border-[#5A5A5A] hover:border-[#131313] hover:bg-[#131313] hover:text-[#FFFDFD] !uppercase !py-2 px-8 !leading-[1.1] w-full<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="login" value="<?php esc_attr_e('Login', 'metisse'); ?>"><?php esc_html_e('Login', 'metisse'); ?></button>
 							<p class="woocommerce-LostPassword lost_password text-[14px] leading-[14px] capitalize font-primary font-medium underline"><a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-[inherit]"><?php esc_html_e('Forgot your password?', 'metisse'); ?></a></p>
 						</div>
 
