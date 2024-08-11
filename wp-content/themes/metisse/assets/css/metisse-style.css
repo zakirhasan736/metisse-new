@@ -1463,6 +1463,17 @@ div#ekit-megamenu-primary-menu {
     left: calc((100vw - 1369px) / 2);
     padding-right: calc((100vw - 1369px) / 2);
   }
+
+  @media screen and (max-width:991px) {
+    .tp-woo-input-field.tp-woo-form-login {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .tp-woo-input-field.tp-woo-form-login.tp-woo-myaccount-register {
+      padding-right: 40px;
+    }
+  }
 }
 
 .home-product-features-section .e-n-carousel.swiper.offset-right.swiper-initialized.swiper-horizontal.swiper-pointer-events {
@@ -3174,6 +3185,11 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
     gap: 60px;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .md\:py-\[30px\] {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -3182,11 +3198,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
   .md\:py-\[80px\] {
     padding-top: 80px;
     padding-bottom: 80px;
-  }
-
-  .md\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 
   .md\:pb-\[45px\] {
@@ -3199,10 +3210,6 @@ label.woocommerce-form__label.woocommerce-form__label-for-checkbox.woocommerce-f
 
   .md\:pb-\[80px\] {
     padding-bottom: 80px;
-  }
-
-  .md\:pt-10 {
-    padding-top: 2.5rem;
   }
 
   .md\:pt-\[60px\] {
