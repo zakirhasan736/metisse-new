@@ -1117,7 +1117,7 @@ Text Domain: metisse
     .user-email-pass-box {
         display: flex;
         align-items: flex-start;
-        gap: 30px;
+        gap: 16px;
     }
 
     .user-email-pass-box>p {

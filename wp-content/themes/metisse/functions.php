@@ -367,7 +367,7 @@ function wtwh_add_name_woo_account_registration()
 {
 ?>
 
-    <div class="user-data-name-box flex items-center md:flex-col gap-x-[30px] sm:gap-0 w-full">
+    <div class="user-data-name-box flex items-center md:flex-col gap-x-[16px] sm:gap-0 w-full">
         <p class="form-row form-row-first  mb-[30px] sm:mb-[15px] w-full">
             <!-- <label for="reg_billing_first_name" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php _e('First name', 'woocommerce'); ?> <span class="required">*</span></label> -->
             <input type="text" placeholder="First Name" class="input-text   text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="billing_first_name" id="reg_billing_first_name" value="<?php if (!empty($_POST['billing_first_name'])) esc_attr_e($_POST['billing_first_name']); ?>" />
