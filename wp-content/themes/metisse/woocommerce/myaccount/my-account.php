@@ -39,12 +39,28 @@ defined('ABSPATH') || exit;
 				<div class="my-account-woo-main-cont w-full">
 					<div class="woocommerce-MyAccount-content tp-woo-myaccount-content">
 						<?php
-						/**
-						 * My Account content.
-						 *
-						 * @since 2.6.0
-						 */
-						do_action('woocommerce_account_content');
+						// Display the login form.
+						if (!is_user_logged_in()) {
+							echo '<div class="woocommerce-notices-wrapper">';
+							wc_print_notices();
+							echo '</div>';
+
+							woocommerce_login_form(
+								array(
+									'redirect' => wc_get_page_permalink('myaccount'),
+								)
+							);
+
+							// Display the registration form.
+							woocommerce_register_form();
+						} else {
+							/**
+							 * My Account content.
+							 *
+							 * @since 2.6.0
+							 */
+							do_action('woocommerce_account_content');
+						}
 						?>
 					</div>
 				</div>

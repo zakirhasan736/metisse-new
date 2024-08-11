@@ -2523,12 +2523,12 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   padding-top: 0px;
 }
 
-.pt-5 {
-  padding-top: 1.25rem;
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
-.pt-80 {
-  padding-top: 20rem;
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .pt-\[114px\] {
@@ -2565,14 +2565,6 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
 
 .pt-\[80px\] {
   padding-top: 80px;
-}
-
-.pt-1 {
-  padding-top: 0.25rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
 }
 
 .text-left {
