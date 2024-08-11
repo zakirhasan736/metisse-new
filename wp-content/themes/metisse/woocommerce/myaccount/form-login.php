@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 
 ?>
 
-<div class="customer-authentication-wrapper py-[130px] lg:py-[100px] md:py-[80px] min-h-[650px]">
+<div class="customer-authentication-wrapper h-[636px]">
 	<div class="grid grid-cols-12 gap-[35px] sm:grid-cols-6" id="customer_login">
 		<?php
 		do_action('woocommerce_before_customer_login_form');

@@ -1960,6 +1960,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   height: 100%;
 }
 
+.h-\[636px\] {
+  height: 636px;
+}
+
 .min-h-\[557px\] {
   min-height: 557px;
 }
@@ -2339,6 +2343,11 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#FFFDFD\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 253 253 / var(--tw-bg-opacity));
 }
 
 .bg-center {

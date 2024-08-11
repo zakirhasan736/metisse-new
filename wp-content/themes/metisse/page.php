@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-<div class="tp-page-area bg-[#ffffff]">
+<div class="tp-page-area bg-[#FFFDFD]">
     <div class="container-new-area">
         <div class="grid grid-cols-12">
             <div class="col-span-full">
