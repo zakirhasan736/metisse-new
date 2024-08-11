@@ -2016,6 +2016,10 @@ section.blogs-and-article-section.product-page-blogs-area .e-con-inner {
   height: 4px;
 }
 
+.\!h-\[40px\] {
+  height: 40px !important;
+}
+
 .min-h-\[557px\] {
   min-height: 557px;
 }
