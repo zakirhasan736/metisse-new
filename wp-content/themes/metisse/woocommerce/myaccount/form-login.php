@@ -44,10 +44,10 @@ if (!defined('ABSPATH')) {
 
 							<?php if ('no' === get_option('woocommerce_registration_generate_username')) : ?>
 
-								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
+								<!-- <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-[30px] sm:mb-[15px]">
 									<label for="reg_username" class="text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px]"><?php esc_html_e('Username', 'metisse'); ?>&nbsp;<span class="required">*</span></label>
 									<input placeholder="Username" type="text" class="woocommerce-Input woocommerce-Input--text input-text text-[18px] sm:text-[14px] font-semibold font-primary leading-[25px] !py-[16px] !px-[20px] placeholder:opacity-50 !border-2 !border-[#000]" name="username" id="reg_username" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
-								</p>
+								</p> -->
 
 							<?php endif; ?>
 
