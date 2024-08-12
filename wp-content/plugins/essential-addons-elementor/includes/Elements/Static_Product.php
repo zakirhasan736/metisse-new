@@ -94,7 +94,7 @@ class Static_Product extends Widget_Base
             'important_note',
             [
                 'type'            => \Elementor\Controls_Manager::RAW_HTML,
-                'raw'             => __('Goto <strong>product details</strong> panel and active add to cart button', 'essential-addons-elementor'),
+                'raw'             => __('Goto <strong>product details</strong> panel and active Add to basket button', 'essential-addons-elementor'),
                 'content_classes' => 'eael-warning',
                 'condition'       => [
                     'eael_static_product_layout'                  => 'two',
@@ -126,7 +126,7 @@ class Static_Product extends Widget_Base
         $this->add_control(
             'eael_static_product_show_add_to_cart_button',
             [
-                'label'     => esc_html__('Show Add To Cart Button?', 'essential-addons-elementor'),
+                'label'     => esc_html__('Show Add to basket Button?', 'essential-addons-elementor'),
                 'type'      => Controls_Manager::SWITCHER,
                 'label_on'  => __('yes', 'essential-addons-elementor'),
                 'label_off' => __('no', 'essential-addons-elementor'),
@@ -396,11 +396,11 @@ class Static_Product extends Widget_Base
 
         $this->end_controls_section();
 
-        // add to cart button
+        // Add to basket button
         $this->start_controls_section(
             'add_to_cart_button_content_section',
             [
-                'label'     => __('Add To Cart Button', 'essential-addons-elementor'),
+                'label'     => __('Add to basket Button', 'essential-addons-elementor'),
                 'tab'       => \Elementor\Controls_Manager::TAB_CONTENT,
                 'condition' => [
                     'eael_static_product_show_add_to_cart_button' => 'yes',
@@ -412,7 +412,7 @@ class Static_Product extends Widget_Base
             'eael_static_product_add_to_cart_btn_product_ID',
             [
                 'label'       => esc_html__('Product ID', 'essential-addons-elementor'),
-                'description' => esc_html__('add product id to generate add to cart url', 'essential-addons-elementor'),
+                'description' => esc_html__('add product id to generate Add to basket url', 'essential-addons-elementor'),
                 'type'        => Controls_Manager::TEXT,
                 'dynamic' => [ 'active' => true ],
                 'ai' => [
@@ -429,7 +429,7 @@ class Static_Product extends Widget_Base
                 'dynamic' => [
                     'active' => true,
                 ],
-                'default' => esc_html__( 'Add To Cart', 'essential-addons-elementor' ),
+                'default' => esc_html__( 'Add to basket', 'essential-addons-elementor' ),
                 'ai' => [
 					'active' => false,
 				],
@@ -1338,11 +1338,11 @@ class Static_Product extends Widget_Base
 
         $this->end_controls_section();
 
-        // add to cart
+        // Add to basket
         $this->start_controls_section(
             'add_to_cart_button_style_section',
             [
-                'label'     => __('Add To Cart Button', 'essential-addons-elementor'),
+                'label'     => __('Add to basket Button', 'essential-addons-elementor'),
                 'tab'       => \Elementor\Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'eael_static_product_show_add_to_cart_button' => 'yes',

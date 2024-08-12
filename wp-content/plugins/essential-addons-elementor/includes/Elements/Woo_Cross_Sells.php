@@ -403,10 +403,10 @@ class Woo_Cross_Sells extends Widget_Base {
 		$this->add_control(
 			'eael_woo_cross_sales_add_to_cart_label',
 			[
-				'label'       => esc_html__( 'Add to Cart', 'essential-addons-elementor' ),
+				'label'       => esc_html__( 'Add to basket', 'essential-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default'     => __( 'Add to Cart', 'essential-addons-elementor' ),
+				'default'     => __( 'Add to basket', 'essential-addons-elementor' ),
 				'ai'          => [
 					'active' => false,
 				],

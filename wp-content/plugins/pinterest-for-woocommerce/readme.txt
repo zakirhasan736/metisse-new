@@ -158,7 +158,7 @@ Release and roadmap notes available on the [WooCommerce Developers Blog](https:/
 
 = 1.3.8 - 2023-08-15 =
 * Fix - Caching of API calls.
-* Fix - Make add to cart events independent from WooCommerce archive page settings.
+* Fix - Make Add to basket events independent from WooCommerce archive page settings.
 
 = 1.3.7 - 2023-08-09 =
 * Tweak - Don't fetch the allowed countries list when not connected.
@@ -235,7 +235,7 @@ Release and roadmap notes available on the [WooCommerce Developers Blog](https:/
 = 1.2.11 - 2023-02-07 =
 * Dev - Fix deprecated method argument version.
 * Dev - Fix php8.2 deprecation notices.
-* Fix - Inconsistencies with the add to cart tracking event.
+* Fix - Inconsistencies with the Add to basket tracking event.
 * Tweak - WC 7.4 compatibility.
 * Update - The Onboarding task to use `TaskLists::add_task` method instead of the deprecated `woocommerce_admin_onboarding_task_list` filter.
 
@@ -327,7 +327,7 @@ Release and roadmap notes available on the [WooCommerce Developers Blog](https:/
 * Add - Clear error when the merchant is connected to another e-commerce platform.
 * Add - Mexico added to supported countries.
 * Fix - Currency is now being sent on the product page visit event.
-* Fix - Ensure add to cart tag data is consistent.
+* Fix - Ensure Add to basket tag data is consistent.
 * Fix - Price mismatch when price includes taxes.
 * Fix - Unit tests failing on WC 6.4.
 * Tweak - Simplify tracking code.

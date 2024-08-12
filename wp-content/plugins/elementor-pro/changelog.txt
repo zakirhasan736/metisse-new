@@ -409,7 +409,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 
 * New: Introducing Notes - Work collaboratively directly within Elementor
 * New: Stripe Button widget - Collect Stripe payments directly from your site ([#14748](https://github.com/elementor/elementor/issues/14748))
-* New: Meet WooCommerce Add to Cart dynamic tag - add products to cart from every widget ([#10607](https://github.com/elementor/elementor/issues/10607), [#11801](https://github.com/elementor/elementor/issues/11801))
+* New: Meet WooCommerce Add to basket dynamic tag - add products to cart from every widget ([#10607](https://github.com/elementor/elementor/issues/10607), [#11801](https://github.com/elementor/elementor/issues/11801))
 * New: Added WooCommerce Product Content dynamic tag ([#16367](https://github.com/elementor/elementor/issues/16367))
 * Tweak: Added Related, Upsells and Cross-Sells query sources to Products widget ([#8071](https://github.com/elementor/elementor/issues/8071))
 * Tweak: Added custom icon control to Nav Menu widget ([#18007](https://github.com/elementor/elementor/issues/18007), [#14357](https://github.com/elementor/elementor/issues/14357), [#13151](https://github.com/elementor/elementor/issues/13151), [#11361](https://github.com/elementor/elementor/issues/11361))
@@ -486,7 +486,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 #### 3.6.5 - 2022-04-12
 
 * Fix: Compatibility issues for several widgets in iOS 14 and macOS 13 devices ([#18090](https://github.com/elementor/elementor/issues/18090), [#15910](https://github.com/elementor/elementor/issues/15910))
-* Fix: Button Alignment doesn't work in Custom Add To Cart widget ([#17810](https://github.com/elementor/elementor/issues/17810))
+* Fix: Button Alignment doesn't work in Custom Add to basket widget ([#17810](https://github.com/elementor/elementor/issues/17810))
 * Fix: PHP warning is thrown in some cases in PayPal button widget
 * Fix: PHP 8.1 throws errors and notices in some cases
 * Fix: PHP notice was thrown when Kit Import process initiated without display conditions
@@ -529,7 +529,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * New: WooCommerce Notices widget - Set the position of WooCommerce notices on your shop pages ([#8124](https://github.com/elementor/elementor/issues/8124))
 * Experiment: Page Transitions - Customize the page loading experience, and increase brand recognition ([#10576](https://github.com/elementor/elementor/issues/10576))
 * Tweak: Added WooCommerce & Theme Elements widgets to Improved CSS Loading experiment to save up 126KB per page load ([#17412](https://github.com/elementor/elementor/issues/17412), [#17337](https://github.com/elementor/elementor/issues/17337))
-* Tweak: Added new layout options in WooCommerce Add To Cart and WooCommerce Custom Add To Cart widgets ([#5437](https://github.com/elementor/elementor/issues/5437), [#10617](https://github.com/elementor/elementor/issues/10617))
+* Tweak: Added new layout options in WooCommerce Add to basket and WooCommerce Custom Add to basket widgets ([#5437](https://github.com/elementor/elementor/issues/5437), [#10617](https://github.com/elementor/elementor/issues/10617))
 * Tweak: Added Stroke functionality for typography control in various widgets ([#11158](https://github.com/elementor/elementor/issues/11158))
 * Tweak: Removed `elementor-section-wrap` by adding it to the Optimized DOM Output experiment ([#16950](https://github.com/elementor/elementor/issues/16950))
 * Tweak: Added style controls for variations in WooCommerce Menu Cart widget
@@ -561,7 +561,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Fix: Sticky offset not working as expected when changing device mode on the browser
 * Fix: Scroll Snap functionality wasn't applied on Templates and Archives
 * Fix: Toggle icon color didn't work on hover state when Inline Font Icons experiment is activated in Nav Menu widget
-* Fix: Variations style controls are not working as expected in WooCommerce Add to Cart widget
+* Fix: Variations style controls are not working as expected in WooCommerce Add to basket widget
 * Fix: Display conditions module is not working as expected when using the new Theme Builder UI
 * Fix: Edit header handles `z-index` issues in Header document
 * Fix: Panel icons UI glitch in Call To Action widget
@@ -1166,7 +1166,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Tweak: Remove Fontello conflicting CSS on import to Custom Icons sets
 * Tweak: Editor Panel UI tweaks
 * Tweak: Added DOM events on Popup show/hide ([Developers Blog Post](https://developers.elementor.com/elementor-pro-2-7-popup-events/))
-* Tweak: Added option to change the variations field width in Add to Cart widget
+* Tweak: Added option to change the variations field width in Add to basket widget
 * Tweak: Use select control instead of select2 in Menu Cart widget
 * Tweak: Added conditions to the tabs instead of to each control in Share Buttons widget
 * Tweak: Added Typography controls to HTML field in Forms widget
@@ -1181,7 +1181,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Fix: Nothing found message shows up inside the columns set in Posts Archive widget ([#7347](https://github.com/elementor/elementor/issues/7347))
 * Fix: Responsive UI glitch in Popup Conditions modal tabs
 * Fix: Removed unnecessary divider in Call to Action widget
-* Fix: Custom Add To Cart * button style (size, position and background color) when `quantity` is enabled.
+* Fix: Custom Add to basket * button style (size, position and background color) when `quantity` is enabled.
 * Fix: Add support for Document/PageBase in Theme Builder (Core >=2.7.0)
 * Fix: Ampersand character breaks email link in Share Buttons widget
 * Fix: Correct custom font attachment `mime-type` to show uploaded Custom Fonts
@@ -1195,7 +1195,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 
 #### 2.6.5 - 2019-08-26
 * Tweak: Added compatibility for the upcoming release of Elementor v2.7
-* Fix: Button style not working when `quantity` is enabled in Custom Add To Cart widget
+* Fix: Button style not working when `quantity` is enabled in Custom Add to basket widget
 * Fix: Updated minified JS file fixed WhatsApp base URL in Share Buttons widget
 
 #### 2.6.4 - 2019-08-21
@@ -1369,7 +1369,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Tweak: WC Menu cart "View Cart" & "Checkout" buttons styling
 * Fix: Custom ID reset to default when dragging repeater
 * Fix: Conflict between archive-products widget and WC customizer
-* Fix: Add to Cart widget `spacing` and `space-between`
+* Fix: Add to basket widget `spacing` and `space-between`
 * Fix: Library view when creating a new Header or Footer
 * Fix: Post types labels missing on Add New Template modal
 
@@ -1402,7 +1402,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Notice: MailPoet `Auto Confirm` option will now default to "On"
 
 #### 2.4.3 - 2019-01-30
-* Fix: Custom Add to Cart widget responsive alignment settings
+* Fix: Custom Add to basket widget responsive alignment settings
 * Fix: Links in Post Info widget
 * Fix: WooCommerce `View Cart` string translate
 * Fix: Wrapper classes for header/footer templates ([#6884](https://github.com/elementor/elementor/issues/6884))
@@ -1417,7 +1417,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Fix: PHP warning when Toolset Date dynamic is empty ([#6842](https://github.com/elementor/elementor/issues/6842))
 * Fix: Support of exclude-ids in WC Products widget
 * Fix: Popup close button not clickable
-* Fix: Alignment justify issue of Add to Cart widget ([#6749](https://github.com/elementor/elementor/issues/6749))
+* Fix: Alignment justify issue of Add to basket widget ([#6749](https://github.com/elementor/elementor/issues/6749))
 * Fix: Bad anchors breaks the page JS
 * Fix: Popup overlay shown when turned off
 
@@ -1564,7 +1564,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Tweak: Added responsive alignment control for Share Buttons widget ([#5821](https://github.com/elementor/elementor/issues/5821))
 * Tweak: Added link control to Animated Headline widget
 * Fix: Mobile nav menu jump on RTL ([#5711](https://github.com/elementor/elementor/issues/5711))
-* Fix: Responsive alignment control in Add to Cart widget ([#5830](https://github.com/elementor/elementor/issues/5830))
+* Fix: Responsive alignment control in Add to basket widget ([#5830](https://github.com/elementor/elementor/issues/5830))
 * Fix: Added IE compatibility for Animated Headline widget
 * Fix: Post Content widget is now shown only on `Single` templates
 * Fix: Query Control Pagination with offset
@@ -2082,7 +2082,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 
 #### 1.5.4 - 2017-06-22
 * Tweak: Improved compatibility for Elementor v1.5
-* Fix: URL default for Add To Cart widget
+* Fix: URL default for Add to basket widget
 * Fix: Allowed `date` and `birthday` fields as text for MailChimp integration
 
 #### 1.5.3 - 2017-06-19
@@ -2164,7 +2164,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 * Fix: Metadata does not come through on form emails ([#1566](https://github.com/elementor/elementor/issues/1566))
 
 #### 1.2.6 - 2017-04-19
-* Fix: Added compatibility with WooCommerce 3.0 - Products & Add to Cart widgets
+* Fix: Added compatibility with WooCommerce 3.0 - Products & Add to basket widgets
 
 #### 1.2.5 - 2017-04-18
 * Fix: Offset query for posts widgets (Posts, Portfolio and Products)
@@ -2217,7 +2217,7 @@ Fix: Preview Could not be loaded error message appears on pages containing the L
 
 #### 1.1.0 - 2017-01-24
 * New: Price Table widget ([#102](https://github.com/elementor/elementor/issues/102))
-* New: WooCommerce Add to Cart widget
+* New: WooCommerce Add to basket widget
 * New: WooCommerce Categories widget
 * New: WooCommerce Elements widget
 * New: Honeypot field for Forms widgets

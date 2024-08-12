@@ -5120,7 +5120,7 @@ msgid "All Content On Hover Image"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:97
-msgid "Goto <strong>product details</strong> panel and active add to cart button"
+msgid "Goto <strong>product details</strong> panel and active Add to basket button"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:112, ../includes/Elements/Woo_Cross_Sells.php:761
@@ -5132,7 +5132,7 @@ msgid "Show Details Button?"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:129
-msgid "Show Add To Cart Button?"
+msgid "Show Add to basket Button?"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:140, ../includes/Elements/Woo_Thank_You.php:2406
@@ -5224,7 +5224,7 @@ msgid "View Details"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:403, ../includes/Elements/Static_Product.php:1345
-msgid "Add To Cart Button"
+msgid "Add to basket Button"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:414, ../includes/Elements/Woo_Product_Slider.php:122
@@ -5232,11 +5232,11 @@ msgid "Product ID"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:415
-msgid "add product id to generate add to cart url"
+msgid "add product id to generate Add to basket url"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:432
-msgid "Add To Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: ../includes/Elements/Static_Product.php:453
@@ -6240,7 +6240,7 @@ msgid "View Product"
 msgstr ""
 
 #: ../includes/Elements/Woo_Cross_Sells.php:406, ../includes/Elements/Woo_Cross_Sells.php:409
-msgid "Add to Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: ../includes/Elements/Woo_Cross_Sells.php:437

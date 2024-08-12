@@ -167,7 +167,7 @@
 			const button = variant
 				.closest( '.has-post-thumbnail' )
 				.find( '.add_to_cart_button' );
-			button.html( 'Add To Cart' );
+			button.html( 'Add to basket' );
 			button.addClass( 'tpwvs-variation-found' );
 			button.attr( 'data-variation_id', variation.variation_id );
 			button.attr( 'data-selected_variant', JSON.stringify( data ) );
@@ -218,7 +218,7 @@
 		};
 		$( document.body ).trigger( 'adding_to_cart', [ variant, data ] );
 		variant.removeClass( 'added' ).addClass( 'loading' );
-		// Ajax add to cart request
+		// Ajax Add to basket request
 		$.ajax( {
 			type: 'POST',
 			url: tpwvs_swatches_settings.ajax_url,

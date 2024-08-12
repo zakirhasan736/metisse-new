@@ -146,7 +146,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Add to cart functionality for shop page
+	 * Add to basket functionality for shop page
 	 *
 	 * @return mixed
 	 * @since 1.0.3
@@ -198,7 +198,7 @@ class Tp_Wvs_Public {
 	}
 
 	/**
-	 * Arguments for shop page add to cart button
+	 * Arguments for shop page Add to basket button
 	 *
 	 * @param array  $args array of button arguments.
 	 * @param object $product curreent product object.
@@ -208,7 +208,7 @@ class Tp_Wvs_Public {
 	public function shop_page_add_to_cart_args( $args, $product ) {
 		if ( $product->is_type( 'variable' ) ) {
 			$args['class']                                 .= ' tpwvs-ajax-add-to-cart';
-			$args['attributes']['data-add_to_cart_text']    = esc_html__( 'Add to Cart', 'pure-wc-swatches' );
+			$args['attributes']['data-add_to_cart_text']    = esc_html__( 'Add to basket', 'pure-wc-swatches' );
 			$args['attributes']['data-select_options_text'] = apply_filters( 'woocommerce_product_add_to_cart_text', $product->add_to_cart_text(), $product );
 		}
 

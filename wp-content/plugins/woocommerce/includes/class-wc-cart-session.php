@@ -206,7 +206,7 @@ final class WC_Cart_Session {
 
 				$cart_contents[ $key ] = apply_filters( 'woocommerce_get_cart_item_from_session', $session_data, $values, $key );
 
-				// Add to cart right away so the product is visible in woocommerce_get_cart_item_from_session hook.
+				// Add to basket right away so the product is visible in woocommerce_get_cart_item_from_session hook.
 				$this->cart->set_cart_contents( $cart_contents );
 			}
 		}
@@ -483,7 +483,7 @@ final class WC_Cart_Session {
 				continue;
 			}
 
-			// Add to cart directly.
+			// Add to basket directly.
 			$cart_id          = WC()->cart->generate_cart_id( $product_id, $variation_id, $variations, $cart_item_data );
 			$product_data     = wc_get_product( $variation_id ? $variation_id : $product_id );
 			$cart[ $cart_id ] = apply_filters(

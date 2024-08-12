@@ -52,7 +52,7 @@ class WC_Product_Variable extends WC_Product {
 	*/
 
 	/**
-	 * Get the aria-describedby description for the add to cart button.
+	 * Get the aria-describedby description for the Add to basket button.
 	 * Note that this is to provide the description, not the describedby attribute
 	 * itself.
 	 *
@@ -68,7 +68,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Get the add to cart button text.
+	 * Get the Add to basket button text.
 	 *
 	 * @return string
 	 */
@@ -77,7 +77,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Get the add to cart button text description - used in aria tags.
+	 * Get the Add to basket button text description - used in aria tags.
 	 *
 	 * @since 3.3.0
 	 * @return string
@@ -360,7 +360,7 @@ class WC_Product_Variable extends WC_Product {
 	}
 
 	/**
-	 * Returns an array of data for a variation. Used in the add to cart form.
+	 * Returns an array of data for a variation. Used in the Add to basket form.
 	 *
 	 * @since  2.4.0
 	 * @param  WC_Product $variation Variation product object or ID.

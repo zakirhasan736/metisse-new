@@ -419,12 +419,12 @@ msgstr ""
 
 #: wpc-smart-wishlist.php:1147
 #: wpc-smart-wishlist.php:1175
-msgid "Above add to cart button"
+msgid "Above Add to basket button"
 msgstr ""
 
 #: wpc-smart-wishlist.php:1148
 #: wpc-smart-wishlist.php:1176
-msgid "Under add to cart button"
+msgid "Under Add to basket button"
 msgstr ""
 
 #: wpc-smart-wishlist.php:1149

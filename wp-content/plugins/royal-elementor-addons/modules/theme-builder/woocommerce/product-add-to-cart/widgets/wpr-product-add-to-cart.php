@@ -19,7 +19,7 @@ class Wpr_Product_AddToCart extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Product Add to Cart', 'wpr-addons' );
+		return esc_html__( 'Product Add to basket', 'wpr-addons' );
 	}
 
 	public function get_icon() {
@@ -55,7 +55,7 @@ class Wpr_Product_AddToCart extends Widget_Base {
 		$this->add_control(
 			'ajax_add_to_cart',
 			[
-				'label' => esc_html__( 'Enable AJAX Add To Cart', 'wpr-addons' ),
+				'label' => esc_html__( 'Enable AJAX Add to basket', 'wpr-addons' ),
 				'type' => Controls_Manager::SWITCHER,
 			]
 		);
@@ -244,11 +244,11 @@ class Wpr_Product_AddToCart extends Widget_Base {
 		Utilities::wpr_add_section_request_feature( $this, Controls_Manager::RAW_HTML, '' );
 		
 		// Styles ====================
-		// Section: Add to Cart Quantity
+		// Section: Add to basket Quantity
 		$this->start_controls_section(
 			'section_style_quantity',
 			[
-				'label' => esc_html__( 'Add to Cart Quantity', 'wpr-addons' ),
+				'label' => esc_html__( 'Add to basket Quantity', 'wpr-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -592,11 +592,11 @@ class Wpr_Product_AddToCart extends Widget_Base {
 		$this->end_controls_section();
 
 		// Styles ====================
-		// Section: Add to Cart Button
+		// Section: Add to basket Button
 		$this->start_controls_section(
 			'section_style_add_to_cart',
 			[
-				'label' => esc_html__( 'Add to Cart Button', 'wpr-addons' ),
+				'label' => esc_html__( 'Add to basket Button', 'wpr-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]

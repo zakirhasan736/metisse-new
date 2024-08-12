@@ -368,7 +368,7 @@ class WC_Shortcodes {
 	}
 
 	/**
-	 * Get the add to cart URL for a product.
+	 * Get the Add to basket URL for a product.
 	 *
 	 * @param array $atts Attributes.
 	 * @return string

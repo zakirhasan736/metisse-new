@@ -96,7 +96,7 @@ Comes with **90+ Elementor addons, 100+ Elementor Templates KIT (Growing Each We
 - [**Mini Cart**](https://demosites.royal-elementor-addons.com/grocery-store-v1/shop-grocery-store-v1/?ref=rea-wpo-pp-details-tab)
 - [**Floating Mini Cart**](https://demosites.royal-elementor-addons.com/fashion-v1/shop-v2/?ref=rea-wpo-pp-details-tab)
 - [**Breadcrumbs**](https://demosites.royal-elementor-addons.com/fashion-v1/product/simple-jumper-with-cap/?ref=rea-wpo-pp-details-tab)
-- [**Add to Cart**](https://demosites.royal-elementor-addons.com/fashion-v1/product/simple-jumper-with-cap/?ref=rea-wpo-pp-details-tab)
+- [**Add to basket**](https://demosites.royal-elementor-addons.com/fashion-v1/product/simple-jumper-with-cap/?ref=rea-wpo-pp-details-tab)
 - [**Product Price**](https://demosites.royal-elementor-addons.com/fashion-v1/product/simple-jumper-with-cap/?ref=rea-wpo-pp-details-tab)
 - [**Product Navigation**](https://demosites.royal-elementor-addons.com/furniture-shop-v1/product/delilah-fabric-cocktail-chair/?ref=rea-wpo-pp-details-tab)
 - [**Product Media**](https://demosites.royal-elementor-addons.com/fashion-v1/product/urban-style-jacket-crop-top/?ref=rea-wpo-pp-details-tab)
@@ -760,7 +760,7 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = Royal Elementor Addons v1.3.45 - 2022-07-027 =
 * ADDED: Elementor Woocommerce Builder in Theme Builder Section.
-* ADDED: 14+ Elementor Woocommerce Single  Product Builder Widgets like: Add to cart widget, product Price widget, product Breadcrumbs widget (only in PRO) , product Media widget,  product Rating widget and so on...
+* ADDED: 14+ Elementor Woocommerce Single  Product Builder Widgets like: Add to basket widget, product Price widget, product Breadcrumbs widget (only in PRO) , product Media widget,  product Rating widget and so on...
 * ADDED: Elementor Woocommerce Minicart Widgets (Minicart sidebar and other advanced options supported only in PRO).
 * ADDED: Elementor Woocommerce Product Filter Widgets (only in PRO).
 * ADDED: Elementor Woocommerce Category Grid Widgets (only in PRO).

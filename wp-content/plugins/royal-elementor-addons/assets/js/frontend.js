@@ -1621,7 +1621,7 @@
 				subtree: true,
 			});
 
-			// Add To Cart AJAX
+			// Add to basket AJAX
 			if ( iGrid.find( '.wpr-grid-item-add-to-cart' ).length ) {
 				var addCartIcon = iGrid.find( '.wpr-grid-item-add-to-cart' ).find( 'i' ),
 					addCartIconClass = addCartIcon.attr( 'class' );

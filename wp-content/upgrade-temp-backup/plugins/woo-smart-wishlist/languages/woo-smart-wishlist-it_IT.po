@@ -348,11 +348,11 @@ msgid "Under price"
 msgstr "Sotto il prezzo"
 
 #: wpc-smart-wishlist.php:737 wpc-smart-wishlist.php:768
-msgid "Above add to cart button"
+msgid "Above Add to basket button"
 msgstr "Sopra il bottone aggiungi al carrello"
 
 #: wpc-smart-wishlist.php:741 wpc-smart-wishlist.php:772
-msgid "Under add to cart button"
+msgid "Under Add to basket button"
 msgstr "Sotto al bottone aggiungi al carrello"
 
 #: wpc-smart-wishlist.php:745 wpc-smart-wishlist.php:784

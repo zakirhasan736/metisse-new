@@ -63,7 +63,7 @@ msgid "Availability"
 msgstr "Доступность"
 
 #: index.php:55
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "В корзину"
 
 #: index.php:56
@@ -384,11 +384,11 @@ msgid "After price"
 msgstr "После цены"
 
 #: index.php:646 index.php:677
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Перед добавлением в корзину"
 
 #: index.php:650 index.php:681
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "После добавления в корзину"
 
 #: index.php:654 index.php:693

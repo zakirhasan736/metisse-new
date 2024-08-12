@@ -99,7 +99,7 @@ msgid "View Cart"
 msgstr ""
 
 #: public/class-pure-wc-swatches-public.php:210
-msgid "Add to Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: public/class-pure-wc-swatches-public.php:247

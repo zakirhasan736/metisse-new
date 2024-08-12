@@ -363,11 +363,11 @@ msgid "Under price"
 msgstr "بعد از قیمت"
 
 #: wpc-smart-wishlist.php:700 wpc-smart-wishlist.php:731
-msgid "Above add to cart button"
+msgid "Above Add to basket button"
 msgstr "در بالا دکمه افزودن به سبد خرید"
 
 #: wpc-smart-wishlist.php:704 wpc-smart-wishlist.php:735
-msgid "Under add to cart button"
+msgid "Under Add to basket button"
 msgstr "بعد از افزودن به سبد خرید"
 
 #: wpc-smart-wishlist.php:708 wpc-smart-wishlist.php:747
@@ -499,7 +499,7 @@ msgstr "محصولات بدون موجودی"
 msgid "Continue shopping"
 msgstr "به خرید ادامه دهید"
 
-#~ msgid "Before add to cart"
+#~ msgid "Before Add to basket"
 #~ msgstr "قبل از افزودن به سبد خرید"
 
 #~ msgid "None"

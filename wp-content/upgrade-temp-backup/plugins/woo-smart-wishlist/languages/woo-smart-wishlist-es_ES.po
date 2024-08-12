@@ -301,12 +301,12 @@ msgstr "Después de precio"
 
 #: woo-smart-wishlist-premium/index.php:655,
 #: woo-smart-wishlist-premium/index.php:686
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Antes de agregar al carrito"
 
 #: woo-smart-wishlist-premium/index.php:659,
 #: woo-smart-wishlist-premium/index.php:690
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Después de agregar al carrito"
 
 #: woo-smart-wishlist-premium/index.php:663,

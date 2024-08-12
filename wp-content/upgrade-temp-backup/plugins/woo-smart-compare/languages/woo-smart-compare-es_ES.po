@@ -63,7 +63,7 @@ msgid "Availability"
 msgstr "Disponibilidad"
 
 #: index.php:53
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "Añadir a la cesta"
 
 #: index.php:54
@@ -397,11 +397,11 @@ msgid "After price"
 msgstr "Después de precio"
 
 #: index.php:653 index.php:684
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Antes de agregar al carrito"
 
 #: index.php:657 index.php:688
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Después de agregar al carrito"
 
 #: index.php:661 index.php:700

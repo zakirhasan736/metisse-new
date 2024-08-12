@@ -971,7 +971,7 @@ const Setting = () => {
     value: "after_price"
   }, "After Price"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "after_add_to_cart"
-  }, "After Add To Cart"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+  }, "After Add to basket"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
     value: "after_thumbnail"
   }, "After Thumbnail")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "tpv-settings-option md:flex justify-between items-center pt-[26px] pb-[23px] px-9 border-[#F4F5F9] border-b-2 last:border-0"

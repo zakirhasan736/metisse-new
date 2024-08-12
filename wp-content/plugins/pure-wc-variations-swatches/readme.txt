@@ -31,7 +31,7 @@ Swatches Features:
 *   Change tooltip colors.
 *   Change tooltip sizes.
 *   Add in shop page.
-*   Add to cart from shop page.
+*   Add to basket from shop page.
 *   Add shortcode in your php file [pure_wc_swatches] with do_action() method.
 
 👉 Auto Convert All Variation Dropdowns to Button Swatch by Default
@@ -91,11 +91,11 @@ When WooCommerce starts to use ajax to load your selected variations, this chang
 
 👉 Archive page swatches positioning
 
-The plugin not only allows you to show swatches on the archive page. At the same time,  you can place swatches before and after the add to cart button in the store from Archive Swatches.
+The plugin not only allows you to show swatches on the archive page. At the same time,  you can place swatches before and after the Add to basket button in the store from Archive Swatches.
 
 👉 Archive page swatches alignment
 
-The plugin not only allows you to show swatches on the archive page. At the same time,  you can place swatches before and after the add to cart button in the store from Archive Swatches.
+The plugin not only allows you to show swatches on the archive page. At the same time,  you can place swatches before and after the Add to basket button in the store from Archive Swatches.
 
 👉 Tooltip display setting on archive/shop page
 

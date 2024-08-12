@@ -164,7 +164,7 @@
 
 		var buttonText = button.text();
 		if( buttonText.search('Select options') != -1 ){
-			buttonText = 'Add To Cart';
+			buttonText = 'Add to basket';
 		}else{
 			buttonText = button.html();
 		}
@@ -233,7 +233,7 @@
 		};
 		$( document.body ).trigger( 'adding_to_cart', [ variant, data ] );
 		variant.removeClass( 'added' ).addClass( 'loading' );
-		// Ajax add to cart request
+		// Ajax Add to basket request
 		$.ajax( {
 			type: 'POST',
 			url: tpwvs_swatches_settings.ajax_url,

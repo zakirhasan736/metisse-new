@@ -35,7 +35,7 @@ if ($product->is_in_stock()) : ?>
 			<!-- <h3 class="tp-product-details-action-title"><?php echo esc_html__('Quantity', 'metisse') ?></h3> -->
 
 			<?php do_action('woocommerce_before_add_to_cart_button'); ?>
-			<div class="tp-product-details-action-item-wrapper flex flex-col align-items-start">
+			<div class="tp-product-details-action-item-wrapper flex items-center gap-[9px]">
 				<?php
 				do_action('woocommerce_before_add_to_cart_quantity');
 
@@ -49,15 +49,12 @@ if ($product->is_in_stock()) : ?>
 
 				do_action('woocommerce_after_add_to_cart_quantity');
 				?>
-				<div class="prodyct-action-btn-box flex items-center gap-[10px] w-full sm:flex-col">
+				<div class="prodyct-action-btn-box w-full">
 					<div class="tp-product-details-add-to-cart sm:w-full">
-						<button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="tp-product-details-add-to-cart-btn w-100 single_add_to_cart_button product-add-cart-btn product-add-cart-btn-3 alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>">
+						<button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="tp-product-details-add-to-cart-btn w-100 single_add_to_cart_button product-add-cart-btn !uppercase product-add-cart-btn-3 alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>">
 							<?php echo esc_html($product->single_add_to_cart_text()); ?>
 						</button>
-					</div>
-					<!-- buy now -->
-					<?php do_action('woocommerce_after_add_to_cart_form'); ?>
-					<?php do_action('woocommerce_after_add_to_cart_button'); ?>
+					</div> 
 				</div>
 			</div>
 

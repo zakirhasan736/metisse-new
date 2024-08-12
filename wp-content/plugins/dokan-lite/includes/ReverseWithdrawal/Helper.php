@@ -629,7 +629,7 @@ class Helper {
         foreach ( $failed_actions as $failed_action ) {
             switch ( $failed_action ) {
                 case 'enable_catalog_mode':
-                    $messages[] = esc_html__( 'Your products add to cart will be hidden. Hence users will not be able to purchase any of your products.', 'dokan-lite' );
+                    $messages[] = esc_html__( 'Your products Add to basket will be hidden. Hence users will not be able to purchase any of your products.', 'dokan-lite' );
                     break;
 
                 case 'hide_withdraw_menu':
@@ -672,7 +672,7 @@ class Helper {
         foreach ( $failed_actions as $failed_action ) {
             switch ( $failed_action ) {
                 case 'enable_catalog_mode':
-                    $messages[] = esc_html__( 'Your products add to cart button has been temporarily hidden. Hence users are not able to purchase any of your products currently.', 'dokan-lite' );
+                    $messages[] = esc_html__( 'Your products Add to basket button has been temporarily hidden. Hence users are not able to purchase any of your products currently.', 'dokan-lite' );
                     break;
 
                 case 'hide_withdraw_menu':

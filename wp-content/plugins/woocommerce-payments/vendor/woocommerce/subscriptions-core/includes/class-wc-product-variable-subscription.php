@@ -62,7 +62,7 @@ class WC_Product_Variable_Subscription extends WC_Product_Variable {
 	}
 
 	/**
-	 * Get the add to cart button text for the single page
+	 * Get the Add to basket button text for the single page
 	 *
 	 * @access public
 	 * @return string
@@ -341,7 +341,7 @@ class WC_Product_Variable_Subscription extends WC_Product_Variable {
 	public function get_available_variations( $return = 'array' ) {
 		$available_variations = parent::get_available_variations( $return );
 
-		// Add the variation first payment date if data is being prepared for the add to cart form.
+		// Add the variation first payment date if data is being prepared for the Add to basket form.
 		if ( 'array' === $return ) {
 			foreach ( $available_variations as $index => $variation_data ) {
 

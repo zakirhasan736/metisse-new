@@ -110,11 +110,11 @@ msgid "After price"
 msgstr "Sau giá"
 
 #: woo-smart-quick-view-premium/index.php:300
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Trước nút thêm vào giỏ"
 
 #: woo-smart-quick-view-premium/index.php:304
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Sau nút thêm vào giỏ"
 
 #: woo-smart-quick-view-premium/index.php:308
@@ -224,7 +224,7 @@ msgid "Excerpt"
 msgstr "Mô tả ngắn"
 
 #: woo-smart-quick-view-premium/index.php:427
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "Thêm vào giỏ"
 
 #: woo-smart-quick-view-premium/index.php:432

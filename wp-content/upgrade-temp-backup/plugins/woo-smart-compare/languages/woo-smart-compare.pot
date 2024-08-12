@@ -73,7 +73,7 @@ msgstr ""
 #: wpc-smart-compare.php:165
 #: wpc-smart-compare.php:1557
 #: wpc-smart-compare.php:1559
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr ""
 
 #: wpc-smart-compare.php:166
@@ -462,12 +462,12 @@ msgstr ""
 
 #: wpc-smart-compare.php:633
 #: wpc-smart-compare.php:660
-msgid "Above add to cart button"
+msgid "Above Add to basket button"
 msgstr ""
 
 #: wpc-smart-compare.php:634
 #: wpc-smart-compare.php:661
-msgid "Under add to cart button"
+msgid "Under Add to basket button"
 msgstr ""
 
 #: wpc-smart-compare.php:635

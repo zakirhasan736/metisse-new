@@ -167,7 +167,7 @@ Design and customize a complete online shopping experience across your entire we
 1. **Product Title**: Customize the title of individual products.
 1. **Product Images**: Set and customize images for product listings.
 1. **Product Price**: Display the price of individual products.
-1. **Add To Cart**: Add customizable add to cart buttons for easy purchasing.
+1. **Add to basket**: Add customizable Add to basket buttons for easy purchasing.
 1. **Product Rating**: Display ratings and reviews for products.
 1. **Product Stock**: Display stock availability for products.
 1. **Product Meta**: Display additional information about products, such as SKU and categories.
@@ -178,7 +178,7 @@ Design and customize a complete online shopping experience across your entire we
 1. **Product Related**: Showcase related products to encourage additional purchases.
 1. **Upsells**: Promote upsell products to increase average order value.
 1. **Products**: Display a grid or list of products with customizable settings.
-1. **Custom Add To Cart**: Customize the add to cart button for specific products.
+1. **Custom Add to basket**: Customize the Add to basket button for specific products.
 1. **WooCommerce Pages**: Design and customize WooCommerce-specific pages, such as the cart and checkout pages.
 1. **Product Categories**: Display product categories for easy navigation within your store.
 1. **Menu Cart**: Display a cart icon in your navigation menu for easy access to the shopping cart.

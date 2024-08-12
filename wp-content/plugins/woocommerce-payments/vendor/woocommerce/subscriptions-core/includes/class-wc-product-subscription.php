@@ -61,7 +61,7 @@ class WC_Product_Subscription extends WC_Product_Simple {
 	}
 
 	/**
-	 * Get the add to cart button text
+	 * Get the Add to basket button text
 	 *
 	 * @return string
 	 */
@@ -77,9 +77,9 @@ class WC_Product_Subscription extends WC_Product_Simple {
 	}
 
 	/**
-	 * Get the add to cart button text for the single page
+	 * Get the Add to basket button text for the single page
 	 *
-	 * @return string The single product page add to cart text.
+	 * @return string The single product page Add to basket text.
 	 */
 	public function single_add_to_cart_text() {
 		return apply_filters( 'woocommerce_product_single_add_to_cart_text', WC_Subscriptions_Product::get_add_to_cart_text(), $this );

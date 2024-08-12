@@ -1018,13 +1018,13 @@ class Woo_Product_Gallery extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	// add to cart button
+	// Add to basket button
 	protected function init_style_addtocart_controls() {
 
 		$this->start_controls_section(
 			'eael_section_product_gallery_add_to_cart_styles',
 			[
-				'label'     => esc_html__( 'Add to Cart Button Styles', 'essential-addons-for-elementor-lite' ),
+				'label'     => esc_html__( 'Add to basket Button Styles', 'essential-addons-for-elementor-lite' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'eael_product_gallery_style_preset!' => [
@@ -1217,7 +1217,7 @@ class Woo_Product_Gallery extends Widget_Base {
 	}
 
 	protected function init_style_gallery_controls() {
-        // add to cart button
+        // Add to basket button
 		$this->start_controls_section(
 			'eael_section_product_gallery',
 			[
@@ -1685,7 +1685,7 @@ class Woo_Product_Gallery extends Widget_Base {
 		$this->add_control(
 			'eael_product_gallery_addtocart_show',
 			[
-				'label'        => esc_html__( 'Show Add to Cart?', 'essential-addons-for-elementor-lite' ),
+				'label'        => esc_html__( 'Show Add to basket?', 'essential-addons-for-elementor-lite' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default'      => 'yes',

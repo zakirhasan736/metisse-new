@@ -1415,7 +1415,7 @@ function wpr_addons_settings_page() {
                             <li>Advanced Woo Builder Conditions: Create multiple Woo Builder templates and set custom conditions.</li>
                             <li>Premium premade Woocommerce Template Kits.</li>
                             <li>Advanced Mini Cart widget options like display Mini cart as Dropdown or as Sidebar.</li>
-                            <li>Add to cart popup effect. Displays a small popup banner on left/right corner of the screen with the text "XXX item was added to Cart - View Cart".</li>
+                            <li>Add to basket popup effect. Displays a small popup banner on left/right corner of the screen with the text "XXX item was added to Cart - View Cart".</li>
                             <li>Vertical single product tabs layout.</li>
                             <li>Product Breadcrumbs - Display Product, Post, Page, Categories addresses to make navigation much easier.</li>
                             <li>Custom Post Type Support (Expert)</li>

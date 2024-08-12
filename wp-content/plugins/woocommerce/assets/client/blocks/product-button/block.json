@@ -1,7 +1,7 @@
 {
 	"name": "woocommerce/product-button",
 	"version": "1.0.0",
-	"title": "Add to Cart Button",
+	"title": "Add to basket Button",
 	"description": "Display a call to action button which either adds the product to the cart, or links to the product page.",
 	"category": "woocommerce-product-elements",
 	"keywords": [ "WooCommerce" ],

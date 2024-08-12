@@ -286,7 +286,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 			'price' => esc_html__( 'Price', 'wpr-addons' ),
 			'pro-sd' => esc_html__( 'Sale Dates (Pro)', 'wpr-addons' ),
 			'rating' => esc_html__( 'Rating', 'wpr-addons' ),
-			'add-to-cart' => esc_html__( 'Add to Cart', 'wpr-addons' ),
+			'add-to-cart' => esc_html__( 'Add to basket', 'wpr-addons' ),
 			'pro-ws' => esc_html__( 'Wishlist Button (Expert)', 'wpr-addons' ),
 			'pro-cm' => esc_html__( 'Compare Button (Expert)', 'wpr-addons' ),
 			'lightbox' => esc_html__( 'Lightbox', 'wpr-addons' ),
@@ -1900,7 +1900,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => 'Add to Cart',
+				'default' => 'Add to basket',
 				'condition' => [
 					'element_select' => 'add-to-cart',
 				]
@@ -5465,11 +5465,11 @@ class Wpr_Woo_Grid extends Widget_Base {
 		$this->end_controls_section();
 
 		// Styles ====================
-		// Section: Add to Cart ------
+		// Section: Add to basket ------
 		$this->start_controls_section(
 			'section_style_add_to_cart',
 			[
-				'label' => esc_html__( 'Add to Cart', 'wpr-addons' ),
+				'label' => esc_html__( 'Add to basket', 'wpr-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -9196,7 +9196,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '</div>';
 	}
 
-	// Render Add To Cart
+	// Render Add to basket
 	public function render_product_add_to_cart( $settings, $class ) {
 		global $product;
 
@@ -9291,7 +9291,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 		echo '<div class="'. esc_attr($class) .'">';
 			echo '<div class="inner-block">';
 			
-			// WooCommerce Hook: Before Add to Cart Button
+			// WooCommerce Hook: Before Add to basket Button
 			// do_action('woocommerce_before_shop_loop_item');
 
 			if ( $button_HTML != apply_filters( 'woocommerce_loop_add_to_cart_link', $button_HTML, $product ) ) {
@@ -9301,7 +9301,7 @@ class Wpr_Woo_Grid extends Widget_Base {
 				echo '<a '. implode( ' ', $attributes ) .'><span>'. $button_HTML .'</span></a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		
-			// WooCommerce Hook: After Add to Cart Button
+			// WooCommerce Hook: After Add to basket Button
 			// do_action('woocommerce_after_shop_loop_item');
 
 			echo '</div>';

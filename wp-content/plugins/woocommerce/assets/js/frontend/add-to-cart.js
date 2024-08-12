@@ -22,7 +22,7 @@ jQuery( function( $ ) {
 	};
 
 	/**
-	 * Add add to cart event.
+	 * Add Add to basket event.
 	 */
 	AddToCartHandler.prototype.addRequest = function( request ) {
 		this.requests.push( request );
@@ -33,7 +33,7 @@ jQuery( function( $ ) {
 	};
 
 	/**
-	 * Run add to cart events.
+	 * Run Add to basket events.
 	 */
 	AddToCartHandler.prototype.run = function() {
 		var requestManager = this,
@@ -55,7 +55,7 @@ jQuery( function( $ ) {
 	};
 
 	/**
-	 * Handle the add to cart event.
+	 * Handle the Add to basket event.
 	 */
 	AddToCartHandler.prototype.onAddToCart = function( e ) {
 		var $thisbutton = $( this );
@@ -159,7 +159,7 @@ jQuery( function( $ ) {
 	};
 
 	/**
-	 * Update cart page elements after add to cart events.
+	 * Update cart page elements after Add to basket events.
 	 */
 	AddToCartHandler.prototype.updateButton = function( e, fragments, cart_hash, $button ) {
 		$button = typeof $button === 'undefined' ? false : $button;
@@ -182,7 +182,7 @@ jQuery( function( $ ) {
 	};
 
 	/**
-	 * Update fragments after add to cart events.
+	 * Update fragments after Add to basket events.
 	 */
 	AddToCartHandler.prototype.updateFragments = function( e, fragments ) {
 		if ( fragments ) {

@@ -28,7 +28,7 @@ class Universal {
 		$this->additional_blocks_on_cart_page     = $this->get_additional_blocks_on_page( 'cart' );
 		$this->additional_blocks_on_checkout_page = $this->get_additional_blocks_on_page( 'checkout' );
 
-		// add to carts from non-product pages or lists -- search, store etc.
+		// Add to baskets from non-product pages or lists -- search, store etc.
 		add_action( 'wp_head', array( $this, 'loop_session_events' ), 2 );
 
 		// Capture cart events.
@@ -55,7 +55,7 @@ class Universal {
 	}
 
 	/**
-	 * On product lists or other non-product pages, add an event listener to "Add to Cart" button click
+	 * On product lists or other non-product pages, add an event listener to "Add to basket" button click
 	 */
 	public function loop_session_events() {
 		// Check for previous events queued in session data.

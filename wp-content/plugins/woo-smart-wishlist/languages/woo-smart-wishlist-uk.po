@@ -265,11 +265,11 @@ msgid "After price"
 msgstr "Після ціни"
 
 #: woo-smart-wishlist-premium/index.php:655, woo-smart-wishlist-premium/index.php:686
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Перед кнопкою \"Додати в кошик\""
 
 #: woo-smart-wishlist-premium/index.php:659, woo-smart-wishlist-premium/index.php:690
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Післф кнопки \"Додати в кошик\""
 
 #: woo-smart-wishlist-premium/index.php:663, woo-smart-wishlist-premium/index.php:702

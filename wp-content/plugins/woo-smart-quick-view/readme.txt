@@ -36,8 +36,8 @@ Visit our [live demo 01](https://demo.wpclever.net/woosq/ "live demo 01") or [li
 - Premium: Customizable Quick view content
 - Premium: Choose the image source, add lightbox images
 - Premium: Enable/disable related products section
-- Premium: Product summary fields: Title, Rating, Price, Excerpt, Add to Cart, Meta
-- Premium: Add to Cart button can function as a single page or the archive page
+- Premium: Product summary fields: Title, Rating, Price, Excerpt, Add to basket, Meta
+- Premium: Add to basket button can function as a single page or the archive page
 - Premium: Customizable the visibility and text for View Product Details button
 - Premium: Lifetime update and dedicated support
 
@@ -48,7 +48,7 @@ Please try other plugins from us:
 - [WPC Smart Compare](https://wordpress.org/plugins/woo-smart-compare/ "WPC Smart Compare")
 - [WPC Smart Wishlist](https://wordpress.org/plugins/woo-smart-wishlist/ "WPC Smart Wishlist")
 - [WPC Fly Cart](https://wordpress.org/plugins/woo-fly-cart/ "WPC Fly Cart")
-- [WPC AJAX Add to Cart](https://wordpress.org/plugins/wpc-ajax-add-to-cart/ "WPC AJAX Add to Cart")
+- [WPC AJAX Add to basket](https://wordpress.org/plugins/wpc-ajax-add-to-cart/ "WPC AJAX Add to basket")
 - [WPC Added To Cart Notification](https://wordpress.org/plugins/woo-added-to-cart-notification/ "WPC Added To Cart Notification")
 - [WPC Custom Related Products](https://wordpress.org/plugins/wpc-custom-related-products/ "WPC Custom Related Products")
 - [WPC Smart Linked Products](https://wordpress.org/plugins/wpc-smart-linked-products/ "WPC Smart Linked Products")
@@ -266,7 +266,7 @@ Example:
 * Added: Filter hook 'woosq_button_class'
 
 = 2.8.1 =
-* Fixed: Add to cart button for variation
+* Fixed: Add to basket button for variation
 
 = 2.8.0 =
 * Added: Drag and drop to re-arrange the content
@@ -291,7 +291,7 @@ Example:
 
 = 2.6.7 =
 * Updated: Compatible with WordPress 5.8 & WooCommerce 5.5.2
-* Fixed: Add to cart button on related products
+* Fixed: Add to basket button on related products
 
 = 2.6.6 =
 * Added: Press back button to close the quick view popup
@@ -459,7 +459,7 @@ Example:
 * Fixed: Default button text can be translated
 
 = 1.1.9 =
-* Added: Choose the functionally for the add to cart button
+* Added: Choose the functionally for the Add to basket button
 * Updated: Optimized the code
 
 = 1.1.8 =

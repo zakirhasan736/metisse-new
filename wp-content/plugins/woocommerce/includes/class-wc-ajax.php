@@ -449,7 +449,7 @@ class WC_AJAX {
 	}
 
 	/**
-	 * AJAX add to cart.
+	 * AJAX Add to basket.
 	 */
 	public static function add_to_cart() {
 		ob_start();

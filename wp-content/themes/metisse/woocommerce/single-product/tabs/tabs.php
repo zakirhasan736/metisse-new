@@ -31,7 +31,7 @@ $product_tabs = apply_filters('woocommerce_product_tabs', array());
 
 if (! empty($product_tabs)) : ?>
     <div class="tp-product-details-bottom pb-140">
-        <div class="container">
+        <div class="custom-container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="tp-product-details-tab-nav tp-tab">

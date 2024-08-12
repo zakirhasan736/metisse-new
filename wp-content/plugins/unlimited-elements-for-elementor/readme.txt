@@ -2822,7 +2822,7 @@ version 1.4.69 = 2021-04-04
 * Feature: added choose image size select option to image attribute
 * Feature: added &quot;image_attributes&quot; placeholder for image output in widget editor
 * Change: added default values select to hover animations attribute
-* Change: changed button &quot;add to cart&quot; to &quot;select options&quot; for variable products in woocommerce list widgets
+* Change: changed button &quot;Add to basket&quot; to &quot;select options&quot; for variable products in woocommerce list widgets
 * Fix: fixed border radius attribute from width to radius
 * Fix: added missing thumb sizes for image select
 
@@ -3189,7 +3189,7 @@ version 1.4.23 - 2020-02-02 =
 version 1.4.22 - 2020-01-28 =
 
 * Feature: added woo currency symbol
-* Feature: added woo add to cart button
+* Feature: added woo Add to basket button
 * Feature: added slider attribute
 * Widget: logo grid
 * Widget: logo carousel

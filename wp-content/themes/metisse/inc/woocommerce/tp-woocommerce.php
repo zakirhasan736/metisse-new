@@ -437,61 +437,53 @@ if (!function_exists('metisse_content_single_details')) {
         $enable_stock_left_count = get_theme_mod('metisse_product_single_stock_left_count', '49');
 
     ?>
+        <?php
+        // Get the caption title from the product meta
+        $caption_title = get_post_meta(get_the_ID(), 'single_product_caption_title', true);
+        ?>
 
-        <h3 class="tp-product-details-title text-[34px] md:text-[26px] sm:text-[24px] text-left font-primary font-medium leading-[1.2] text-[#000]"><?php the_title(); ?></h3>
-
-        <div class="tp-product-details-inventory d-flex align-items-center mb-[20px]">
-
-
-
-            <?php
-            // Get ACF fields for rating and review count
-            $custom_rating = get_field('product_rating_number');
-            $custom_review_count = get_field('product_total_review');
-            ?>
-
-            <div class="tp-product-details-rating-wrapper d-flex align-items-center">
+        <h2 class="tp-product-details-title text-[11px] text-left font-secondary font-n0rmal leading-[1.5] text-[#717171] tracking-[1.1px] mb-[11px] uppercase"><?php the_title(); ?></h2>
+        <?php if (!empty($caption_title)) : ?>
+            <h4 class="product-caption-text font-primary font-bold text-left text-[#131313] text-[24px] leading-[1.2] tracking-[.24px] mb-6 max-w-[390px]">
+                <?php echo !empty($caption_title) ? esc_html($caption_title) : ''; ?>
+            </h4>
+        <?php endif; ?>
+        <div class="tp-product-details-inventory">
+            <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-8">
                 <div class="tp-product-details-rating">
-                    <?php
-                    // Output filled stars based on ACF rating value
-                    for ($i = 1; $i <= 5; $i++) {
-                        if ($i <= $custom_rating) {
-                            echo '<span class="filled-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-  <path d="M13.103 4.14988C13.4698 3.40672 14.5295 3.40671 14.8964 4.14988L17.6047 9.63659L23.6626 10.522C24.4825 10.6419 24.8093 11.6497 24.2157 12.2279L19.833 16.4966L20.8671 22.5259C21.0072 23.3428 20.1497 23.9658 19.416 23.58L13.9997 20.7316L8.58331 23.58C7.84968 23.9658 6.99213 23.3428 7.13225 22.5259L8.16634 16.4966L3.78369 12.2279C3.19009 11.6497 3.51688 10.6419 4.33679 10.522L10.3947 9.63659L13.103 4.14988Z" fill="#FFBD3E"/>
-</svg></span>';
-                        } else {
-                            echo '<span class="empty-star"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-  <path d="M16.708 10.0792C16.8535 10.3741 17.1347 10.5785 17.46 10.6261L23.5179 11.5115L19.1353 15.7802C18.8994 16.01 18.7917 16.3411 18.8474 16.6656L19.8815 22.6949L14.4651 19.8465C14.1737 19.6933 13.8256 19.6933 13.5342 19.8465L8.11786 22.6949L9.15195 16.6656C9.20761 16.3411 9.09995 16.01 8.86407 15.7802L4.48142 11.5115L10.5393 10.6261C10.8647 10.5785 11.1458 10.3741 11.2914 10.0792L13.9997 4.59251L16.708 10.0792Z" fill="white" stroke="#FFBD3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></span>';
-                        }
-                    }
-                    ?>
+                    <div class="tp-product-rating d-flex align-items-center">
+                        <div class="tp-product-rating-icon">
+                            <?php echo metisse_kses($rating); ?>
+                        </div>
+                        <div class="tp-product-rating-text">
+                            <?php if (comments_open()) : ?>
+                                <?php //phpcs:disable 
+                                ?>
+                                <a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf(_n('( %s Review )', '( %s Reviews )', $review_count, 'metisse'), '<span class="count">' . esc_html($review_count) . '</span>'); ?></a>
+                                <?php // phpcs:enable 
+                                ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
-
+                <!-- 
                 <div class="woocommerce-product-rating tp-product-details-reviews">
-                    <?php
-                    // Output review count
-                    if (comments_open()) {
-                        echo '<a href="#reviews" class="woocommerce-review-link text-[18px] sm:text-[16px] font-semibold font-primary !text-[#FF9D0A]" rel="nofollow">';
-                        printf(_n('( %s Review )', '( %s Reviews )', $custom_review_count, 'metisse'), '<span class="count">' . esc_html($custom_review_count) . '</span>');
-                        echo '</a>';
-                    }
-                    ?>
-                </div>
-            </div>
 
+                </div> -->
+            </div>
+            <div class="product-verient-box mb-[30px]">
+                <h1 class="text-[8px] text-left font-primary font-normal uppercase leading-[1.2] tracking-[.8px] text-[#717171] mb-3">Rose/blue</h1>
+                <ul class="p-varient-lists flex items-center gap-[6px] justify-start">
+                    <li class="w-[16px] h-[16px] rounded-full bg-[#D9D9D9] border-2 border-[#000]"></li>
+                    <li class="w-[16px] h-[16px] rounded-full bg-[#FFE6E6] active:bg-[#D9D9D9] border-2 border-transparent active:border-[#000]"></li>
+                </ul>
+            </div>
         </div>
         <!-- price -->
-        <div class="tp-product-details-price-wrapper mb-[20px]">
+        <div class="tp-product-details-price-wrapper mb-[30px]">
             <?php woocommerce_template_single_price(); ?>
         </div>
 
-        <div class="tp-product-details-description-full">
-            <?php $product_description = get_the_content(); ?>
-            <?php if (!empty($product_description)) : ?>
-                <p class="mb-[20px] text-[18px] sm:text-[16px] font-normal font-primary text-[#232323] text-left leading-[28px]"><?php echo $product_description; ?></p>
-            <?php endif; ?>
-        </div>
 
 
         <?php if (!empty($enable_flash_sale)) : ?>
@@ -533,6 +525,14 @@ if (!function_exists('metisse_content_single_details')) {
             <div class="tp-product-details-action-item-wrapper ">
                 <?php woocommerce_template_single_add_to_cart(); ?>
             </div>
+
+        </div>
+        <div class="tp-product-details-description-full mt-8">
+            <h5 class="title-desc !font-primary">description</h5>
+            <?php $product_description = get_the_content(); ?>
+            <?php if (!empty($product_description)) : ?>
+                <p class="mb-0 text-[18px] sm:text-[16px] font-normal font-primary text-[#232323] text-left leading-[28px]"><?php echo $product_description; ?></p>
+            <?php endif; ?>
         </div>
 
 

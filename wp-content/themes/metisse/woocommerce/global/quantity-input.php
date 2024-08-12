@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Product quantity inputs 
+ * Product quantity inputs
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/global/quantity-input.php.
  *
@@ -13,7 +13,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.8.0
+ * @version 8.3.0
  */
 
 defined('ABSPATH') || exit;
@@ -26,30 +26,39 @@ if ($max_value && $min_value === $max_value) {
 <?php
 } else {
 	/* translators: %s: Quantity. */
-	$label = !empty($args['product_name']) ? sprintf(esc_html__('%s quantity', 'metisse'), wp_strip_all_tags($args['product_name'])) : esc_html__('Quantity s', 'metisse');
+	$label = ! empty($args['product_name']) ? sprintf(esc_html__('%s quantity', 'shofy'), wp_strip_all_tags($args['product_name'])) : esc_html__('Quantity s', 'shofy');
 ?>
 	<div class="tp-product-details-quantity">
-		<div class="quantity tp-product-quantity">
+		<div class="quantity tp-product-quantity !m-0">
 			<?php do_action('woocommerce_before_quantity_input_field'); ?>
 			<label class="screen-reader-text" for="<?php echo esc_attr($input_id); ?>"><?php echo esc_attr($label); ?></label>
-			<div class="quantity-box-wrap !flex !items-center !gap-[5px]">
-				<input type="text" class="max-w-[55px] w-full h-[55px] !p-4 text-center !text-[16px] text-[#000]  font-primary !font-bold  !border !border-[#000000]" id="<?php echo esc_attr($input_id); ?>" class="<?php echo esc_attr(join(' tp-cart-input ', (array) $classes)); ?>" step="<?php echo esc_attr($step); ?>" min="<?php echo esc_attr($min_value); ?>" max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>" name="<?php echo esc_attr($input_name); ?>" value="<?php echo esc_attr($input_value); ?>" title="<?php echo esc_attr_x('Qty', 'Product quantity input tooltip', 'metisse'); ?>" size="4" placeholder="<?php echo esc_attr($placeholder); ?>" inputmode="<?php echo esc_attr($inputmode); ?>" autocomplete="<?php echo esc_attr(isset($autocomplete) ? $autocomplete : 'on'); ?>" />
-				<div class="quantity-btn-box !flex !flex-col gap-[5px]">
-					<span class="qty_button plus w-[26px] h-[26px] flex !border !border-[#000000] items-center justify-center p-[3px]">
-						<svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							<path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-						</svg>
-					</span>
-					<?php do_action('woocommerce_after_quantity_input_field'); ?>
-
-					<span class="qty_button minus w-[26px] h-[26px] flex !border !border-[#000000] items-center justify-center p-[3px]">
-						<svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-						</svg>
-					</span>
-				</div>
-			</div>
+			<span class="qty_button minus tp-cart-minus">
+				<svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</span>
+			<input
+				type="text"
+				class="!h-10 !text-center"
+				id="<?php echo esc_attr($input_id); ?>"
+				class="<?php echo esc_attr(join(' tp-cart-input ', (array) $classes)); ?>"
+				step="<?php echo esc_attr($step); ?>"
+				min="<?php echo esc_attr($min_value); ?>"
+				max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>"
+				name="<?php echo esc_attr($input_name); ?>"
+				value="<?php echo esc_attr($input_value); ?>"
+				title="<?php echo esc_attr_x('Qty', 'Product quantity input tooltip', 'shofy'); ?>"
+				size="4"
+				placeholder="<?php echo esc_attr($placeholder); ?>"
+				inputmode="<?php echo esc_attr($inputmode); ?>"
+				autocomplete="<?php echo esc_attr(isset($autocomplete) ? $autocomplete : 'on'); ?>" />
+			<?php do_action('woocommerce_after_quantity_input_field'); ?>
+			<span class="qty_button plus tp-cart-plus">
+				<svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+					<path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</span>
 
 		</div>
 	</div>

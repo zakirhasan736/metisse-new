@@ -383,7 +383,7 @@ Your existing elements/content will work with premium version. So you won't lose
 - Fixed: EA Advanced Data Table | Data sorting icons' colors don't change while using table as a template
 - Fixed: EA Simple Menu | Menu item doesn't activate when scrolling the page
 - Fixed: EA Advanced Data Table | Clearing the search values, all table contents appear when the rows per page is left blank
-- Fixed: EA Woo Product Carousel | 'Add to Cart' button disappears from default shop page if EA Woo Carousel widget is present on the same page
+- Fixed: EA Woo Product Carousel | 'Add to basket' button disappears from default shop page if EA Woo Carousel widget is present on the same page
 - Improved: EA Event Calendar | Date format change option for week view
 - Improved: EA Advanced Accordion | Stop auto-scrolling while anchoring tab
 - Improved: EA Login Register Form | File max size description

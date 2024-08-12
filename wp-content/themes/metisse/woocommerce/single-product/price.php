@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Price
  *
@@ -15,16 +16,14 @@
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
 
 global $product;
 
 ?>
 <div class="tp-product-details-price-wrapper tp-woo-single-price d-flex align-items-center">
-    <div class="!text-[28px] !md:text-[26px] !sm:text-[22px] !font-bold !font-primary !text-black !leading-[.8] <?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+    <div class="!text-[24px] !md:text-[20px] !sm:text-[18px] !font-bold !font-secondary !text-[#131313] !leading-[1.2] tracking-[.24] <?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>"><?php echo wp_kses_post($product->get_price_html()); ?></div>
     <?php echo metisse_sale_percentage(); ?>
 </div>
-
-

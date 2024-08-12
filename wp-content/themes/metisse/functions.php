@@ -465,13 +465,14 @@ function tp_header_login_shortcode()
         <div class="user-suth-box-header flex items-center gap-[30px] lg:gap-[20px] md:gap-[16px] md:hidden">
             <div class="tp-header-login ">
                 <a href="/my-account/" class="d-flex capitalize align-items-center text-[16px] text-[#000] font-medium font-primary leading-none">
-                    <h5 class="tp-header-login-title text-[16px] text-[#000] font-medium font-primary leading-none capitalize"><?php esc_html_e('Login', 'metisse'); ?></h5>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 21V20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20V21" stroke="black" stroke-width="2" stroke-linecap="round" />
+                            <path d="M12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7C16 9.20914 14.2091 11 12 11Z" stroke="black" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </span>
                 </a>
             </div>
-            <div class="auth-user-register-">
-                <a href="/signup/" class="register-page-target-button  text-[16px] capitalize  text-white !bg-[#000000f2] py-[14px] px-[24px] font-medium font-primary leading-none">SignUp</a>
-            </div>
-
         </div>
         <div class="user-suth-box-header items-center gap-[30px] lg:gap-[20px] md:gap-[16px] hidden md:block sm:hidden">
             <div class="tp-header-login ">
@@ -485,8 +486,176 @@ function tp_header_login_shortcode()
                 </a>
             </div>
         </div>
-<?php
+    <?php
     }
 
     return ob_get_clean();
+}
+
+// Add a custom tab
+add_filter('woocommerce_product_tabs', 'add_compared_tab');
+function add_compared_tab($tabs)
+{
+    // Adds the new tab
+    $tabs['compared_tab'] = array(
+        'title'    => __('Complete Sets', 'metisse'),
+        'priority' => 5,
+        'callback' => 'compared_tab_content',
+    );
+    return $tabs;
+}
+
+function compared_tab_content()
+{
+    global $post;
+
+    // Retrieve additional product ID from custom meta field
+    $additional_product_id = get_post_meta($post->ID, 'additional_product_id', true);
+
+    if (!empty($additional_product_id)) {
+        // Calculate prices and get additional product details
+        $product = wc_get_product($post->ID);
+        $current_product_price = $product->get_price();
+        $additional_product_price = get_post_meta($additional_product_id, '_price', true);
+        $total_price = $current_product_price + $additional_product_price;
+        $additional_product_title = get_the_title($additional_product_id);
+        $additional_product_excerpt = get_the_excerpt($additional_product_id);
+
+    $predefined_images = array(
+        '630' => 'http://localhost/metisse-new/wp-content/uploads/2024/08/Intersect-3.png',
+        '640' => 'http://localhost/metisse-new/wp-content/uploads/2024/08/Intersect-2.png',
+        '609' => 'http://localhost/metisse-new/wp-content/uploads/2024/08/Intersect.png',
+        '622' => 'http://localhost/metisse-new/wp-content/uploads/2024/08/Intersect.png',
+        '624' => 'http://localhost/metisse-new/wp-content/uploads/2024/08/Intersect-4.png',
+        // Add more predefined images here
+    );
+
+    // Check if there is a predefined image for the current single product post ID
+    $current_product_image_url = isset($predefined_images[$post->ID]) ? $predefined_images[$post->ID] : '';
+
+
+    ?>
+        <section class="group-product-offer-box pb-[76px] md:pb-[45px]">
+            <div class="custom-container-fluid">
+                <div class="group-product-wrapper grid grid-cols-12 sm:grid-cols-6 gap-[12px]">
+                    <div class="group-left-product col-span-6 flex items-center gap-[20px]">
+                        <!-- Current Product -->
+                        <div class="group-product-offer-price max-w-[177px]">
+                            <div class="product-card-item relative">
+                                <div class="product-card-main-cont  text-center flex flex-col items-center">
+                                    <div class="product-img-box max-w-[107px] w-full h-[199px] relative mb-[24px] md:mb-5 sm:mb-4">
+                                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" class="product-img md:mb-5 sm:mb-4 w-full h-full object-cover">
+                                    </div>
+                                    <div class="product-card-cont px-4">
+                                        <h3 class="product-title leading-none mb-[8px] tracking-[1.1px] text-[11px] text-center font-primary font-normal uppercase text-[#717171]"><?php echo get_the_title(); ?></h3>
+                                        <p class="product-desc !text-[12px] text-center text-[#131313] font-secondary font-normal leading-normal mb-[16px]"><?php echo wp_trim_words(get_the_excerpt(), 6); ?></p>
+                                        <p class="product-price !text-[12px] text-center font-secondary font-semibold capitalize text-[#BD7048]"><?php echo wc_price($current_product_price); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Divider -->
+                        <div class="group-product-offer-price flex items-center justify-center">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                    <g opacity="0.3">
+                                        <rect x="7" width="3" height="17" fill="black" />
+                                        <rect y="10" width="3" height="17" transform="rotate(-90 0 10)" fill="black" />
+                                    </g>
+                                </svg></span>
+                        </div>
+                        <!-- Additional Product/Offer -->
+                        <div class="group-product-offer-price max-w-[196px]">
+                            <div class="product-card-item relative">
+                                <div class="product-card-main-cont text-center flex flex-col items-center">
+                                    <div class="product-img-box max-w-[162px] w-full h-[192px] relative mb-[24px] md:mb-5 sm:mb-4">
+                                        <?php
+                                        $additional_product_image = get_the_post_thumbnail_url($additional_product_id, 'full');
+                                        if ($additional_product_image) {
+                                            echo '<img src="' . $additional_product_image . '" alt="Additional Product Image" class="product-img mb-[24px] md:mb-5 sm:mb-4 w-full h-full">';
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="product-card-cont px-[16.5px] pb-[22px]">
+                                        <h3 class="product-title leading-none tracking-[1.1px] mb-[8px] text-[11px] text-center font-primary font-normal uppercase text-[#717171]"><?php echo get_the_title($additional_product_id); ?></h3>
+                                        <p class="product-desc !text-[12px] text-center text-[#131313] font-secondary font-normal leading-normal mb-[16px]"><?php echo get_the_excerpt($additional_product_id); ?></p>
+                                        <p class="product-price !text-[12px] text-center font-secondary font-semibold capitalize text-[#BD7048]"><?php echo wc_price($additional_product_price); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Divider -->
+                        <div class="group-product-offer-price flex items-center justify-center">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                    <path d="M8.71622 5.22363H1.49622" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.71622 1.03711H1.49622" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></span>
+                        </div>
+                    </div>
+
+                    <!-- Total Price and Action Buttons -->
+                    <div class="group-product-offer-price bg-[#F6F6F6] col-span-6 sm:col-span-6 flex items-center justify-center w-full">
+                        <div class="group-product-price-box-action-btn-box w-full flex items-center gap-5 pr-10">
+                            <div class="group-product-image flex items-start gap-2">
+                                <!-- Show images for current and additional products -->
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" class="product-img md:mb-5 sm:mb-4 max-w-[197px] w-full h-[354px] object-cover">
+                                <?php
+                                if ($current_product_image_url) {
+                                    echo '<img src="' . esc_url($current_product_image_url) . '" alt="Product Image" class="product-img relative left-[-25px] md:mb-5 sm:mb-4 w-full h-full">';
+                                } else {
+                                    echo '<img src="' . get_the_post_thumbnail_url($post->ID, 'full') . '" alt="' . get_the_title() . '" class="product-img relative left-[-25px] md:mb-5 sm:mb-4 w-full h-full">';
+                                }
+                                ?>
+                            </div>
+                            <div class="right-cont-box">
+                                <div class="group-product-total-price rounded-[100px] w-[124px] h-[124px] mb-[18px] flex flex-col items-center justify-center  p-[16px] text-center bg-[#BD7048]">
+                                    <span class="price-title block text-left font-primary text-[#FFFDFD] uppercase tracking-[1.1px] font-bold text-[11px]">Total</span>
+                                    <span class="price text-left block font-secondary text-[#FFFDFD] font-bold text-[20px]"><?php echo wc_price($total_price); ?></span>
+                                </div>
+                                <div class="product-card-checkout-btns mt-[67px] pl-3 text-center relative top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+                                    <?php
+                                    echo '<button class="add-to-cart-btn max-w-[142px] mx-auto flex items-center bg-[#131313] justify-center w-full  whitespace-nowrap h-[40px] py-[8px] px-[20px] border-2 border-[#131313] capitalize text-[#FFFDFD] !text-[11px] font-medium text-center mb-[5px] font-secondary leading-[1.2]" data-total-price="' . $total_price . '">' . esc_html__('Add To Basket', 'metisse') . '</button>';
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<?php
+    }
+}
+
+add_filter('woocommerce_product_tabs', 'custom_product_tabs');
+function custom_product_tabs($tabs)
+{
+    // Add the new tab
+    $tabs['shipping_returns'] = array(
+        'title'    => __('Shipping, Returns, Warranty', 'metisse'),
+        'priority' => 20,
+        'callback' => 'shipping_returns_tab_content'
+    );
+
+    return $tabs;
+}
+
+function shipping_returns_tab_content()
+{
+    // Include the ACF repeater field code here
+    if (have_rows('shipping_returns_repeater')):
+        echo '<div class="shipping-returns-content">';
+
+        while (have_rows('shipping_returns_repeater')) : the_row();
+            $shipping_return_title = get_sub_field('shipping_return_title');
+            $shipping_return_description = get_sub_field('shipping_return_description');
+            echo '<div class="shipping-return-item-info">';
+            echo '<h4>' . esc_html($shipping_return_title) . '</h4>';
+            echo '<p>' . esc_html($shipping_return_description) . '</p>';
+            echo '</div>';
+        endwhile;
+
+        echo '</div>';
+    else :
+        echo '<p>No Shipping and Returns information available.</p>';
+    endif;
 }

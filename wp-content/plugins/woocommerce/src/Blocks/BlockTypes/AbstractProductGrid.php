@@ -642,7 +642,7 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 	}
 
 	/**
-	 * Get the "add to cart" button.
+	 * Get the "Add to basket" button.
 	 *
 	 * @param \WC_Product $product Product.
 	 * @return string Rendered product output.
@@ -667,11 +667,11 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 		}
 
 		/**
-		 * Filter to manipulate (add/modify/remove) attributes in the HTML code of the generated add to cart button.
+		 * Filter to manipulate (add/modify/remove) attributes in the HTML code of the generated Add to basket button.
 		 *
 		 * @since 8.6.0
 		 *
-		 * @param array      $attributes An associative array containing default HTML attributes of the add to cart button.
+		 * @param array      $attributes An associative array containing default HTML attributes of the Add to basket button.
 		 * @param WC_Product $product    The WC_Product instance of the product that will be added to the cart once the button is pressed.
 		 *
 		 * @return array Returns an associative array derived from the default array passed as an argument and added the extra HTML attributes.

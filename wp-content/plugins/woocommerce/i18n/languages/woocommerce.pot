@@ -9254,7 +9254,7 @@ msgstr ""
 #: assets/client/blocks/featured-product.js:15
 #: assets/client/blocks/product-button-frontend.js:2
 #: assets/client/blocks/product-button.js:2
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr ""
 
 #: includes/abstracts/abstract-wc-product.php:1962
@@ -17511,7 +17511,7 @@ msgid "This sets the base page of your shop - this is where your product archive
 msgstr ""
 
 #: includes/admin/settings/class-wc-settings-products.php:73
-msgid "Add to cart behaviour"
+msgid "Add to basket behaviour"
 msgstr ""
 
 #: includes/admin/settings/class-wc-settings-products.php:74
@@ -17519,7 +17519,7 @@ msgid "Redirect to the cart page after successful addition"
 msgstr ""
 
 #: includes/admin/settings/class-wc-settings-products.php:81
-msgid "Enable AJAX add to cart buttons on archives"
+msgid "Enable AJAX Add to basket buttons on archives"
 msgstr ""
 
 #: includes/admin/settings/class-wc-settings-products.php:88
@@ -22497,7 +22497,7 @@ msgstr ""
 
 #. translators: %s: Product title
 #: includes/class-wc-product-simple.php:73
-msgid "Add to cart: &ldquo;%s&rdquo;"
+msgid "Add to basket: &ldquo;%s&rdquo;"
 msgstr ""
 
 #: includes/class-wc-product-variable.php:67
@@ -40546,7 +40546,7 @@ msgid "Is the product stock backordered? This will also return false if backorde
 msgstr ""
 
 #: src/StoreApi/Schemas/V1/ProductSchema.php:399
-msgid "Add to cart button parameters."
+msgid "Add to basket button parameters."
 msgstr ""
 
 #: src/StoreApi/Schemas/V1/ProductSchema.php:405
@@ -40558,7 +40558,7 @@ msgid "Button description."
 msgstr ""
 
 #: src/StoreApi/Schemas/V1/ProductSchema.php:417
-msgid "Add to cart URL."
+msgid "Add to basket URL."
 msgstr ""
 
 #: src/StoreApi/Schemas/V1/ProductSchema.php:423
@@ -53373,7 +53373,7 @@ msgstr ""
 #: assets/client/blocks/product-tag.js:1
 #: assets/client/blocks/product-top-rated.js:1
 #: assets/client/blocks/products-by-attribute.js:1
-msgid "Add to Cart button"
+msgid "Add to basket button"
 msgstr ""
 
 #: assets/client/blocks/handpicked-products.js:1
@@ -54822,7 +54822,7 @@ msgid "Payment Method"
 msgstr ""
 
 #: assets/client/blocks/wc-blocks-google-analytics.js:1
-msgid "Add to Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: assets/client/blocks/wc-blocks-google-analytics.js:1
@@ -55018,7 +55018,7 @@ msgstr ""
 
 #: assets/client/blocks/add-to-cart-form/block.json
 msgctxt "block title"
-msgid "Add to Cart with Options"
+msgid "Add to basket with Options"
 msgstr ""
 
 #: assets/client/blocks/add-to-cart-form/block.json
@@ -55787,7 +55787,7 @@ msgstr ""
 
 #: assets/client/blocks/product-button/block.json
 msgctxt "block title"
-msgid "Add to Cart Button"
+msgid "Add to basket Button"
 msgstr ""
 
 #: assets/client/blocks/product-button/block.json

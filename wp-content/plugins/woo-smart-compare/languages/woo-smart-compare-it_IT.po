@@ -48,7 +48,7 @@ msgid "Availability"
 msgstr "Disponibilità"
 
 #: woo-smart-compare-premium/index.php:72
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "Aggiungi al carrello"
 
 #: woo-smart-compare-premium/index.php:73
@@ -359,12 +359,12 @@ msgstr "Dopo il prezzo"
 
 #: woo-smart-compare-premium/index.php:592,
 #: woo-smart-compare-premium/index.php:623
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Prima di aggiungi al carrello"
 
 #: woo-smart-compare-premium/index.php:596,
 #: woo-smart-compare-premium/index.php:627
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Dopo aggiungi al carrello"
 
 #: woo-smart-compare-premium/index.php:600,

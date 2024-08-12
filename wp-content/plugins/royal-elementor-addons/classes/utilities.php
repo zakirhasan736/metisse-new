@@ -111,7 +111,7 @@ class Utilities {
 			'Product Title' => ['product-title', '', '', ''],
 			'Product Media' => ['product-media', '', '', ''],
 			'Product Price' => ['product-price', '', '', ''],
-			'Product Add to Cart' => ['product-add-to-cart', '', '', ''],
+			'Product Add to basket' => ['product-add-to-cart', '', '', ''],
 			'Product Tabs' => ['product-tabs', '', '', ''],
 			'Product Excerpt' => ['product-excerpt', '', '', ''],
 			'Product Description' => ['product-description', '', '', ''],

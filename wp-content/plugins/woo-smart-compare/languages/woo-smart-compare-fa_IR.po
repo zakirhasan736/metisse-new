@@ -63,7 +63,7 @@ msgid "Availability"
 msgstr "موجودی"
 
 #: index.php:53
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "افزودن به سبد خرید"
 
 #: index.php:54
@@ -389,11 +389,11 @@ msgid "After price"
 msgstr "بعد از قیمت"
 
 #: index.php:653 index.php:684
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "قبل از افزودن به سبد خرید"
 
 #: index.php:657 index.php:688
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "بعد از افزودن به سبد خرید"
 
 #: index.php:661 index.php:700

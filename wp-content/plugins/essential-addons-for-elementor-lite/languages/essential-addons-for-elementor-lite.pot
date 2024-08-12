@@ -7154,11 +7154,11 @@ msgid "Show Wishlist?"
 msgstr ""
 
 #: ../includes/Elements/Product_Grid.php:677
-msgid "Add To Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: ../includes/Elements/Product_Grid.php:684
-msgid "Show Add to cart custom text"
+msgid "Show Add to basket custom text"
 msgstr ""
 
 #: ../includes/Elements/Product_Grid.php:696, ../includes/Elements/Woo_Product_List.php:936
@@ -8851,7 +8851,7 @@ msgid "Privacy Policy"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Carousel.php:241, ../includes/Elements/Woo_Product_List.php:356, ../includes/Elements/Woo_Product_List.php:913, ../includes/Elements/Woo_Product_List.php:1717, ../includes/Elements/Woo_Product_List.php:2542
-msgid "Add to Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Carousel.php:276, ../includes/Traits/Controls.php:1100
@@ -9007,7 +9007,7 @@ msgid "Enable to show a secondary image from the product gallery on hover."
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Gallery.php:1027
-msgid "Add to Cart Button Styles"
+msgid "Add to basket Button Styles"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Gallery.php:1224
@@ -9023,7 +9023,7 @@ msgid "Width (PX)"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Gallery.php:1688
-msgid "Show Add to Cart?"
+msgid "Show Add to basket?"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_Gallery.php:1698
@@ -9083,7 +9083,7 @@ msgid "Clickable"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_List.php:597
-msgid "Add to Cart, Quick View, Link buttons/icons on content footer or on image hover or in both positions"
+msgid "Add to basket, Quick View, Link buttons/icons on content footer or on image hover or in both positions"
 msgstr ""
 
 #: ../includes/Elements/Woo_Product_List.php:621
@@ -10275,7 +10275,7 @@ msgid "%s ago"
 msgstr ""
 
 #: ../includes/Traits/Woo_Product_Comparable.php:43, ../includes/Traits/Woo_Product_Comparable.php:87
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr ""
 
 #: ../includes/Traits/Woo_Product_Comparable.php:46, ../includes/Traits/Woo_Product_Comparable.php:95
@@ -10391,11 +10391,11 @@ msgid "Repeat the \"Price\" field at the end of the table"
 msgstr ""
 
 #: ../includes/Traits/Woo_Product_Comparable.php:269
-msgid "Repeat \"Add to cart\" field"
+msgid "Repeat \"Add to basket\" field"
 msgstr ""
 
 #: ../includes/Traits/Woo_Product_Comparable.php:270
-msgid "Repeat the \"Add to cart\" field at the end of the table"
+msgid "Repeat the \"Add to basket\" field at the end of the table"
 msgstr ""
 
 #: ../includes/Traits/Woo_Product_Comparable.php:274

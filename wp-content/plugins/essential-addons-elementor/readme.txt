@@ -517,7 +517,7 @@ List of Extensions :
 = 4.4.12 - 14/12/2021 =
 
 - Improved: EA LearnDash Course List | Added controller to change the “Free” and “See More” texts
-- Fixed: EA Static Product | add to cart not working
+- Fixed: EA Static Product | Add to basket not working
 - Fixed: EA Instagram Feed | Force square option not stretching the images
 - Few minor bug fix & improvements
 
@@ -591,7 +591,7 @@ List of Extensions :
 - Fixed: EA Parallax | Broken in Safari browser
 - Fixed: EA Testimonial Slider | Image not being centered in some Styles
 - Fixed: EA Image Hotspot | Showing black border when the tooltip is enabled
-- Improved: EA Woo Product Slider | Added buttons shadow, image size change option and add to cart style options for preset 3
+- Improved: EA Woo Product Slider | Added buttons shadow, image size change option and Add to basket style options for preset 3
 - Improved: EA Team Member Carousel | Added Custom Social Icon option
 - Few minor bug fix and improvements
 

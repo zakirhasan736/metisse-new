@@ -2429,11 +2429,11 @@ msgstr ""
 
 #: includes/CatalogMode/Admin/Settings.php:46
 #: includes/CatalogMode/Dashboard/Settings.php:62
-msgid "Remove Add to Cart Button"
+msgid "Remove Add to basket Button"
 msgstr ""
 
 #: includes/CatalogMode/Admin/Settings.php:47
-msgid "Check to remove Add to Cart option."
+msgid "Check to remove Add to basket option."
 msgstr ""
 
 #: includes/CatalogMode/Admin/Settings.php:53
@@ -2466,7 +2466,7 @@ msgstr ""
 
 #: includes/CatalogMode/Dashboard/Settings.php:67
 #: templates/products/catalog-mode-content.php:38
-msgid "Check to remove Add to Cart option from your products."
+msgid "Check to remove Add to basket option from your products."
 msgstr ""
 
 #: includes/CatalogMode/Dashboard/Settings.php:79
@@ -4558,7 +4558,7 @@ msgid "Shop order"
 msgstr ""
 
 #: includes/Product/Hooks.php:410
-msgid "As this is your own product, the \"Add to Cart\" button has been removed. Please visit as a guest to view it."
+msgid "As this is your own product, the \"Add to basket\" button has been removed. Please visit as a guest to view it."
 msgstr ""
 
 #: includes/Product/Manager.php:472
@@ -6539,7 +6539,7 @@ msgid "Invalid vendor provided."
 msgstr ""
 
 #: includes/ReverseWithdrawal/Helper.php:632
-msgid "Your products add to cart will be hidden. Hence users will not be able to purchase any of your products."
+msgid "Your products Add to basket will be hidden. Hence users will not be able to purchase any of your products."
 msgstr ""
 
 #: includes/ReverseWithdrawal/Helper.php:636
@@ -6551,7 +6551,7 @@ msgid "Your account will be disabled for selling. Hence you will no longer be ab
 msgstr ""
 
 #: includes/ReverseWithdrawal/Helper.php:675
-msgid "Your products add to cart button has been temporarily hidden. Hence users are not able to purchase any of your products currently."
+msgid "Your products Add to basket button has been temporarily hidden. Hence users are not able to purchase any of your products currently."
 msgstr ""
 
 #: includes/ReverseWithdrawal/Helper.php:679
@@ -6628,7 +6628,7 @@ msgid "Monthly"
 msgstr ""
 
 #: includes/ReverseWithdrawal/SettingsHelper.php:189
-msgid "Disable Add to Cart Button"
+msgid "Disable Add to basket Button"
 msgstr ""
 
 #: includes/ReverseWithdrawal/SettingsHelper.php:190

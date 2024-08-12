@@ -87,7 +87,7 @@ class WC_Product_Subscription_Variation extends WC_Product_Variation {
 	}
 
 	/**
-	 * Get the add to cart button text
+	 * Get the Add to basket button text
 	 *
 	 * @access public
 	 * @return string
@@ -104,7 +104,7 @@ class WC_Product_Subscription_Variation extends WC_Product_Variation {
 	}
 
 	/**
-	 * Get the add to cart button text for the single page
+	 * Get the Add to basket button text for the single page
 	 *
 	 * @access public
 	 * @return string

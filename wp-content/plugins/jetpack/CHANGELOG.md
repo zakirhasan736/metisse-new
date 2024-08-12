@@ -8509,7 +8509,7 @@ This release improves Jetpack compatibility with WordPress 4.7.
 - Custom Content Types are now classier: a new CSS class on Testimonial
   featured images — has-testimonial-thumbnail — allows you to customize Jetpack
   custom post types as you see fit.
-- Sharing: social icons are now placed under the "add to cart” singular
+- Sharing: social icons are now placed under the "Add to basket” singular
   product views in WooCommerce, making it easier for customers to share your
   products on social media.
 - Theme Tools: search engines will now have an easier time knowing what page

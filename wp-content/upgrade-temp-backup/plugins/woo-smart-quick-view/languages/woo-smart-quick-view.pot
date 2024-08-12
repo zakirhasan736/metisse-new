@@ -51,7 +51,7 @@ msgid "Short description"
 msgstr ""
 
 #: wpc-smart-quick-view.php:72
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr ""
 
 #: wpc-smart-quick-view.php:73
@@ -215,11 +215,11 @@ msgid "Under price"
 msgstr ""
 
 #: wpc-smart-quick-view.php:671
-msgid "Above add to cart"
+msgid "Above Add to basket"
 msgstr ""
 
 #: wpc-smart-quick-view.php:672
-msgid "Under add to cart"
+msgid "Under Add to basket"
 msgstr ""
 
 #: wpc-smart-quick-view.php:673
@@ -463,7 +463,7 @@ msgid "+ Add"
 msgstr ""
 
 #: wpc-smart-quick-view.php:985
-msgid "Add to cart button"
+msgid "Add to basket button"
 msgstr ""
 
 #: wpc-smart-quick-view.php:988
@@ -475,7 +475,7 @@ msgid "Like single page"
 msgstr ""
 
 #: wpc-smart-quick-view.php:991
-msgid "Choose the functionally for the add to cart button."
+msgid "Choose the functionally for the Add to basket button."
 msgstr ""
 
 #: wpc-smart-quick-view.php:995

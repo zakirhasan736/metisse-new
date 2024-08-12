@@ -5208,7 +5208,7 @@ msgid "to go"
 msgstr ""
 
 #: include/tp-el-woo.php:80
-msgid "Add to Cart"
+msgid "Add to basket"
 msgstr ""
 
 #: include/tp-el-woo.php:82

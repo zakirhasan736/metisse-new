@@ -308,7 +308,7 @@
 			$qty.show();
 		}
 
-		// Enable or disable the add to cart button
+		// Enable or disable the Add to basket button
 		if ( ! variation.is_purchasable || ! variation.is_in_stock || ! variation.variation_is_visible ) {
 			purchasable = false;
 		}

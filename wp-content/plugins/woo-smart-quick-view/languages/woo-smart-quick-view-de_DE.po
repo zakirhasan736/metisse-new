@@ -125,11 +125,11 @@ msgid "After price"
 msgstr "Hinter \"Preis\""
 
 #: woo-smart-quick-view-premium/index.php:316
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Vor \"in den Warenkorb\""
 
 #: woo-smart-quick-view-premium/index.php:320
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Hinter \"in den Warenkorb\""
 
 #: woo-smart-quick-view-premium/index.php:324
@@ -239,7 +239,7 @@ msgid "Excerpt"
 msgstr "Auszug"
 
 #: woo-smart-quick-view-premium/index.php:443
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "In den Warenkorb"
 
 #: woo-smart-quick-view-premium/index.php:448

@@ -169,7 +169,7 @@ add_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
 add_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
 
 /**
- * Product Add to cart.
+ * Product Add to basket.
  *
  * @see woocommerce_template_single_add_to_cart()
  * @see woocommerce_simple_add_to_cart()

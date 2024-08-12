@@ -344,7 +344,7 @@
                 <field type="Cross Sells: Heading" editor_type="LINE">eael_woo_cross_sales_heading</field>
                 <field type="Cross Sells: Expansion Indicator" editor_type="LINE">eael_cross_sales_excerpt_expanison_indicator</field>
                 <field type="Cross Sells: View Product" editor_type="LINE">eael_woo_cross_sales_view_product_label</field>
-                <field type="Cross Sells: Add to Cart" editor_type="LINE">eael_woo_cross_sales_add_to_cart_label</field>
+                <field type="Cross Sells: Add to basket" editor_type="LINE">eael_woo_cross_sales_add_to_cart_label</field>
             </fields>
         </widget>
     </elementor-widgets>

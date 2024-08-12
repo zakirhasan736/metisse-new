@@ -353,7 +353,7 @@ class Woo_Product_List extends Widget_Base
         ]);
 
         $this->add_control('eael_woo_product_list_add_to_cart_button_show', [
-            'label'         => esc_html__('Add to Cart', 'essential-addons-for-elementor-lite'),
+            'label'         => esc_html__('Add to basket', 'essential-addons-for-elementor-lite'),
             'type'          => Controls_Manager::SWITCHER,
 			'label_on'      => __( 'Show', 'essential-addons-for-elementor-lite' ),
 			'label_off'     => __( 'Hide', 'essential-addons-for-elementor-lite' ),
@@ -594,7 +594,7 @@ class Woo_Product_List extends Widget_Base
             'eael_product_list_content_general_button_position',
             [
                 'label'         => __( 'Buttons', 'essential-addons-for-elementor-lite' ),
-                'description'   => __( 'Add to Cart, Quick View, Link buttons/icons on content footer or on image hover or in both positions', 'essential-addons-for-elementor-lite' ),
+                'description'   => __( 'Add to basket, Quick View, Link buttons/icons on content footer or on image hover or in both positions', 'essential-addons-for-elementor-lite' ),
                 'type'          => Controls_Manager::SELECT,
                 'default'       => 'both',
                 'options'       => [
@@ -910,7 +910,7 @@ class Woo_Product_List extends Widget_Base
         $this->add_control(
             'eael_product_list_content_footer_add_to_cart_heading',
             [
-                'label'         => __('Add to Cart', 'essential-addons-for-elementor-lite'),
+                'label'         => __('Add to basket', 'essential-addons-for-elementor-lite'),
                 'type'          => Controls_Manager::HEADING,
                 'condition'     => [
                     'eael_woo_product_list_add_to_cart_button_show' => 'yes',
@@ -1714,7 +1714,7 @@ class Woo_Product_List extends Widget_Base
         $this->start_controls_tab( 
             'eael_product_list_content_footer_static_buttons_tabs_add_to_cart',
             [
-                'label' => esc_html__( 'Add to Cart', 'essential-addons-for-elementor-lite' ),
+                'label' => esc_html__( 'Add to basket', 'essential-addons-for-elementor-lite' ),
             ] 
         );
 
@@ -2539,7 +2539,7 @@ class Woo_Product_List extends Widget_Base
         $this->add_control(
             'eael_product_list_color_typography_add_to_cart_heading',
             [
-                'label' => __('Add to Cart', 'essential-addons-for-elementor-lite'),
+                'label' => __('Add to basket', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::HEADING,
                 'condition' => [
                     'eael_product_list_content_general_button_position!' => 'on-hover',

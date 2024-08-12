@@ -316,7 +316,7 @@ class WPR_Count_Wishlist_Compare_Items {
 		return wc_get_rating_html( $rating, $count );
 	}
     	
-	// Render Add To Cart
+	// Render Add to basket
 	public function render_product_add_to_cart( $settings, $product ) {
 
 		// If NOT a Product

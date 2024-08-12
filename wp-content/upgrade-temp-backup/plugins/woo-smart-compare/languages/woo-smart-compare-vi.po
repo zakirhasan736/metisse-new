@@ -58,7 +58,7 @@ msgid "Availability"
 msgstr "Khả năng"
 
 #: woo-smart-compare-premium/index.php:87
-msgid "Add to cart"
+msgid "Add to basket"
 msgstr "Thêm vào giỏ"
 
 #: woo-smart-compare-premium/index.php:88
@@ -165,12 +165,12 @@ msgstr "Sau giá"
 
 #: woo-smart-compare-premium/index.php:290,
 #: woo-smart-compare-premium/index.php:321
-msgid "Before add to cart"
+msgid "Before Add to basket"
 msgstr "Trước thêm vào giỏ"
 
 #: woo-smart-compare-premium/index.php:294,
 #: woo-smart-compare-premium/index.php:325
-msgid "After add to cart"
+msgid "After Add to basket"
 msgstr "Sau thêm vào giỏ"
 
 #: woo-smart-compare-premium/index.php:298,
